@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import styles from './App.module.scss';
+
+import bubble1 from './components/img/bubbles.png'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.app}>
+      <div className={styles.absolute}>
+        <img src={bubble1} className={styles.bubble1}/>
+      </div>
+      <div className={styles.header}>
+      
+      </div>
+      <div className={styles.main_container}>
+          <div className={styles.main_container_text}>
+              <div className={styles.main_container_window}>
+                <div className={styles.main_title}>
+                  Nitro Storm - это
+                </div>
+                <div className={styles.main_subtitle}>
+                  Лучшее место для покупки Нитро!
+                </div>
+                <div className={styles.main_text}>
+                  Эмодзи, стикеры, активности, HD видео и тонна других возможностей, которые даёт вам Nitro Full всего за 169 рублей!
+                </div>
+              </div>
+          </div>
+          <div className={styles.main_container_images}></div>
+      </div>
     </div>
   );
 }
