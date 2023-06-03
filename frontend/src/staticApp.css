@@ -1,0 +1,26 @@
+.badgeRain1 {
+    animation: wampusRain 7s ease-in-out infinite;
+}
+.badgeRain2 {
+    animation: wampusRain 8s ease-in-out infinite;
+}
+.badgeRain3 {
+    animation: wampusRain 9s ease-in-out infinite;
+}
+.badgeRain4 {
+    animation: wampusRain 10s ease-in-out infinite;
+}
+.badgeRain5 {
+    animation: wampusRain 11s ease-in-out infinite;
+}
+
+@keyframes wampusRain {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(500px) rotate(359deg);
+        opacity: 0;
+    }
+}

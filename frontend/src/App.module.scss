@@ -5,6 +5,7 @@ $theme_4: #1625ff;
 $theme_5: #ff0099;
 $theme_6: #8d4fff;
 $dark_theme: #121212;
+$ok: #7cebff;
 $theme_gradient: linear-gradient(
     to bottom right,
     $theme,
@@ -83,6 +84,58 @@ $unhighlighted_color: #cfcfcf;
             left: 50px;
             animation: movingBubble4 5s ease-in-out infinite;
         }
+        .wampus {
+            position: absolute;
+            top: 130px;
+            right: 10%;
+            animation: wampusFly 6s ease-in-out infinite;
+            z-index: 2;
+        }
+        .tgIcon_big {
+            position: absolute;
+            width: 210px;
+            top: 180px;
+            right: 550px;
+            transform: rotate(-30deg);
+            z-index: 1;
+        }
+        .discordIcon {
+            position: absolute;
+            width: 150px;
+            top: 190px;
+            right: 350px;
+            transform: rotate(30deg); 
+            z-index: 1;       
+        }
+        .profile_1 {
+            width: 400px;
+            top: 364px;
+            right: 480px;
+            position: absolute;
+            opacity: 0.725;
+        }
+        .profile_2 {
+            opacity: 0.65;
+            width: 300px;
+            top: 250px;
+            right: 190px;
+            position: absolute;
+            filter: blur(3px);
+        }
+        .profile_3 {
+            opacity: 0.65;
+            width: 300px;
+            top: 100px;
+            left: 750px;
+            position: absolute;
+            filter: blur(2px);
+        }
+        .bubble4_1 {
+            position: absolute;
+            width: 320px;
+            top: 225px;
+            right: 360px;
+        }
     }
     .main_container {
         position: relative;
@@ -105,7 +158,7 @@ $unhighlighted_color: #cfcfcf;
     
             .main_container_window {
                 padding: 30px;
-                width: 75%;
+                width: 68%;
                 display: flex;
                 flex-flow: column nowrap;
                 align-items: start;
@@ -133,9 +186,16 @@ $unhighlighted_color: #cfcfcf;
                 }
                 .main_text {
                     padding: 15px 0px;
-                    width: 50%;
+                    width: 80%;
                     font-size: 20px;
                     color: $unhighlighted_color;
+                }
+                .main_buttons {
+                    margin: 5px;
+                    display: flex;
+                    justify-content: start;
+                    align-items: center;
+                    width: 100%;
                 }
             }
         }
@@ -149,6 +209,20 @@ $unhighlighted_color: #cfcfcf;
             background: $theme_gradient;
             animation: wave 20s ease-in-out infinite;
         }
+    }
+}
+.particlesContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+
+    .badgeRain {
+        position: absolute;
+        top: 380px;
+        z-index: 1;
     }
 }
 
@@ -186,6 +260,11 @@ $unhighlighted_color: #cfcfcf;
     50% {transform: translate(25%, 25%);}
     100% {transform: translate(-25%, -25%);}}
 
+@keyframes weakWave {
+    0% {transform: translateY(-2%);}
+    50% {transform: translateY(2%);}
+    100% {transform: translateY(-2%);}}
+
 @keyframes movingBubble1 {
     0% {transform: translate(0%, -2%) rotate(180deg);}
     50% {transform: translate(0%, 2%) rotate(180deg);}
@@ -195,4 +274,15 @@ $unhighlighted_color: #cfcfcf;
     0% {transform: translate(0%, -3.75%);}
     50% {transform: translate(0%, 3.75%);}
     100% {transform: translate(0%, -3.75%);}}
-    
+
+@keyframes wampusFly {
+    0% {
+        transform: translateY(-36px) rotate(7deg);
+    }
+    50% {
+        transform: translateY(20px) rotate(-2deg);
+    }
+    100% {
+        transform: translateY(-36px) rotate(7deg);
+    }
+}
