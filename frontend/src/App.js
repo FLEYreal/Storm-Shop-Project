@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import MediaQuery, { useMediaQuery } from 'react-responsive';
+
 import styles from './App.module.scss';
 import Button from '@mui/material/Button';
 
@@ -21,50 +23,31 @@ import './staticApp.css'
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const GoldenButtonColor = '#e29b00';
-  const GoldenButtonHoverColor = '#ffb30f';
-  const ButtonColor = '#7227ff';
-  const ButtonHoverColor = '#8d4fff';
+  const [menuVisible, setMenuVisible] = useState(false);
 
-  const handleScroll = () => {
-    const scrollTop = window.pageYOffset;
+  const menuTimeoutRef = useRef(null);
+  const menuRef = useRef(null);
 
-    if (scrollTop > 0 && !isScrolled) {
-      setIsScrolled(true);
-    } else if (scrollTop === 0 && isScrolled) {
-      setIsScrolled(false);
-    }
-  };
+  const isBigScreen = useMediaQuery({minWidth: 1240})
+  const isMidScreen = useMediaQuery({maxWidth: 1240})
+  const isSmallScreen = useMediaQuery({maxWidth: 920})
+  const isPhone = useMediaQuery({maxWidth: 640})
+  const isSmallPhone = useMediaQuery({maxWidth: 320})
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [isScrolled]);
 
-  const getRandomBadgeImage = () => {
-    const images = [activeDeveloperBadge, nitroBadge, boostIcon, botIcon, starIcon, tgIcon_small];
-    const randomIndex = Math.floor(Math.random() * images.length);
-    return images[randomIndex];
-  };
-
-  const getRandomBadgeClass = () => {
-    const classes = ['badgeRain1', 'badgeRain2', 'badgeRain3', 'badgeRain4', 'badgeRain5'];
-    const randomIndex = Math.floor(Math.random() * classes.length);
-    return classes[randomIndex];
-  };
-
+  console.log(menuVisible)
   useEffect(() => {
     const timer = setInterval(() => {
       const particlesContainer = document.getElementById('particles-container');
       const particle = document.createElement('img');
       particle.src = getRandomBadgeImage();
 
-      if (window.innerWidth < 1200) {
-        particle.style.right = `3${Math.floor((Math.random() * 9) + 5)}%`;
-      } else if (window.innerWidth < 1690) {
-        particle.style.right = `3${Math.floor((Math.random() * 8))}%`;
-      } else if (window.innerWidth < 1465) {
-        particle.style.right = `2${Math.floor((Math.random() * 7))}%`;
+      if (window.innerWidth < 800) {
+        particle.style.right = `4${Math.floor((Math.random() * 9) + 2)}%`;
+      } else if (window.innerWidth < 1200) {
+        particle.style.right = `3${Math.floor((Math.random() * 9) + 2)}%`;
+      } else if (window.innerWidth < 1400) {
+        particle.style.right = `2${Math.floor((Math.random() * 8) + 8)}%`;
       } else {
         particle.style.right = `2${Math.floor((Math.random() * 7))}%`;
       }
@@ -79,10 +62,82 @@ function App() {
   
     return () => clearInterval(timer);
   }, []);
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isScrolled]);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      const clickedElement = event.target;
+      const isBurgerMenuButton = clickedElement.closest(`.${styles.burger_menu}`); // Проверяем, является ли родительский элемент кнопкой бургер-меню
+  
+      if (!isBurgerMenuButton && menuVisible) {
+        hideMenu();
+      }
+    };
+  
+    document.addEventListener('click', handleClickOutside);
+  
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [menuVisible]);
+
+  const handleClickBurger = () => {
+    clearTimeout(menuTimeoutRef.current);
+    setMenuVisible(!menuVisible);
+  };
+
+  const handleMouseEnter = () => {
+    clearTimeout(menuTimeoutRef.current);
+    setMenuVisible(true);
+  };
+
+  const handleMouseLeave = () => {
+    menuTimeoutRef.current = setTimeout(() => {
+      setMenuVisible(false);
+    }, 3000); // Задержка в 3 секунды перед скрытием меню
+  };
+
+  const hideMenu = () => {setMenuVisible(false);};
+
+  const handleScroll = () => {
+    const scrollTop = window.pageYOffset;
+
+    if (scrollTop > 0 && !isScrolled) {
+      setIsScrolled(true);
+    } else if (scrollTop === 0 && isScrolled) {
+      setIsScrolled(false);
+    }
+  };
+
+  const getRandomBadgeImage = () => {
+    const images = [activeDeveloperBadge, nitroBadge, boostIcon, botIcon, starIcon, tgIcon_small];
+    const randomIndex = Math.floor(Math.random() * images.length);
+    return images[randomIndex];
+  };
+
+  const getRandomBadgeClass = () => {
+    const classes = ['badgeRain1', 'badgeRain2', 'badgeRain3', 'badgeRain4', 'badgeRain5'];
+    const randomIndex = Math.floor(Math.random() * classes.length);
+    return classes[randomIndex];
+  };
   
 
   return (
     <div className={`${styles.app}`}>
+      <div
+        ref={menuRef}
+        style={{ display: menuVisible ? 'block' : 'none' }}
+        className={styles.burger_menu}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <Button className={styles.burger_item}>Купить</Button>
+        <Button className={styles.burger_item}>Заказать Бота</Button>
+        <Button className={styles.burger_item}>Помощь</Button>
+        <Button className={styles.burger_item}>Работа</Button>
+      </div>
       <div className={styles.absolute}>
         <img src={bubble1} className={styles.bubble1} alt="Bubble 1" />
         <img src={bubble4} className={styles.bubble4} alt="Bubble 4" />
@@ -102,67 +157,39 @@ function App() {
               <img src={logo512} className={`${styles.logo512} ${styles.logo}`} alt="Logo" />
             </a>Storm Shop
           </div>
-          <div className={styles.header_options_container}>
-            <Button variant="contained" color="primary" size="small" sx={{
-              backgroundColor: GoldenButtonColor,
-              boxShadow: 'none',
-              textShadow: 'none',
-              '&:hover': {
-                backgroundColor: GoldenButtonHoverColor,
-              },
-              margin: '7px',
-              fontSize: '15px',
-              fontWeight: 'bold',
-              padding: '6px 20px'
-            }}>
-              Купить
-            </Button>
-            <Button variant="contained" color="primary" size="small" sx={{
-              backgroundColor: GoldenButtonColor,
-              boxShadow: 'none',
-              textShadow: 'none',
-              '&:hover': {
-                backgroundColor: GoldenButtonHoverColor,
-              },
-              margin: '7px',
-              fontSize: '15px',
-              fontWeight: 'bold',
-              padding: '6px 20px'
-            }}>
-              Заказать Бота
-            </Button>
-            <Button variant="contained" color="primary" size="small" sx={{
-              backgroundColor: ButtonColor,
-              boxShadow: 'none',
-              textShadow: 'none',
-              '&:hover': {
-                backgroundColor: ButtonHoverColor,
-              },
-              margin: '7px',
-              fontSize: '15px',
-              fontWeight: 'bold',
-              padding: '6px 20px'
-            }}>
-              Помощь
-            </Button>
-            <Button variant="contained" color="primary" size="small" sx={{
-              backgroundColor: ButtonColor,
-              boxShadow: 'none',
-              textShadow: 'none',
-              '&:hover': {
-                backgroundColor: ButtonHoverColor,
-              },
-              margin: '7px',
-              fontSize: '15px',
-              fontWeight: 'bold',
-              padding: '6px 20px',
-            }}>
-              Работа
-            </Button>
-          </div>
+          <MediaQuery maxWidth={920}>
+              <Button onClick={handleClickBurger} variant="contained" color="primary" size="small" className={styles.header_gold_menu}>
+                ☰
+              </Button>
+          </MediaQuery>
+          <MediaQuery minWidth={920}>
+            <div className={styles.header_options_container}>
+              <Button variant="contained" color="primary" size="small" className={styles.header_gold_buttons}>
+                Купить
+              </Button>
+              <Button variant="contained" color="primary" size="small" className={styles.header_gold_buttons}>
+                Заказать Бота
+              </Button>
+              <Button variant="contained" color="primary" size="small" className={styles.header_buttons}>
+                Помощь
+              </Button>
+              <Button variant="contained" color="primary" size="small" className={styles.header_buttons}>
+                Работа
+              </Button>
+            </div>
+          </MediaQuery>
         </div>
       </div>
-      <div className={styles.main_container}>
+      <div 
+        className={`
+          ${styles.main_container} 
+          ${isBigScreen ? 
+            styles.main_container_b : isMidScreen ? 
+            styles.main_container_m : isSmallScreen ?
+            styles.main_container_s : isPhone ?
+            styles.main_container_p : isSmallPhone ?
+            styles.main_container_sp : ''
+          }`}>
         <div className={styles.main_container_text}>
           <div className={`${styles.main_container_window} ${styles.container_window}`}>
             <div className={styles.main_title}>
@@ -175,38 +202,10 @@ function App() {
               <span style={{ color: '#f6ff71', textShadow: '#f6ff71 1px 0px 10px', fontWeight: '500', cursor: 'pointer' }}>Nitro Full</span> за <span style={{ color: '#ffd344', textShadow: '#ffd344 1px 0px 10px' }}>99 рублей</span>, бейджик "<span style={{ color: '#53e645', textShadow: '#2bdb1b 1px 0px 10px', fontWeight: '500', cursor: 'pointer' }}>Активный разработчик</span>" за <span style={{ color: '#ffd344', textShadow: '#ffd344 1px 0px 10px' }}>39 рублей</span> или свой собственный <span style={{ color: '#ffffff', textShadow: '#ffffff 1px 0px 10px', fontWeight: '500', cursor: 'pointer' }}>БОТ</span> для <span style={{ color: '#aebaff', textShadow: '#94a4ff 1px 0px 10px' }}>ДС</span> и <span style={{ color: '#7cebff', textShadow: '#7cebff 1px 0px 10px' }}>ТГ</span>, а также многое другое можно найти у нас в магазине по самым демократичным ценам!
             </div>
             <div className={styles.main_buttons}>
-            <Button variant="contained" color="primary" size="small" sx={{
-              backgroundColor: GoldenButtonColor,
-              boxShadow: 'none',
-              textShadow: 'none',
-              '&:hover': {
-                backgroundColor: GoldenButtonHoverColor,
-                boxShadow: 'inset 2px 2px 3px 0px rgba(255, 255, 255, 0.3), inset -2px -2px 3px 0px rgba(0, 0, 0, 0.3)'
-              },
-              margin: '7px',
-              fontSize: '22px',
-              fontWeight: 'bold',
-              padding: '10px 40px',
-              borderRadius: '17px',
-              boxShadow: 'inset 2px 2px 3px 0px rgba(255, 255, 255, 0.25), inset -2px -2px 3px 0px rgba(0, 0, 0, 0.25)'
-            }}>
+            <Button variant="contained" color="primary" size="small" className={styles.main_golden_buttons}>
               Купить!
             </Button>
-            <Button variant="contained" color="primary" size="small" sx={{
-              backgroundColor: ButtonColor,
-              boxShadow: 'none',
-              textShadow: 'none',
-              '&:hover': {
-                backgroundColor: ButtonHoverColor,
-                boxShadow: 'inset 2px 2px 3px 0px rgba(255, 255, 255, 0.3), inset -2px -2px 3px 0px rgba(0, 0, 0, 0.3)'
-              },
-              margin: '7px',
-              fontSize: '22px',
-              fontWeight: 'bold',
-              padding: '10px 40px',
-              borderRadius: '17px',
-              boxShadow: 'inset 2px 2px 3px 0px rgba(255, 255, 255, 0.25), inset -2px -2px 3px 0px rgba(0, 0, 0, 0.25)'
-            }}>
+            <Button variant="contained" color="primary" size="small" className={styles.main_buttons}>
               ОТЗЫВЫ
             </Button>
             </div>
