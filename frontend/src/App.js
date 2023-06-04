@@ -172,7 +172,6 @@ function App() {
               Магазин Дискорд Услуг!
             </div>
             <div className={styles.main_text}>
-              {/* <span style={{ color: '#fdff7b', textShadow: '#fdff7b 1px 0 10px' }}>Эмодзи</span>, <span style={{ color: '#aeff6c', textShadow: '#aeff6c 1px 0 10px' }}>активности</span>, <span style={{ color: '#abe5ff', textShadow: '#abe5ff 1px 0 10px' }}>HD видео</span> и тонна других возможностей, которые даёт вам <span style={{ color: '#ffd344', textShadow: '#ffd344 1px 0px 10px' }}>Nitro Full</span> всего за <span style={{ color: '#ffd344', textShadow: '#ffd344 1px 0px 10px' }}>169 рублей!</span> */}
               <span style={{ color: '#f6ff71', textShadow: '#f6ff71 1px 0px 10px', fontWeight: '500', cursor: 'pointer' }}>Nitro Full</span> за <span style={{ color: '#ffd344', textShadow: '#ffd344 1px 0px 10px' }}>99 рублей</span>, бейджик "<span style={{ color: '#53e645', textShadow: '#2bdb1b 1px 0px 10px', fontWeight: '500', cursor: 'pointer' }}>Активный разработчик</span>" за <span style={{ color: '#ffd344', textShadow: '#ffd344 1px 0px 10px' }}>39 рублей</span> или свой собственный <span style={{ color: '#ffffff', textShadow: '#ffffff 1px 0px 10px', fontWeight: '500', cursor: 'pointer' }}>БОТ</span> для <span style={{ color: '#aebaff', textShadow: '#94a4ff 1px 0px 10px' }}>ДС</span> и <span style={{ color: '#7cebff', textShadow: '#7cebff 1px 0px 10px' }}>ТГ</span>, а также многое другое можно найти у нас в магазине по самым демократичным ценам!
             </div>
             <div className={styles.main_buttons}>

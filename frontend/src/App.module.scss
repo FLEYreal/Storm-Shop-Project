@@ -110,7 +110,7 @@ $unhighlighted_color: #cfcfcf;
         .profile_1 {
             width: 400px;
             top: 364px;
-            right: 480px;
+            right: 25%;
             position: absolute;
             opacity: 0.725;
         }
@@ -118,7 +118,7 @@ $unhighlighted_color: #cfcfcf;
             opacity: 0.65;
             width: 300px;
             top: 250px;
-            right: 190px;
+            right: 10%;
             position: absolute;
             filter: blur(3px);
         }
@@ -126,7 +126,7 @@ $unhighlighted_color: #cfcfcf;
             opacity: 0.65;
             width: 300px;
             top: 100px;
-            left: 750px;
+            left: 38%;
             position: absolute;
             filter: blur(2px);
         }
@@ -284,5 +284,4 @@ $unhighlighted_color: #cfcfcf;
     }
     100% {
         transform: translateY(-36px) rotate(7deg);
-    }
-}
+    }}
