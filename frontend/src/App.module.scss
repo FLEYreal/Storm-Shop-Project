@@ -31,48 +31,22 @@ $unhighlighted_color: #cfcfcf;
         border: 0;
         backdrop-filter: blur(8px);
 
-        .header_buttons {
-            background-color: $ButtonColor;
-            box-shadow: none;
-            text-shadow: none;
-            margin: 7px;
-            font-size: 15px;
-            font-weight: bold;
-            padding: 6px 20px;
+        // .header_gold_menu {
+        //     background-color: $GoldenButtonColor;
+        //     box-shadow: none;
+        //     text-shadow: none;
+        //     border-radius: 12px;
+        //     font-size: 35px;
+        //     font-weight: bold;
+        //     height: 64px;
+        //     width: 64px;
+        //     box-shadow: inset 2px 2px 3px 0px rgba(255, 255, 255, 0.25), inset -2px -2px 3px 0px rgba(0, 0, 0, 0.25);
 
-            &:hover {
-                background-color: $ButtonHoverColor
-            }
-        }
-        .header_gold_buttons {
-            background-color: $GoldenButtonColor;
-            box-shadow: none;
-            text-shadow: none;
-            margin: 7px;
-            font-size: 15px;
-            font-weight: bold;
-            padding: 6px 20px;
-
-            &:hover {
-                background-color: $GoldenButtonHoverColor
-            }
-        }
-        .header_gold_menu {
-            background-color: $GoldenButtonColor;
-            box-shadow: none;
-            text-shadow: none;
-            border-radius: 12px;
-            font-size: 35px;
-            font-weight: bold;
-            height: 64px;
-            width: 64px;
-            box-shadow: inset 2px 2px 3px 0px rgba(255, 255, 255, 0.25), inset -2px -2px 3px 0px rgba(0, 0, 0, 0.25);
-
-            &:hover {
-                background-color: $GoldenButtonHoverColor;
-                box-shadow: inset 2px 2px 3px 0px rgba(255, 255, 255, 0.3), inset -2px -2px 3px 0px rgba(0, 0, 0, 0.3);
-            };   
-        }
+        //     &:hover {
+        //         background-color: $GoldenButtonHoverColor;
+        //         box-shadow: inset 2px 2px 3px 0px rgba(255, 255, 255, 0.3), inset -2px -2px 3px 0px rgba(0, 0, 0, 0.3);
+        //     };   
+        // }
 
         .header_container {
             margin: auto;
@@ -321,23 +295,13 @@ $unhighlighted_color: #cfcfcf;
             justify-content: center;
     
             .main_container_window {
-                padding: 30px;
                 width: 68%;
                 display: flex;
                 flex-flow: column nowrap;
                 align-items: start;
                 justify-content: center;
                 margin-left: 10%;
-                min-height: 300px;
-                border-radius: 16px;
-            
-                &:hover {
-                    background: linear-gradient(
-                        to bottom right,
-                        rgba(255, 255, 255, 0.08),
-                        rgba(255, 255, 255, 0.45)
-                    );
-                }
+
                 .main_title {
                     font-weight: 500;
                     display: flex;
@@ -364,51 +328,8 @@ $unhighlighted_color: #cfcfcf;
                     justify-content: start;
                     align-items: center;
                     width: 100%;
-
-                    .main_golden_buttons {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        width: 180px;
-                        background-color: $GoldenButtonColor;
-                        box-shadow: none;
-                        text-shadow: none;
-                        margin: 7px;
-                        font-size: 22px;
-                        font-weight: bold;
-                        padding: 10px 40px;
-                        border-radius: 17px;
-                        box-shadow: inset 2px 2px 3px 0px rgba(255, 255, 255, 0.25), inset -2px -2px 3px 0px rgba(0, 0, 0, 0.25);
-
-                        &:hover {
-                            background-color: $GoldenButtonHoverColor;
-                            box-shadow: inset 2px 2px 3px 0px rgba(255, 255, 255, 0.3), inset -2px -2px 3px 0px rgba(0, 0, 0, 0.3);
-                        };
-                    }
-                    .main_buttons {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        width: 180px;
-                        background-color: $ButtonColor;
-                        box-shadow: none;
-                        text-shadow: none;
-                        margin: 7px;
-                        font-size: 22px;
-                        font-weight: bold;
-                        padding: 10px 40px;
-                        border-radius: 17px;
-                        box-shadow: inset 2px 2px 3px 0px rgba(255, 255, 255, 0.25), inset -2px -2px 3px 0px rgba(0, 0, 0, 0.25);
-
-                        &:hover {
-                            background-color: $ButtonHoverColor;
-                            box-shadow: inset 2px 2px 3px 0px rgba(255, 255, 255, 0.3), inset -2px -2px 3px 0px rgba(0, 0, 0, 0.3);
-                        };
-                    }
                 }
             }
-            .main_container_window_b {}
-            .main_container_window_m {}
             .main_container_window_s {display: none;}
             .main_container_window_p {display: none;}
         }
@@ -459,26 +380,7 @@ $unhighlighted_color: #cfcfcf;
     .mobile_subtitle {
         font-size: 32px;
     }
-    .main_golden_buttons {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 150px;
-        background-color: $GoldenButtonColor;
-        box-shadow: none;
-        text-shadow: none;
-        margin: 14px 0px;
-        font-size: 20px;
-        font-weight: bold;
-        padding: 8px 20px;
-        border-radius: 17px;
-        box-shadow: inset 2px 2px 3px 0px rgba(255, 255, 255, 0.25), inset -2px -2px 3px 0px rgba(0, 0, 0, 0.25);
 
-        &:hover {
-            background-color: $GoldenButtonHoverColor;
-            box-shadow: inset 2px 2px 3px 0px rgba(255, 255, 255, 0.3), inset -2px -2px 3px 0px rgba(0, 0, 0, 0.3);
-        };
-    }
 }
 .mobile_container_b {display: none;}
 .mobile_container_m {display: none;}
@@ -519,16 +421,6 @@ $unhighlighted_color: #cfcfcf;
     margin: 6px 12px 6px 0px;
     width: 54px;
     height: 54px;
-}
-
-.container_window {
-    border: 3px solid rgba(255, 255, 255, 0.45);
-    backdrop-filter: blur(12px);
-    background: linear-gradient(
-        to bottom right,
-        rgba(255, 255, 255, 0.04),
-        rgba(255, 255, 255, 0.35)
-    );
 }
 
 .main_container_images {

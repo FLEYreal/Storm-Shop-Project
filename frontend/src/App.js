@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import MediaQuery, { useMediaQuery } from 'react-responsive';
+import Button from '@mui/material/Button';
 
 import styles from './App.module.scss';
-import Button from '@mui/material/Button';
+import MainWindow from './components/MainWindow'
+import BigButton from './components/BigButton';
+import SimpleButton from './components/SimpleButton';
 
 import bubble1 from './components/img/bubbles.png'
 import bubble4 from './components/img/bubbles4.png'
@@ -34,24 +37,14 @@ function App() {
   const isPhone = useMediaQuery({maxWidth: 640})
 
   function resStyles(name) {
-    let dynName;
-    if(isPhone) {
-      dynName = name + '_p'
-      return styles[dynName];
+    switch (true) {
+      case isPhone: return styles[name + '_p'];
+      case isSmallScreen: return styles[name + '_s'];
+      case isMidScreen: return styles[name + '_m'];
+      case isBigScreen: return styles[name + '_b'];
+      default: return '';
     }
-    if(isSmallScreen) {
-      dynName = name + '_s'
-      return styles[dynName];
-    }
-    if(isMidScreen) {
-      dynName = name + '_m'
-      return styles[dynName];
-    }
-    if(isBigScreen) {
-      dynName = name + '_b'
-      return styles[dynName];
-    }
-  }
+  }  
   
   useEffect(() => {
     const timer = setInterval(() => {
@@ -181,18 +174,10 @@ function App() {
           </MediaQuery>
           <MediaQuery minWidth={920}>
             <div className={styles.header_options_container}>
-              <Button variant="contained" color="primary" size="small" className={styles.header_gold_buttons}>
-                Купить
-              </Button>
-              <Button variant="contained" color="primary" size="small" className={styles.header_gold_buttons}>
-                Заказать Бота
-              </Button>
-              <Button variant="contained" color="primary" size="small" className={styles.header_buttons}>
-                Помощь
-              </Button>
-              <Button variant="contained" color="primary" size="small" className={styles.header_buttons}>
-                Работа
-              </Button>
+              <SimpleButton isGold={true}>Купить</SimpleButton>
+              <SimpleButton isGold={true}>Заказать Бота</SimpleButton>
+              <SimpleButton>Помощь</SimpleButton>
+              <SimpleButton>Работа</SimpleButton>
             </div>
           </MediaQuery>
         </div>
@@ -206,30 +191,12 @@ function App() {
         <div className={`${styles.mobile_container} ${resStyles('mobile_container')}`}>
           <div className={styles.mobile_title}>Storm Shop</div>
           <div className={styles.mobile_subtitle}>Лучший Магазин Дискорд Услуг!</div>
-          <Button variant="contained" color="primary" size="small" className={styles.main_golden_buttons}>
+          <BigButton sx={{width: '160px', padding: '8px 30px', margin: '16px', fontSize: '19px'}} isGold={true}>
               Купить!
-          </Button>
+          </BigButton>
         </div>
         <div className={styles.main_container_text}>
-          <div className={`${styles.main_container_window} ${resStyles('main_container_window')} ${styles.container_window}`}>
-            <div className={`${styles.main_title} ${resStyles('main_title')}`}>
-              Storm Shop - это
-            </div>
-            <div className={`${styles.main_subtitle} ${resStyles('main_subtitle')}`}>
-              Магазин Дискорд Услуг!
-            </div>
-            <div className={`${styles.main_text} ${resStyles('main_text')}`}>
-              <span style={{ color: '#f6ff71', textShadow: '#f6ff71 1px 0px 10px', fontWeight: '500', cursor: 'pointer' }}>Nitro Full</span> за <span style={{ color: '#ffd344', textShadow: '#ffd344 1px 0px 10px' }}>99 рублей</span>, бейджик "<span style={{ color: '#53e645', textShadow: '#2bdb1b 1px 0px 10px', fontWeight: '500', cursor: 'pointer' }}>Активный разработчик</span>" за <span style={{ color: '#ffd344', textShadow: '#ffd344 1px 0px 10px' }}>39 рублей</span> или свой собственный <span style={{ color: '#ffffff', textShadow: '#ffffff 1px 0px 10px', fontWeight: '500', cursor: 'pointer' }}>БОТ</span> для <span style={{ color: '#aebaff', textShadow: '#94a4ff 1px 0px 10px' }}>ДС</span> и <span style={{ color: '#7cebff', textShadow: '#7cebff 1px 0px 10px' }}>ТГ</span>, а также многое другое можно найти у нас в магазине по самым демократичным ценам!
-            </div>
-            <div className={styles.main_buttons}>
-            <Button variant="contained" color="primary" size="small" className={styles.main_golden_buttons}>
-              Купить!
-            </Button>
-            <Button variant="contained" color="primary" size="small" className={styles.main_buttons}>
-              ОТЗЫВЫ
-            </Button>
-            </div>
-          </div>
+          <MainWindow/>
         </div>
         <div className={`${styles.main_container_images} ${resStyles('main_container_images')}`}>{/* Unused Element */}</div>
       </div>
