@@ -26,7 +26,6 @@ $unhighlighted_color: #cfcfcf;
 
     .header {
         width: 100%;
-        height: 70px;
         position: fixed;
         z-index: 2;
         border: 0;
@@ -123,13 +122,32 @@ $unhighlighted_color: #cfcfcf;
             animation: movingBubble1 9s ease-in-out infinite;
         }
         .bubble4 {
-            width: 200px;
-            height: 200px;
             position: absolute;
-            top: 170px;
-            left: 50px;
             animation: movingBubble4 5s ease-in-out infinite;
         }
+        .bubble4_b {
+            left: 50px;
+            top: 170px;
+            width: 200px;
+            height: 200px;
+        }
+        .bubble4_m {
+            left: 35px;
+            top: 120px;
+            width: 180px;
+            height: 180px;
+        }
+        .bubble4_s {
+            display: none;
+            width: 200px;
+            height: 200px;
+        }
+        .bubble4_p {
+            display: none;
+            width: 200px;
+            height: 200px;
+        }
+
         .wampus {
             position: absolute;
             top: 130px;
@@ -137,51 +155,152 @@ $unhighlighted_color: #cfcfcf;
             animation: wampusFly 6s ease-in-out infinite;
             z-index: 2;
         }
+        .wampus_s {width: 590px; top: 200px;}
+        .wampus_p {right: 4%; top: 200px;}
+
         .tgIcon_big {
             position: absolute;
             width: 210px;
-            top: 180px;
-            right: 550px;
             transform: rotate(-30deg);
             z-index: 1;
         }
+        .tgIcon_big_b {
+            top: 180px;
+            right: 550px;
+        }
+        .tgIcon_big_m {
+            top: 180px;
+            right: 490px;
+        }
+        .tgIcon_big_s {
+            width: 320px;
+            top: 230px;
+            right: 60%;
+        }
+        .tgIcon_big_p {
+            width: 270px;
+            top: 230px;
+            right: 55%;
+        }
+
         .discordIcon {
             position: absolute;
             width: 150px;
-            top: 190px;
-            right: 350px;
             transform: rotate(30deg); 
             z-index: 1;       
         }
-        .profile_1 {
-            width: 400px;
-            top: 364px;
-            right: 25%;
-            position: absolute;
-            opacity: 0.725;
+        .discordIcon_b {
+            top: 190px;
+            right: 350px; 
         }
-        .profile_2 {
-            opacity: 0.65;
-            width: 300px;
-            top: 250px;
-            right: 10%;
-            position: absolute;
-            filter: blur(3px);
+        .discordIcon_m {
+            top: 190px;
+            right: 270px; 
         }
-        .profile_3 {
-            opacity: 0.65;
-            width: 300px;
-            top: 100px;
-            left: 38%;
-            position: absolute;
-            filter: blur(2px);
+        .discordIcon_s {
+            width: 250px;
+            top: 220px;
+            right: 14%;
         }
+        .discordIcon_p {
+            width: 200px;
+            top: 220px;
+            right: 9%;
+        }
+
+
         .bubble4_1 {
             position: absolute;
             width: 320px;
+        }
+        .bubble4_1_b {
             top: 225px;
             right: 360px;
         }
+        .bubble4_1_m {
+            top: 220px;
+            right: 290px;
+        }
+        .bubble4_1_s {
+            top: 295px;
+            right: 23%;
+            width: 450px;
+        }
+        .bubble4_1_p {
+            top: 295px;
+            right: 19%;
+            width: 400px;
+        }
+
+        .profile_1 {
+            position: absolute;
+            opacity: 0.725;
+        }
+        .profile_1_b {
+            width: 400px;
+            top: 364px;
+            right: 25%; 
+        }
+        .profile_1_m {
+            width: 380px;
+            top: 364px;
+            right: 27%;
+        }
+        .profile_1_s {
+            width: 370px;
+            top: 364px;
+            right: 50%; 
+        }
+        .profile_1_p {
+            width: 250px;
+            top: 464px;
+            right: 60%;
+            filter: blur(1px);
+            -webkit-filter: blur(1px);
+}
+
+        .profile_2 {
+            opacity: 0.65;
+            position: absolute;
+            filter: blur(3px);
+        }
+        .profile_2_b {
+            width: 300px;
+            top: 250px;
+            right: 10%;
+        }
+        .profile_2_m {
+            width: 280px;
+            top: 250px;
+            right: 5%;
+        }
+        .profile_2_s {
+            width: 290px;
+            top: 300px;
+            right: 7%;
+        }
+        .profile_2_p {
+            width: 150px;
+            top: 450px;
+            right: 10%;
+            filter: blur(2px);
+            -webkit-filter: blur(2px);
+}
+
+        .profile_3 {
+            opacity: 0.65;
+            position: absolute;
+            filter: blur(2px);
+        }
+        .profile_3_b {
+            width: 300px;
+            top: 100px;
+            left: 38%;
+        }
+        .profile_3_m {display: none;}
+        .profile_3_s {display: none;}
+        .profile_3_p {display: none;}
+
     }
     .main_container {
         position: relative;
@@ -221,20 +340,24 @@ $unhighlighted_color: #cfcfcf;
                 }
                 .main_title {
                     font-weight: 500;
-                    font-size: 60px;
                     display: flex;
                     align-items: center;
                 }
-                .main_subtitle {
-                    font-weight: 300;
-                    font-size: 40px;
-                }
+                .main_title_b {font-size: 60px;}
+                .main_title_m {font-size: 48px;}
+
+                .main_subtitle {font-weight: 300;}
+                .main_subtitle_b {font-size: 40px;}
+                .main_subtitle_m {font-size: 34px;}
+
                 .main_text {
                     padding: 15px 0px;
                     width: 80%;
-                    font-size: 20px;
                     color: $unhighlighted_color;
                 }
+                .main_text_b {font-size: 20px;}
+                .main_text_m {font-size: 18px;}
+
                 .main_buttons {
                     margin: 5px;
                     display: flex;
@@ -284,6 +407,10 @@ $unhighlighted_color: #cfcfcf;
                     }
                 }
             }
+            .main_container_window_b {}
+            .main_container_window_m {}
+            .main_container_window_s {display: none;}
+            .main_container_window_p {display: none;}
         }
         &::before {
             content: '';
@@ -311,7 +438,50 @@ $unhighlighted_color: #cfcfcf;
         top: 380px;
         z-index: 1;
     }
+    .badgeRain_s {top: 440px;}
+    .badgeRain_p {top: 440px;}
 }
+
+.mobile_container {
+    margin-top: 130px;
+    width: 100%;
+    height: 100px;
+    z-index: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+
+    .mobile_title {
+        font-weight: 500;
+        font-size: 40px;
+    }
+    .mobile_subtitle {
+        font-size: 32px;
+    }
+    .main_golden_buttons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 150px;
+        background-color: $GoldenButtonColor;
+        box-shadow: none;
+        text-shadow: none;
+        margin: 14px 0px;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 8px 20px;
+        border-radius: 17px;
+        box-shadow: inset 2px 2px 3px 0px rgba(255, 255, 255, 0.25), inset -2px -2px 3px 0px rgba(0, 0, 0, 0.25);
+
+        &:hover {
+            background-color: $GoldenButtonHoverColor;
+            box-shadow: inset 2px 2px 3px 0px rgba(255, 255, 255, 0.3), inset -2px -2px 3px 0px rgba(0, 0, 0, 0.3);
+        };
+    }
+}
+.mobile_container_b {display: none;}
+.mobile_container_m {display: none;}
 
 .burger_menu {
     position: absolute;
@@ -365,6 +535,8 @@ $unhighlighted_color: #cfcfcf;
     flex: 6;
     height: 100%;
 }
+.main_container_images_s {display: none;}
+.main_container_images_p {display: none;}
 
 @keyframes wave {
     0% {transform: translate(-25%, -25%);}
@@ -400,5 +572,9 @@ $unhighlighted_color: #cfcfcf;
 .main_container_b {height: 800px;}
 .main_container_m {height: 800px;}
 .main_container_s {height: 1000px;}
-.main_container_p {height: 1200px;}
-.main_container_sp {height: 1200px;}
+.main_container_p {height: 1000px;}
+
+.header_b {height: 70px;}
+.header_m {height: 70px;}
+.header_s {height: 86px;}
+.header_p {height: 86px;}
