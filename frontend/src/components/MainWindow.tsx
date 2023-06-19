@@ -2,17 +2,17 @@ import React from 'react'
 import styles from '../App.module.scss'
 import { useMediaQuery } from 'react-responsive';
 
-import BigButton from './BigButton';
-import TransparentModal from './TransparentModal'
+import BigButton from './BigButton.tsx';
+import TransparentModal from './TransparentModal.tsx'
 
-function MainWindow({children, ...props}) {
+function MainWindow() {
 
     const isBigScreen = useMediaQuery({minWidth: 1340})
     const isMidScreen = useMediaQuery({maxWidth: 1340})
     const isSmallScreen = useMediaQuery({maxWidth: 920})
     const isPhone = useMediaQuery({maxWidth: 640})
   
-    function resStyles(name) {
+    function resStyles(name:string) {
       switch (true) {
         case isPhone: return styles[name + '_p'];
         case isSmallScreen: return styles[name + '_s'];

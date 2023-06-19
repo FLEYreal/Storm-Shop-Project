@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '@mui/material/Button';
 
-function BigButton({isGold = false, children, sx, ...props}) {
+function BigButton({isGold = false, children = '', sx = {}, ...props}) {
 
     return (
         <Button variant="contained" color="primary" size="small" sx={isGold ? {
@@ -10,7 +10,6 @@ function BigButton({isGold = false, children, sx, ...props}) {
             justifyContent: 'center',
             width: '180px',
             backgroundColor: '#e29b00',
-            boxShadow: 'none',
             textShadow: 'none',
             margin: '7px',
             fontSize: '22px',
@@ -30,7 +29,6 @@ function BigButton({isGold = false, children, sx, ...props}) {
             justifyContent: 'center',
             width: '180px',
             backgroundColor: '#7227ff',
-            boxShadow: 'none',
             textShadow: 'none',
             margin: '7px',
             fontSize: '22px',
