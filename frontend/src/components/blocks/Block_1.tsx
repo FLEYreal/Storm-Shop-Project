@@ -6,7 +6,7 @@ import styles from '../../App.module.scss';
 import MainWindow from '../MainWindow.tsx'
 import BigButton from '../BigButton.tsx';
 
-function Comp() {
+function Block_1() {
     const isBigScreen = useMediaQuery({minWidth: 1340})
     const isMidScreen = useMediaQuery({maxWidth: 1340})
     const isSmallScreen = useMediaQuery({maxWidth: 920})
@@ -46,4 +46,4 @@ function Comp() {
     )
 };
  
-export default Comp
+export default Block_1

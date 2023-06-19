@@ -3,9 +3,10 @@ import { useMediaQuery } from 'react-responsive';
 import Button from '@mui/material/Button';
 
 import styles from './App.module.scss';
-// import MainWindow from '../MainWindow'
-// import BigButton from '../BigButton';
+
 import Block_1 from './components/blocks/Block_1';
+import Block_2 from './components/blocks/Block_2';
+
 import bubble1 from './components/img/bubbles.png';
 import bubble4 from './components/img/bubbles4.png';
 import wampus from './components/img/wampus.png';
@@ -23,11 +24,6 @@ import profile_3 from './components/img/profile_3.png';
 import './staticApp.css';
 
 function App(): JSX.Element {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [menuVisible, setMenuVisible] = useState(false);
-
-  const menuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const menuRef = useRef<HTMLDivElement | null>(null);
 
   /* Определить размер экрана, возвращает true/false */
   const isBigScreen = useMediaQuery({ minWidth: 1340 });
@@ -113,6 +109,7 @@ function App(): JSX.Element {
       {/* Разные Блоки сайта */}
 
       <Block_1 />
+      <Block_2 />
     </div>
   );
 }
