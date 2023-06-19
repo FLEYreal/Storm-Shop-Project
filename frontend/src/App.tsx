@@ -32,11 +32,13 @@ function App(): JSX.Element {
   const menuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
+  /* Определить размер экрана, возвращает true/false */
   const isBigScreen = useMediaQuery({ minWidth: 1340 });
   const isMidScreen = useMediaQuery({ maxWidth: 1340 });
   const isSmallScreen = useMediaQuery({ maxWidth: 920 });
   const isPhone = useMediaQuery({ maxWidth: 640 });
 
+  /* Функция, которая добавляется в className чтобы добавлять специальные стили в зависимости от размера экрана */
   function resStyles(name: string): string {
     switch (true) {
       case isPhone:
@@ -101,26 +103,26 @@ function App(): JSX.Element {
     };
   }, [menuVisible]);
 
+  /* ФУНКЦИИ ДЛЯ МОБИЛЬНОГО МЕНЮ */
   const handleClickBurger = () => {
     clearTimeout(menuTimeoutRef.current!);
     setMenuVisible(!menuVisible);
   };
-
   const handleMouseEnter = () => {
     clearTimeout(menuTimeoutRef.current!);
     setMenuVisible(true);
   };
-
   const handleMouseLeave = () => {
     menuTimeoutRef.current = setTimeout(() => {
       setMenuVisible(false);
     }, 3000);
   };
-
   const hideMenu = () => {
     setMenuVisible(false);
   };
 
+
+  /* Отследить скрол в странице, чтобы к хедеру применились стили затемнения */
   const handleScroll = () => {
     const scrollTop = window.pageYOffset;
 
@@ -131,12 +133,14 @@ function App(): JSX.Element {
     }
   };
 
+  /* Рандомайзер для КОМПОНЕНТОВ дождя из картинок под вампусом */
   const getRandomBadgeImage = () => {
     const images = [activeDeveloperBadge, nitroBadge, boostIcon, botIcon, starIcon, tgIcon_small];
     const randomIndex = Math.floor(Math.random() * images.length);
     return images[randomIndex];
   };
 
+  /* Рандомайзер для КЛАССОВ дождя из картинок под вампусом */
   const getRandomBadgeClass = () => {
     const classes = ['badgeRain1', 'badgeRain2', 'badgeRain3', 'badgeRain4', 'badgeRain5'];
     const randomIndex = Math.floor(Math.random() * classes.length);
@@ -145,6 +149,9 @@ function App(): JSX.Element {
 
   return (
     <div className={`${styles.app}`}>
+
+      {/* Бургер меню, для мобильных устройств */}
+
       <div
         ref={menuRef}
         style={{ display: menuVisible ? 'block' : 'none' }}
@@ -157,6 +164,9 @@ function App(): JSX.Element {
         <Button className={styles.burger_item}>Помощь</Button>
         <Button className={styles.burger_item}>Работа</Button>
       </div>
+
+      {/* Все картинки, дизайн, у всех position: absolute; */}
+
       <div className={styles.absolute}>
         <img src={bubble1} className={styles.bubble1} alt="Bubble 1" />
         <img src={bubble4} className={`${styles.bubble4} ${resStyles('bubble4')}`} alt="Bubble 4" />
@@ -169,6 +179,9 @@ function App(): JSX.Element {
         <img src={bubble4} className={`${styles.bubble4_1} ${resStyles('bubble4_1')}`} alt="Bubble 4.1" />
         <div id="particles-container" className={styles.particlesContainer}></div>
       </div>
+
+      {/* Хедер сайта */}
+
       <div className={`${styles.header} ${styles[resStyles('header')]} ${isScrolled ? styles.dark_header : ''}`}>
         <div className={styles.header_container}>
           <div className={styles.logo_container}>
@@ -191,6 +204,9 @@ function App(): JSX.Element {
           </MediaQuery>
         </div>
       </div>
+
+      {/* Разные Блоки сайта */}
+
       <Block_1 />
     </div>
   );
