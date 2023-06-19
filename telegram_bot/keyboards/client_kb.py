@@ -38,15 +38,15 @@ buy_list.add(row3_button)
 #хочешь заработать
 earnings_list = InlineKeyboardMarkup(row_width=2)
 
-earnings_button1 = types.InlineKeyboardButton(text='Читать в Дискорде', url='https://app.leadteh.ru/w/r5Ms?k=CxnJGQS6')
-earnings_button2 = types.InlineKeyboardButton(text='Читать в ВК', url='https://app.leadteh.ru/w/r5Mt?k=mmURbDLQ')
+earnings_button1 = types.InlineKeyboardButton(text='Читать в Дискорде', url='https://discord.gg/BNsV86yGQA')
+earnings_button2 = types.InlineKeyboardButton(text='Читать в ВК', url='https://vk.com/@nitro_storm-kak-zarabotat-pri-pomoschi-nitrostorm')
 earnings_list.add(earnings_button1, earnings_button2)
 
 
 keyboard_bot_tg_and_ds = InlineKeyboardMarkup(row_width=2)
 
-keyboard_bot_tg_and_ds_button1 = types.InlineKeyboardButton(text='💜Дискрод Сервер💜', url='https://app.leadteh.ru/w/sqlw?k=RscY4wOB')
-keyboard_bot_tg_and_ds_button2 = types.InlineKeyboardButton(text='💎Телеграм💎', url='https://app.leadteh.ru/w/sqlx?k=9chwJnzh')
+keyboard_bot_tg_and_ds_button1 = types.InlineKeyboardButton(text='💜Дискрод Сервер💜', url='https://nitro-storm.ru/')
+keyboard_bot_tg_and_ds_button2 = types.InlineKeyboardButton(text='💎Телеграм💎', url='https://t.me/Nikita1264')
 
 
 

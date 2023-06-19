@@ -1,9 +1,9 @@
 import React from 'react'
 import Button from '@mui/material/Button';
 
-function SimpleButton({isGold = false, children = '', sx = {}, ...props}) {
+function SimpleButton({isGold = false, onClick = () => {}, children = '', className = '', sx = {}, ...props}) {
     return (
-        <Button variant="contained" color="primary" size="small" sx={
+        <Button className={className} onClick={onClick} variant="contained" color="primary" size="small" sx={
             isGold ? {
                 backgroundColor: '#e29b00',
                 boxShadow: 'none',

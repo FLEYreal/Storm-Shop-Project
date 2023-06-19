@@ -1,16 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-import MediaQuery, { useMediaQuery } from 'react-responsive';
+import { useMediaQuery } from 'react-responsive';
 import Button from '@mui/material/Button';
 
 import styles from './App.module.scss';
 // import MainWindow from '../MainWindow'
 // import BigButton from '../BigButton';
-import SimpleButton from './components/SimpleButton';
 import Block_1 from './components/blocks/Block_1';
-
 import bubble1 from './components/img/bubbles.png';
 import bubble4 from './components/img/bubbles4.png';
-import logo512 from './components/img/logo512.png';
 import wampus from './components/img/wampus.png';
 import activeDeveloperBadge from './components/img/activeDeveloperBadge.svg';
 import nitroBadge from './components/img/nitroBadge.svg';
@@ -81,58 +78,6 @@ function App(): JSX.Element {
     return () => clearInterval(timer);
   }, []);
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [isScrolled]);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const clickedElement = event.target as HTMLElement;
-      const isBurgerMenuButton = clickedElement.closest(`.${styles.burger_menu}`);
-
-      if (!isBurgerMenuButton && menuVisible) {
-        hideMenu();
-      }
-    };
-
-    document.addEventListener('click', handleClickOutside);
-
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
-  }, [menuVisible]);
-
-  /* ФУНКЦИИ ДЛЯ МОБИЛЬНОГО МЕНЮ */
-  const handleClickBurger = () => {
-    clearTimeout(menuTimeoutRef.current!);
-    setMenuVisible(!menuVisible);
-  };
-  const handleMouseEnter = () => {
-    clearTimeout(menuTimeoutRef.current!);
-    setMenuVisible(true);
-  };
-  const handleMouseLeave = () => {
-    menuTimeoutRef.current = setTimeout(() => {
-      setMenuVisible(false);
-    }, 3000);
-  };
-  const hideMenu = () => {
-    setMenuVisible(false);
-  };
-
-
-  /* Отследить скрол в странице, чтобы к хедеру применились стили затемнения */
-  const handleScroll = () => {
-    const scrollTop = window.pageYOffset;
-
-    if (scrollTop > 0 && !isScrolled) {
-      setIsScrolled(true);
-    } else if (scrollTop === 0 && isScrolled) {
-      setIsScrolled(false);
-    }
-  };
-
   /* Рандомайзер для КОМПОНЕНТОВ дождя из картинок под вампусом */
   const getRandomBadgeImage = () => {
     const images = [activeDeveloperBadge, nitroBadge, boostIcon, botIcon, starIcon, tgIcon_small];
@@ -150,21 +95,6 @@ function App(): JSX.Element {
   return (
     <div className={`${styles.app}`}>
 
-      {/* Бургер меню, для мобильных устройств */}
-
-      <div
-        ref={menuRef}
-        style={{ display: menuVisible ? 'block' : 'none' }}
-        className={styles.burger_menu}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        <Button className={styles.burger_item}>Купить</Button>
-        <Button className={styles.burger_item}>Заказать Бота</Button>
-        <Button className={styles.burger_item}>Помощь</Button>
-        <Button className={styles.burger_item}>Работа</Button>
-      </div>
-
       {/* Все картинки, дизайн, у всех position: absolute; */}
 
       <div className={styles.absolute}>
@@ -178,31 +108,6 @@ function App(): JSX.Element {
         <img src={profile_3} className={`${styles.profile_3} ${resStyles('profile_3')}`} alt="Profile 3" />
         <img src={bubble4} className={`${styles.bubble4_1} ${resStyles('bubble4_1')}`} alt="Bubble 4.1" />
         <div id="particles-container" className={styles.particlesContainer}></div>
-      </div>
-
-      {/* Хедер сайта */}
-
-      <div className={`${styles.header} ${styles[resStyles('header')]} ${isScrolled ? styles.dark_header : ''}`}>
-        <div className={styles.header_container}>
-          <div className={styles.logo_container}>
-            <a href='/' className={styles.logoLink}>
-              <img src={logo512} className={`${styles.logo512} ${styles.logo}`} alt="Logo" />
-            </a>Storm Shop
-          </div>
-          <MediaQuery maxWidth={920}>
-            <Button onClick={handleClickBurger} variant="contained" color="primary" size="small" className={styles.header_gold_menu}>
-              ☰
-            </Button>
-          </MediaQuery>
-          <MediaQuery minWidth={920}>
-            <div className={styles.header_options_container}>
-              <SimpleButton isGold={true}>Купить</SimpleButton>
-              <SimpleButton isGold={true}>Заказать Бота</SimpleButton>
-              <SimpleButton>Помощь</SimpleButton>
-              <SimpleButton>Работа</SimpleButton>
-            </div>
-          </MediaQuery>
-        </div>
       </div>
 
       {/* Разные Блоки сайта */}

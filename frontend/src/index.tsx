@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import RouterComp from './router';
 
 const root = document.getElementById('root');
-ReactDOM.render(<App />, root);
+ReactDOM.render(<RouterComp />, root);
