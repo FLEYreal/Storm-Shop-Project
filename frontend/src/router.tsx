@@ -48,6 +48,14 @@ function RouterComp() {
         setMenuVisible(!menuVisible);
     };
 
+    const handleHideMenu = (event:any) => {
+        const clickedElementClass = event.target.classList;
+        console.log()
+        console.log(clickedElementClass)
+        clearTimeout(menuTimeoutRef.current!);
+        setMenuVisible(false);
+    }
+
     const handleMouseEnter = () => {
         clearTimeout(menuTimeoutRef.current!);
         setMenuVisible(true);
@@ -79,25 +87,26 @@ function RouterComp() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [isScrolled]);
 
-    useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            const clickedElement = event.target as HTMLElement;
-            const isBurgerMenuButton = clickedElement.closest(`.${styles.burger_menu}`);
+    // useEffect(() => {
+    //     const handleClickOutside = (event: MouseEvent) => {
+    //         const clickedElement = event.target as HTMLElement;
+    //         const isBurgerMenuButton = clickedElement.closest(`.${styles.burger_menu}`);
 
-            if (!isBurgerMenuButton && menuVisible) {
-                hideMenu();
-            }
-        };
+    //         if (!isBurgerMenuButton && menuVisible) {
+    //             hideMenu();
+    //         }
+    //     };
 
-        document.addEventListener('click', handleClickOutside);
+    //     document.addEventListener('click', handleClickOutside);
 
-        return () => {
-            document.removeEventListener('click', handleClickOutside);
-        };
-    }, [menuVisible]);
+    //     return () => {
+    //         document.removeEventListener('click', handleClickOutside);
+    //     };
+    // }, [menuVisible]);
+
 
     return (
-        <>
+        <div onClick={handleHideMenu}>
             {/* Хедер сайта */}
 
             <div className={`${styles.header} ${styles[resStyles('header')]} ${isScrolled ? styles.dark_header : ''}`}>
@@ -150,7 +159,7 @@ function RouterComp() {
                     <Route path="/login" element={<LogIn />}/>
                 </Routes>
             </BrowserRouter>
-        </>
+        </div>
     )
 }
  

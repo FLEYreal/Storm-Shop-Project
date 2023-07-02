@@ -1,0 +1,26 @@
+{
+  "name": "nitrostorm-backend",
+  "version": "1.0.0",
+  "description": "nitro storm backend",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FLEYreal/nitro_storm.git"
+  },
+  "author": "SergeyMC9730, FLEYreal",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/FLEYreal/nitro_storm/issues"
+  },
+  "homepage": "https://github.com/FLEYreal/nitro_storm#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mysql2": "^3.4.3"
+  }
+}

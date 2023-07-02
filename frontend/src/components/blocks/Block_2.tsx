@@ -39,8 +39,6 @@ function Block_2() {
                         <a href='https://discord.gg/BNsV86yGQA' target='_blank'>Дискорд Сервер</a>
                     </div>
                 </div>
-
-                {/* <div className={styles.net_tiny_title}>Наши Другие Площадки!</div> */}
                 <div className={styles.net_tiny_items}>
                     <div className={styles.net_tiny_item}>
                         <img src={funpay} style={{width: '30px', borderRadius: '100%'}} alt='FunPay'/>
