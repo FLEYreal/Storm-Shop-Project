@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Button from '@mui/material/Button';
 
 import SimpleButton from './components/SimpleButton';
+import resStyles from './components/funcs/resStyles.ts';
+import useResolutions from './components/hooks/useResolusions.ts';
 
 import styles from './App.module.scss';
 import MediaQuery, { useMediaQuery } from 'react-responsive';
@@ -20,26 +22,7 @@ function RouterComp() {
     const menuRef = useRef<HTMLDivElement | null>(null);
 
     /* Определить размер экрана, возвращает true/false */
-    const isBigScreen = useMediaQuery({ minWidth: 1340 });
-    const isMidScreen = useMediaQuery({ maxWidth: 1340 });
-    const isSmallScreen = useMediaQuery({ maxWidth: 920 });
-    const isPhone = useMediaQuery({ maxWidth: 640 });
-
-    /* Функция, которая добавляется в className чтобы добавлять специальные стили в зависимости от размера экрана */
-    function resStyles(name: string): string {
-        switch (true) {
-        case isPhone:
-            return styles[`${name}_p`];
-        case isSmallScreen:
-            return styles[`${name}_s`];
-        case isMidScreen:
-            return styles[`${name}_m`];
-        case isBigScreen:
-            return styles[`${name}_b`];
-        default:
-            return '';
-        }
-    }
+    const {isBigScreen, isMidScreen, isSmallScreen, isPhone} = useResolutions()
 
 
     /* ФУНКЦИИ ДЛЯ МОБИЛЬНОГО МЕНЮ */
@@ -49,11 +32,14 @@ function RouterComp() {
     };
 
     const handleHideMenu = (event:any) => {
-        const clickedElementClass = event.target.classList;
-        console.log()
-        console.log(clickedElementClass)
-        clearTimeout(menuTimeoutRef.current!);
-        setMenuVisible(false);
+        if(isSmallScreen || isPhone) {
+            const clickedElementClass = [...event.target.classList];
+            const array: string[] = clickedElementClass.filter((className: string) => className === 'click_detect');
+            if(array.length > 0) return;
+
+            clearTimeout(menuTimeoutRef.current!);
+            setMenuVisible(false);
+        }
     }
 
     const handleMouseEnter = () => {
@@ -87,29 +73,11 @@ function RouterComp() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [isScrolled]);
 
-    // useEffect(() => {
-    //     const handleClickOutside = (event: MouseEvent) => {
-    //         const clickedElement = event.target as HTMLElement;
-    //         const isBurgerMenuButton = clickedElement.closest(`.${styles.burger_menu}`);
-
-    //         if (!isBurgerMenuButton && menuVisible) {
-    //             hideMenu();
-    //         }
-    //     };
-
-    //     document.addEventListener('click', handleClickOutside);
-
-    //     return () => {
-    //         document.removeEventListener('click', handleClickOutside);
-    //     };
-    // }, [menuVisible]);
-
-
     return (
         <div onClick={handleHideMenu}>
             {/* Хедер сайта */}
 
-            <div className={`${styles.header} ${styles[resStyles('header')]} ${isScrolled ? styles.dark_header : ''}`}>
+            <div className={`${styles.header} ${styles[resStyles('header', {isBigScreen,isMidScreen,isSmallScreen,isPhone})]} ${isScrolled ? styles.dark_header : ''}`}>
                 <div className={styles.header_container}>
                 <div className={styles.logo_container}>
                     <a href='/' className={styles.logoLink}>
@@ -117,7 +85,7 @@ function RouterComp() {
                     </a>Storm Shop
                 </div>
                 <MediaQuery maxWidth={920}>
-                    <SimpleButton isGold={true} sx={{
+                    <SimpleButton className='click_detect' isGold={true} sx={{
                         fontSize: '25px',
                         fontWeight: '900'
                     }} onClick={handleClickBurger}>

@@ -2,6 +2,9 @@ import React from 'react'
 import styles from '../../App.module.scss'
 import { useMediaQuery } from 'react-responsive';
 
+import resStyles from '../funcs/resStyles.ts';
+import useResolutions from '../hooks/useResolusions.ts';
+
 import tgIcon_small from '../img/tgIcon_small.svg';
 import discordIcon from '../img/discordIcon.svg';
 import plati from '../img/plati.png';
@@ -9,21 +12,7 @@ import funpay from '../img/funpay.png';
 
 
 function Block_2() {
-    
-    const isBigScreen = useMediaQuery({minWidth: 1340})
-    const isMidScreen = useMediaQuery({maxWidth: 1340})
-    const isSmallScreen = useMediaQuery({maxWidth: 920})
-    const isPhone = useMediaQuery({maxWidth: 640})
-  
-    function resStyles(name:string) {
-      switch (true) {
-        case isPhone: return styles[name + '_p'];
-        case isSmallScreen: return styles[name + '_s'];
-        case isMidScreen: return styles[name + '_m'];
-        case isBigScreen: return styles[name + '_b'];
-        default: return '';
-      }
-    }  
+    const {isBigScreen, isMidScreen, isSmallScreen, isPhone} = useResolutions()
 
     return (
         <>

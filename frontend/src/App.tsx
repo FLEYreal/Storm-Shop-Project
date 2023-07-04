@@ -7,6 +7,9 @@ import styles from './App.module.scss';
 import Block_1 from './components/blocks/Block_1';
 import Block_2 from './components/blocks/Block_2';
 
+import resStyles from './components/funcs/resStyles.ts';
+import useResolutions from './components/hooks/useResolusions.ts';
+
 import bubble1 from './components/img/bubbles.png';
 import bubble4 from './components/img/bubbles4.png';
 import wampus from './components/img/wampus.png';
@@ -24,28 +27,8 @@ import profile_3 from './components/img/profile_3.png';
 import './staticApp.css';
 
 function App(): JSX.Element {
-
   /* Определить размер экрана, возвращает true/false */
-  const isBigScreen = useMediaQuery({ minWidth: 1340 });
-  const isMidScreen = useMediaQuery({ maxWidth: 1340 });
-  const isSmallScreen = useMediaQuery({ maxWidth: 920 });
-  const isPhone = useMediaQuery({ maxWidth: 640 });
-
-  /* Функция, которая добавляется в className чтобы добавлять специальные стили в зависимости от размера экрана */
-  function resStyles(name: string): string {
-    switch (true) {
-      case isPhone:
-        return styles[`${name}_p`];
-      case isSmallScreen:
-        return styles[`${name}_s`];
-      case isMidScreen:
-        return styles[`${name}_m`];
-      case isBigScreen:
-        return styles[`${name}_b`];
-      default:
-        return '';
-    }
-  }
+  const {isBigScreen, isMidScreen, isSmallScreen, isPhone} = useResolutions()
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -63,7 +46,7 @@ function App(): JSX.Element {
         particle.style.right = `2${Math.floor((Math.random() * 7))}%`;
       }
 
-      particle.className = `${styles.badgeRain} ${resStyles('badgeRain')} ${getRandomBadgeClass()}`;
+      particle.className = `${styles.badgeRain} ${resStyles('badgeRain', {isBigScreen,isMidScreen,isSmallScreen,isPhone})} ${getRandomBadgeClass()}`;
       particlesContainer!.appendChild(particle);
 
       setTimeout(() => {
@@ -95,14 +78,14 @@ function App(): JSX.Element {
 
       <div className={styles.absolute}>
         <img src={bubble1} className={styles.bubble1} alt="Bubble 1" />
-        <img src={bubble4} className={`${styles.bubble4} ${resStyles('bubble4')}`} alt="Bubble 4" />
-        <img src={wampus} className={`${styles.wampus} ${resStyles('wampus')}`} alt="Wampus" />
-        <img src={tgIcon_big} className={`${styles.tgIcon_big} ${resStyles('tgIcon_big')}`} alt="TG Icon" />
-        <img src={discordIcon} className={`${styles.discordIcon} ${resStyles('discordIcon')}`} alt="Discord Icon" />
-        <img src={profile_1} className={`${styles.profile_1} ${resStyles('profile_1')}`} alt="Profile 1" />
-        <img src={profile_2} className={`${styles.profile_2} ${resStyles('profile_2')}`} alt="Profile 2" />
-        <img src={profile_3} className={`${styles.profile_3} ${resStyles('profile_3')}`} alt="Profile 3" />
-        <img src={bubble4} className={`${styles.bubble4_1} ${resStyles('bubble4_1')}`} alt="Bubble 4.1" />
+        <img src={bubble4} className={`${styles.bubble4} ${resStyles('bubble4', {isBigScreen,isMidScreen,isSmallScreen,isPhone})}`} alt="Bubble 4" />
+        <img src={wampus} className={`${styles.wampus} ${resStyles('wampus', {isBigScreen,isMidScreen,isSmallScreen,isPhone})}`} alt="Wampus" />
+        <img src={tgIcon_big} className={`${styles.tgIcon_big} ${resStyles('tgIcon_big', {isBigScreen,isMidScreen,isSmallScreen,isPhone})}`} alt="TG Icon" />
+        <img src={discordIcon} className={`${styles.discordIcon} ${resStyles('discordIcon', {isBigScreen,isMidScreen,isSmallScreen,isPhone})}`} alt="Discord Icon" />
+        <img src={profile_1} className={`${styles.profile_1} ${resStyles('profile_1', {isBigScreen,isMidScreen,isSmallScreen,isPhone})}`} alt="Profile 1" />
+        <img src={profile_2} className={`${styles.profile_2} ${resStyles('profile_2', {isBigScreen,isMidScreen,isSmallScreen,isPhone})}`} alt="Profile 2" />
+        <img src={profile_3} className={`${styles.profile_3} ${resStyles('profile_3', {isBigScreen,isMidScreen,isSmallScreen,isPhone})}`} alt="Profile 3" />
+        <img src={bubble4} className={`${styles.bubble4_1} ${resStyles('bubble4_1', {isBigScreen,isMidScreen,isSmallScreen,isPhone})}`} alt="Bubble 4.1" />
         <div id="particles-container" className={styles.particlesContainer}></div>
       </div>
 
