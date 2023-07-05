@@ -36,6 +36,12 @@ class User {
     money;
 
     /**
+     * @type {string}
+     * account type (advertisement, standard)
+     */
+    type;
+
+    /**
      * @param {string} pass plain password
      */
     #createEncryptedPassword(pass) {
@@ -86,7 +92,8 @@ class User {
         this.setPasswordEncrypted(sql_output.password);
         this.name = sql_output.name;
         this.uuid = sql_output.uuid;
-        this.money = sql_output.money;   
+        this.money = sql_output.money;
+        this.type = sql_output.type;
     }
 };
 

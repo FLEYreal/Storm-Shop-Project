@@ -1,7 +1,4 @@
 .container_window {
-    padding: 30px;
-    min-height: 300px;
-    border-radius: 16px;
     border: 3px solid rgba(255, 255, 255, 0.45);
     backdrop-filter: blur(12px);
     background: linear-gradient(        
@@ -9,10 +6,6 @@
         rgba(255, 255, 255, 0.04),
         rgba(255, 255, 255, 0.35)
     );
-    -webkit-border-radius: 16px;
-    -moz-border-radius: 16px;
-    -ms-border-radius: 16px;
-    -o-border-radius: 16px;
 }
 
 .main_container_window:hover {

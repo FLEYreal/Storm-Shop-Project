@@ -27,74 +27,78 @@ import profile_3 from './components/img/profile_3.png';
 import './staticApp.css';
 
 function App(): JSX.Element {
-  /* Определить размер экрана, возвращает true/false */
-  const {isBigScreen, isMidScreen, isSmallScreen, isPhone} = useResolutions()
+    /* Определить размер экрана, возвращает true/false */
+    const resolutions = useResolutions()
+    const { isBigScreen, isMidScreen, isSmallScreen, isPhone } = useResolutions()
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      const particlesContainer = document.getElementById('particles-container');
-      const particle = document.createElement('img');
-      particle.src = getRandomBadgeImage();
+    useEffect(() => {
+        if(!isPhone) {
+            const timer = setInterval(() => {
+                const particlesContainer = document.getElementById('particles-container');
+                const particle = document.createElement('img');
+                particle.src = getRandomBadgeImage();
+    
+                if (isSmallScreen) {
+                    particle.style.right = `3${Math.floor((Math.random() * 8))}${Math.floor((Math.random() * 5))}px`;
+                    particle.style.top = `500px`;
+                } else if (isMidScreen) {
+                    particle.style.right = `1${Math.floor((Math.random() * 8))}${Math.floor((Math.random() * 5))}px`;
+                } else if(isBigScreen) {
+                    particle.style.right = `1${Math.floor((Math.random() * 6))}${Math.floor((Math.random() * 9))}px`;
+                }
+    
+                particle.className = `${styles.badgeRain} ${resStyles('badgeRain', resolutions)} ${getRandomBadgeClass()}`;
+                particlesContainer!.appendChild(particle);
+    
+                setTimeout(() => {
+                    particlesContainer!.removeChild(particle);
+                }, 10000);
+            }, 250);
+    
+            return () => clearInterval(timer);
+        }
+    }, []);
 
-      if (window.innerWidth < 800) {
-        particle.style.right = `4${Math.floor((Math.random() * 9) + 2)}%`;
-      } else if (window.innerWidth < 1200) {
-        particle.style.right = `3${Math.floor((Math.random() * 9) + 2)}%`;
-      } else if (window.innerWidth < 1400) {
-        particle.style.right = `2${Math.floor((Math.random() * 8) + 8)}%`;
-      } else {
-        particle.style.right = `2${Math.floor((Math.random() * 7))}%`;
-      }
+    /* Рандомайзер для КОМПОНЕНТОВ дождя из картинок под вампусом */
+    const getRandomBadgeImage = () => {
+        const images = [activeDeveloperBadge, nitroBadge, boostIcon, botIcon, starIcon, tgIcon_small];
+        const randomIndex = Math.floor(Math.random() * images.length);
+        return images[randomIndex];
+    };
 
-      particle.className = `${styles.badgeRain} ${resStyles('badgeRain', {isBigScreen,isMidScreen,isSmallScreen,isPhone})} ${getRandomBadgeClass()}`;
-      particlesContainer!.appendChild(particle);
+    /* Рандомайзер для КЛАССОВ дождя из картинок под вампусом */
+    const getRandomBadgeClass = () => {
+        const classes = ['badgeRain1', 'badgeRain2', 'badgeRain3', 'badgeRain4', 'badgeRain5'];
+        const randomIndex = Math.floor(Math.random() * classes.length);
+        return classes[randomIndex];
+    };
 
-      setTimeout(() => {
-        particlesContainer!.removeChild(particle);
-      }, 10000);
-    }, 250);
+    return (
+        <div className={`${styles.app}`}>
 
-    return () => clearInterval(timer);
-  }, []);
+            {/* Все картинки, дизайн, у всех position: absolute; */}
 
-  /* Рандомайзер для КОМПОНЕНТОВ дождя из картинок под вампусом */
-  const getRandomBadgeImage = () => {
-    const images = [activeDeveloperBadge, nitroBadge, boostIcon, botIcon, starIcon, tgIcon_small];
-    const randomIndex = Math.floor(Math.random() * images.length);
-    return images[randomIndex];
-  };
+            <div className={`${styles.absolute_content} ${resStyles('content_box', resolutions)}`}>
+                <img src={bubble4} className={`${styles.bubble4} ${resStyles('bubble4', resolutions)}`} alt="Bubble 4" />
+                <img src={wampus} className={`${styles.wampus} ${resStyles('wampus', resolutions)}`} alt="Wampus" />
+                <img src={tgIcon_big} className={`${styles.tgIcon_big} ${resStyles('tgIcon_big', resolutions)}`} alt="TG Icon" />
+                <img src={discordIcon} className={`${styles.discordIcon} ${resStyles('discordIcon', resolutions)}`} alt="Discord Icon" />
+                <img src={bubble4} className={`${styles.bubble4_1} ${resStyles('bubble4_1', resolutions)}`} alt="Bubble 4.1" />
+                <div id="particles-container" className={styles.particlesContainer}></div>
+            </div>
+            <div className={styles.absolute}>
+                <img src={bubble1} className={`${styles.bubble1} ${resStyles('bubble1', resolutions)}`} alt="Bubble 1" />
+                <img src={profile_1} className={`${styles.profile_1} ${resStyles('profile_1', resolutions)}`} alt="Profile 1" />
+                <img src={profile_2} className={`${styles.profile_2} ${resStyles('profile_2', resolutions)}`} alt="Profile 2" />
+                <img src={profile_3} className={`${styles.profile_3} ${resStyles('profile_3', resolutions)}`} alt="Profile 3" />
+            </div>
 
-  /* Рандомайзер для КЛАССОВ дождя из картинок под вампусом */
-  const getRandomBadgeClass = () => {
-    const classes = ['badgeRain1', 'badgeRain2', 'badgeRain3', 'badgeRain4', 'badgeRain5'];
-    const randomIndex = Math.floor(Math.random() * classes.length);
-    return classes[randomIndex];
-  };
+            {/* Разные Блоки сайта */}
 
-  return (
-    <div className={`${styles.app}`}>
-
-      {/* Все картинки, дизайн, у всех position: absolute; */}
-
-      <div className={styles.absolute}>
-        <img src={bubble1} className={styles.bubble1} alt="Bubble 1" />
-        <img src={bubble4} className={`${styles.bubble4} ${resStyles('bubble4', {isBigScreen,isMidScreen,isSmallScreen,isPhone})}`} alt="Bubble 4" />
-        <img src={wampus} className={`${styles.wampus} ${resStyles('wampus', {isBigScreen,isMidScreen,isSmallScreen,isPhone})}`} alt="Wampus" />
-        <img src={tgIcon_big} className={`${styles.tgIcon_big} ${resStyles('tgIcon_big', {isBigScreen,isMidScreen,isSmallScreen,isPhone})}`} alt="TG Icon" />
-        <img src={discordIcon} className={`${styles.discordIcon} ${resStyles('discordIcon', {isBigScreen,isMidScreen,isSmallScreen,isPhone})}`} alt="Discord Icon" />
-        <img src={profile_1} className={`${styles.profile_1} ${resStyles('profile_1', {isBigScreen,isMidScreen,isSmallScreen,isPhone})}`} alt="Profile 1" />
-        <img src={profile_2} className={`${styles.profile_2} ${resStyles('profile_2', {isBigScreen,isMidScreen,isSmallScreen,isPhone})}`} alt="Profile 2" />
-        <img src={profile_3} className={`${styles.profile_3} ${resStyles('profile_3', {isBigScreen,isMidScreen,isSmallScreen,isPhone})}`} alt="Profile 3" />
-        <img src={bubble4} className={`${styles.bubble4_1} ${resStyles('bubble4_1', {isBigScreen,isMidScreen,isSmallScreen,isPhone})}`} alt="Bubble 4.1" />
-        <div id="particles-container" className={styles.particlesContainer}></div>
-      </div>
-
-      {/* Разные Блоки сайта */}
-
-      <Block_1 />
-      <Block_2 />
-    </div>
-  );
+            <Block_1 />
+            <Block_2 />
+        </div>
+    );
 }
 
 export default App;

@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Button from '@mui/material/Button';
 
@@ -17,12 +17,13 @@ import LogIn from './LogIn.tsx';
 function RouterComp() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [menuVisible, setMenuVisible] = useState(false);
-  
+
     const menuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
     const menuRef = useRef<HTMLDivElement | null>(null);
 
     /* Определить размер экрана, возвращает true/false */
-    const {isBigScreen, isMidScreen, isSmallScreen, isPhone} = useResolutions()
+    const resolutions = useResolutions()
+    const {isSmallScreen, isPhone} = useResolutions()
 
 
     /* ФУНКЦИИ ДЛЯ МОБИЛЬНОГО МЕНЮ */
@@ -31,11 +32,11 @@ function RouterComp() {
         setMenuVisible(!menuVisible);
     };
 
-    const handleHideMenu = (event:any) => {
-        if(isSmallScreen || isPhone) {
+    const handleHideMenu = (event: any) => {
+        if (isSmallScreen || isPhone) {
             const clickedElementClass = [...event.target.classList];
             const array: string[] = clickedElementClass.filter((className: string) => className === 'click_detect');
-            if(array.length > 0) return;
+            if (array.length > 0) return;
 
             clearTimeout(menuTimeoutRef.current!);
             setMenuVisible(false);
@@ -49,18 +50,18 @@ function RouterComp() {
 
     const handleMouseLeave = () => {
         menuTimeoutRef.current = setTimeout(() => {
-        setMenuVisible(false);
+            setMenuVisible(false);
         }, 3000);
     };
 
     const hideMenu = () => {
         setMenuVisible(false);
     };
-  
+
     /* Отследить скрол в странице, чтобы к хедеру применились стили затемнения */
     const handleScroll = () => {
         const scrollTop = window.pageYOffset;
-        
+
         if (scrollTop > 0 && !isScrolled) {
             setIsScrolled(true);
         } else if (scrollTop === 0 && isScrolled) {
@@ -77,29 +78,39 @@ function RouterComp() {
         <div onClick={handleHideMenu}>
             {/* Хедер сайта */}
 
-            <div className={`${styles.header} ${styles[resStyles('header', {isBigScreen,isMidScreen,isSmallScreen,isPhone})]} ${isScrolled ? styles.dark_header : ''}`}>
-                <div className={styles.header_container}>
-                <div className={styles.logo_container}>
-                    <a href='/' className={styles.logoLink}>
-                    <img src={logo512} className={`${styles.logo512} ${styles.logo}`} alt="Logo" />
-                    </a>Storm Shop
-                </div>
-                <MediaQuery maxWidth={920}>
-                    <SimpleButton className='click_detect' isGold={true} sx={{
-                        fontSize: '25px',
-                        fontWeight: '900'
-                    }} onClick={handleClickBurger}>
-                    ☰
-                    </SimpleButton>
-                </MediaQuery>
-                <MediaQuery minWidth={920}>
-                    <div className={styles.header_options_container}>
-                        <SimpleButton isGold={true}>Купить</SimpleButton>
-                        <SimpleButton isGold={true}>Заказать Бота</SimpleButton>
-                        <SimpleButton>Помощь</SimpleButton>
-                        <SimpleButton>Хочу заработать!</SimpleButton>
+            <div className={`${styles.header} ${styles[resStyles('header', resolutions)]} ${isScrolled ? styles.dark_header : ''}`}>
+                <div className={`${styles.header_content_container} ${resStyles('header_content_container', resolutions)}`}>
+                    <div className={styles.header_container}>
+                        <div className={styles.logo_container}>
+                            <a href='/' className={styles.logoLink}>
+                                <img src={logo512} className={`${styles.logo512} ${styles.logo}`} alt="Logo" />
+                            </a>Storm Shop
+                        </div>
+                        <MediaQuery maxWidth={920}>
+                            <SimpleButton className='click_detect' isGold={true} sx={{
+                                fontSize: '25px',
+                                fontWeight: '900'
+                            }} onClick={handleClickBurger}>
+                                ☰
+                            </SimpleButton>
+                        </MediaQuery>
+                        <MediaQuery minWidth={1171}>
+                            <div className={styles.header_options_container}>
+                                <SimpleButton isGold={true}>Купить</SimpleButton>
+                                <SimpleButton isGold={true}>Заказать Бота</SimpleButton>
+                                <SimpleButton>Помощь</SimpleButton>
+                                <SimpleButton>Хочу заработать!</SimpleButton>
+                            </div>
+                        </MediaQuery>
+                        <MediaQuery minWidth={921} maxWidth={1170}>
+                            <div className={styles.header_options_container}>
+                                <SimpleButton sx={{fontSize: '14px', padding: '8px 18px'}} isGold={true}>Купить</SimpleButton>
+                                <SimpleButton sx={{fontSize: '14px', padding: '8px 18px'}} isGold={true}>Заказать Бота</SimpleButton>
+                                <SimpleButton sx={{fontSize: '14px', padding: '8px 18px'}}>Помощь</SimpleButton>
+                                <SimpleButton sx={{fontSize: '14px', padding: '8px 18px'}}>Хочу заработать!</SimpleButton>
+                            </div>
+                        </MediaQuery>
                     </div>
-                </MediaQuery>
                 </div>
             </div>
 
@@ -123,12 +134,12 @@ function RouterComp() {
                 <Routes>
                     <Route path="/" element={<App />} />
                     <Route path="/*" element={<App />} />
-                    <Route path="/signup" element={<SignUp />}/>
-                    <Route path="/login" element={<LogIn />}/>
+                    <Route path="/signup" element={<SignUp />} />
+                    <Route path="/login" element={<LogIn />} />
                 </Routes>
             </BrowserRouter>
         </div>
     )
 }
- 
+
 export default RouterComp;

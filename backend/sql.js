@@ -75,6 +75,23 @@ class SQLInstance extends DatabaseContainer {
     }
 
     /**
+     * @param {string} uuid username
+     * @return {User | undefined} user
+     */
+    async getUserByUUID(uuid) { // player
+        const [rows] = await this.#sqlconnection.execute(
+            `SELECT * FROM users WHERE uuid = ?`, [uuid]
+        )
+
+        if (rows.length < 1) return undefined;
+        
+        let user = new User();
+        user.fromSQL(rows[0]);
+
+        return user;
+    }
+
+    /**
      * @param {User} user user
      */
     async pushUser(user) {

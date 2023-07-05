@@ -45,7 +45,7 @@
 
 	- "/buy": c frontend отправляются данные:
 		{
-		  unique_id: 293,
+		  uuid: "6b40b54f-c9e8-48b6-b7ff-086aa5513614",
 		  good: "NitroFull",
 		  sumRub: 190,
 		  from: "WEB"

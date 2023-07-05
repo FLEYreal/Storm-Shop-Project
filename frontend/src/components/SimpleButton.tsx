@@ -8,26 +8,36 @@ function SimpleButton({isGold = false, onClick = () => {}, children = '', classN
                 backgroundColor: '#e29b00',
                 boxShadow: 'none',
                 textShadow: 'none',
+                borderRadius: '10px',
                 margin: '7px',
                 fontSize: '15px',
                 fontWeight: 'bold',
-                padding: '6px 20px',
+                padding: '8px 30px',
             
                 '&:hover': {
-                    backgroundColor: '#ffb30f'
+                    backgroundColor: '#ffb30f',
+                    boxShadow: 'none',
+                },
+                '&:active': {
+                    boxShadow: 'none',
                 },
                 ...sx
             } : {
                 backgroundColor: '#7227ff',
                 boxShadow: 'none',
+                borderRadius: '10px',
                 textShadow: 'none',
                 margin: '7px',
                 fontSize: '15px',
                 fontWeight: 'bold',
-                padding: '6px 20px',
+                padding: '8px 30px',
 
                 '&:hover': {
-                    backgroundColor: '#8d4fff'
+                    backgroundColor: '#8d4fff',
+                    boxShadow: 'none',
+                },
+                '&:active': {
+                    boxShadow: 'none',
                 },
                 ...sx
             }

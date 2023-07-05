@@ -16,33 +16,31 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-const User = require("./User");
+module.exports = [
 
-class DatabaseContainer {
-    /**
-     * @param {string} username username
-     * @return {User | undefined} user
-     */
-    async getUser(username) {}
+    {
+        good: "NitroFull1M",
+        amount: 325
+    },
+    {
+        good: "NitroFull1Y",
+        amount: 3250
+    },
+    {
+        good: "NitroBasic1M",
+        amount: 160
+    },
+    {
+        good: "ActiveDev",
+        amount: 30
+    },
+    {
+        good: "Boost1",
+        amount: 165
+    },
+    {
+        good: "BoostLevel3",
+        amount: 2310
+    }
 
-    /**
-     * @param {string} username uuid
-     * @return {User | undefined} user
-     */
-    async getUserByUUID(uuid) {}
-
-    /**
-     * @param {User} user user
-     */
-    async pushUser(user) {}
-
-    /**
-     * init container
-     */
-    async init() {}
-};
-
-/**
- * database container
- */
-module.exports = DatabaseContainer;
+] 

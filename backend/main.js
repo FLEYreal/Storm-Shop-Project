@@ -31,6 +31,8 @@ const User = require("./User");
 
 const crypto = require("crypto");
 
+const goods = require("./goodlist");
+
 var sql = new SQLInstance();
 sql.setCredentials(process.env.SQL_PASSWORD, process.env.SQL_HOST, "nitro", "nitrostorm");
 sql.init();
@@ -90,18 +92,72 @@ app.post(`${versioning.prefix}/signup`, async (req, res) => {
     sql.pushUser(new_user);
 
     res.status(200).json({
-        success: true
+        success: true,
+        uuid: new_user.uuid
     });
 });
-app.post(`${versioning.prefix}/test`, (req, res) => {
-    var usertest = new User();
-        usertest.setPassword("123");
-        usertest.money = 64;
-        usertest.name = "Player";
-        usertest.registrationDate = new Date();
-        usertest.uuid = crypto.randomUUID();
 
-    sql.pushUser(usertest);
+app.get(`${versioning.prefix}/goods`, async (req, res) => {
+    res.status(200).json(goods);
+})
+
+app.post(`${versioning.prefix}/buy`, async (req, res) => {
+    const required_params = [["uuid", "string"], ["good", "string"], ["sumRub", "number"], ["from", "string"]];
+
+    var i = 0;
+    while(i < required_params.length) {
+        const param = required_params[i];
+        // check if required param exists
+        if (!Object.hasOwn(req.body, param[0])) {
+            // 400 Bad Request
+            res.status(400).json({
+                error: `${param[0]} is missing!`,
+                success: false
+            });
+
+            return;
+        }
+
+        const type = eval(`typeof req.body.${param[0]}`)
+
+        if (type != param[1]) {
+            // 400 Bad Request
+            res.status(400).json({
+                error: `${param[0]} is invalid! Expected "${param[1]}", but got "${type}"!`,
+                success: false
+            });
+
+            return; 
+        }
+
+        i++;
+    }
+
+    let good_exists = false; // да ты задолбал флей // ты мне мешаешь работать
+
+    goods.forEach((good) => {
+        if ((good.good == req.body.good) && (good.amount == req.body.sumRub)) {
+            good_exists = true;
+        }
+    })
+
+    if (!good_exists) {
+        res.status(404).json({
+            error: `Not Found`,
+            success: false
+        });
+        return
+    }
+
+    let user = sql.getUserByUUID(req.body.uuid);
+
+    res.status(404).json({
+        error: `Not Found`,
+        success: false
+    });
+    return
+
+    // if (user.money <)
 })
 
 app.listen(PORT, (e) => {
