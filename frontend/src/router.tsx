@@ -75,10 +75,10 @@ function RouterComp() {
     }, [isScrolled]);
 
     return (
-        <div onClick={handleHideMenu}>
+        <main onClick={handleHideMenu}>
             {/* Хедер сайта */}
 
-            <div className={`${styles.header} ${styles[resStyles('header', resolutions)]} ${isScrolled ? styles.dark_header : ''}`}>
+            <header className={`${styles.header} ${styles[resStyles('header', resolutions)]} ${isScrolled ? styles.dark_header : ''}`}>
                 <div className={`${styles.header_content_container} ${resStyles('header_content_container', resolutions)}`}>
                     <div className={styles.header_container}>
                         <div className={styles.logo_container}>
@@ -95,28 +95,28 @@ function RouterComp() {
                             </SimpleButton>
                         </MediaQuery>
                         <MediaQuery minWidth={1171}>
-                            <div className={styles.header_options_container}>
+                            <nav className={styles.header_options_container}>
                                 <SimpleButton isGold={true}>Купить</SimpleButton>
                                 <SimpleButton isGold={true}>Заказать Бота</SimpleButton>
                                 <SimpleButton>Помощь</SimpleButton>
                                 <SimpleButton>Хочу заработать!</SimpleButton>
-                            </div>
+                            </nav>
                         </MediaQuery>
                         <MediaQuery minWidth={921} maxWidth={1170}>
-                            <div className={styles.header_options_container}>
+                            <nav className={styles.header_options_container}>
                                 <SimpleButton sx={{fontSize: '14px', padding: '8px 18px'}} isGold={true}>Купить</SimpleButton>
                                 <SimpleButton sx={{fontSize: '14px', padding: '8px 18px'}} isGold={true}>Заказать Бота</SimpleButton>
                                 <SimpleButton sx={{fontSize: '14px', padding: '8px 18px'}}>Помощь</SimpleButton>
                                 <SimpleButton sx={{fontSize: '14px', padding: '8px 18px'}}>Хочу заработать!</SimpleButton>
-                            </div>
+                            </nav>
                         </MediaQuery>
                     </div>
                 </div>
-            </div>
+            </header>
 
             {/* Бургер меню, для мобильных устройств */}
 
-            <div
+            <nav
                 ref={menuRef}
                 style={{ display: menuVisible ? 'flex' : 'none' }}
                 className={styles.burger_menu}
@@ -127,7 +127,7 @@ function RouterComp() {
                 <SimpleButton isGold={true} className={styles.burger_item}>Заказать Бота</SimpleButton>
                 <SimpleButton className={styles.burger_item}>Помощь</SimpleButton>
                 <SimpleButton className={styles.burger_item}>Хочу заработать!</SimpleButton>
-            </div>
+            </nav>
 
             {/* Роуты */}
             <BrowserRouter>
@@ -138,7 +138,7 @@ function RouterComp() {
                     <Route path="/login" element={<LogIn />} />
                 </Routes>
             </BrowserRouter>
-        </div>
+        </main>
     )
 }
 

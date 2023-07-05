@@ -12,7 +12,7 @@ function Block_1() {
     const resolutions = useResolutions()
 
     return (
-        <>
+        <section>
             <div
                 className={`
                 ${styles.main_container} 
@@ -32,7 +32,7 @@ function Block_1() {
                     <div className={`${styles.main_container_images} ${resStyles('main_container_images', resolutions)}`}>{/* Unused Element */}</div>
                 </div>
             </div>
-        </>
+        </section>
     )
 };
 

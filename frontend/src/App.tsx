@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import Button from '@mui/material/Button';
+import { Helmet } from 'react-helmet';
 
 import styles from './App.module.scss';
 
@@ -32,29 +33,29 @@ function App(): JSX.Element {
     const { isBigScreen, isMidScreen, isSmallScreen, isPhone } = useResolutions()
 
     useEffect(() => {
-        if(!isPhone) {
+        if (!isPhone) {
             const timer = setInterval(() => {
                 const particlesContainer = document.getElementById('particles-container');
                 const particle = document.createElement('img');
                 particle.src = getRandomBadgeImage();
-    
+
                 if (isSmallScreen) {
                     particle.style.right = `3${Math.floor((Math.random() * 8))}${Math.floor((Math.random() * 5))}px`;
                     particle.style.top = `500px`;
                 } else if (isMidScreen) {
                     particle.style.right = `1${Math.floor((Math.random() * 8))}${Math.floor((Math.random() * 5))}px`;
-                } else if(isBigScreen) {
+                } else if (isBigScreen) {
                     particle.style.right = `1${Math.floor((Math.random() * 6))}${Math.floor((Math.random() * 9))}px`;
                 }
-    
+
                 particle.className = `${styles.badgeRain} ${resStyles('badgeRain', resolutions)} ${getRandomBadgeClass()}`;
                 particlesContainer!.appendChild(particle);
-    
+
                 setTimeout(() => {
                     particlesContainer!.removeChild(particle);
                 }, 10000);
             }, 250);
-    
+
             return () => clearInterval(timer);
         }
     }, []);
@@ -75,6 +76,13 @@ function App(): JSX.Element {
 
     return (
         <div className={`${styles.app}`}>
+            <Helmet>
+                <title>StormShop: Магазин Нитро и не только!</title>
+                <meta name="description" content="StormShop: Магазин дискорд услуг, а именно Нитро, Бейджики, Создание ботов и даже сайтов!" />
+                <meta name="keywords" content='Нитро Nitro Дискорд Discord НитроШоп Купить нитро'/>
+                <meta http-equiv="Content-Language" content="ru" />
+                <meta name="author" content="FLEY"/>
+            </Helmet>
 
             {/* Все картинки, дизайн, у всех position: absolute; */}
 
