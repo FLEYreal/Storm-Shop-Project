@@ -36,7 +36,7 @@ class User {
     money;
 
     /**
-     * @param {string} pass unencrypted password
+     * @param {string} pass plain password
      */
     #createEncryptedPassword(pass) {
         const saltRounds = 10;
@@ -47,7 +47,7 @@ class User {
     }
 
     /**
-     * @param {string} pass unencrypted password
+     * @param {string} pass plain password
      */
     setPassword(pass) {
         this.#password = this.#createEncryptedPassword(pass);
@@ -66,6 +66,27 @@ class User {
      */
     getPassword() {
         return this.#password;
+    }
+
+    /**
+     * validates password
+     * @param {string} pass plain password
+     * @return {boolean} is password correct or not
+     */
+    validatePassword(pass) {
+        return bcrypt.compareSync(pass, this.getPassword());
+    }
+
+    /**
+     * generates user object from sql output
+     * @param {Object} sql_output sql data 
+     */
+    fromSQL(sql_output) {
+        this.registrationDate = new Date(sql_output.registration_date * 1000);
+        this.setPasswordEncrypted(sql_output.password);
+        this.name = sql_output.name;
+        this.uuid = sql_output.uuid;
+        this.money = sql_output.money;   
     }
 };
 

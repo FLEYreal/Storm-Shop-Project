@@ -21,19 +21,19 @@ const User = require("./User");
 class DatabaseContainer {
     /**
      * @param {string} username username
-     * @return {User} user
+     * @return {User | undefined} user
      */
-    getUser(username) {}
+    async getUser(username) {}
 
     /**
      * @param {User} user user
      */
-    pushUser(user) {}
+    async pushUser(user) {}
 
     /**
      * init container
      */
-    init() {}
+    async init() {}
 };
 
 /**

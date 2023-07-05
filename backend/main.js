@@ -27,14 +27,82 @@ const versioning = require("./versioning");
 
 const SQLInstance = require("./sql");
 
+const User = require("./User");
+
+const crypto = require("crypto");
+
 var sql = new SQLInstance();
 sql.setCredentials(process.env.SQL_PASSWORD, process.env.SQL_HOST, "nitro", "nitrostorm");
 sql.init();
 
+app.use(express.json())
 
-app.get(`${versioning.prefix}/signup`, (req, res) => {
-    res.send('<h1>Hello World</h1>')
+app.post(`${versioning.prefix}/signup`, async (req, res) => {
+    const required_params = [["unique_id", "number"], ["username", "string"], ["password", "string"]];
+
+    var i = 0;
+    while(i < required_params.length) {
+        const param = required_params[i];
+        // check if required param exists
+        if (!Object.hasOwn(req.body, param[0])) {
+            // 400 Bad Request
+            res.status(400).json({
+                error: `${param[0]} is missing!`,
+                success: false
+            });
+
+            return;
+        }
+
+        const type = eval(`typeof req.body.${param[0]}`)
+
+        if (type != param[1]) {
+            // 400 Bad Request
+            res.status(400).json({
+                error: `${param[0]} is invalid! Expected "${param[1]}", but got "${type}"!`,
+                success: false
+            });
+
+            return; 
+        }
+
+        i++;
+    }
+
+    const existing_user = await sql.getUser(req.body.username);
+    
+    if (existing_user) {
+        res.status(409).json({
+            error: `user ${req.body.username} is already registered`,
+            success: false
+        })
+        return
+    }
+
+    let new_user = new User();
+
+    new_user.name = req.body.username;
+    new_user.setPassword(req.body.password);
+    new_user.money = 0;
+    new_user.registrationDate = new Date();
+    new_user.uuid = crypto.randomUUID();
+
+    sql.pushUser(new_user);
+
+    res.status(200).json({
+        success: true
+    });
 });
+app.post(`${versioning.prefix}/test`, (req, res) => {
+    var usertest = new User();
+        usertest.setPassword("123");
+        usertest.money = 64;
+        usertest.name = "Player";
+        usertest.registrationDate = new Date();
+        usertest.uuid = crypto.randomUUID();
+
+    sql.pushUser(usertest);
+})
 
 app.listen(PORT, (e) => {
     if(e) {
