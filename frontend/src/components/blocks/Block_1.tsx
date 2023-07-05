@@ -21,7 +21,7 @@ function Block_1() {
                 <div className={`${styles.main_content_container} ${resStyles('content_box', resolutions)}`}>
                     <div className={`${styles.mobile_container} ${resStyles('mobile_container', resolutions)}`}>
                         <div className={styles.mobile_title}>Storm Shop</div>
-                        <div className={styles.mobile_subtitle}>Лучший Магазин Дискорд Услуг!</div>
+                        <div className={styles.mobile_subtitle}>Лучший Магазин Нитро и иных Дискорд Услуг!</div>
                         <BigButton sx={{ width: '160px', padding: '12px 100px', margin: '32px', fontSize: '24px' }} isGold={true}>
                             Купить!
                         </BigButton>

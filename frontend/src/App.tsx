@@ -96,9 +96,6 @@ function App(): JSX.Element {
             </div>
             <div className={styles.absolute}>
                 <img src={bubble1} className={`${styles.bubble1} ${resStyles('bubble1', resolutions)}`} alt="Bubble 1" />
-                <img src={profile_1} className={`${styles.profile_1} ${resStyles('profile_1', resolutions)}`} alt="Profile 1" />
-                <img src={profile_2} className={`${styles.profile_2} ${resStyles('profile_2', resolutions)}`} alt="Profile 2" />
-                <img src={profile_3} className={`${styles.profile_3} ${resStyles('profile_3', resolutions)}`} alt="Profile 3" />
             </div>
 
             {/* Разные Блоки сайта */}
