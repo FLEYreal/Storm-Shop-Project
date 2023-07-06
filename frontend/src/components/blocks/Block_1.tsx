@@ -3,7 +3,7 @@ import { useMediaQuery } from 'react-responsive';
 
 import useResolutions from '../hooks/useResolusions.ts'
 import resStyles from '../funcs/resStyles.ts';
-import styles from '../../App.module.scss';
+import styles from '../styles/App.module.scss';
 
 import MainWindow from '../MainWindow.tsx'
 import BigButton from '../BigButton.tsx';
@@ -18,7 +18,7 @@ function Block_1() {
                 ${styles.main_container} 
                 ${resStyles('main_container', resolutions)}`}
             >
-                <div className={`${styles.main_content_container} ${resStyles('content_box', resolutions)}`}>
+                <div className={`${styles.main_content_container} ${resStyles('main_content_container', resolutions)}`}>
                     <div className={`${styles.mobile_container} ${resStyles('mobile_container', resolutions)}`}>
                         <div className={styles.mobile_title}>Storm Shop</div>
                         <div className={styles.mobile_subtitle}>Лучший Магазин Нитро и иных Дискорд Услуг!</div>

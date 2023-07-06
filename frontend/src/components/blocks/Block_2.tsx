@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../../App.module.scss'
+import styles from '../styles/App.module.scss'
 import { useMediaQuery } from 'react-responsive';
 
 import resStyles from '../funcs/resStyles.ts';

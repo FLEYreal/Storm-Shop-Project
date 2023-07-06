@@ -1,4 +1,8 @@
-import styles from '../../App.module.scss';
+import styles from '../styles/App.module.scss';
+import big from '../styles/BigScreen.module.scss';
+import mid from '../styles/MiddleScreen.module.scss';
+import small from '../styles/SmallScreen.module.scss';
+import phone from '../styles/PhoneScreen.module.scss';
 
 /* Функция, которая добавляется в className чтобы добавлять специальные стили в зависимости от размера экрана */
 function resStyles(name: string, resolution: {
@@ -9,13 +13,13 @@ function resStyles(name: string, resolution: {
 }) {
      switch (true) {
           case resolution.isPhone:
-               return styles[`${name}_p`];
+               return phone[name];
           case resolution.isSmallScreen:
-               return styles[`${name}_s`];
+               return small[name];
           case resolution.isMidScreen:
-               return styles[`${name}_m`];
+               return mid[name];
           case resolution.isBigScreen:
-               return styles[`${name}_b`];
+               return big[name];
           default:
                return '';
      }

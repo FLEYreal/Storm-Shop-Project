@@ -3,7 +3,7 @@ import { useMediaQuery } from 'react-responsive';
 import Button from '@mui/material/Button';
 import { Helmet } from 'react-helmet';
 
-import styles from './App.module.scss';
+import styles from './components/styles/App.module.scss';
 
 import Block_1 from './components/blocks/Block_1';
 import Block_2 from './components/blocks/Block_2';
@@ -40,8 +40,8 @@ function App(): JSX.Element {
                 particle.src = getRandomBadgeImage();
 
                 if (isSmallScreen) {
-                    particle.style.right = `3${Math.floor((Math.random() * 8))}${Math.floor((Math.random() * 5))}px`;
-                    particle.style.top = `500px`;
+                    particle.style.right = `calc(3${Math.floor((Math.random() * 8))}${Math.floor((Math.random() * 5))}px + 40px)`;
+                    particle.style.top = `600px`;
                 } else if (isMidScreen) {
                     particle.style.right = `1${Math.floor((Math.random() * 8))}${Math.floor((Math.random() * 5))}px`;
                 } else if (isBigScreen) {
@@ -86,7 +86,7 @@ function App(): JSX.Element {
 
             {/* Все картинки, дизайн, у всех position: absolute; */}
 
-            <div className={`${styles.absolute_content} ${resStyles('content_box', resolutions)}`}>
+            <div className={`${styles.absolute_content} ${resStyles('absolute_content', resolutions)}`}>
                 <img src={bubble4} className={`${styles.bubble4} ${resStyles('bubble4', resolutions)}`} alt="Bubble 4" />
                 <img src={wampus} className={`${styles.wampus} ${resStyles('wampus', resolutions)}`} alt="Wampus" />
                 <img src={tgIcon_big} className={`${styles.tgIcon_big} ${resStyles('tgIcon_big', resolutions)}`} alt="TG Icon" />
