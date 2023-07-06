@@ -1,9 +1,9 @@
 import React from 'react'
-import styles from './styles/App.module.scss'
+import styles from '../styles/App.module.scss'
 import MediaQuery from 'react-responsive';
 
-import useResolutions from './hooks/useResolusions.ts'
-import resStyles from './funcs/resStyles.ts';
+import useResolutions from '../hooks/useResolusions.ts'
+import resStyles from '../utils/resStyles.ts';
 
 import BigButton from './BigButton.tsx';
 import TransparentModal from './TransparentModal.tsx'

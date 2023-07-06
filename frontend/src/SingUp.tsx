@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './components/styles/App.module.scss'
+import styles from './styles/App.module.scss'
 import SimpleButton from './components/SimpleButton'
 
 function SignUp() {

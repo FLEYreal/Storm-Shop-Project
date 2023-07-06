@@ -3,13 +3,13 @@ import { useMediaQuery } from 'react-responsive';
 import Button from '@mui/material/Button';
 import { Helmet } from 'react-helmet';
 
-import styles from './components/styles/App.module.scss';
+import styles from './styles/App.module.scss';
 
 import Block_1 from './components/blocks/Block_1';
 import Block_2 from './components/blocks/Block_2';
 
-import resStyles from './components/funcs/resStyles.ts';
-import useResolutions from './components/hooks/useResolusions.ts';
+import resStyles from './utils/resStyles.ts';
+import useResolutions from './hooks/useResolusions.ts';
 
 import bubble1 from './components/img/bubbles.png';
 import bubble4 from './components/img/bubbles4.png';
@@ -27,10 +27,19 @@ import profile_2 from './components/img/profile_2.png';
 import profile_3 from './components/img/profile_3.png';
 import './staticApp.css';
 
+import Api from './utils/Api.ts'
+
 function App(): JSX.Element {
     /* Определить размер экрана, возвращает true/false */
     const resolutions = useResolutions()
     const { isBigScreen, isMidScreen, isSmallScreen, isPhone } = useResolutions()
+
+    // useEffect(() => {
+    //     const userApi = new Api('empty')
+    //     userApi.sendRequest('/goods', 'GET', {}, (res:object, data:object) => {
+    //         console.log('RESPONSE', data)
+    //     })
+    // }, [])
 
     useEffect(() => {
         if (!isPhone) {

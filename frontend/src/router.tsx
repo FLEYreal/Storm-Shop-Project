@@ -2,10 +2,10 @@ import React, { useState, useRef, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import SimpleButton from './components/SimpleButton';
-import resStyles from './components/funcs/resStyles.ts';
-import useResolutions from './components/hooks/useResolusions.ts';
+import resStyles from './utils/resStyles.ts';
+import useResolutions from './hooks/useResolusions.ts';
 
-import styles from './components/styles/App.module.scss';
+import styles from './styles/App.module.scss';
 import MediaQuery, { useMediaQuery } from 'react-responsive';
 import logo512 from './components/img/logo512.png';
 

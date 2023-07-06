@@ -1,9 +1,9 @@
 import React from 'react'
 import { useMediaQuery } from 'react-responsive';
 
-import useResolutions from '../hooks/useResolusions.ts'
-import resStyles from '../funcs/resStyles.ts';
-import styles from '../styles/App.module.scss';
+import useResolutions from '../../hooks/useResolusions.ts'
+import resStyles from '../../utils/resStyles.ts';
+import styles from '../../styles/App.module.scss';
 
 import MainWindow from '../MainWindow.tsx'
 import BigButton from '../BigButton.tsx';

@@ -1,9 +1,9 @@
 import React from 'react'
-import styles from '../styles/App.module.scss'
+import styles from '../../styles/App.module.scss'
 import { useMediaQuery } from 'react-responsive';
 
-import resStyles from '../funcs/resStyles.ts';
-import useResolutions from '../hooks/useResolusions.ts';
+import resStyles from '../../utils/resStyles.ts';
+import useResolutions from '../../hooks/useResolusions.ts';
 
 import tgIcon_small from '../img/tgIcon_small.svg';
 import discordIcon from '../img/discordIcon.svg';
