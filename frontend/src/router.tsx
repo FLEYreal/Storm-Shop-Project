@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, createContext } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import SimpleButton from './components/SimpleButton';
@@ -13,6 +13,11 @@ import App from './App.tsx';
 import SignUp from './SingUp.tsx'
 import LogIn from './LogIn.tsx';
 
+import Api from './utils/Api.ts'
+import { getUUID, checkUUID, findUUID } from './utils/UUID.ts';
+
+import { APIContext } from './context/APIContext.ts'
+
 function RouterComp() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [menuVisible, setMenuVisible] = useState(false);
@@ -22,7 +27,17 @@ function RouterComp() {
 
     /* Определить размер экрана, возвращает true/false */
     const resolutions = useResolutions()
-    const {isSmallScreen, isPhone} = useResolutions()
+    const { isSmallScreen, isPhone } = useResolutions()
+
+
+    // Получить UUID для пользователя и сохранить его в локальное хранилище браузера
+    async function AsyncEffect() {
+        const isUUID = checkUUID();
+        if (!isUUID) return await getUUID()
+    };
+    useEffect(() => {
+        AsyncEffect()
+    }, [])
 
 
     /* ФУНКЦИИ ДЛЯ МОБИЛЬНОГО МЕНЮ */
@@ -75,68 +90,70 @@ function RouterComp() {
 
     return (
         <main onClick={handleHideMenu}>
-            {/* Хедер сайта */}
+            <APIContext.Provider value={{api: new Api(findUUID() === '' ? '' : findUUID())}}>
+                {/* Хедер сайта */}
 
-            <header className={`${styles.header} ${styles[resStyles('header', resolutions)]} ${isScrolled ? styles.dark_header : ''}`}>
-                <div className={`${styles.header_content_container} ${resStyles('header_content_container', resolutions)}`}>
-                    <div className={styles.header_container}>
-                        <div className={styles.logo_container}>
-                            <a href='/' className={styles.logoLink}>
-                                <img src={logo512} className={`${styles.logo512} ${styles.logo}`} alt="Logo" />
-                            </a>Storm Shop
+                <header className={`${styles.header} ${styles[resStyles('header', resolutions)]} ${isScrolled ? styles.dark_header : ''}`}>
+                    <div className={`${styles.header_content_container} ${resStyles('header_content_container', resolutions)}`}>
+                        <div className={styles.header_container}>
+                            <div className={styles.logo_container}>
+                                <a href='/' className={styles.logoLink}>
+                                    <img src={logo512} className={`${styles.logo512} ${styles.logo}`} alt="Logo" />
+                                </a>Storm Shop
+                            </div>
+                            <MediaQuery maxWidth={920}>
+                                <SimpleButton className='click_detect' isGold={true} sx={{
+                                    fontSize: '25px',
+                                    fontWeight: '900'
+                                }} onClick={handleClickBurger}>
+                                    ☰
+                                </SimpleButton>
+                            </MediaQuery>
+                            <MediaQuery minWidth={1171}>
+                                <nav className={styles.header_options_container}>
+                                    <SimpleButton isGold={true}>Купить</SimpleButton>
+                                    <SimpleButton isGold={true}>Заказать Бота</SimpleButton>
+                                    <SimpleButton>Помощь</SimpleButton>
+                                    <SimpleButton>Хочу заработать!</SimpleButton>
+                                </nav>
+                            </MediaQuery>
+                            <MediaQuery minWidth={921} maxWidth={1170}>
+                                <nav className={styles.header_options_container}>
+                                    <SimpleButton sx={{ fontSize: '14px', padding: '8px 18px' }} isGold={true}>Купить</SimpleButton>
+                                    <SimpleButton sx={{ fontSize: '14px', padding: '8px 18px' }} isGold={true}>Заказать Бота</SimpleButton>
+                                    <SimpleButton sx={{ fontSize: '14px', padding: '8px 18px' }}>Помощь</SimpleButton>
+                                    <SimpleButton sx={{ fontSize: '14px', padding: '8px 18px' }}>Хочу заработать!</SimpleButton>
+                                </nav>
+                            </MediaQuery>
                         </div>
-                        <MediaQuery maxWidth={920}>
-                            <SimpleButton className='click_detect' isGold={true} sx={{
-                                fontSize: '25px',
-                                fontWeight: '900'
-                            }} onClick={handleClickBurger}>
-                                ☰
-                            </SimpleButton>
-                        </MediaQuery>
-                        <MediaQuery minWidth={1171}>
-                            <nav className={styles.header_options_container}>
-                                <SimpleButton isGold={true}>Купить</SimpleButton>
-                                <SimpleButton isGold={true}>Заказать Бота</SimpleButton>
-                                <SimpleButton>Помощь</SimpleButton>
-                                <SimpleButton>Хочу заработать!</SimpleButton>
-                            </nav>
-                        </MediaQuery>
-                        <MediaQuery minWidth={921} maxWidth={1170}>
-                            <nav className={styles.header_options_container}>
-                                <SimpleButton sx={{fontSize: '14px', padding: '8px 18px'}} isGold={true}>Купить</SimpleButton>
-                                <SimpleButton sx={{fontSize: '14px', padding: '8px 18px'}} isGold={true}>Заказать Бота</SimpleButton>
-                                <SimpleButton sx={{fontSize: '14px', padding: '8px 18px'}}>Помощь</SimpleButton>
-                                <SimpleButton sx={{fontSize: '14px', padding: '8px 18px'}}>Хочу заработать!</SimpleButton>
-                            </nav>
-                        </MediaQuery>
                     </div>
-                </div>
-            </header>
+                </header>
 
-            {/* Бургер меню, для мобильных устройств */}
+                {/* Бургер меню, для мобильных устройств */}
 
-            <nav
-                ref={menuRef}
-                style={{ display: menuVisible ? 'flex' : 'none' }}
-                className={styles.burger_menu}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-            >
-                <SimpleButton isGold={true} className={styles.burger_item}>Купить</SimpleButton>
-                <SimpleButton isGold={true} className={styles.burger_item}>Заказать Бота</SimpleButton>
-                <SimpleButton className={styles.burger_item}>Помощь</SimpleButton>
-                <SimpleButton className={styles.burger_item}>Хочу заработать!</SimpleButton>
-            </nav>
+                <nav
+                    ref={menuRef}
+                    style={{ display: menuVisible ? 'flex' : 'none' }}
+                    className={styles.burger_menu}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                >
+                    <SimpleButton isGold={true} className={styles.burger_item}>Купить</SimpleButton>
+                    <SimpleButton isGold={true} className={styles.burger_item}>Заказать Бота</SimpleButton>
+                    <SimpleButton className={styles.burger_item}>Помощь</SimpleButton>
+                    <SimpleButton className={styles.burger_item}>Хочу заработать!</SimpleButton>
+                </nav>
 
-            {/* Роуты */}
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/" element={<App />} />
-                    <Route path="/*" element={<App />} />
-                    <Route path="/signup" element={<SignUp />} />
-                    <Route path="/login" element={<LogIn />} />
-                </Routes>
-            </BrowserRouter>
+                {/* Роуты */}
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<App />} />
+                        <Route path="/*" element={<App />} />
+                        <Route path="/signup" element={<SignUp />} />
+                        <Route path="/login" element={<LogIn />} />
+                    </Routes>
+                </BrowserRouter>
+            </APIContext.Provider>
         </main>
     )
 }

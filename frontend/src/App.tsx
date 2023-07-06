@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import Button from '@mui/material/Button';
 import { Helmet } from 'react-helmet';
@@ -27,20 +27,17 @@ import profile_2 from './components/img/profile_2.png';
 import profile_3 from './components/img/profile_3.png';
 import './staticApp.css';
 
-import Api from './utils/Api.ts'
+import {APIContext} from './context/APIContext.ts'
 
 function App(): JSX.Element {
     /* Определить размер экрана, возвращает true/false */
     const resolutions = useResolutions()
     const { isBigScreen, isMidScreen, isSmallScreen, isPhone } = useResolutions()
 
-    // useEffect(() => {
-    //     const userApi = new Api('empty')
-    //     userApi.sendRequest('/goods', 'GET', {}, (res:object, data:object) => {
-    //         console.log('RESPONSE', data)
-    //     })
-    // }, [])
 
+    const api = useContext(APIContext)
+    console.log(api)
+    
     useEffect(() => {
         if (!isPhone) {
             const timer = setInterval(() => {
