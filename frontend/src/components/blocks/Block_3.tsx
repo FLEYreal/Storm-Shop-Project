@@ -4,6 +4,8 @@ import Good from '../Good'
 import { APIContext } from '../../context/APIContext'
 
 import styles from '../../styles/App.module.scss'
+import resStyles from '../../utils/resStyles';
+import useResolutions from '../../hooks/useResolusions';
 
 interface Good {
     type: string;
@@ -20,6 +22,7 @@ interface Good {
 function Block_3() {
     const [goodList, setGoodlist] = useState<Good[]>([]);
 
+    const resolutions = useResolutions()    
     const api = useContext(APIContext)!.api
 
     useEffect(() => {
@@ -30,14 +33,14 @@ function Block_3() {
         fetchEffect()
     }, [])
 
-    goodList.map(good => console.log(good))
     return (
-        <section>
-            <hr style={{margin: '0 auto', width: 1170}}></hr>
-            <div className={styles.goodList_title}>
+        <>
+            <hr style={{margin: '0 auto'}} className={`${resStyles('hr', resolutions)}`}></hr>
+            <section>
+            <div className={`${styles.goodList_title} ${resStyles('goodList_title', resolutions)}`}>
                 ТОВАРЫ:
             </div>
-            <div className={styles.goodList}>
+            <div className={`${styles.goodList} ${resStyles('goodList', resolutions)}`}>
                 {
                     goodList.map(good =>
                         <Good
@@ -55,6 +58,7 @@ function Block_3() {
                 }
             </div>
         </section>
+        </>
     )
 };
 

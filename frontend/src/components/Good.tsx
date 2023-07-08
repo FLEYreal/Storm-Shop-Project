@@ -1,5 +1,7 @@
 import React from 'react'
 import resStyles from '../utils/resStyles'
+import useResolutions from '../hooks/useResolusions'
+
 import styles from '../styles/App.module.scss'
 
 import SimpleButton from './SimpleButton'
@@ -17,10 +19,12 @@ interface Description {
 function Good({desc}:{desc:Description}) {
      let { themeTransparent, theme, title, subtitle, cost, image } = desc;
 
+     const resolutions = useResolutions()
+
      subtitle = shortenText(subtitle, 60)
 
      return (
-          <div className={styles.goodItem}>
+          <div className={`${styles.goodItem} ${resStyles('goodItem', resolutions)}`}>
                <div style={{backgroundImage: `url('${process.env.REACT_APP_BACKEND_IP}:${process.env.REACT_APP_BACKEND_PORT}${image}')`}} className={styles.goodItem_image}></div>
                <div className={styles.goodItem_top}>
                     <div className={styles.goodItem_title}>{title}</div>

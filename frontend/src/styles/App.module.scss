@@ -326,7 +326,6 @@ $unhighlighted_color: #cfcfcf;
 .other_networks {
     margin: 0 auto;
     margin-bottom: 64px;
-    height: 400px;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -374,17 +373,13 @@ $unhighlighted_color: #cfcfcf;
     font-weight: 600;
     line-height: normal;
     margin: 0 auto;
-    width: 1170px;
     margin-top: 64px;
     margin-bottom: 32px;
 }
 
 .goodList {
-    width: 1170px;
-    //border: 2px solid white;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
     flex-flow: row wrap;
 
     .goodItem {
