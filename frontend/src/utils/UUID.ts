@@ -1,36 +1,66 @@
 import axios from 'axios';
 
 export function getUUID() {
-    const ip: string = process.env.REACT_APP_BACKEND_IP!;
-    const port: string | number = process.env.REACT_APP_BACKEND_PORT!;
-    const verPrefix: string = process.env.REACT_APP_VERSIONING_PREFIX!;
-    const fullIp: string = `${ip}:${port}${verPrefix}`;
+    let table : string[] = [
+        "0", "1", "2", "3",
+        "4", "5", "6", "7",
+        "8", "9", "a", "b",
+        "c", "d", "e", "f"
+    ]
 
-    const reqData: Record<string, any> = {
-        method: 'GET',
-        url: `${fullIp}/getUUID`,
-    };
+    let uuid : string = "";
 
-    return new Promise((resolve, reject) => {
-        axios(reqData)
-            .then((res) => {
-                localStorage.setItem('uuid', res.data)
-                resolve(res.data);
-            })
-            .catch((error) => {
-                console.log(`Error requesting UUID: ${error}`);
-                reject(error);
-            });
-    });
+    let i : number = 0;
+
+    while(i < 8) {
+        uuid += table[Math.ceil(Math.random() * 8192) % table.length];
+        i++;
+    }
+
+    uuid += "-";
+    i = 0;
+
+    while(i < 4) {
+        uuid += table[Math.ceil(Math.random() * 8192) % table.length];
+        i++;
+    }
+
+    uuid += "-";
+    i = 0;
+
+    while(i < 4) {
+        uuid += table[Math.ceil(Math.random() * 8192) % table.length];
+        i++;
+    }
+
+    uuid += "-";
+    i = 0;
+
+    while(i < 4) {
+        uuid += table[Math.ceil(Math.random() * 8192) % table.length];
+        i++;
+    }
+
+    uuid += "-";
+    i = 0;
+
+    while(i < 10) {
+        uuid += table[Math.ceil(Math.random() * 8192) % table.length];
+        i++;
+    }
+
+    localStorage.setItem('uuid', uuid);
+
+    return uuid;
 }
 
 export function checkUUID() {
-    if(localStorage.getItem('uuid')) return true;
+    if (localStorage.getItem('uuid')) return true;
     else return false;
 }
 
 
-export function findUUID():string {
-    if(localStorage.getItem('uuid')) return localStorage.getItem('uuid')!;
+export function findUUID(): string {
+    if (localStorage.getItem('uuid')) return localStorage.getItem('uuid')!;
     else return '';
 }

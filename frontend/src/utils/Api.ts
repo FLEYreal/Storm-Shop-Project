@@ -1,12 +1,12 @@
 import axios from 'axios'
-import React from 'react'
 
 export default class Api {
     private ip: string;
     private port: string | number;
     private verPrefix: string;
-    public uuid: string;
     private fullIp: string;
+
+    public uuid: string;
 
     constructor(uuid: string) {
         this.ip = process.env.REACT_APP_BACKEND_IP!;
@@ -24,11 +24,18 @@ export default class Api {
 
         if (method === 'POST') reqData.data = body
 
-        axios(reqData)
-            .then((res) => {
-                callback(res, res.data);
-                return res;
+        return (new Promise((resolve, reject) => {
+            axios(reqData)
+            .then(async (res) => {
+                await callback(res, res.data);
+                resolve(res);
             })
             .catch((error) => console.log(`Error requesting ${reqData.url}: ${error}`))
+        }))
+    }
+
+    async getGoodList() {
+        let res = await this.sendRequest('/goods', 'GET', {}, <T>(res:T, data:T) => {console.log('API: ', res)})
+        return res
     }
 }

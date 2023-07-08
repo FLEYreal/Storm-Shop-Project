@@ -29,14 +29,12 @@ function RouterComp() {
     const resolutions = useResolutions()
     const { isSmallScreen, isPhone } = useResolutions()
 
+    
 
-    // Получить UUID для пользователя и сохранить его в локальное хранилище браузера
-    async function AsyncEffect() {
+    // Получить UUID для пользователя и сохранить его в локальное хранилище браузера    
+    useEffect(():void => {
         const isUUID = checkUUID();
-        if (!isUUID) return await getUUID()
-    };
-    useEffect(() => {
-        AsyncEffect()
+        if (!isUUID) getUUID()
     }, [])
 
 
@@ -82,7 +80,7 @@ function RouterComp() {
             setIsScrolled(false);
         };
     };
-
+ 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
@@ -90,7 +88,7 @@ function RouterComp() {
 
     return (
         <main onClick={handleHideMenu}>
-            <APIContext.Provider value={{api: new Api(findUUID() === '' ? '' : findUUID())}}>
+            <APIContext.Provider value={{api: new Api(findUUID() === '' ? getUUID() : findUUID())}}>
                 {/* Хедер сайта */}
 
                 <header className={`${styles.header} ${styles[resStyles('header', resolutions)]} ${isScrolled ? styles.dark_header : ''}`}>

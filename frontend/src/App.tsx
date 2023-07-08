@@ -7,6 +7,7 @@ import styles from './styles/App.module.scss';
 
 import Block_1 from './components/blocks/Block_1';
 import Block_2 from './components/blocks/Block_2';
+import Block_3 from './components/blocks/Block_3'
 
 import resStyles from './utils/resStyles.ts';
 import useResolutions from './hooks/useResolusions.ts';
@@ -34,10 +35,15 @@ function App(): JSX.Element {
     const resolutions = useResolutions()
     const { isBigScreen, isMidScreen, isSmallScreen, isPhone } = useResolutions()
 
+    const api = useContext(APIContext)!.api
+    useEffect(() => {
+        async function fetchEffect() {
+            let res = await api?.getGoodList();
+            console.log('APP: ', res)
+        }
+        fetchEffect()
+    }, [])
 
-    const api = useContext(APIContext)
-    console.log(api)
-    
     useEffect(() => {
         if (!isPhone) {
             const timer = setInterval(() => {
@@ -108,6 +114,7 @@ function App(): JSX.Element {
 
             <Block_1 />
             <Block_2 />
+            <Block_3 />
         </div>
     );
 }

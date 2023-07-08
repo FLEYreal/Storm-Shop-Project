@@ -365,6 +365,27 @@ $unhighlighted_color: #cfcfcf;
     }
 }
 
+.goodItem {
+    width: 314px;
+    height: 400px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: rgba(43, 43, 43, 0.50);
+    backdrop-filter: blur(8px);
+    margin: 26px;
+    border: 3px solid rgba(255, 255, 255, 0.45);
+
+    .image {
+        border: 3px solid rgba(255, 255, 255, 0.45);
+        background-image: url('../components/previews/preview_1.png');
+        margin: 0 auto;
+        margin-top: 16px;
+        border-radius: 10px;
+        width: 276px;
+        height: 218px;
+    }
+}
+
 @keyframes wave {
     0% {
         transform: translate(-25%, -25%);
