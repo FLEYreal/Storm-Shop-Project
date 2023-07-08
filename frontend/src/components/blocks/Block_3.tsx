@@ -7,9 +7,9 @@ function Block_3() {
         <div>
             <Good desc={{
                 title: 'NITRO FULL: 1 МЕСЯЦ',
-                subtitle: 'ваше описание товара здесь',
+                subtitle: 'ваше описание товара здесь ваше описание товара здесь ваше описание товара здесь',
                 cost: 324.99,
-                image: "http://localhost:8081/public/images/previews/preview_1.png"
+                image: "/public/images/previews/preview_1.png"
             }}/>
         </div>
     )

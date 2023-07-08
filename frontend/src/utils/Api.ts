@@ -35,7 +35,7 @@ export default class Api {
     }
 
     async getGoodList() {
-        let res = await this.sendRequest('/goods', 'GET', {}, <T>(res:T, data:T) => {console.log('API: ', res)})
+        let res = await this.sendRequest('/goods', 'GET', {}, <T>(res:T, data:T) => {})
         return res
     }
 }

@@ -39,7 +39,6 @@ function App(): JSX.Element {
     useEffect(() => {
         async function fetchEffect() {
             let res = await api?.getGoodList();
-            console.log('APP: ', res)
         }
         fetchEffect()
     }, [])
