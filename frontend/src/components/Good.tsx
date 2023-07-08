@@ -24,7 +24,7 @@ function Good({desc}:{desc:Description}) {
                <div style={{backgroundImage: `url('${process.env.REACT_APP_BACKEND_IP}:${process.env.REACT_APP_BACKEND_PORT}${image}')`}} className={styles.goodItem_image}></div>
                <div className={styles.goodItem_top}>
                     <div className={styles.goodItem_title}>{title}</div>
-                    <div className={styles.goodItem_cost}>{cost}</div>
+                    <div className={styles.goodItem_cost}>{cost} ₽</div>
                </div>
                <div className={styles.goodItem_middle}>
                     <div className={styles.goodItem_subtitle}>{subtitle}</div>
@@ -32,7 +32,10 @@ function Good({desc}:{desc:Description}) {
                          <a href={'/'}>Узнать подробнее</a>
                     </div>
                </div>
-               <SimpleButton sx={{color: theme, border: `2px solid ${theme}`, backgroundColor: themeTransparent}} className={styles.goodItem_buyButton}>Купить</SimpleButton>
+               <SimpleButton sx={{color: theme, border: `2px solid ${theme}`, backgroundColor: themeTransparent, '&:hover': {
+                    backgroundColor: themeTransparent,
+                    boxShadow: 'none',
+                },}} className={styles.goodItem_buyButton}>Купить</SimpleButton>
           </div>
      )
 };

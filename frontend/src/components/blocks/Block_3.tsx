@@ -33,6 +33,10 @@ function Block_3() {
     goodList.map(good => console.log(good))
     return (
         <section>
+            <hr style={{margin: '0 auto', width: 1170}}></hr>
+            <div className={styles.goodList_title}>
+                ТОВАРЫ:
+            </div>
             <div className={styles.goodList}>
                 {
                     goodList.map(good =>
@@ -49,14 +53,6 @@ function Block_3() {
                         />
                     )
                 }
-                {/* <Good desc={{
-                    title: 'NITRO FULL: 1 МЕСЯЦ',
-                    subtitle: 'ваше описание товара здесь ваше описание товара здесь ваше описание товара здесь',
-                    cost: 324.99,
-                    image: "/public/images/previews/preview_1.png",
-                    theme: "#F04EFF",
-                    themeTransparent: "rgba(240, 78, 255, 0.10)"
-                }} /> */}
             </div>
         </section>
     )

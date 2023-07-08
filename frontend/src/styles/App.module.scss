@@ -325,6 +325,7 @@ $unhighlighted_color: #cfcfcf;
 
 .other_networks {
     margin: 0 auto;
+    margin-bottom: 64px;
     height: 400px;
     display: flex;
     flex-flow: column nowrap;
@@ -365,12 +366,26 @@ $unhighlighted_color: #cfcfcf;
     }
 }
 
+
+.goodList_title {
+    color: #FFF;
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0 auto;
+    width: 1170px;
+    margin-top: 64px;
+    margin-bottom: 32px;
+}
+
 .goodList {
     width: 1170px;
     //border: 2px solid white;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    flex-flow: row wrap;
 
     .goodItem {
         width: 340px;
@@ -380,6 +395,7 @@ $unhighlighted_color: #cfcfcf;
         background: rgba(43, 43, 43, 0.50);
         backdrop-filter: blur(8px);
         border: 3px solid rgba(255, 255, 255, 0.45);
+        margin-bottom: 72px;
 
         &_image {
             border: 3px solid rgba(255, 255, 255, 0.45);
@@ -399,9 +415,9 @@ $unhighlighted_color: #cfcfcf;
 
             .goodItem_title {
                 color: #FFF;
-                font-size: 19px;
+                font-size: 18.5px;
                 font-style: normal;
-                font-weight: 800;
+                font-weight: 700;
                 line-height: normal;
                 cursor: pointer;
 
@@ -419,8 +435,8 @@ $unhighlighted_color: #cfcfcf;
                 font-style: normal;
                 font-weight: 500;
                 line-height: normal;
-                width: 60px;
-                height: 28px;
+                width: 55px;
+                height: 25px;
                 flex-shrink: 0;
                 cursor: pointer;
                 display: flex;
@@ -469,6 +485,7 @@ $unhighlighted_color: #cfcfcf;
             padding: 6px 32px;
             margin: 0;
             border-radius: 10px;
+
         }
     }
 }
