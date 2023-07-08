@@ -35,14 +35,6 @@ function App(): JSX.Element {
     const resolutions = useResolutions()
     const { isBigScreen, isMidScreen, isSmallScreen, isPhone } = useResolutions()
 
-    const api = useContext(APIContext)!.api
-    useEffect(() => {
-        async function fetchEffect() {
-            let res = await api?.getGoodList();
-        }
-        fetchEffect()
-    }, [])
-
     useEffect(() => {
         if (!isPhone) {
             const timer = setInterval(() => {

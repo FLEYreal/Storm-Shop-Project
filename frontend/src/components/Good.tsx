@@ -10,12 +10,14 @@ interface Description {
      subtitle:string
      cost:string | number,
      image:string,
+     theme:string,
+     themeTransparent:string
 }
 
 function Good({desc}:{desc:Description}) {
-     const { title, subtitle, cost, image } = desc;
+     let { themeTransparent, theme, title, subtitle, cost, image } = desc;
 
-     console.log(shortenText(subtitle, 32))
+     subtitle = shortenText(subtitle, 60)
 
      return (
           <div className={styles.goodItem}>
@@ -30,9 +32,7 @@ function Good({desc}:{desc:Description}) {
                          <a href={'/'}>Узнать подробнее</a>
                     </div>
                </div>
-               <div className={styles.gootItem_bottom}>
-                    <SimpleButton className={styles.goodItem_buyButton}>Купить</SimpleButton>
-               </div>
+               <SimpleButton sx={{color: theme, border: `2px solid ${theme}`, backgroundColor: themeTransparent}} className={styles.goodItem_buyButton}>Купить</SimpleButton>
           </div>
      )
 };
