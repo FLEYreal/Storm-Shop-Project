@@ -26,6 +26,7 @@ import discordIcon from './components/img/discordIcon.svg';
 import profile_1 from './components/img/profile_1.png';
 import profile_2 from './components/img/profile_2.png';
 import profile_3 from './components/img/profile_3.png';
+import light from './components/img/light.svg'
 import './staticApp.css';
 
 import {APIContext} from './context/APIContext.ts'
@@ -87,6 +88,7 @@ function App(): JSX.Element {
                 <meta name="author" content="FLEY"/>
             </Helmet>
 
+
             {/* Все картинки, дизайн, у всех position: absolute; */}
 
             <div className={`${styles.absolute_content} ${resStyles('absolute_content', resolutions)}`}>
@@ -97,9 +99,9 @@ function App(): JSX.Element {
                 <img src={bubble4} className={`${styles.bubble4_1} ${resStyles('bubble4_1', resolutions)}`} alt="Bubble 4.1" />
                 <div id="particles-container" className={styles.particlesContainer}></div>
             </div>
-            <div className={styles.absolute}>
-                <img src={bubble1} className={`${styles.bubble1} ${resStyles('bubble1', resolutions)}`} alt="Bubble 1" />
-            </div>
+            <div className={`${styles.purple_light} ${resStyles('purple_light', resolutions)}`}></div>
+            <div className={`${styles.blue_light} ${resStyles('blue_light', resolutions)}`}></div>
+            <img src={bubble1} className={`${styles.bubble1} ${resStyles('bubble1', resolutions)}`} alt="Bubble 1" />
 
             {/* Разные Блоки сайта */}
 

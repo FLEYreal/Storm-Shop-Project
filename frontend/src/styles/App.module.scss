@@ -62,17 +62,32 @@ $unhighlighted_color: #cfcfcf;
         }
     }
 
-    .absolute {
-        position: relative;
-        z-index: 1;
+    .purple_light {
+        position: absolute;
+        left: -10px;
+        z-index: -1;
+        background: rgba(0,0,0,0);
+        width: 0px;
+        height: 265px;
+        flex-shrink: 0;
+    }
 
-        .bubble1 {
-            transform: rotate(180deg);
-            position: absolute;
-            opacity: 0.6;
-            right: 0;
-            animation: movingBubble1 9s ease-in-out infinite;
-        }
+    .blue_light {
+        position: absolute;
+        z-index: -1;
+        background: rgba(0,0,0,0);
+        width: 0px;
+        height: 25px;
+        flex-shrink: 0;
+    }
+
+    .bubble1 {
+        z-index: 1;
+        transform: rotate(180deg);
+        position: absolute;
+        opacity: 0.6;
+        right: 0;
+        animation: movingBubble1 9s ease-in-out infinite;
     }
 
     .main_container {

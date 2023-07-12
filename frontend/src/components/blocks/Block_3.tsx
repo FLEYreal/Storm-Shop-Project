@@ -22,7 +22,7 @@ interface Good {
 function Block_3() {
     const [goodList, setGoodlist] = useState<Good[]>([]);
 
-    const resolutions = useResolutions()    
+    const resolutions = useResolutions()
     const api = useContext(APIContext)!.api
 
     useEffect(() => {
@@ -35,29 +35,29 @@ function Block_3() {
 
     return (
         <>
-            <hr style={{margin: '0 auto'}} className={`${resStyles('hr', resolutions)}`}></hr>
+            <hr style={{ margin: '0 auto' }} className={`${resStyles('hr', resolutions)}`}></hr>
             <section>
-            <div className={`${styles.goodList_title} ${resStyles('goodList_title', resolutions)}`}>
-                ТОВАРЫ:
-            </div>
-            <div className={`${styles.goodList} ${resStyles('goodList', resolutions)}`}>
-                {
-                    goodList.map(good =>
-                        <Good
-                            key={good.id}
-                            desc={{
-                                title: good.displayName,
-                                subtitle: good.desc,
-                                cost: good.cost,
-                                image: good.imageUrl,
-                                theme: good.themeColor,
-                                themeTransparent: good.themeTransparent
-                            }}
-                        />
-                    )
-                }
-            </div>
-        </section>
+                <div className={`${styles.goodList_title} ${resStyles('goodList_title', resolutions)}`}>
+                    ТОВАРЫ:
+                </div>
+                <div className={`${styles.goodList} ${resStyles('goodList', resolutions)}`}>
+                    {
+                        goodList.map(good =>
+                            <Good
+                                key={good.id}
+                                desc={{
+                                    title: good.displayName,
+                                    subtitle: good.desc,
+                                    cost: good.cost,
+                                    image: good.imageUrl,
+                                    theme: good.themeColor,
+                                    themeTransparent: good.themeTransparent
+                                }}
+                            />
+                        )
+                    }
+                </div>
+            </section>
         </>
     )
 };
