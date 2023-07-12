@@ -24,6 +24,7 @@ $font_family: Roboto, Tahoma, Arial, Helvetica, sans-serif;
 $unhighlighted_color: #cfcfcf;
 
 .app {
+    overflow-x: hidden;
     font-family: $font_family;
     color: white;
 
