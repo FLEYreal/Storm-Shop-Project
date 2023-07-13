@@ -10,7 +10,7 @@ import MediaQuery, { useMediaQuery } from 'react-responsive';
 import logo512 from './components/img/logo512.png';
 
 import App from './App.tsx';
-import SignUp from './SingUp.tsx'
+import SignUp from './SignUp.tsx'
 import LogIn from './LogIn.tsx';
 
 import Api from './utils/Api.ts'

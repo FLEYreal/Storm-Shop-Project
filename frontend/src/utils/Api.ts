@@ -22,20 +22,42 @@ export default class Api {
             url: `${this.fullIp}${route}`
         }
 
-        if (method === 'POST') reqData.data = body
+        if (method === 'POST' || 'OPTIONS') reqData.data = body
 
         return (new Promise((resolve, reject) => {
             axios(reqData)
-            .then(async (res) => {
-                await callback(res, res.data);
-                resolve(res);
-            })
-            .catch((error) => console.log(`Error requesting ${reqData.url}: ${error}`))
+                .then(async (res) => {
+                    await callback(res, res.data);
+                    resolve(res);
+                })
+                .catch((error) => {
+                    console.log(`Error requesting ${reqData.url}: ${error}`)
+                })
         }))
     }
 
     async getGoodList() {
-        let res = await this.sendRequest('/goods', 'GET', {}, <T>(res:T, data:T) => {})
+        let res = await this.sendRequest('/goods', 'GET', {}, () => { })
         return res
+    }
+
+    async signUp(body: { username: string, password: string, recaptchaToken: string }) {
+        let res: any = await this.sendRequest('/signup', 'POST', {
+            username: body.username,
+            password: body.password,
+            recaptchaToken: body.recaptchaToken,
+            uuid: localStorage.getItem('uuid')
+        }, () => { })
+        return res;
+    }
+
+    async login(body: { username: string, password: string, recaptchaToken: string }) {
+        let res: any = await this.sendRequest('/login', 'POST', {
+            username: body.username,
+            password: body.password,
+            recaptchaToken: body.recaptchaToken
+        }, () => { })
+        if(res.data.succeed) localStorage.setItem('uuid', res.data.uuid)
+        return res;
     }
 }
