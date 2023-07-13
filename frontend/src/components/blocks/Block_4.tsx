@@ -1,47 +1,37 @@
+// Базовые импорты
 import React, { useContext, useEffect, useState } from 'react'
 
-import Good from '../Good'
-import { APIContext } from '../../context/APIContext'
-
+// Стили
 import styles from '../../styles/App.module.scss'
 import resStyles from '../../utils/resStyles';
 import useResolutions from '../../hooks/useResolusions';
 
-interface Good {
-    type: string;
-    id: number;
-    name: string;
-    displayName: string;
-    desc: string;
-    imageUrl: string;
-    themeColor: string;
-    themeTransparent: string;
-    cost: number;
-}
+// Компоненты & Хуки проекта
+import Good from '../Good'
 
-function Block_3() {
-    const [goodList, setGoodlist] = useState<Good[]>([]);
+// API импорты
+import { APIContext } from '../../context/APIContext'
 
+function Block_4() {
+
+    // Получить объект с разрешением экрана
     const resolutions = useResolutions()
-    const api = useContext(APIContext)!.api
 
-    useEffect(() => {
-        async function fetchEffect() {
-            let res = await api?.getGoodList() as { data: any };
-            setGoodlist(res!.data)
-        }
-        fetchEffect()
-    }, [])
+    // Класс для работы с API
+    const api = useContext(APIContext)!.api
 
     return (
         <>
             <section className={`${styles.botOrder}`}>
+
+                {/* Основной контент */}
                 <div className={`${styles.botOrder_container}`}>
                     
                 </div>
+                
             </section>
         </>
     )
 };
 
-export default Block_3
+export default Block_4

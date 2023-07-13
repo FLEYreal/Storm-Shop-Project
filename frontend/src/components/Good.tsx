@@ -1,12 +1,16 @@
+// Базовые имопрты
 import React from 'react'
+
+// Стили
 import resStyles from '../utils/resStyles'
+import styles from '../styles/App.module.scss'
 import useResolutions from '../hooks/useResolusions'
 
-import styles from '../styles/App.module.scss'
-
+// Компоненты & Хуки проекта
 import SimpleButton from './SimpleButton'
 import shortenText from '../utils/shortenText'
 
+// Интерфейс для описания товара
 interface Description {
      title:string,
      subtitle:string
@@ -17,29 +21,42 @@ interface Description {
 }
 
 function Good({desc}:{desc:Description}) {
+
+     // Получить все переменные описания товара
      let { themeTransparent, theme, title, subtitle, cost, image } = desc;
 
+     // Получить объект с разрешением экрана
      const resolutions = useResolutions()
 
+     // Укоротить текст описания
      subtitle = shortenText(subtitle, 60)
 
      return (
           <div className={`${styles.goodItem} ${resStyles('goodItem', resolutions)}`}>
+
+               {/* Вывести картинку */}
                <div style={{backgroundImage: `url('${process.env.REACT_APP_BACKEND_IP}:${process.env.REACT_APP_BACKEND_PORT}${image}')`}} className={styles.goodItem_image}></div>
+
+               {/* Вывести заголовок и цену */}
                <div className={styles.goodItem_top}>
                     <div className={styles.goodItem_title}>{title}</div>
                     <div className={styles.goodItem_cost}>{cost} ₽</div>
                </div>
+
+               {/* Вывести описание и ссылку на продолжение */}
                <div className={styles.goodItem_middle}>
                     <div className={styles.goodItem_subtitle}>{subtitle}</div>
                     <div className={styles.goodItem_readMore}>
                          <a href={'/'}>Узнать подробнее</a>
                     </div>
                </div>
+
+               {/* Кнопка для покупки */}
                <SimpleButton sx={{color: theme, border: `2px solid ${theme}`, backgroundColor: themeTransparent, '&:hover': {
                     backgroundColor: themeTransparent,
                     boxShadow: 'none',
                 },}} className={styles.goodItem_buyButton}>Купить</SimpleButton>
+                
           </div>
      )
 };

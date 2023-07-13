@@ -1,18 +1,22 @@
+// Базовые импорты
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import Button from '@mui/material/Button';
 import { Helmet } from 'react-helmet';
 
+// Стили
 import styles from './styles/App.module.scss';
+import './staticApp.css';
+import resStyles from './utils/resStyles.ts';
+import useResolutions from './hooks/useResolusions.ts';
 
+
+// Импорт блоков сайта
 import Block_1 from './components/blocks/Block_1';
 import Block_2 from './components/blocks/Block_2';
 import Block_3 from './components/blocks/Block_3';
 import Block_4 from './components/blocks/Block_4';
 
-import resStyles from './utils/resStyles.ts';
-import useResolutions from './hooks/useResolusions.ts';
-
+// Импорт картинок
 import bubble1 from './components/img/bubbles.png';
 import bubble4 from './components/img/bubbles4.png';
 import wampus from './components/img/wampus.png';
@@ -24,13 +28,6 @@ import starIcon from './components/img/starIcon.png';
 import tgIcon_small from './components/img/tgIcon_small.svg';
 import tgIcon_big from './components/img/tgIcon_big.svg';
 import discordIcon from './components/img/discordIcon.svg';
-import profile_1 from './components/img/profile_1.png';
-import profile_2 from './components/img/profile_2.png';
-import profile_3 from './components/img/profile_3.png';
-import light from './components/img/light.svg'
-import './staticApp.css';
-
-import {APIContext} from './context/APIContext.ts'
 
 function App(): JSX.Element {
     /* Определить размер экрана, возвращает true/false */
@@ -38,24 +35,49 @@ function App(): JSX.Element {
     const { isBigScreen, isMidScreen, isSmallScreen, isPhone } = useResolutions()
 
     useEffect(() => {
+        // Если разрешение экрана не телефона
         if (!isPhone) {
+
+            // Установить таймер
             const timer = setInterval(() => {
+
+                // Создать контейнер для частиц
                 const particlesContainer = document.getElementById('particles-container');
+
+                // Создать элемент частицы
                 const particle = document.createElement('img');
+
+                // Получить рандомную картинку
                 particle.src = getRandomBadgeImage();
 
+                // Проверка размера экрана, после - определение положения частицы на сайте
                 if (isSmallScreen) {
+
+                    // Стили для определения положения
                     particle.style.right = `calc(3${Math.floor((Math.random() * 8))}${Math.floor((Math.random() * 5))}px + 40px)`;
                     particle.style.top = `600px`;
-                } else if (isMidScreen) {
+
+                } 
+                else if (isMidScreen) {
+
+                    // Стили для определения положения
                     particle.style.right = `1${Math.floor((Math.random() * 8))}${Math.floor((Math.random() * 5))}px`;
-                } else if (isBigScreen) {
+
+                } 
+                else if (isBigScreen) {
+
+                    // Стили для определения положения
                     particle.style.right = `1${Math.floor((Math.random() * 6))}${Math.floor((Math.random() * 9))}px`;
+
                 }
 
+                // Добавить нужные стили для частицы
                 particle.className = `${styles.badgeRain} ${resStyles('badgeRain', resolutions)} ${getRandomBadgeClass()}`;
+
+                // Вывести частицу на страницу
                 particlesContainer!.appendChild(particle);
 
+                // Удалить частицу после 10 секунд
                 setTimeout(() => {
                     particlesContainer!.removeChild(particle);
                 }, 10000);
@@ -65,22 +87,35 @@ function App(): JSX.Element {
         }
     }, []);
 
-    /* Рандомайзер для КОМПОНЕНТОВ дождя из картинок под вампусом */
+    // Рандомайзер для КОМПОНЕНТОВ дождя из картинок под вампусом
     const getRandomBadgeImage = () => {
+        // Массив картинок
         const images = [activeDeveloperBadge, nitroBadge, boostIcon, botIcon, starIcon, tgIcon_small];
+
+        // Получить рандомную картинку
         const randomIndex = Math.floor(Math.random() * images.length);
+
+        // Вернуть рандомную картинку
         return images[randomIndex];
     };
 
-    /* Рандомайзер для КЛАССОВ дождя из картинок под вампусом */
+    // Рандомайзер для КЛАССОВ дождя из картинок под вампусом
     const getRandomBadgeClass = () => {
+        // Получить классы анимаций для картинок
         const classes = ['badgeRain1', 'badgeRain2', 'badgeRain3', 'badgeRain4', 'badgeRain5'];
+
+        // Получить рандомную анимацию
         const randomIndex = Math.floor(Math.random() * classes.length);
+
+        // Вернуть рандомную анимацию
         return classes[randomIndex];
     };
 
     return (
         <div className={`${styles.app}`}>
+
+            {/* Установка тегов для описания страницы и CEO */}
+
             <Helmet>
                 <title>StormShop: Магазин Нитро и не только!</title>
                 <meta name="description" content="StormShop: Магазин дискорд услуг, а именно Нитро, Бейджики, Создание ботов и даже сайтов!" />
@@ -100,9 +135,11 @@ function App(): JSX.Element {
                 <img src={bubble4} className={`${styles.bubble4_1} ${resStyles('bubble4_1', resolutions)}`} alt="Bubble 4.1" />
                 <div id="particles-container" className={styles.particlesContainer}></div>
             </div>
-            <div className={`${styles.purple_light} ${resStyles('purple_light', resolutions)}`}></div>
-            <div className={`${styles.blue_light} ${resStyles('blue_light', resolutions)}`}></div>
-            <img src={bubble1} className={`${styles.bubble1} ${resStyles('bubble1', resolutions)}`} alt="Bubble 1" />
+
+            {/* Различные отдельные элементы страницы */}
+            <div className={`${styles.purple_light} ${resStyles('purple_light', resolutions)}`}></div> {/* Фиолетовое свечение */}
+            <div className={`${styles.blue_light} ${resStyles('blue_light', resolutions)}`}></div> {/* Синее свечение */}
+            <img src={bubble1} className={`${styles.bubble1} ${resStyles('bubble1', resolutions)}`} alt="Bubble 1" /> {/* Картинка с пузыриками */}
 
             {/* Разные Блоки сайта */}
 

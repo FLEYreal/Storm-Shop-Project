@@ -1,57 +1,85 @@
+// Базовые импорты
 import React, { useCallback, useState, useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import styles from './styles/App.module.scss'
-import SimpleButton from './components/SimpleButton'
-import ReCAPTCHA from "react-google-recaptcha";
 import { Helmet } from 'react-helmet';
 
-import ModalFail from './components/ModalFail/index.jsx'
-import ModalSuccess from './components/ModalSuccess/index.jsx'
+// Стили
+import styles from './styles/App.module.scss'
 
+// API импорты
 import { APIContext } from './context/APIContext'
 
+// Библиотеки
+import ReCAPTCHA from "react-google-recaptcha";
+
+// Компоненты & Хуки проекта
+import ModalFail from './components/ModalFail/index.jsx'
+import ModalSuccess from './components/ModalSuccess/index.jsx'
+import SimpleButton from './components/SimpleButton'
+
 function LogIn() {
+    // Базовые переменные
+    const navigate = useNavigate();
+
+    // Получить класс для работы с API
     const api = useContext(APIContext)!.api
 
-    const navigate = useNavigate();
+    // Капча
     const captchaSiteKey: string = '6LeKRR4nAAAAAFsP7Qr_dCWczScuENUI1P7d4pf6';
+    const [captchaValue, setCaptchaValue] = useState("");
 
+    // Логин / Пароль
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
+    // Модальное окно с ошибкой
     const [isOpen, setIsOpen] = useState(false)
     const [modalContent, setModalContent] = useState('')
 
+    // Успешное модальное окно
     const [isSuccessOpen, setIsSuccessOpen] = useState(false)
     const [modalSuccessContent, setModalSuccessContent] = useState('')
 
-    const [captchaValue, setCaptchaValue] = useState("");
 
+    // Функция закрытия модального окна
     function onClose() {
         setIsOpen(false)
         setIsSuccessOpen(false)
     }
 
+    // Функция для логина пользователя (Активируется при нажатии кнопки "Войти")
     const onLogin = useCallback(async () => {
-        // Validate captcha
+        // Проверить наличие пройденной капчи
         if (!captchaValue) {
+
+            // Вывести ошибку через модальное окно
             setModalContent("Пожалуйста, пройдите капчу");
             setIsOpen(true);
+
             return;
+
         }
 
+        // Отправить запрос на бекенд 
         const resultRaw = await api!.login({
             username: username,
             password: password,
             recaptchaToken: captchaValue
         })
+
+        // Получить ответ сервера
         const result = resultRaw.data
 
-        console.log(result)
+        // Если пришла ошибка
         if (result.success === false || result.succeed === false) {
+            // Вывести ошибку через модальное окно
             setModalContent(result.error);
             setIsOpen(true);
-        } else {
+        }
+        
+        // Если всё хорошо
+        else {
+            // Вывести успешное модальное окно
             setModalSuccessContent('Успешный вход в аккаунт!')
             setIsSuccessOpen(true)
         }
@@ -59,6 +87,9 @@ function LogIn() {
 
     return (
         <>
+
+            {/* Установка тегов для описания страницы и CEO */}
+
             <Helmet>
                 <title>StormShop: Вход</title>
                 <meta name="description" content="Страница входа в аккаунт на сайте магазина NitroStorm" />
@@ -66,11 +97,15 @@ function LogIn() {
                 <meta http-equiv="Content-Language" content="ru" />
                 <meta name="author" content="FLEY" />
             </Helmet>
+
             .
+
+            {/* Модальное окно с ошибкой */}
             <ModalFail isOpen={isOpen} onClose={onClose}>
                 {modalContent}
             </ModalFail>
 
+            {/* Успешное модальное окно */}
             <ModalSuccess styles={{
                 content: {
                     fontSize: '24px'
@@ -88,15 +123,28 @@ function LogIn() {
                 }}>Вернутся на главную</SimpleButton>
             </ModalSuccess>
 
+            {/* Основной контент */}
             <div className={styles.signup_container}>
+                
+                {/* Заголовок */}
                 <div className={styles.signup_title}>Войди в свой профиль на Nitro Storm!</div>
+
+                {/* Форма входа */}
                 <div className={styles.signup_form}>
+
+                    {/* Имя пользователя */}
                     <label htmlFor='username'>НИК:</label>
                     <input value={username} onChange={(e) => setUsername(e.target.value)} id='username' />
+
+                    {/* Пароль */}
                     <label htmlFor='password'>ПАРОЛЬ: </label>
                     <input value={password} onChange={(e) => setPassword(e.target.value)} id='password' />
+                    
+                    {/* Пометка */}
                     <span style={{ fontSize: '16px', width: '550px', textAlign: 'center' }}>Восстановить пароль напрямую нельзя, ведь к аккаунту нельзя прикрепить почту или номер телефона, поэтому обращайтесь к администрации напрямую в дискорде или ТГ! </span>
-                    <div className={styles.signup_form}>
+
+                    {/* Капча */}
+                    <div>
                         <ReCAPTCHA
                             sitekey={captchaSiteKey}
                             onChange={(value: string | null) => {
@@ -106,7 +154,10 @@ function LogIn() {
                             }}
                         />
                     </div>
+                    
                     <br></br>
+                    
+                    {/* Кнопка для входа */}
                     <SimpleButton onClick={onLogin}>Войти</SimpleButton>
                 </div>
             </div>

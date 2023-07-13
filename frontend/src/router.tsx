@@ -1,86 +1,109 @@
+// Базовые импорты
 import React, { useState, useRef, useEffect, createContext } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import MediaQuery, { useMediaQuery } from 'react-responsive';
 
-import SimpleButton from './components/SimpleButton';
+// Стили
 import resStyles from './utils/resStyles.ts';
 import useResolutions from './hooks/useResolusions.ts';
-
 import styles from './styles/App.module.scss';
-import MediaQuery, { useMediaQuery } from 'react-responsive';
-import logo512 from './components/img/logo512.png';
 
+// Страницы
 import App from './App.tsx';
 import SignUp from './SignUp.tsx'
 import LogIn from './LogIn.tsx';
 
+// API импорты
 import Api from './utils/Api.ts'
+import { APIContext } from './context/APIContext.ts'
 import { getUUID, checkUUID, findUUID } from './utils/UUID.ts';
 
-import { APIContext } from './context/APIContext.ts'
+// Компоненты & Хуки проекта
+import SimpleButton from './components/SimpleButton';
+
+// Импорт картинок
+import logo512 from './components/img/logo512.png';
 
 function RouterComp() {
+    // Инициализация базовых переменных
     const [isScrolled, setIsScrolled] = useState(false);
     const [menuVisible, setMenuVisible] = useState(false);
 
+    // Референсы к тэгам
     const menuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
     const menuRef = useRef<HTMLDivElement | null>(null);
 
-    /* Определить размер экрана, возвращает true/false */
+    // Определить размер экрана, возвращает true/false
     const resolutions = useResolutions()
     const { isSmallScreen, isPhone } = useResolutions()
 
-    
+
 
     // Получить UUID для пользователя и сохранить его в локальное хранилище браузера    
-    useEffect(():void => {
+    useEffect((): void => {
         const isUUID = checkUUID();
         if (!isUUID) getUUID()
     }, [])
 
 
-    /* ФУНКЦИИ ДЛЯ МОБИЛЬНОГО МЕНЮ */
+    // ФУНКЦИИ ДЛЯ МОБИЛЬНОГО МЕНЮ:
+
+    // Хендлер для клика на кнопку бургер меню
     const handleClickBurger = () => {
+        // Очистить таймер
         clearTimeout(menuTimeoutRef.current!);
+        // Поставить противоположное состояние для меню
         setMenuVisible(!menuVisible);
     };
 
+    // Хендлер для скрытия меню
     const handleHideMenu = (event: any) => {
+
+        // Если размер экрана телефона или маленькое
         if (isSmallScreen || isPhone) {
+
+            // Получить классы нажатого элемента
             const clickedElementClass = [...event.target.classList];
+
+            // Найти классы бургер меню в массиве
             const array: string[] = clickedElementClass.filter((className: string) => className === 'click_detect');
+
+            // Ничего не вернуть, если это не бургер меню
             if (array.length > 0) return;
 
+            // Очистить таймер
             clearTimeout(menuTimeoutRef.current!);
+
+            // Скрыть меню
             setMenuVisible(false);
         }
     }
 
+    // Если мышка на меню
     const handleMouseEnter = () => {
+        // Очистить таймер
         clearTimeout(menuTimeoutRef.current!);
+
+        // Установить видимость меню на true
         setMenuVisible(true);
     };
 
+    // Если мышка НЕ на меню
     const handleMouseLeave = () => {
+        // Создать таймер по истечению которого меню пропадёт
         menuTimeoutRef.current = setTimeout(() => {
             setMenuVisible(false);
         }, 3000);
-    };
-
-    const hideMenu = () => {
-        setMenuVisible(false);
     };
 
     /* Отследить скрол в странице, чтобы к хедеру применились стили затемнения */
     const handleScroll = () => {
         const scrollTop = window.pageYOffset;
 
-        if (scrollTop > 0 && !isScrolled) {
-            setIsScrolled(true);
-        } else if (scrollTop === 0 && isScrolled) {
-            setIsScrolled(false);
-        };
+        if (scrollTop > 0 && !isScrolled) setIsScrolled(true); 
+        else if (scrollTop === 0 && isScrolled) setIsScrolled(false);
     };
- 
+
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
@@ -88,7 +111,7 @@ function RouterComp() {
 
     return (
         <main onClick={handleHideMenu}>
-            <APIContext.Provider value={{api: new Api(findUUID() === '' ? getUUID() : findUUID())}}>
+            <APIContext.Provider value={{ api: new Api(findUUID() === '' ? getUUID() : findUUID()) }}>
                 {/* Хедер сайта */}
 
                 <header className={`${styles.header} ${styles[resStyles('header', resolutions)]} ${isScrolled ? styles.dark_header : ''}`}>
