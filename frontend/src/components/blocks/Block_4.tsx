@@ -36,8 +36,8 @@ function Block_3() {
     return (
         <>
             <section className={`${styles.botOrder}`}>
-                <div>
-
+                <div className={`${styles.botOrder_container}`}>
+                    
                 </div>
             </section>
         </>

@@ -4,6 +4,7 @@ import styles from './styles/App.module.scss'
 import SimpleButton from './components/SimpleButton'
 import { APIContext } from './context/APIContext'
 import ReCAPTCHA from "react-google-recaptcha";
+import { Helmet } from 'react-helmet';
 
 import ModalFail from './components/ModalFail/index.jsx'
 import ModalSuccess from './components/ModalSuccess/index.jsx'
@@ -57,6 +58,13 @@ function SignUp() {
 
     return (
         <>
+            <Helmet>
+                <title>StormShop: Регистрация</title>
+                <meta name="description" content="Страница регистрации на сайте магазина NitroStorm" />
+                <meta name="keywords" content='регистрация Нитро Nitro Дискорд Discord НитроШоп Купить нитро логин' />
+                <meta http-equiv="Content-Language" content="ru" />
+                <meta name="author" content="FLEY" />
+            </Helmet>
             .
             <ModalFail isOpen={isOpen} onClose={onClose}>
                 {modalContent}

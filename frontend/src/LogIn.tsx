@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import styles from './styles/App.module.scss'
 import SimpleButton from './components/SimpleButton'
 import ReCAPTCHA from "react-google-recaptcha";
+import { Helmet } from 'react-helmet';
 
 import ModalFail from './components/ModalFail/index.jsx'
 import ModalSuccess from './components/ModalSuccess/index.jsx'
@@ -33,11 +34,11 @@ function LogIn() {
 
     const onLogin = useCallback(async () => {
         // Validate captcha
-        // if (!captchaValue) {
-        //     setModalContent("Пожалуйста, пройдите капчу");
-        //     setIsOpen(true);
-        //     return;
-        // }
+        if (!captchaValue) {
+            setModalContent("Пожалуйста, пройдите капчу");
+            setIsOpen(true);
+            return;
+        }
 
         const resultRaw = await api!.login({
             username: username,
@@ -58,6 +59,13 @@ function LogIn() {
 
     return (
         <>
+            <Helmet>
+                <title>StormShop: Вход</title>
+                <meta name="description" content="Страница входа в аккаунт на сайте магазина NitroStorm" />
+                <meta name="keywords" content='логин вход Нитро Nitro Дискорд Discord НитроШоп Купить нитро регистрация' />
+                <meta http-equiv="Content-Language" content="ru" />
+                <meta name="author" content="FLEY" />
+            </Helmet>
             .
             <ModalFail isOpen={isOpen} onClose={onClose}>
                 {modalContent}

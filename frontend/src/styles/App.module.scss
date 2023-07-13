@@ -508,6 +508,10 @@ $unhighlighted_color: #cfcfcf;
     flex-shrink: 0;
     background: linear-gradient(135deg, #005156 0%, #042566 100%);
 
+    .botOrder_container {
+        width: 1170px;
+        margin: 0 auto;
+    }
 }
 
 @keyframes wave {
