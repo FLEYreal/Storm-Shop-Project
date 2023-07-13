@@ -4,7 +4,7 @@ import SimpleButton from './components/SimpleButton'
 import { APIContext } from './context/APIContext'
 import ReCAPTCHA from "react-google-recaptcha";
 
-import Modal from './components/Modal/index.jsx'
+import ModalFail from './components/ModalFail/index.jsx'
 
 function SignUp() {
     const captchaSiteKey: string = '6LeKRR4nAAAAAFsP7Qr_dCWczScuENUI1P7d4pf6';
@@ -47,15 +47,10 @@ function SignUp() {
     return (
         <>
             .
-            <Modal isOpen={isOpen} onClose={onClose}>
-                <div style={{
-                    fontWeight: "600",
-                    margin: '7px'
-                }}>Ошибка: </div>
-                <div style={{
-                    margin: '7px'
-                }}>{modalContent}</div>
-            </Modal>
+            <ModalFail isOpen={isOpen} onClose={onClose}>
+                    {modalContent}
+            </ModalFail>
+
             <div className={styles.signup_container}>
                 <div className={styles.signup_title}>Зарегестрируйся на Nitro Storm!</div>
                 <div className={styles.signup_subtitle}><b>Зачем?</b> - Мы сможем подсчитать вашу статистику, отследить покупки и платить вам прибыль!</div>

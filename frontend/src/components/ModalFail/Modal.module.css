@@ -14,9 +14,9 @@
 }
 
 .content {
-    color: #000000;
-    background: rgb(255, 255, 255);
-    padding: 36px;
+    color: #ffffff;
+    background: rgb(173, 0, 0);
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     overflow: hidden;
@@ -27,8 +27,8 @@
 
 .close {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 8px;
+    right: 10px;
     background: none;
     border: none;
     cursor: pointer;

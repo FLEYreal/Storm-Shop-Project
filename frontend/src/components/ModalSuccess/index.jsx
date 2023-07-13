@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Modal.module.css';
 
-import x from '../img/x_black.svg'
+import x from '../img/x.svg'
 
 const Modal = ({ isOpen, onClose, styles: customStyles = {}, className = '', children }) => {
   const [isModalOpen, setIsModalOpen] = useState(true);
