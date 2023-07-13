@@ -161,8 +161,6 @@ app.post(`${versioning.prefix}/signup`, async (req, res) => {
         return;
     }
 
-    
-
     if (!(await userValidation.verifyUserCaptcha(token))) {
         res.json({
             success: false,
@@ -171,6 +169,7 @@ app.post(`${versioning.prefix}/signup`, async (req, res) => {
 
         return;
     }
+    
 
     const existing_user = await sql.getUser(req.body.username);
     // check if user exists
