@@ -19,47 +19,47 @@
 const bcrypt = require("bcrypt");
 
 /**
- * user class
+ * класс пользователя
  */
 class User {
     /**
     * @type {Date}
-    * Registration date
+    * дата регистрации
     */
     registrationDate;
 
     /**
     * @type {string}
-    * Username
+    * ник пользователя
     */
     name;
 
     /**
     * @type {string}
-    * user uuid
+    * uuid пользователя
     */
     uuid;
 
     /**
     * @type {string}
-    * encrypted password
+    * зашифрованный пароль
     */
     #password;
 
     /**
      * @type {number}
-     * money
+     * деньги
      */
     money;
 
     /**
      * @type {string}
-     * account type (advertisement, standard)
+     * тип аккаунта (рекламный, стандартный)
      */
     type;
 
     /**
-     * @param {string} pass plain password
+     * @param {string} pass незашифрованный пароль
      */
     #createEncryptedPassword(pass) {
         const saltRounds = 10;
@@ -70,38 +70,38 @@ class User {
     }
 
     /**
-     * @param {string} pass plain password
+     * @param {string} pass незашифрованный пароль
      */
     setPassword(pass) {
         this.#password = this.#createEncryptedPassword(pass);
     }
 
     /**
-     * @param {string} pass encrypted password
+     * @param {string} pass зашифрованный паролб
      */
     setPasswordEncrypted(pass) {
         this.#password = pass;
     }
 
     /**
-     * get encrypted password
-     * @return {string} encrypted password
+     * получить зашифрованный пароль
+     * @return {string} зашифрованный пароль
      */
     getPassword() {
         return this.#password;
     }
 
     /**
-     * validates password
-     * @param {string} pass plain password
-     * @return {boolean} is password correct or not
+     * проверяет пароль
+     * @param {string} pass исходный пароль
+     * @return {boolean} верен пароль или нет
      */
     validatePassword(pass) {
         return bcrypt.compareSync(pass, this.getPassword());
     }
 
     /**
-     * get registration date in unix time
+     * получить дату регистрации во временной марке Unix
      * @return {number} unix timestamp
     */
     getRegDate() {
@@ -123,6 +123,6 @@ class User {
 };
 
 /**
- * user module
+ * модуль пользователя
  */
 module.exports = User;

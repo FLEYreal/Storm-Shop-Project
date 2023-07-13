@@ -20,7 +20,7 @@ const User = require("./User");
 
 class DatabaseContainer {
     /**
-     * get user by username
+     * получить пользователя по имени
      * 
      * @param {string} username username
      * @return {User | undefined} user
@@ -28,7 +28,7 @@ class DatabaseContainer {
     async getUser(username) {}
 
     /**
-     * get user by uuid
+     * получить пользователя по uuid
      * 
      * @param {string} username uuid
      * @return {User | undefined} user
@@ -36,28 +36,27 @@ class DatabaseContainer {
     async getUserByUUID(uuid) {}
 
     /**
-     * add new user to the database
+     * добавить нового пользователя в БД
      * 
      * @param {User} user user
      */
     async pushUser(user) {}
 
     /**
-     * update user
+     * обновить пользователя
      * @param {User} user user
      */
     async updateUser(user) {}
 
     /**
-     * add new action to the database
+     * добавить новое событие в БД
      * 
      * @param {string} name name
-     * @param {number} value value
      */
     async pushAction(name, value) {}
 
     /**
-     * push transaction to the database
+     * добавить транзакцию в БД
      * 
      * @param {string} uuid uuid
      * @param {string} good good
@@ -67,12 +66,12 @@ class DatabaseContainer {
     async pushTransaction(uuid, good, amount, source) {}
 
     /**
-     * init container
+     * инициализировать контейнер
      */
     async init() {}
 };
 
 /**
- * database container
+ * контерн
  */
 module.exports = DatabaseContainer;

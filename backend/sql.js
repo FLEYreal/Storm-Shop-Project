@@ -176,12 +176,19 @@ class SQLInstance extends DatabaseContainer {
      * add new action to the database
      * 
      * @param {string} name name
-     * @param {number} value value
      */
-    async pushAction(name, value) {
-        this.#sqlconnection.execute(
-            `INSERT INTO \`action_list\` (\`action\`, \`amount\`) VALUES (?, ?)`, [name, value]
-        )
+    async pushAction(name) {
+        const [rows] = await this.#sqlconnection.execute(`SELECT 1 FROM action_list WHERE action = ?`, [name])
+
+        if (rows.length < 1) {
+            this.#sqlconnection.execute(
+                `INSERT INTO \`action_list\` (\`action\`, \`amount\`) VALUES (?, ?)`, [name, 1]
+            )
+        } else {
+            this.#sqlconnection.execute(
+                `UPDATE action_list SET amount = amount + 1 WHERE action = ?`, [name]
+            )
+        }
     }
 
 };

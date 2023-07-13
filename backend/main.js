@@ -15,7 +15,7 @@
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+    along with this program. If not, see <https://www.gnu.org/licenses/>.
 */
 
 // load config file
@@ -25,10 +25,9 @@ const versioning = require("./versioning");
 // load express js and application
 const express = require('express');
 const cors = require('cors');
+const bcrypt = require('bcrypt')
 
 const app = express();
-
-const request = require("request");
 
 // get env data
 const PORT = process.env.PORT || '8081'
@@ -72,7 +71,7 @@ app.use((req, res, next) => {
     // check if method is registered
     if (!Object.keys(request_list).includes(req.method)) {
         res.json({
-            error: `unknown method ${req.method}`,
+            error: `Неизвестный метод ${req.method}`,
             success: false
         }).status(404);
         return;
@@ -81,7 +80,7 @@ app.use((req, res, next) => {
     // check if request is registerr
     if (!request_list[req.method].includes(req.originalUrl)) {
         res.json({
-            error: `request ${req.method}:${req.originalUrl} not found`,
+            error: `Запрос ${req.method}:${req.originalUrl} не найден`,
             success: false
         }).status(404);
         return;
@@ -90,7 +89,7 @@ app.use((req, res, next) => {
     // check if list of required arguments exists here
     if (!Object.keys(request_list.request_arguments).includes(req.originalUrl)) {
         res.json({
-            error: `request ${req.method}:${req.originalUrl} not found`,
+            error: `Запрос ${req.method}:${req.originalUrl} не найден`,
             success: false
         }).status(404);
         return;
@@ -106,7 +105,7 @@ app.use((req, res, next) => {
         if (!Object.hasOwn(req.body, param[0])) {
             // 400 Bad Request
             res.json({
-                error: `${param[0]} is missing!`,
+                error: `${param[0]} не указан!`,
                 success: false
             }).status(400);
 
@@ -124,7 +123,7 @@ app.use((req, res, next) => {
             if (!approved) {
                 // 400 Bad Request
                 res.json({
-                    error: `${param[0]} is invalid! Expected "${param[1]}", but got "${type}"!`,
+                    error: `${param[0]} неверен! Ожидалось получить "${param[1]}", но получен тип "${type}"!`,
                     success: false
                 }).status(400);
 
@@ -134,8 +133,7 @@ app.use((req, res, next) => {
 
         i++;
     }
-
-    // everything is good
+    
     next()
 })
 
@@ -170,20 +168,28 @@ app.post(`${versioning.prefix}/signup`, async (req, res) => {
         return;
     }
     
-
-    const existing_user = await sql.getUser(req.body.username);
+    let existing_user = await sql.getUser(req.body.username);
     // check if user exists
     if (existing_user) {
         res.json({
-            error: `Такой пользователь "${req.body.username}" уже был зарегестрирован`,
+            error: `Такой пользователь "${req.body.username}" уже был зарегестрирован!`,
             success: false
         }).status(409)
-        return
+        return;
     }
+
+    let userByUuid = await sql.getUserByUUID(req.body.uuid);
+    if(userByUuid !== undefined) {
+        res.json({
+            error: `У вас уже есть аккаунт, войдите в уже существующий аккаунт!`,
+            success: false
+        }).status(409)
+        return;
+    }
+    
 
     // check new user
     let new_user = new User();
-
     new_user.name = req.body.username;
     new_user.setPassword(req.body.password);
     new_user.money = 0;
@@ -206,9 +212,59 @@ app.post(`${versioning.prefix}/visitor`, async (req, res) => {
 
 })
 
+app.post(`${versioning.prefix}/login`, async (req, res) => {
+    if (!userValidation.verifyStringLength(req.body.username, 3, 32)) {
+        res.json({
+            error: "Неверный ник пользователя",
+            success: false
+        }).status(403);   
+
+        return;
+    }
+    const user = await sql.getUser(req.body.username);
+
+    const captcha_token = req.body.recaptchaToken;
+
+    if (!(await userValidation.verifyUserCaptcha(captcha_token))) {
+        res.json({
+            error: "Ошибка капчи: капча провалена",
+            success: false
+        }).status(403);   
+
+        return;
+    }
+
+    if (user) {
+        if (user.validatePassword(req.body.password)) {
+            sql.pushAction(`login action / user ${user.name}`);
+
+            res.json({
+                uuid: user.uuid,
+                success: true
+            }).status(200);   
+
+            return;
+        } else {
+            res.json({
+                error: "Неверный пароль",
+                success: false
+            }).status(403);
+
+            return;
+        }
+    } else {
+        res.json({
+            error: "Пользователь не найден",
+            success: false
+        }).status(400);
+
+        return;
+    }
+})
+
 app.post(`${versioning.prefix}/action`, async (req, res) => {
     // push action
-    sql.pushAction(req.body.name, req.body.value);
+    sql.pushAction(req.body.name);
 
     res.json({
         success: true

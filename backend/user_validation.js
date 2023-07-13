@@ -19,7 +19,6 @@
 const request = require("then-request");
 
 const verifyStringLength = (str = "", min = 3, max = 16) => {
-    console.log(str.length < min, str.length > max)
     if ((str.length < min) || (str.length > max)) return false;
 
     return true;
@@ -63,20 +62,20 @@ const verifyUserInformation = (username = "", password = "", reToken = "") => {
 
 module.exports = {
     /**
-     * verify string length
-     * @param {string} str string
-     * @param {number} min minimal length
-     * @param {number} max maximum length
+     * проверить длину строки
+     * @param {string} str строка
+     * @param {number} min минимальная длина
+     * @param {number} max максимальная длина
      * 
-     * @return {boolean} if check was successful or not
+     * @return {boolean} была ли проверка успешной или нет
      */
     verifyStringLength: verifyStringLength,
 
     /**
-     * verify user by captcha
+     * проверить капчу пользователя
      * 
-     * @param {string} reToken recaptcha token
-     * @return {boolean} if check was successful or not
+     * @param {string} reToken токен recaptcha
+     * @return {boolean} была ли проверка успешной или нет
      */
     verifyUserCaptcha: verifyUserCaptcha,
 
