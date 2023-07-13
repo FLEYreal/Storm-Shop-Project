@@ -24,6 +24,8 @@ const User = require("./User");
 
 const crypto = require("crypto");
 
+const tools = require("./tools");
+
 class SQLInstance extends DatabaseContainer {
     /**
      * @type {string}
@@ -58,7 +60,7 @@ class SQLInstance extends DatabaseContainer {
     }
 
     /**
-     * @param {string} username username
+     * @param {string} username usernafme
      * @return {User | undefined} user
      */
     async getUser(username) { // player
@@ -97,7 +99,43 @@ class SQLInstance extends DatabaseContainer {
     async pushUser(user) {
         // INSERT INTO `user` (`a`, `b`, `c`, `d`, `e`) VALUES (NOW(), 's', 'd', 'e', '55') 
         this.#sqlconnection.execute(
-            `INSERT INTO \`users\` (\`registration_date\`, \`name\`, \`uuid\`, \`password\`, \`money\`) VALUES (?, ?, ?, ?, ?)`, [Math.ceil(user.registrationDate.getTime() / 1000), user.name, user.uuid, user.getPassword(), user.money]
+            `INSERT INTO \`users\` (\`registration_date\`, \`name\`, \`uuid\`, \`password\`, \`money\`) VALUES (?, ?, ?, ?, ?)`, [user.getRegDate(), user.name, user.uuid, user.getPassword(), user.money]
+        )
+    }
+
+    /**
+     * push transaction to the database
+     * 
+     * @param {string} uuid uuid
+     * @param {string} good good
+     * @param {number} amount sum rub
+     * @param {string} source transaction source
+     */
+    async pushTransaction(uuid, good, amount, source) {
+        const gooddata = tools.getGood(good);
+
+        if (!gooddata) return;
+
+        this.#sqlconnection.execute(
+            `INSERT INTO \`goods_report\` (\`date\`, \`uuid\`, \`good_id\`, \`source\`, \`value\`) VALUES (?, ?, ?, ?, ?)`, 
+            [
+                tools.getUnixTime(), uuid, gooddata.id, source, amount 
+            ]
+        )
+    }
+
+    /**
+     * update user
+     * @param {User} user user
+     */
+    async updateUser(user) {
+        console.log(user);
+
+        this.#sqlconnection.execute(
+            `UPDATE users SET registration_date = ?, name = ?, uuid = ?, password = ?, money = ? WHERE uuid = ?`, 
+            [
+                user.getRegDate(), user.name, user.uuid, user.getPassword(), user.money, user.uuid
+            ]
         )
     }
 
@@ -113,7 +151,7 @@ class SQLInstance extends DatabaseContainer {
             "CREATE TABLE if not exists `nitrostorm`.`users` (`registration_date` BIGINT NOT NULL , `name` TEXT NOT NULL , `uuid` TEXT NOT NULL , `password` TEXT NOT NULL , `money` INTEGER NOT NULL );"
         );
         this.#sqlconnection.execute(
-            "CREATE TABLE if not exists `nitrostorm`.`goods_report` (`date` BIGINT NOT NULL , `uuid` TEXT NOT NULL , `good_id` INTEGER NOT NULL , `source` INTEGER NOT NULL , `value` INTEGER NOT NULL );"
+            "CREATE TABLE if not exists `nitrostorm`.`goods_report` (`date` BIGINT NOT NULL , `uuid` TEXT NOT NULL , `good_id` enum('NitroFull1M', 'NitroBasic1M', 'NitroFull1Y', 'NitroFullGift', 'Boost1', 'BoostLevel3', 'ActiveDev') NOT NULL , `source` enum('TG', 'WEB', 'DC') NOT NULL , `value` INTEGER NOT NULL );"
         );
         this.#sqlconnection.execute(
             "CREATE TABLE if not exists `nitrostorm`.`action_list` (`action` TEXT NOT NULL , `amount` INTEGER NOT NULL );"
@@ -132,6 +170,18 @@ class SQLInstance extends DatabaseContainer {
         // this.pushUser(usertest);
 
         // delete(usertest);
+    }
+
+    /**
+     * add new action to the database
+     * 
+     * @param {string} name name
+     * @param {number} value value
+     */
+    async pushAction(name, value) {
+        this.#sqlconnection.execute(
+            `INSERT INTO \`action_list\` (\`action\`, \`amount\`) VALUES (?, ?)`, [name, value]
+        )
     }
 
 };

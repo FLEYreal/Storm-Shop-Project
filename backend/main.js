@@ -1,3 +1,5 @@
+// MADE BY BELLEBOWS DOGGY
+
 /**
  *  Nitro Storm Backend — backend for Storm Shop website.
     Copyright (C) 2023  Sergei Baigerov ( SergeyMC9730 )
@@ -16,42 +18,97 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+// load config file
 require("./config");
-
-const express = require('express');
-
-const app = express();
-const PORT = process.env.PORT || '8081'
-
 const versioning = require("./versioning");
 
-const SQLInstance = require("./sql");
+// load express js and application
+const express = require('express');
+const cors = require('cors');
 
+const app = express();
+
+const request = require("request");
+
+// get env data
+const PORT = process.env.PORT || '8081'
+const FRONT_IP = process.env.FRONTEND_IP || 'http://localhost'
+const FRONT_PORT = process.env.PORT_FRONTEND || '80';
+
+// load sql nodes
+const SQLInstance = require("./sql");
 const User = require("./User");
 
 const crypto = require("crypto");
 
-const goods = require("./goodlist");
+const tools = require("./tools");
 
+const goods = require("./goodlist")
+
+const userValidation = require("./user_validation.js");
+
+// load request list
+const request_list = require("./request_list.json");
+
+// create new sql instance and log in
 var sql = new SQLInstance();
 sql.setCredentials(process.env.SQL_PASSWORD, process.env.SQL_HOST, "nitro", "nitrostorm");
 sql.init();
 
+// middlewares
 app.use(express.json())
+app.use(cors())
 
-app.post(`${versioning.prefix}/signup`, async (req, res) => {
-    const required_params = [["unique_id", "number"], ["username", "string"], ["password", "string"]];
+userValidation.verifyUserCaptcha("123");
+
+// main middleware - filtering out requests
+app.use((req, res, next) => {
+    // check if we are checking for files
+    if (req.originalUrl.startsWith("/public")) {
+        res.sendFile(`${__dirname}${req.originalUrl}`); // send file
+        return;
+    }
+
+    // check if method is registered
+    if (!Object.keys(request_list).includes(req.method)) {
+        res.json({
+            error: `unknown method ${req.method}`,
+            success: false
+        }).status(404);
+        return;
+    }
+
+    // check if request is registerr
+    if (!request_list[req.method].includes(req.originalUrl)) {
+        res.json({
+            error: `request ${req.method}:${req.originalUrl} not found`,
+            success: false
+        }).status(404);
+        return;
+    }
+
+    // check if list of required arguments exists here
+    if (!Object.keys(request_list.request_arguments).includes(req.originalUrl)) {
+        res.json({
+            error: `request ${req.method}:${req.originalUrl} not found`,
+            success: false
+        }).status(404);
+        return;
+    }
+
+    // check if they were sent by the client
+    const required_params = request_list.request_arguments[req.originalUrl];
 
     var i = 0;
-    while(i < required_params.length) {
+    while (i < required_params.length) {
         const param = required_params[i];
         // check if required param exists
         if (!Object.hasOwn(req.body, param[0])) {
             // 400 Bad Request
-            res.status(400).json({
+            res.json({
                 error: `${param[0]} is missing!`,
                 success: false
-            });
+            }).status(400);
 
             return;
         }
@@ -59,113 +116,178 @@ app.post(`${versioning.prefix}/signup`, async (req, res) => {
         const type = eval(`typeof req.body.${param[0]}`)
 
         if (type != param[1]) {
-            // 400 Bad Request
-            res.status(400).json({
-                error: `${param[0]} is invalid! Expected "${param[1]}", but got "${type}"!`,
-                success: false
-            });
+            var approved = false;
+            if (param[1] == "uuid") {
+                approved = tools.validateUUID(req.body[param[0]]);
+            }
 
-            return; 
+            if (!approved) {
+                // 400 Bad Request
+                res.json({
+                    error: `${param[0]} is invalid! Expected "${param[1]}", but got "${type}"!`,
+                    success: false
+                }).status(400);
+
+                return;
+            }
         }
 
         i++;
     }
 
-    const existing_user = await sql.getUser(req.body.username);
+    // everything is good
+    next()
+})
+
+app.post(`${versioning.prefix}/signup`, async (req, res) => {
+    const token = req.body.recaptchaToken;
+    const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SITE_SECRET}&response=${token}`
+
+    if (!userValidation.verifyUsername(req.body.username)) {
+        res.json({
+            success: false,
+            error: "Неправильное имя пользователя!"
+        }).status(428);
+
+        return;
+    }
+
+    if (!userValidation.verifyPassword(req.body.password)) {
+        res.json({
+            success: false,
+            error: "Неправильный пароль!"
+        }).status(412);
+
+        return;
+    }
+
     
+
+    if (!(await userValidation.verifyUserCaptcha(token))) {
+        res.json({
+            success: false,
+            error: "Вы не прошли капчу. Попробуйте снова!"
+        }).status(406);
+
+        return;
+    }
+
+    const existing_user = await sql.getUser(req.body.username);
+    // check if user exists
     if (existing_user) {
-        res.status(409).json({
-            error: `user ${req.body.username} is already registered`,
+        res.json({
+            error: `Такой пользователь "${req.body.username}" уже был зарегестрирован`,
             success: false
-        })
+        }).status(409)
         return
     }
 
+    // check new user
     let new_user = new User();
 
     new_user.name = req.body.username;
     new_user.setPassword(req.body.password);
     new_user.money = 0;
     new_user.registrationDate = new Date();
-    new_user.uuid = crypto.randomUUID();
+    new_user.uuid = req.body.uuid;
 
     sql.pushUser(new_user);
 
-    res.status(200).json({
+    // send json
+    res.json({
         success: true,
-        uuid: new_user.uuid
-    });
+    }).status(200);
 });
 
 app.get(`${versioning.prefix}/goods`, async (req, res) => {
-    res.status(200).json(goods);
+    res.json(goods).status(200);
+})
+
+app.post(`${versioning.prefix}/visitor`, async (req, res) => {
+
+})
+
+app.post(`${versioning.prefix}/action`, async (req, res) => {
+    // push action
+    sql.pushAction(req.body.name, req.body.value);
+
+    res.json({
+        success: true
+    }).status(200);
 })
 
 app.post(`${versioning.prefix}/buy`, async (req, res) => {
-    const required_params = [["uuid", "string"], ["good", "string"], ["sumRub", "number"], ["from", "string"]];
+    let good = tools.getGood(req.body.good);
 
-    var i = 0;
-    while(i < required_params.length) {
-        const param = required_params[i];
-        // check if required param exists
-        if (!Object.hasOwn(req.body, param[0])) {
-            // 400 Bad Request
-            res.status(400).json({
-                error: `${param[0]} is missing!`,
-                success: false
-            });
-
-            return;
-        }
-
-        const type = eval(`typeof req.body.${param[0]}`)
-
-        if (type != param[1]) {
-            // 400 Bad Request
-            res.status(400).json({
-                error: `${param[0]} is invalid! Expected "${param[1]}", but got "${type}"!`,
-                success: false
-            });
-
-            return; 
-        }
-
-        i++;
-    }
-
-    let good_exists = false; // да ты задолбал флей // ты мне мешаешь работать
-
-    goods.forEach((good) => {
-        if ((good.good == req.body.good) && (good.amount == req.body.sumRub)) {
-            good_exists = true;
-        }
-    })
-
-    if (!good_exists) {
-        res.status(404).json({
-            error: `Not Found`,
+    // check if good exists
+    if (!good) {
+        res.json({
+            error: `good not found`,
             success: false
-        });
+        }).status(404);
         return
     }
 
-    let user = sql.getUserByUUID(req.body.uuid);
+    // check if good data was sent correctly by the client
+    if (good.cost != req.body.sumRub) {
+        res.json({
+            error: `good not found`,
+            success: false
+        }).status(404);
+        return
+    }
 
-    res.status(404).json({
-        error: `Not Found`,
-        success: false
-    });
-    return
+    // get user
+    let user = await sql.getUserByUUID(req.body.uuid);
 
-    // if (user.money <)
+    // check if user exists or not
+    if (!user) {
+        res.json({
+            error: `invalid user`,
+            success: false
+        }).status(403);
+        return
+    }
+
+    // check if he have enough money to process transaction
+    if (user.money < req.body.sumRub) {
+        let rub1 = "are";
+        if ((req.body.sumRub - user.money) == 1) rub1 = "is";
+
+        res.json({
+            error: `not enough money to process transaction. ${req.body.sumRub - user.money} ${rub1} required.`,
+            success: false
+        }).status(402);
+        return
+    }
+
+    // update user
+    user.money -= req.body.sumRub;
+
+    sql.updateUser(user);
+
+    // push log
+    sql.pushTransaction(user.uuid, req.body.good, req.body.sumRub, req.body.fro)
+
+    // send status
+    res.json({
+        success: true
+    }).status(200);
+
+    return;
 })
 
+// generate uuid
+app.get(`${versioning.prefix}/getUUID`, async (req, res) => {
+    return res.send(crypto.randomUUID()).status(200);
+})
+
+// start the webserver
 app.listen(PORT, (e) => {
-    if(e) {
+    if (e) {
         console.error(`error on listening: ${e}`);
         throw e;
     } else {
         console.log(`running on port ${PORT}`);
     }
 })
-console.log("hello, world!");
