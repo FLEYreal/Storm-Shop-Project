@@ -1,29 +1,38 @@
 import React, { useEffect, useContext, useState, useCallback } from 'react'
+import { useNavigate } from 'react-router-dom'
 import styles from './styles/App.module.scss'
 import SimpleButton from './components/SimpleButton'
 import { APIContext } from './context/APIContext'
 import ReCAPTCHA from "react-google-recaptcha";
 
 import ModalFail from './components/ModalFail/index.jsx'
+import ModalSuccess from './components/ModalSuccess/index.jsx'
 
 function SignUp() {
+    const api = useContext(APIContext)!.api
+
+    const navigate = useNavigate();
     const captchaSiteKey: string = '6LeKRR4nAAAAAFsP7Qr_dCWczScuENUI1P7d4pf6';
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+
     const [isOpen, setIsOpen] = useState(false)
     const [modalContent, setModalContent] = useState('')
 
-    const [captchaValue, setCaptchaValue] = useState("");
+    const [isSuccessOpen, setIsSuccessOpen] = useState(false)
+    const [modalSuccessContent, setModalSuccessContent] = useState('')
 
-    const api = useContext(APIContext)!.api
+    const [captchaValue, setCaptchaValue] = useState("");
 
     function onClose() {
         setIsOpen(false)
+        setIsSuccessOpen(false)
     }
 
     const onSignUp = useCallback(async () => {
         // Validate captcha
+        console.log(captchaValue)
         if (!captchaValue) {
             setModalContent("Пожалуйста, пройдите капчу");
             setIsOpen(true);
@@ -37,10 +46,12 @@ function SignUp() {
         });
         let result = resultRaw.data;
 
-        console.log(result);
-        if (result.succeed === false) {
+        if (result.success === false || result.succeed === false) {
             setModalContent(result.error);
             setIsOpen(true);
+        } else {
+            setModalSuccessContent('Успешная регистрация!')
+            setIsSuccessOpen(true)
         }
     }, [api, captchaValue, password, username]);
 
@@ -48,8 +59,25 @@ function SignUp() {
         <>
             .
             <ModalFail isOpen={isOpen} onClose={onClose}>
-                    {modalContent}
+                {modalContent}
             </ModalFail>
+
+            <ModalSuccess styles={{
+                content: {
+                    fontSize: '24px'
+                }
+            }} isOpen={isSuccessOpen} onClose={onClose}>
+                {modalSuccessContent}
+                <SimpleButton onClick={() => navigate('/')} sx={{
+                    marginTop: '16px',
+                    background: 'none',
+                    border: '2px solid #fff',
+                    '&:hover': {
+                        background: 'none',
+                        boxShadow: 'none'
+                    }
+                }}>Вернутся на главную</SimpleButton>
+            </ModalSuccess>
 
             <div className={styles.signup_container}>
                 <div className={styles.signup_title}>Зарегестрируйся на Nitro Storm!</div>

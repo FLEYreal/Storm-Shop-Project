@@ -12,25 +12,23 @@ function Block_1() {
     const resolutions = useResolutions()
 
     return (
-        <section>
-            <div
-                className={`
-                ${styles.main_container} 
-                ${resStyles('main_container', resolutions)}`}
-            >
-                <div className={`${styles.main_content_container} ${resStyles('main_content_container', resolutions)}`}>
-                    <div className={`${styles.mobile_container} ${resStyles('mobile_container', resolutions)}`}>
-                        <div className={styles.mobile_title}>Storm Shop</div>
-                        <div className={styles.mobile_subtitle}>Лучший Магазин Нитро и иных Дискорд Услуг!</div>
-                        <BigButton sx={{ width: '160px', padding: '12px 100px', margin: '32px', fontSize: '24px' }} isGold={true}>
-                            Купить!
-                        </BigButton>
-                    </div>
-                    <div className={styles.main_container_text}>
-                        <MainWindow />
-                    </div>
-                    <div className={`${styles.main_container_images} ${resStyles('main_container_images', resolutions)}`}>{/* Unused Element */}</div>
+        <section
+            className={`
+            ${styles.main_container} 
+            ${resStyles('main_container', resolutions)}`}
+        >
+            <div className={`${styles.main_content_container} ${resStyles('main_content_container', resolutions)}`}>
+                <div className={`${styles.mobile_container} ${resStyles('mobile_container', resolutions)}`}>
+                    <div className={styles.mobile_title}>Storm Shop</div>
+                    <div className={styles.mobile_subtitle}>Лучший Магазин Нитро и иных Дискорд Услуг!</div>
+                    <BigButton sx={{ width: '160px', padding: '12px 100px', margin: '32px', fontSize: '24px' }} isGold={true}>
+                        Купить!
+                    </BigButton>
                 </div>
+                <div className={styles.main_container_text}>
+                    <MainWindow />
+                </div>
+                <div className={`${styles.main_container_images} ${resStyles('main_container_images', resolutions)}`}>{/* Unused Element */}</div>
             </div>
         </section>
     )

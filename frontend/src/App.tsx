@@ -7,7 +7,8 @@ import styles from './styles/App.module.scss';
 
 import Block_1 from './components/blocks/Block_1';
 import Block_2 from './components/blocks/Block_2';
-import Block_3 from './components/blocks/Block_3'
+import Block_3 from './components/blocks/Block_3';
+import Block_4 from './components/blocks/Block_4';
 
 import resStyles from './utils/resStyles.ts';
 import useResolutions from './hooks/useResolusions.ts';
@@ -108,6 +109,7 @@ function App(): JSX.Element {
             <Block_1 />
             <Block_2 />
             <Block_3 />
+            <Block_4 />
         </div>
     );
 }

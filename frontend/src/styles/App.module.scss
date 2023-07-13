@@ -67,7 +67,7 @@ $unhighlighted_color: #cfcfcf;
         position: absolute;
         left: -10px;
         z-index: -1;
-        background: rgba(0,0,0,0);
+        background: rgba(0, 0, 0, 0);
         width: 0px;
         height: 265px;
         flex-shrink: 0;
@@ -76,7 +76,7 @@ $unhighlighted_color: #cfcfcf;
     .blue_light {
         position: absolute;
         z-index: -1;
-        background: rgba(0,0,0,0);
+        background: rgba(0, 0, 0, 0);
         width: 0px;
         height: 25px;
         flex-shrink: 0;
@@ -499,6 +499,15 @@ $unhighlighted_color: #cfcfcf;
 
         }
     }
+}
+
+.botOrder {
+    margin-top: 100px;
+    width: 100%;
+    height: 368px;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, #005156 0%, #042566 100%);
+
 }
 
 @keyframes wave {

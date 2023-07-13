@@ -57,7 +57,7 @@ export default class Api {
             password: body.password,
             recaptchaToken: body.recaptchaToken
         }, () => { })
-        if(res.data.succeed) localStorage.setItem('uuid', res.data.uuid)
+        if(res.data.success) localStorage.setItem('uuid', res.data.uuid)
         return res;
     }
 }

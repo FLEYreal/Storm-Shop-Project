@@ -1,41 +1,85 @@
 import React, { useCallback, useState, useContext, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import styles from './styles/App.module.scss'
 import SimpleButton from './components/SimpleButton'
-import ReCAPTCHA from 'react-google-recaptcha'
+import ReCAPTCHA from "react-google-recaptcha";
 
-import Modal from './components/Modal/index.tsx'
+import ModalFail from './components/ModalFail/index.jsx'
+import ModalSuccess from './components/ModalSuccess/index.jsx'
 
 import { APIContext } from './context/APIContext'
 
 function LogIn() {
     const api = useContext(APIContext)!.api
 
+    const navigate = useNavigate();
+    const captchaSiteKey: string = '6LeKRR4nAAAAAFsP7Qr_dCWczScuENUI1P7d4pf6';
+
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+
     const [isOpen, setIsOpen] = useState(false)
     const [modalContent, setModalContent] = useState('')
 
-    const captchaSiteKey: string = '6LeKRR4nAAAAAFsP7Qr_dCWczScuENUI1P7d4pf6';
-    const [captchaValue, setCaptchaValue] = useState('')
-    const [password, setPassword] = useState('')
-    const [username, setUsername] = useState('')
+    const [isSuccessOpen, setIsSuccessOpen] = useState(false)
+    const [modalSuccessContent, setModalSuccessContent] = useState('')
+
+    const [captchaValue, setCaptchaValue] = useState("");
+
+    function onClose() {
+        setIsOpen(false)
+        setIsSuccessOpen(false)
+    }
 
     const onLogin = useCallback(async () => {
         // Validate captcha
-        if (!captchaValue) {
-            setModalContent("Пожалуйста, пройдите капчу");
-            setIsOpen(true);
-            return;
-        }
+        // if (!captchaValue) {
+        //     setModalContent("Пожалуйста, пройдите капчу");
+        //     setIsOpen(true);
+        //     return;
+        // }
 
         const resultRaw = await api!.login({
-            username: username, 
+            username: username,
             password: password,
             recaptchaToken: captchaValue
         })
-    }, [])
+        const result = resultRaw.data
+
+        console.log(result)
+        if (result.success === false || result.succeed === false) {
+            setModalContent(result.error);
+            setIsOpen(true);
+        } else {
+            setModalSuccessContent('Успешный вход в аккаунт!')
+            setIsSuccessOpen(true)
+        }
+    }, [api, captchaValue, password, username])
 
     return (
         <>
             .
+            <ModalFail isOpen={isOpen} onClose={onClose}>
+                {modalContent}
+            </ModalFail>
+
+            <ModalSuccess styles={{
+                content: {
+                    fontSize: '24px'
+                }
+            }} isOpen={isSuccessOpen} onClose={onClose}>
+                {modalSuccessContent}
+                <SimpleButton onClick={() => navigate('/')} sx={{
+                    marginTop: '16px',
+                    background: 'none',
+                    border: '2px solid #fff',
+                    '&:hover': {
+                        background: 'none',
+                        boxShadow: 'none'
+                    }
+                }}>Вернутся на главную</SimpleButton>
+            </ModalSuccess>
+
             <div className={styles.signup_container}>
                 <div className={styles.signup_title}>Войди в свой профиль на Nitro Storm!</div>
                 <div className={styles.signup_form}>
@@ -43,15 +87,15 @@ function LogIn() {
                     <input value={username} onChange={(e) => setUsername(e.target.value)} id='username' />
                     <label htmlFor='password'>ПАРОЛЬ: </label>
                     <input value={password} onChange={(e) => setPassword(e.target.value)} id='password' />
-                    <span style={{ fontSize: '16px', width: '550px', textAlign: 'center' }}>Восстановить пароль напрямую нельзя, ведь к аккаунту нельзя прикрепить почту или номер телефона, поэтому обращайтесь в администрации напрямую в дискорде или ТГ! </span>
-                    <div>
+                    <span style={{ fontSize: '16px', width: '550px', textAlign: 'center' }}>Восстановить пароль напрямую нельзя, ведь к аккаунту нельзя прикрепить почту или номер телефона, поэтому обращайтесь к администрации напрямую в дискорде или ТГ! </span>
+                    <div className={styles.signup_form}>
                         <ReCAPTCHA
+                            sitekey={captchaSiteKey}
                             onChange={(value: string | null) => {
                                 if (value) {
                                     setCaptchaValue(value);
                                 }
                             }}
-                            sitekey={captchaSiteKey}
                         />
                     </div>
                     <br></br>
