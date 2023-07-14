@@ -9,9 +9,9 @@ export default class Api {
     public uuid: string;
 
     constructor(uuid: string) {
-        this.ip = process.env.REACT_APP_BACKEND_IP!;
-        this.port = process.env.REACT_APP_BACKEND_PORT!;
-        this.verPrefix = process.env.REACT_APP_VERSIONING_PREFIX!;
+        this.ip = import.meta.env.VITE_BACKEND_IP!;
+        this.port = import.meta.env.VITE_BACKEND_PORT!;
+        this.verPrefix = import.meta.env.VITE_VERSIONING_PREFIX!;
         this.fullIp = `${this.ip}:${this.port}${this.verPrefix}`;
         this.uuid = uuid;
     }
@@ -57,7 +57,7 @@ export default class Api {
             password: body.password,
             recaptchaToken: body.recaptchaToken
         }, () => { })
-        if(res.data.success) localStorage.setItem('uuid', res.data.uuid)
+        if (res.data.success) localStorage.setItem('uuid', res.data.uuid)
         return res;
     }
 }

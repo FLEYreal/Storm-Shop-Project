@@ -7,7 +7,7 @@ import resStyles from '../../utils/resStyles';
 import useResolutions from '../../hooks/useResolusions';
 
 // Компоненты & Хуки проекта
-import Good from '../Good'
+// ...
 
 // API импорты
 import { APIContext } from '../../context/APIContext'
@@ -28,7 +28,7 @@ function Block_4() {
                 <div className={`${styles.botOrder_container}`}>
                     
                 </div>
-                
+
             </section>
         </>
     )
