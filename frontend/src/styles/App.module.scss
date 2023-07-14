@@ -367,15 +367,6 @@ $unhighlighted_color: #cfcfcf;
 
             a {
                 margin: 14px;
-                color: $link_color;
-
-                &:hover {
-                    color: $link_hover_color;
-                }
-
-                &:active {
-                    color: $link_active_color;
-                }
             }
         }
     }
@@ -472,18 +463,6 @@ $unhighlighted_color: #cfcfcf;
 
             .goodItem_readMore {
                 margin: 8px 16px;
-
-                a {
-                    color: $link_color;
-
-                    &:hover {
-                        color: $link_hover_color;
-                    }
-
-                    &:active {
-                        color: $link_active_color;
-                    }
-                }
             }
 
         }
@@ -501,105 +480,214 @@ $unhighlighted_color: #cfcfcf;
 }
 
 .botOrder {
+
     margin-top: 100px;
     width: 100%;
-    height: 368px;
     flex-shrink: 0;
-    background: linear-gradient(135deg, #005156 0%, #042566 100%);
     overflow: hidden;
+    position: relative;
 
     .botOrder_container {
+        margin: 0 auto;
         display: flex;
         align-items: start;
-        justify-content: space-between;
         flex-flow: column;
         position: relative;
+        width: 1170px;
 
-        .botOrder_tgIcon {
-            flex-shrink: 0;
-            position: absolute;
-            width: 120px;
-            height: 120px;
-            transform: rotate(-37.17deg);
-            -webkit-transform: rotate(-37.17deg);
-            -moz-transform: rotate(-37.17deg);
-            -ms-transform: rotate(-37.17deg);
-            -o-transform: rotate(-37.17deg);
-
-            top: 170px;
-            left: -66px;
-        }
-
-        .botOrder_dcIcon {
-            flex-shrink: 0;
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            transform: rotate(-29.173deg);
-            -webkit-transform: rotate(-29.173deg);
-            -moz-transform: rotate(-29.173deg);
-            -ms-transform: rotate(-29.173deg);
-            -o-transform: rotate(-29.173deg);
-
-            top: 150px;
-            left: 200px;
-        }
-
-        .botOrder_desc {
+        .botOrder_top {
+            margin-bottom: 116px;
+            width: 100%;
+            height: 322px;
             display: flex;
             align-items: start;
             justify-content: space-between;
-            flex-flow: column nowrap;
-            width: 100%;
+            align-items: center;
+            flex-flow: row nowrap;
 
-            .botOrder_title {
-                color: #FFF;
-                font-size: 42px;
-                font-style: normal;
-                font-weight: 600;
-                line-height: normal;
+            .botOrder_bots {
+                width: 499px;
+                height: inherit;
+                display: flex;
+                align-items: start;
+                justify-content: space-between;
+                flex-flow: column nowrap;
 
-                .title_colorful {
-                    background: linear-gradient(157deg, #4CF2FD 0%, #00757C 100%);
-                    background-clip: text;
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    font-size: 42px;
+                .botOrder_desc {
+                    margin-top: 52px;
+                    display: flex;
+                    align-items: start;
+                    justify-content: start;
+                    flex-flow: column nowrap;
+                    width: 100%;
+                    min-height: 150px;
+
+                    .title {
+                        margin-bottom: 8px;
+                    }
+                }
+
+                .botOrder_dcIcon {
+                    width: 100px;
+                    height: 100px;
+                    top: 215px;
+                    left: 190px;
+                }
+
+                .botOrder_tgIcon {
+                    width: 120px;
+                    height: 120px;
+                    top: 265px;
+                    left: -46px;
+                }
+
+                .botOrder_button {
+                    z-index: 1;
+                    margin: 0;
+                    color: #60F6FF;
+                    font-size: 26px;
                     font-style: normal;
                     font-weight: 600;
                     line-height: normal;
+                    padding: 18px 48px;
+                    flex-shrink: 0;
+                    border-radius: 10px;
+                    border: 3px solid #60F6FF;
+                    background: rgba(96, 246, 255, 0.10);
+                    backdrop-filter: blur(4px);
+
+                    &:hover {
+                        background: rgba(96, 246, 255, 0.2);
+                    }
                 }
             }
 
-            .botOrder_subtitle {
-                color: #9B9B9B;
-                font-style: normal;
-                font-weight: 500;
-                line-height: normal;
-                width: 70%;
+            .botOrder_devider {
+                height: inherit;
+                width: 172px;
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+            }
+
+            .botOrder_scripts {
+                width: 499px;
+                height: inherit;
+                display: flex;
+                align-items: start;
+                justify-content: space-between;
+                flex-flow: column nowrap;
+
+                .botOrder_desc {
+                    position: relative;
+                    margin-top: 52px;
+                    display: flex;
+                    align-items: start;
+                    justify-content: start;
+                    flex-flow: column nowrap;
+                    width: 100%;
+                    min-height: 150px;
+
+                    .title {
+                        margin-bottom: 8px;
+                    }
+
+                    .botOrder_linkToShop {
+                        margin-top: 20px;
+                        font-size: 24px;
+                    }
+                }
+
+                .botOrder_GPTIcon {
+                    border-radius: 100px;
+                    -webkit-border-radius: 100px;
+                    -moz-border-radius: 100px;
+                    -ms-border-radius: 100px;
+                    -o-border-radius: 100px;
+                    width: 100px;
+                    height: 100px;
+                    position: absolute;
+
+                    bottom: 420px;
+                    right: 0px;
+                }
             }
         }
 
-        .botOrder_button {
-            margin: 0;
-            color: #60F6FF;
-            font-size: 26px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: normal;
-            padding: 18px 48px;
-            flex-shrink: 0;
-            border-radius: 10px;
-            border: 3px solid #60F6FF;
-            background: rgba(96, 246, 255, 0.10);
-            backdrop-filter: blur(4px);
+        .botOrder_bottom {
+            width: 100%;
+            min-height: 333px;
 
-            &:hover {
-                background: rgba(96, 246, 255, 0.2);
+            .botOrder_videoBlock {
+
+            }
+            .botOrder_scriptsBlock {
+                
             }
         }
     }
 }
+
+// Common styles for 4th block (Bot order / Script shop)
+
+.botOrder_bg {
+    background: linear-gradient(135deg, #005156 0%, #042566 100%);
+}
+
+.botOrder_tgIcon {
+    flex-shrink: 0;
+    position: absolute;
+    transform: rotate(-37.17deg);
+    -webkit-transform: rotate(-37.17deg);
+    -moz-transform: rotate(-37.17deg);
+    -ms-transform: rotate(-37.17deg);
+    -o-transform: rotate(-37.17deg);
+}
+
+.botOrder_dcIcon {
+    flex-shrink: 0;
+    position: absolute;
+    transform: rotate(-29.173deg);
+    -webkit-transform: rotate(-29.173deg);
+    -moz-transform: rotate(-29.173deg);
+    -ms-transform: rotate(-29.173deg);
+    -o-transform: rotate(-29.173deg);
+}
+
+// Styles of common website components
+
+// Link:
+a {
+    color: $link_color;
+
+    &:hover {
+        color: $link_hover_color;
+    }
+
+    &:active {
+        color: $link_active_color;
+    }
+}
+
+// Titles
+.title {
+    color: #FFF;
+
+    .title_colorful {
+        background: linear-gradient(157deg, #4CF2FD 0%, #00757C 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .title_colorful_yellow {
+        background: linear-gradient(153deg, #FFED4A 0%, #EE6213 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
 
 @keyframes wave {
     0% {

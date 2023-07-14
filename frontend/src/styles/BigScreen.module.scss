@@ -120,13 +120,26 @@
      left: 1760px;
 }
 
-.botOrder_container {
-     width: 1170px;
-     height: 246px; 
-     margin: 61px auto;
+.title {
+    font-size: 42px;
+    font-weight: 600;
+    font-style: normal;
+    line-height: normal;
+    background-clip: text;
 }
 
 .botOrder_subtitle {
-     margin-top: 6px;
      font-size: 24px;
+     color: #9B9B9B;
 }
+
+// .botOrder_container {
+//      width: 1170px;
+//      height: 246px; 
+//      margin: 61px auto;
+// }
+
+// .botOrder_subtitle {
+//      margin-top: 6px;
+//      font-size: 24px;
+// }
