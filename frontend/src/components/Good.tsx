@@ -35,7 +35,7 @@ function Good({desc}:{desc:Description}) {
           <div className={`${styles.goodItem} ${resStyles('goodItem', resolutions)}`}>
 
                {/* Вывести картинку */}
-               <div style={{backgroundImage: `url('${process.env.REACT_APP_BACKEND_IP}:${process.env.REACT_APP_BACKEND_PORT}${image}')`}} className={styles.goodItem_image}></div>
+               <div style={{backgroundImage: `url('${import.meta.env.VITE_BACKEND_IP}:${import.meta.env.VITE_BACKEND_PORT}${image}')`}} className={styles.goodItem_image}></div>
 
                {/* Вывести заголовок и цену */}
                <div className={styles.goodItem_top}>
