@@ -501,7 +501,6 @@ $unhighlighted_color: #cfcfcf;
 }
 
 .botOrder {
-    position: relative;
     margin-top: 100px;
     width: 100%;
     height: 368px;
@@ -510,13 +509,41 @@ $unhighlighted_color: #cfcfcf;
     overflow: hidden;
 
     .botOrder_container {
-        width: 1170px;
-        height: 246px;
-        margin: 61px auto;
         display: flex;
         align-items: start;
         justify-content: space-between;
         flex-flow: column;
+        position: relative;
+
+        .botOrder_tgIcon {
+            flex-shrink: 0;
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            transform: rotate(-37.17deg);
+            -webkit-transform: rotate(-37.17deg);
+            -moz-transform: rotate(-37.17deg);
+            -ms-transform: rotate(-37.17deg);
+            -o-transform: rotate(-37.17deg);
+
+            top: 170px;
+            left: -66px;
+        }
+
+        .botOrder_dcIcon {
+            flex-shrink: 0;
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            transform: rotate(-29.173deg);
+            -webkit-transform: rotate(-29.173deg);
+            -moz-transform: rotate(-29.173deg);
+            -ms-transform: rotate(-29.173deg);
+            -o-transform: rotate(-29.173deg);
+
+            top: 150px;
+            left: 200px;
+        }
 
         .botOrder_desc {
             display: flex;
@@ -524,7 +551,6 @@ $unhighlighted_color: #cfcfcf;
             justify-content: space-between;
             flex-flow: column nowrap;
             width: 100%;
-            height: 116px;
 
             .botOrder_title {
                 color: #FFF;
@@ -547,7 +573,6 @@ $unhighlighted_color: #cfcfcf;
 
             .botOrder_subtitle {
                 color: #9B9B9B;
-                font-size: 24px;
                 font-style: normal;
                 font-weight: 500;
                 line-height: normal;

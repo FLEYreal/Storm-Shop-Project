@@ -31,22 +31,22 @@ function Block_2() {
                 {/* Список ссылок на другие варианты покупки */}
 
                 <div className={styles.net_big_item}>
-                    <img src={tgIcon_small} style={{ width: '68px' }} alt='Telegram' />
+                    <img src={tgIcon_small} style={{ width: '68px' }} alt='Telegram Icon' />
                     <a href='https://t.me/storm_nitro_shop_bot' target='_blank'>Телеграм Бот</a>
                 </div>
 
                 <div className={styles.net_big_item}>
-                    <img src={discordIcon} style={{ width: '56px', padding: '6px' }} alt='Discord' />
+                    <img src={discordIcon} style={{ width: '56px', padding: '6px' }} alt='Discord Icon' />
                     <a href='https://discord.gg/BNsV86yGQA' target='_blank'>Дискорд Сервер</a>
                 </div>
 
                 <div className={styles.net_big_item}>
-                    <img src={funpay} style={{ width: '56px', borderRadius: '100%', padding: '6px' }} alt='FunPay' />
+                    <img src={funpay} style={{ width: '56px', borderRadius: '100%', padding: '6px' }} alt='FunPay Icon' />
                     <a href='https://funpay.com/users/2879263/' target='_blank'>FunPay</a>
                 </div>
 
                 <div className={styles.net_big_item}>
-                    <img src={plati} style={{ width: '56px', borderRadius: '100%', padding: '6px' }} alt='plati.market' />
+                    <img src={plati} style={{ width: '56px', borderRadius: '100%', padding: '6px' }} alt='Plati.market Icon' />
                     <a href='https://plati.io/itm/3753787' target='_blank'>Plati.market</a>
                 </div>
 
