@@ -9,6 +9,7 @@ import useResolutions from '../hooks/useResolusions'
 // Компоненты & Хуки проекта
 import SimpleButton from './SimpleButton'
 import shortenText from '../utils/shortenText'
+import lighterRgb from '../utils/lighterRGB'
 
 // Интерфейс для описания товара
 interface Description {
@@ -30,6 +31,9 @@ function Good({desc}:{desc:Description}) {
 
      // Укоротить текст описания
      subtitle = shortenText(subtitle, 60)
+
+     // Получить менее прозрачный фон
+     const lighterBg = lighterRgb(themeTransparent, 0.25)
 
      return (
           <div className={`${styles.goodItem} ${resStyles('goodItem', resolutions)}`}>
@@ -53,7 +57,7 @@ function Good({desc}:{desc:Description}) {
 
                {/* Кнопка для покупки */}
                <SimpleButton sx={{color: theme, border: `2px solid ${theme}`, backgroundColor: themeTransparent, '&:hover': {
-                    backgroundColor: themeTransparent,
+                    backgroundColor: lighterBg,
                     boxShadow: 'none',
                 },}} className={styles.goodItem_buyButton}>Купить</SimpleButton>
                 
