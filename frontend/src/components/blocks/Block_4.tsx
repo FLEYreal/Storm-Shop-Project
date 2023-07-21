@@ -9,15 +9,17 @@ import useResolutions from '../../hooks/useResolusions';
 
 // Компоненты & Хуки проекта
 import SimpleButton from '../SimpleButton';
+import VideoPlayer from '../VideoPlayer';
 
 // API импорты
 import { APIContext } from '../../context/APIContext'
 
-// Картинки
+// Картинки & Видео
 import tgIcon_small from '../img/tgIcon_small.svg';
 import discordIcon from '../img/discordIcon.svg';
 import devider from '../img/devider.svg';
 import chatGPT from '../img/chatgpt-icon.svg';
+import botReview from '../video/botReview.mp4'
 
 function Block_4() {
 
@@ -70,8 +72,8 @@ function Block_4() {
                                     </div>
                                     <div className={`${styles.botOrder_subtitle} ${resStyles('botOrder_subtitle', resolutions)}`}>
                                         Мы также предлагаем магазин готовых
-                                        скриптов и ботов, таких как скрипт для 
-                                        авто-покупки нитро на nodejs или готовый 
+                                        скриптов и ботов, таких как скрипт для
+                                        авто-покупки нитро на nodejs или готовый
                                         скрипт чата с chatGPT на C++
                                     </div>
                                     <a href='/' className={`${styles.botOrder_linkToShop}`}>Перейти в магазин</a>
@@ -84,7 +86,15 @@ function Block_4() {
                         </div>
 
                         <div className={`${styles.botOrder_bottom}`}>
-                            <div className={`${styles.botOrder_videoBlock}`}></div>
+                            <div className={`${styles.botOrder_videoBlock}`}>
+                                <VideoPlayer
+                                    src={botReview} 
+                                    doLoop={true} 
+                                    doControl={false}
+                                    doStart={true}
+                                    volume={0}
+                                />
+                            </div>
                             <div className={`${styles.botOrder_scriptsBlock}`}></div>
                         </div>
                     </div>
