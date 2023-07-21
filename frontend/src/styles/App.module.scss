@@ -1,9 +1,7 @@
-$theme: #040c36;
-$theme_2: #3b097e;
-$theme_3: #0e085e;
-$theme_4: #1625ff;
-$theme_5: #b413b4;
-$theme_6: #8d4fff;
+$theme: #090447;
+$theme_2: #18085e;
+$theme_3: #502385;
+$theme_4: #9e5070;
 $dark_theme: #121212;
 $GoldenButtonColor: #e29b00;
 $GoldenButtonHoverColor: #ffb30f;
@@ -16,9 +14,10 @@ $link_active_color: #d03a3a;
 
 $theme_gradient: linear-gradient(to bottom right,
         $theme,
-        $theme_3 20%,
-        $theme_2 70%,
-        $theme_5);
+        $theme_2 20%,
+        $theme_3 70%,
+        $theme_4
+);
 
 $font_family: Roboto, Tahoma, Arial, Helvetica, sans-serif;
 $unhighlighted_color: #cfcfcf;
@@ -725,7 +724,7 @@ a {
         -moz-transform: translateY(-2%);
         -ms-transform: translateY(-2%);
         -o-transform: translateY(-2%);
-}
+    }
 
     50% {
         transform: translateY(2%);
@@ -733,7 +732,7 @@ a {
         -moz-transform: translateY(2%);
         -ms-transform: translateY(2%);
         -o-transform: translateY(2%);
-}
+    }
 
     100% {
         transform: translateY(-2%);
@@ -741,7 +740,7 @@ a {
         -moz-transform: translateY(-2%);
         -ms-transform: translateY(-2%);
         -o-transform: translateY(-2%);
-}
+    }
 }
 
 @keyframes movingBubble1 {
@@ -751,7 +750,7 @@ a {
         -moz-transform: translate(0%, -2%) rotate(180deg);
         -ms-transform: translate(0%, -2%) rotate(180deg);
         -o-transform: translate(0%, -2%) rotate(180deg);
-}
+    }
 
     50% {
         transform: translate(0%, 2%) rotate(180deg);
@@ -759,7 +758,7 @@ a {
         -moz-transform: translate(0%, 2%) rotate(180deg);
         -ms-transform: translate(0%, 2%) rotate(180deg);
         -o-transform: translate(0%, 2%) rotate(180deg);
-}
+    }
 
     100% {
         transform: translate(0%, -2%) rotate(180deg);
@@ -767,7 +766,7 @@ a {
         -moz-transform: translate(0%, -2%) rotate(180deg);
         -ms-transform: translate(0%, -2%) rotate(180deg);
         -o-transform: translate(0%, -2%) rotate(180deg);
-}
+    }
 }
 
 @keyframes movingBubble4 {
@@ -777,7 +776,7 @@ a {
         -moz-transform: translate(0%, -3.75%);
         -ms-transform: translate(0%, -3.75%);
         -o-transform: translate(0%, -3.75%);
-}
+    }
 
     50% {
         transform: translate(0%, 3.75%);
@@ -785,7 +784,7 @@ a {
         -moz-transform: translate(0%, 3.75%);
         -ms-transform: translate(0%, 3.75%);
         -o-transform: translate(0%, 3.75%);
-}
+    }
 
     100% {
         transform: translate(0%, -3.75%);
@@ -793,7 +792,7 @@ a {
         -moz-transform: translate(0%, -3.75%);
         -ms-transform: translate(0%, -3.75%);
         -o-transform: translate(0%, -3.75%);
-}
+    }
 }
 
 @keyframes wampusFly {
