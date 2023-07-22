@@ -1,3 +1,6 @@
+// Базовые импорты
+import { useEffect } from 'react';
+
 // Стили
 import resStyles from '../../utils/resStyles.ts';
 import styles from '../../styles/App.module.scss';
@@ -9,10 +12,101 @@ import { BlueButton, PinkButton } from '../../styles/mui';
 // Картинки & Иконки
 import CodeRoundedIcon from '@mui/icons-material/CodeRounded';
 import DiamondRoundedIcon from '@mui/icons-material/DiamondRounded';
+import wampus from '../img/wampus.png';
+import activeDeveloperBadge from '../img/activeDeveloperBadge.svg';
+import nitroBadge from '../img/nitroBadge.svg';
+import boostIcon from '../img/boostIcon.png';
+import botIcon from '../img/botIcon.png';
+import starIcon from '../img/starIcon.png';
+import tgIcon_small from '../img/tgIcon_small.svg';
+import bubble4 from '../img/bubbles4.png';
+import tgIcon_big from '../img/tgIcon_big.svg';
+import discordIcon from '../img/discordIcon.svg';
+import chatGPT from '../img/chatgpt-icon.svg';
+import spotify from '../img/spotify.svg';
 
 export default function Block_1() {
     // Создание основных переменных
     const resolutions = useResolutions()
+    const { isBigScreen, isMidScreen, isSmallScreen, isPhone } = useResolutions()
+
+    useEffect(() => {
+        // Если разрешение экрана не телефона
+        if (!isPhone) {
+
+            // Установить таймер
+            const timer = setInterval(() => {
+
+                // Создать контейнер для частиц
+                const particlesContainer = document.getElementById('particles-container');
+
+                // Создать элемент частицы
+                const particle = document.createElement('img');
+
+                // Получить рандомную картинку
+                particle.src = getRandomBadgeImage();
+
+                // Проверка размера экрана, после - определение положения частицы на сайте
+                if (isSmallScreen) {
+
+                    // Стили для определения положения
+                    particle.style.right = `calc(3${Math.floor((Math.random() * 8))}${Math.floor((Math.random() * 5))}px + 40px)`;
+                    particle.style.top = `600px`;
+
+                }
+                else if (isMidScreen) {
+
+                    // Стили для определения положения
+                    particle.style.right = `1${Math.floor((Math.random() * 8))}${Math.floor((Math.random() * 5))}px`;
+
+                }
+                else if (isBigScreen) {
+
+                    // Стили для определения положения
+                    particle.style.right = `1${Math.floor((Math.random() * 8))}${Math.floor((Math.random() * 9))}px`;
+
+                }
+
+                // Добавить нужные стили для частицы
+                particle.className = `${styles.badgeRain} ${resStyles('badgeRain', resolutions)} ${getRandomBadgeClass()}`;
+
+                // Вывести частицу на страницу
+                particlesContainer!.appendChild(particle);
+
+                // Удалить частицу после 10 секунд
+                setTimeout(() => {
+                    particlesContainer!.removeChild(particle);
+                }, 10000);
+            }, 250);
+
+            return () => clearInterval(timer);
+        }
+    }, []);
+
+    // Рандомайзер для КОМПОНЕНТОВ дождя из картинок под вампусом
+    const getRandomBadgeImage = () => {
+        // Массив картинок
+        const images = [activeDeveloperBadge, nitroBadge, boostIcon, botIcon, starIcon, tgIcon_small];
+
+        // Получить рандомную картинку
+        const randomIndex = Math.floor(Math.random() * images.length);
+
+        // Вернуть рандомную картинку
+        return images[randomIndex];
+    };
+
+    // Рандомайзер для КЛАССОВ дождя из картинок под вампусом
+    const getRandomBadgeClass = () => {
+        // Получить классы анимаций для картинок
+        const classes = ['badgeRain1', 'badgeRain2', 'badgeRain3', 'badgeRain4', 'badgeRain5'];
+
+        // Получить рандомную анимацию
+        const randomIndex = Math.floor(Math.random() * classes.length);
+
+        // Вернуть рандомную анимацию
+        return classes[randomIndex];
+    };
+
 
     return (
         // Основной Контейнер
@@ -46,11 +140,22 @@ export default function Block_1() {
                     </p>
                     {/* Кнопки */}
                     <div className={`${styles.main_action} ${resStyles('main_action', resolutions)}`}>
-                        <PinkButton sx={{padding: '10px 25px', fontSize: '21px', fontWeight: '600'}} startIcon={<DiamondRoundedIcon style={{ marginRight: '4px' }} />}>ПОДПИСКИ</PinkButton>
-                        <BlueButton sx={{padding: '10px 25px', fontSize: '21px', fontWeight: '600'}} startIcon={<CodeRoundedIcon style={{ marginRight: '4px' }} />}>СКРИПТЫ</BlueButton>
+                        <PinkButton sx={{ padding: '10px 25px', fontSize: '21px', fontWeight: '600' }} startIcon={<DiamondRoundedIcon style={{ marginRight: '4px' }} />}>ПОДПИСКИ</PinkButton>
+                        <BlueButton sx={{ padding: '10px 25px', fontSize: '21px', fontWeight: '600' }} startIcon={<CodeRoundedIcon style={{ marginRight: '4px' }} />}>СКРИПТЫ</BlueButton>
                     </div>
                 </div>
 
+                {/* Картинки */}
+                <img src={wampus} className={`${styles.wampus} ${resStyles('wampus', resolutions)}`} alt="Wampus" />
+                <img src={tgIcon_big} className={`${styles.tgIcon_big} ${resStyles('tgIcon_big', resolutions)}`} alt="Telegram Icon" />
+                <img src={discordIcon} className={`${styles.discordIcon} ${resStyles('discordIcon', resolutions)}`} alt="Discord Icon" />
+                <img src={bubble4} className={`${styles.bubble4} ${resStyles('bubble4', resolutions)}`} alt="Bubble 4 icon" />
+
+                <img src={bubble4} className={`${styles.bubble4_1} ${resStyles('bubble4_1', resolutions)}`} alt="Bubble 4.1 icon" />
+                <img src={chatGPT} className={`${styles.chatGPT} ${resStyles('chatGPT', resolutions)}`} alt="ChatGPT icon" />
+                <img src={spotify} className={`${styles.spotify} ${resStyles('spotify', resolutions)}`} alt="ChatGPT icon" />
+
+                <div id="particles-container" className={styles.particlesContainer}></div>
             </div>
 
         </section>
