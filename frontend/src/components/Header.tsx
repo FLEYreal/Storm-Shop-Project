@@ -4,6 +4,11 @@ import { useEffect, useState } from 'react';
 // Компоненты проекта
 import { StormIconButton, BlueButton, PinkButton } from '../styles/mui';
 
+// Стили
+import useResolutions from '../hooks/useResolusions';
+import resStyles from '../utils/resStyles';
+import styles from '../styles/App.module.scss'
+
 // Material-UI
 import { Toolbar, Typography, Menu, MenuItem, AppBar } from '@mui/material';
 import { Box } from '@mui/system'
@@ -20,7 +25,18 @@ import Logo from './img/logo512.png'
 function App() {
     // Инициализация нужных переменных
     const [anchorElMenu, setAnchorElMenu] = useState(null);
-    const [isScrolled, setIsScrolled] = useState(false)
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [buttonStyles, setButtonStyles] = useState({});
+
+    const resolution = useResolutions();
+    const { isBigScreen, isMidScreen, isSmallScreen, isPhone } = useResolutions();
+
+
+
+    useEffect(() => {
+        if(isBigScreen) setButtonStyles({ fontSize: '18px' })
+        else if(isMidScreen) setButtonStyles({ fontSize: '16px', padding: '8px 15px' })
+    }, [ isBigScreen, isMidScreen ])
 
     // Открыть бургер меню
     const handleBurgerMenu = (e: any) => {
@@ -35,7 +51,6 @@ function App() {
     // Функцмя изменения состояния при скролле
     const handleScroll = () => {
         const scrollTop = window.scrollY;
-        console.log('scroll!', scrollTop)
 
         if (scrollTop > 0 && !isScrolled) setIsScrolled(true);
         else if (scrollTop === 0 && isScrolled) setIsScrolled(false);
@@ -62,37 +77,25 @@ function App() {
                         zIndex: 100,
                         transition: 'all 0.2s ease-in-out',
                     }}>
-                    <Typography component='nav' sx={{
-                        display: 'flex',
-                        flexFlow: 'row nowrap',
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
-                        width: '1170px',
-                        margin: '0 auto'
-                    }}>
-                        <a href="/" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', cursor: "pointer", textDecoration: 'none' }}>
-                            <img src={Logo} alt="logo" style={{
-                                borderRadius: '250px',
-                                width: '52px',
-                                height: '52px',
-                                flexShrink: '0',
-                            }} />
-                            <h2 style={{ marginLeft: '12px', fontSize: '26px' }}>Storm Shop</h2>
+                    <Typography component='div' sx={{margin: '0 auto'}} className={`${styles.inner_header} ${resStyles('inner_header', resolution)}`}>
+                        <a href="/" className={styles.header_logo}>
+                            <img src={Logo} alt="logo" className={styles.logo512} />
+                            <h2 style={{ fontSize: '26px' }}>Storm Shop</h2>
                         </a>
-                        <Typography noWrap component='div' sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}>
-                            <Toolbar>
-                                <PinkButton sx={{ fontSize: '18px' }} startIcon={<DiamondRoundedIcon style={{ marginRight: '4px' }} />}>ПОДПИСКИ</PinkButton>
-                                <BlueButton sx={{ fontSize: '18px' }} startIcon={<CodeRoundedIcon style={{ marginRight: '4px' }} />}>СКРИПТЫ</BlueButton>
+                        <Typography noWrap component='nav' className={`${resStyles('header_nav', resolution)}`}>
+                            <Toolbar className={resStyles("nav_block", resolution)}>
+                                <PinkButton sx={buttonStyles} className={`${styles.header_nav_button} ${resStyles('header_nav_button', resolution)}`} startIcon={<DiamondRoundedIcon style={{ marginRight: '4px' }} />}>ПОДПИСКИ</PinkButton>
+                                <BlueButton sx={buttonStyles} startIcon={<CodeRoundedIcon style={{ marginRight: '4px' }} />}>СКРИПТЫ</BlueButton>
                             </Toolbar>
 
                             <span style={{ fontSize: '32px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>|</span>
 
-                            <Toolbar>
-                                <BlueButton sx={{ fontSize: '18px' }} startIcon={<Person2RoundedIcon style={{ marginRight: '4px' }} />}>ПОДДЕРЖКА</BlueButton>
-                                <BlueButton sx={{ fontSize: '18px' }} startIcon={<WorkRoundedIcon style={{ marginRight: '4px' }} />}>РАБОТА</BlueButton>
+                            <Toolbar className={resStyles("nav_block", resolution)}>
+                                <BlueButton sx={buttonStyles} startIcon={<Person2RoundedIcon style={{ marginRight: '4px' }} />}>ПОДДЕРЖКА</BlueButton>
+                                <BlueButton sx={buttonStyles} startIcon={<WorkRoundedIcon style={{ marginRight: '4px' }} />}>РАБОТА</BlueButton>
                             </Toolbar>
                         </Typography>
-                        <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+                        <Box sx={{ flexGrow: 1 }} className={`${styles.burger_menu} ${resStyles('burger_menu', resolution)}`}>
                             <StormIconButton onClick={handleBurgerMenu}>
                                 <MenuIcon sx={{ fontSize: '48px' }} />
                             </StormIconButton>
@@ -111,7 +114,6 @@ function App() {
                                 open={Boolean(anchorElMenu)}
                                 onClose={handleCloseBurgerMenu}
                                 sx={{
-                                    display: { xs: 'block', md: 'none' },
                                     '& .MuiPaper-root': {
                                         borderRadius: '6px',
                                         backgroundColor: '#292929',

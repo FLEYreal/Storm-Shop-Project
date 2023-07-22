@@ -134,7 +134,21 @@
      color: #9B9B9B;
 }
 
- 
+.burger_menu {
+     display: none;
+}
+
+.inner_header {
+     width: 95%;
+}
+
+.header_nav {
+     display: flex;
+}
+
+.nav_block {
+     padding: 0 10px !important;
+}
 
 // .botOrder_container {
 //      width: 90%;

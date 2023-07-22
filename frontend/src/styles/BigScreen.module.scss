@@ -93,8 +93,8 @@
 }
 
 .goodList {
-    width: 1170px;
-    justify-content: space-between;
+     width: 1170px;
+     justify-content: space-between;
 }
 
 .goodItem {
@@ -121,16 +121,32 @@
 }
 
 .title {
-    font-size: 42px;
-    font-weight: 600;
-    font-style: normal;
-    line-height: normal;
-    background-clip: text;
+     font-size: 42px;
+     font-weight: 600;
+     font-style: normal;
+     line-height: normal;
+     background-clip: text;
 }
 
 .botOrder_subtitle {
      font-size: 24px;
      color: #9B9B9B;
+}
+
+.burger_menu {
+     display: none;
+}
+
+.inner_header {
+     width: 1170px;
+}
+
+.header_nav {
+     display: flex;
+}
+
+.nav_block {
+     padding: 0 24px !important;
 }
 
 // .botOrder_container {

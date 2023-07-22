@@ -16,8 +16,7 @@ $theme_gradient: linear-gradient(to bottom right,
         $theme,
         $theme_2 20%,
         $theme_3 70%,
-        $theme_4
-);
+        $theme_4);
 
 $font_family: Roboto, Tahoma, Arial, Helvetica, sans-serif;
 $unhighlighted_color: #cfcfcf;
@@ -200,6 +199,25 @@ $unhighlighted_color: #cfcfcf;
 
 }
 
+.header_logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row nowrap;
+    font-size: 24px;
+    font-weight: 500;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    user-select: none;
+    text-decoration: none;
+
+    &:hover {
+        color: #d6d6d6;
+    }
+}
+
 .logo512 {
     user-select: none;
     cursor: pointer;
@@ -207,6 +225,13 @@ $unhighlighted_color: #cfcfcf;
     margin: 6px 12px 6px 0px;
     width: 54px;
     height: 54px;
+}
+
+.inner_header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .main_container_images {
@@ -261,76 +286,9 @@ $unhighlighted_color: #cfcfcf;
     }
 }
 
-.header {
-    font-family: $font_family;
-    color: white;
-    width: 100%;
-    position: fixed;
-    z-index: 10;
-    border: 0;
-    backdrop-filter: blur(8px);
-
-    .header_content_container {
-        margin: auto;
-
-        .header_container {
-            margin: auto;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-self: stretch;
-            align-items: center;
-
-            .header_options_container {
-                flex: 7;
-                height: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: end;
-            }
-
-            .logo_container {
-                height: 100%;
-                flex: 3;
-                display: flex;
-                align-items: center;
-                justify-content: start;
-                font-weight: 500;
-                font-size: 26px;
-
-                .logoLink {
-                    margin: 10px;
-                }
-
-                .logo {
-                    display: block;
-                    margin: auto 0;
-                }
-            }
-        }
-    }
-}
-
 .burger_menu {
-    width: 350px;
-    position: fixed;
-    z-index: 10;
-    background-color: $dark_theme;
     display: flex;
-    flex-flow: column nowrap;
-    top: 70px;
-    right: 5%;
-    overflow: hidden;
-    border-radius: 1px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-
-    .burger_item {
-        height: 75px;
-        font-size: 24px;
-    }
+    justify-content: flex-end;
 }
 
 .dark_header {

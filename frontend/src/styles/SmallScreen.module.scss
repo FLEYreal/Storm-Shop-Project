@@ -123,7 +123,19 @@
      font-size: 17px;
      color: #9B9B9B;
 }
- 
+
+.burger_menu {
+     display: flex;
+}
+
+.inner_header {
+     width: 95%;
+}
+
+.header_nav {
+     display: none;
+}
+
 
 // .botOrder_container {
 //      width: 90%;
