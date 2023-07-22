@@ -8,8 +8,8 @@ import resStyles from '../utils/resStyles.ts';
 import useResolutions from '../hooks/useResolusions.ts'
 
 // Компоненты & Хуки проекта
-import BigButton from './BigButton.tsx';
 import TransparentModal from './TransparentModal.tsx'
+import BigButton from './BigButton.tsx';
 
 function MainWindow() {
     // Получить объект с разрешением экрана
@@ -39,11 +39,11 @@ function MainWindow() {
                 {/* Если экран большой */}
                 <MediaQuery minWidth={1171}>
 
-                    <BigButton sx={{ marginRight: '16px', marginLeft: '0', fontSize: '20px' }} isGold={true}>
+                    <BigButton sx={{ marginRight: '16px', marginLeft: '0'}} isGold={true}>
                         Купить
                     </BigButton>
 
-                    <BigButton sx={{ marginRight: '16px', marginLeft: '0', fontSize: '20px' }}>
+                    <BigButton sx={{ marginRight: '16px', marginLeft: '0'}}>
                         Отзывы
                     </BigButton>
 
