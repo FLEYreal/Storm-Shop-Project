@@ -128,18 +128,17 @@ function App(): JSX.Element {
             {/* Все картинки, дизайн, у всех position: absolute; */}
 
             <div className={`${styles.absolute_content} ${resStyles('absolute_content', resolutions)}`}>
-                <img src={bubble4} className={`${styles.bubble4} ${resStyles('bubble4', resolutions)}`} alt="Bubble 4" />
+                {/* <img src={bubble4} className={`${styles.bubble4} ${resStyles('bubble4', resolutions)}`} alt="Bubble 4" />
                 <img src={wampus} className={`${styles.wampus} ${resStyles('wampus', resolutions)}`} alt="Wampus" />
                 <img src={tgIcon_big} className={`${styles.tgIcon_big} ${resStyles('tgIcon_big', resolutions)}`} alt="Telegram Icon" />
                 <img src={discordIcon} className={`${styles.discordIcon} ${resStyles('discordIcon', resolutions)}`} alt="Discord Icon" />
                 <img src={bubble4} className={`${styles.bubble4_1} ${resStyles('bubble4_1', resolutions)}`} alt="Bubble 4.1" />
-                <div id="particles-container" className={styles.particlesContainer}></div>
+                <div id="particles-container" className={styles.particlesContainer}></div> */}
             </div>
 
             {/* Различные отдельные элементы страницы */}
             <div className={`${styles.purple_light} ${resStyles('purple_light', resolutions)}`}></div> {/* Фиолетовое свечение */}
             <div className={`${styles.blue_light} ${resStyles('blue_light', resolutions)}`}></div> {/* Синее свечение */}
-            <img src={bubble1} className={`${styles.bubble1} ${resStyles('bubble1', resolutions)}`} alt="Bubble 1" /> {/* Картинка с пузыриками */}
 
             {/* Разные Блоки сайта */}
 

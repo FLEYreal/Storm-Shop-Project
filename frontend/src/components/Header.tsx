@@ -21,7 +21,6 @@ import CodeRoundedIcon from '@mui/icons-material/CodeRounded';
 import DiamondRoundedIcon from '@mui/icons-material/DiamondRounded';
 import Logo from './img/logo512.png'
 
-
 function App() {
     // Инициализация нужных переменных
     const [anchorElMenu, setAnchorElMenu] = useState(null);
@@ -84,7 +83,7 @@ function App() {
                         </a>
                         <Typography noWrap component='nav' className={`${resStyles('header_nav', resolution)}`}>
                             <Toolbar className={resStyles("nav_block", resolution)}>
-                                <PinkButton sx={buttonStyles} className={`${styles.header_nav_button} ${resStyles('header_nav_button', resolution)}`} startIcon={<DiamondRoundedIcon style={{ marginRight: '4px' }} />}>ПОДПИСКИ</PinkButton>
+                                <PinkButton sx={buttonStyles} startIcon={<DiamondRoundedIcon style={{ marginRight: '4px' }} />}>ПОДПИСКИ</PinkButton>
                                 <BlueButton sx={buttonStyles} startIcon={<CodeRoundedIcon style={{ marginRight: '4px' }} />}>СКРИПТЫ</BlueButton>
                             </Toolbar>
 
