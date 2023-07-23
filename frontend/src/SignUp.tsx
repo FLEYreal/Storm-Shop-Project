@@ -15,7 +15,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 // Компоненты & Хуки проекта
 import ModalFail from './components/ModalFail/index.jsx'
 import ModalSuccess from './components/ModalSuccess/index.jsx'
-import SimpleButton from './components/SimpleButton'
+import { StormButton, PinkButton } from './styles/mui.js';
 
 export default function SignUp() {
     // Базовые переменные
@@ -110,15 +110,14 @@ export default function SignUp() {
                 }
             }} isOpen={isSuccessOpen} onClose={onClose}>
                 {modalSuccessContent}
-                <SimpleButton onClick={() => navigate('/')} sx={{
+                <StormButton variant='outlined' onClick={() => navigate('/')} sx={{
                     marginTop: '16px',
                     background: 'none',
-                    border: '2px solid #fff',
                     '&:hover': {
-                        background: 'none',
+                        background: 'rgba(255, 255, 255, 0.2)',
                         boxShadow: 'none'
                     }
-                }}>Вернутся на главную</SimpleButton>
+                }}>Вернутся на главную</StormButton>
             </ModalSuccess>
 
             {/* Основной контент */}
@@ -163,7 +162,7 @@ export default function SignUp() {
                     <br></br>
 
                     {/* Кнопка для регистрации */}
-                    <SimpleButton onClick={onSignUp}>Зарегестрироваться</SimpleButton>
+                    <PinkButton sx={{pl: 8, pr: 8}} onClick={onSignUp}>Зарегестрироваться</PinkButton>
                 </div>
             </div>
         </>

@@ -8,7 +8,7 @@ import resStyles from '../../utils/resStyles';
 import useResolutions from '../../hooks/useResolusions';
 
 // Компоненты & Хуки проекта
-import SimpleButton from '../SimpleButton';
+import { StormButton } from '../../styles/mui.js';
 import VideoPlayer from '../VideoPlayer';
 
 // API импорты
@@ -51,9 +51,9 @@ export default function Block_4() {
                                         Хочешь заказать собственного бота для дискорда или телеграмма, тогда ты по адрессу!
                                     </div>
                                 </div>
-                                <SimpleButton className={`${styles.botOrder_button}`}>
+                                <StormButton className={`${styles.botOrder_button}`}>
                                     ЗАКАЗАТЬ
-                                </SimpleButton>
+                                </StormButton>
 
                                 {/* Картинки */}
                                 <img src={tgIcon_small} className={`${styles.botOrder_tgIcon}`} alt='Telegram Icon' />

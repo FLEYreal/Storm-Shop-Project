@@ -1,5 +1,5 @@
 // Базовые имопрты
-import React from 'react'
+import React, { useState } from 'react'
 
 // Стили
 import resStyles from '../utils/resStyles'
@@ -7,9 +7,12 @@ import styles from '../styles/App.module.scss'
 import useResolutions from '../hooks/useResolusions'
 
 // Компоненты & Хуки проекта
-import SimpleButton from './SimpleButton'
+import { StormButton } from '../styles/mui.js';
 import shortenText from '../utils/shortenText'
 import lighterRgb from '../utils/lighterRGB'
+
+// Material-UI
+import CircularProgress from '@mui/material/CircularProgress';
 
 // Интерфейс для описания товара
 interface Description {
@@ -24,6 +27,7 @@ interface Description {
 export default function Good({ desc }: { desc: Description }) {
 
     // Получить все переменные описания товара
+    const [isLoading, setIsLoading] = useState(false)
     const { themeTransparent, theme, title, cost, image } = desc;
     let { subtitle } = desc;
 
@@ -35,6 +39,11 @@ export default function Good({ desc }: { desc: Description }) {
 
     // Получить менее прозрачный фон
     const lighterBg = lighterRgb(themeTransparent, 0.25)
+
+    // Функция, обработчик кнопки "Купить"
+    function handleBuy() {
+        setIsLoading(true)
+    }
 
     return (
         <div className={`${styles.goodItem} ${resStyles('goodItem', resolutions)}`}>
@@ -57,12 +66,41 @@ export default function Good({ desc }: { desc: Description }) {
             </div>
 
             {/* Кнопка для покупки */}
-            <SimpleButton sx={{
-                color: theme, border: `2px solid ${theme}`, backgroundColor: themeTransparent, '&:hover': {
-                    backgroundColor: lighterBg,
-                    boxShadow: 'none',
-                },
-            }} className={styles.goodItem_buyButton}>Купить</SimpleButton>
+            <StormButton
+                onClick={handleBuy}
+                loading={isLoading}
+                loadingIndicator={
+                    isLoading ? (
+                        <React.Fragment>
+                            <div style={{ display: 'flex', alignItems: 'center' }}>
+                                <CircularProgress size={10} style={{ color: theme, marginRight: '8px' }} />{' '}
+                                {/* Иконка загрузки с белым цветом */}
+                                <span style={{ color: theme, fontSize: '14px' }}>Загрузка...</span>
+                                {/* Текст "Загрузка..." с белым цветом */}
+                            </div>
+                        </React.Fragment>
+                    ) : (
+                        'Загрузка...'
+                    )
+                }
+                variant="outlined"
+                sx={{
+                    color: theme, // Убедитесь, что у вас определена переменная theme
+                    border: `2px solid ${theme}`,
+                    backgroundColor: themeTransparent,
+                    '&:hover': {
+                        border: `2px solid ${theme}`,
+                        backgroundColor: lighterBg,
+                        boxShadow: 'none',
+                    },
+                    display: 'flex', // Используем flexbox
+                    alignItems: 'center', // Выравнивание по вертикали
+                    justifyContent: 'center', // Выравнивание по горизонтали
+                }}
+                className={styles.goodItem_buyButton}
+            >
+                Купить
+            </StormButton>
 
         </div>
     )
