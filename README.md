@@ -1,5 +1,7 @@
 # This is an open-source code for project StormShop!
-## Это open-source код для проект StormShop!
+## Это open-source код для проекта StormShop!
+
+Данный проект предназначен для как для русско-говоряших, так и для англо-говорящих. Сайт переведен на русские/английские языки, но к сожалению не бот. Мы работаем над этим!
 
 ![StormShop: main page image](./README/main_page.png)
 
