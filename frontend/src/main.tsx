@@ -1,3 +1,4 @@
+import React from 'react'
 import RouterComp from './router';
 import ReactDOM from "react-dom/client";
 

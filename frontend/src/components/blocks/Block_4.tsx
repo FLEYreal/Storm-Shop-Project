@@ -1,5 +1,5 @@
 // Базовые импорты
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import MediaQuery from 'react-responsive';
 
 // Стили
@@ -21,7 +21,7 @@ import devider from '../img/devider.svg';
 import chatGPT from '../img/chatgpt-icon.svg';
 import botReview from '../video/botReview.mp4'
 
-function Block_4() {
+export default function Block_4() {
 
     // Получить объект с разрешением экрана
     const resolutions = useResolutions()
@@ -114,6 +114,4 @@ function Block_4() {
             </MediaQuery>
         </>
     )
-};
-
-export default Block_4
+}

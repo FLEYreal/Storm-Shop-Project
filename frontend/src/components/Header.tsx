@@ -1,5 +1,5 @@
 // Базовые импорты
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // Компоненты проекта
 import { StormIconButton, BlueButton, PinkButton } from '../styles/mui';
@@ -23,12 +23,12 @@ import Logo from './img/logo512.png'
 
 function App() {
     // Инициализация нужных переменных
-    const [anchorElMenu, setAnchorElMenu] = useState(null);
+    const [anchorElMenu, setAnchorElMenu] = useState<null | HTMLElement>(null);
     const [isScrolled, setIsScrolled] = useState(false);
     const [buttonStyles, setButtonStyles] = useState({});
 
     const resolution = useResolutions();
-    const { isBigScreen, isMidScreen, isSmallScreen, isPhone } = useResolutions();
+    const { isBigScreen, isMidScreen } = useResolutions();
 
 
 
@@ -38,7 +38,7 @@ function App() {
     }, [ isBigScreen, isMidScreen ])
 
     // Открыть бургер меню
-    const handleBurgerMenu = (e: any) => {
+    const handleBurgerMenu = (e: React.MouseEvent<HTMLElement>) => {
         setAnchorElMenu(e.currentTarget);
     }
 

@@ -1,5 +1,5 @@
 // Базовые импорты
-import React, { useCallback, useState, useContext, useEffect } from 'react'
+import React, { useCallback, useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet';
 
@@ -17,7 +17,7 @@ import ModalFail from './components/ModalFail/index.jsx'
 import ModalSuccess from './components/ModalSuccess/index.jsx'
 import SimpleButton from './components/SimpleButton'
 
-function LogIn() {
+export default function LogIn() {
     // Базовые переменные
     const navigate = useNavigate();
 
@@ -94,7 +94,7 @@ function LogIn() {
                 <title>StormShop: Вход</title>
                 <meta name="description" content="Страница входа в аккаунт на сайте магазина NitroStorm" />
                 <meta name="keywords" content='логин вход Нитро Nitro Дискорд Discord НитроШоп Купить нитро регистрация' />
-                <meta http-equiv="Content-Language" content="ru" />
+                <meta httpEquiv="Content-Language" content="ru" />
                 <meta name="author" content="FLEY" />
             </Helmet>
 
@@ -163,6 +163,4 @@ function LogIn() {
             </div>
         </>
     )
-};
-
-export default LogIn
+}

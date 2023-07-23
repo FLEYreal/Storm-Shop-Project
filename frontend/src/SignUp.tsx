@@ -1,5 +1,5 @@
 // Базовые импорты
-import React, { useCallback, useState, useContext, useEffect } from 'react'
+import React, { useCallback, useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet';
 
@@ -17,7 +17,7 @@ import ModalFail from './components/ModalFail/index.jsx'
 import ModalSuccess from './components/ModalSuccess/index.jsx'
 import SimpleButton from './components/SimpleButton'
 
-function SignUp() {
+export default function SignUp() {
     // Базовые переменные
     const navigate = useNavigate();
 
@@ -59,14 +59,14 @@ function SignUp() {
         }
 
         // Отправить запрос на бекенд 
-        let resultRaw = await api!.signUp({
+        const resultRaw = await api!.signUp({
             username: username,
             password: password,
             recaptchaToken: captchaValue
         });
 
         // Получть ответ сервера
-        let result = resultRaw.data;
+        const result = resultRaw.data;
 
         // Если пришла ошибка
         if (result.success === false || result.succeed === false) {
@@ -92,7 +92,7 @@ function SignUp() {
                 <title>StormShop: Регистрация</title>
                 <meta name="description" content="Страница регистрации на сайте магазина NitroStorm" />
                 <meta name="keywords" content='регистрация Нитро Nitro Дискорд Discord НитроШоп Купить нитро логин' />
-                <meta http-equiv="Content-Language" content="ru" />
+                <meta httpEquiv="Content-Language" content="ru" />
                 <meta name="author" content="FLEY" />
             </Helmet>
 
@@ -138,7 +138,7 @@ function SignUp() {
                     <input onChange={(e) => setUsername(e.target.value)} value={username} id='username' />
 
                     {/* Пометка */}
-                    <span style={{ fontSize: '16px' }}>Разрешено использовать только латиницу [a-z,A-Z], цифры и "_" </span>
+                    <span style={{ fontSize: '16px' }}>Разрешено использовать только латиницу [a-z,A-Z], цифры и &quot;_&quot; </span>
 
                     {/* Пароль */}
                     <label htmlFor='password'>ПАРОЛЬ: </label>
@@ -168,6 +168,4 @@ function SignUp() {
             </div>
         </>
     )
-};
-
-export default SignUp
+}

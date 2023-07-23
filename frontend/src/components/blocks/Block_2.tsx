@@ -1,6 +1,5 @@
 // Базовые импорты
 import React from 'react'
-import { useMediaQuery } from 'react-responsive';
 
 // Стили
 import styles from '../../styles/App.module.scss'
@@ -14,7 +13,7 @@ import plati from '../img/plati.png';
 import funpay from '../img/funpay.png';
 
 
-function Block_2() {
+export default function Block_2() {
 
     // Получить объект с разрешением экрана
     const resolution = useResolutions()
@@ -32,27 +31,25 @@ function Block_2() {
 
                 <div className={styles.net_big_item}>
                     <img src={tgIcon_small} style={{ width: '68px' }} alt='Telegram Icon' />
-                    <a href='https://t.me/storm_nitro_shop_bot' target='_blank'>Телеграм Бот</a>
+                    <a href='https://t.me/storm_nitro_shop_bot' target='_blank' rel='noreferrer noopener'>Телеграм Бот</a>
                 </div>
 
                 <div className={styles.net_big_item}>
                     <img src={discordIcon} style={{ width: '56px', padding: '6px' }} alt='Discord Icon' />
-                    <a href='https://discord.gg/BNsV86yGQA' target='_blank'>Дискорд Сервер</a>
+                    <a href='https://discord.gg/BNsV86yGQA' target='_blank' rel='noreferrer noopener'>Дискорд Сервер</a>
                 </div>
 
                 <div className={styles.net_big_item}>
                     <img src={funpay} style={{ width: '56px', borderRadius: '100%', padding: '6px' }} alt='FunPay Icon' />
-                    <a href='https://funpay.com/users/2879263/' target='_blank'>FunPay</a>
+                    <a href='https://funpay.com/users/2879263/' target='_blank' rel='noreferrer noopener'>FunPay</a>
                 </div>
 
                 <div className={styles.net_big_item}>
                     <img src={plati} style={{ width: '56px', borderRadius: '100%', padding: '6px' }} alt='Plati.market Icon' />
-                    <a href='https://plati.io/itm/3753787' target='_blank'>Plati.market</a>
+                    <a href='https://plati.io/itm/3753787' target='_blank' rel='noreferrer noopener'>Plati.market</a>
                 </div>
 
             </article>
         </section>
     )
-};
-
-export default Block_2
+}

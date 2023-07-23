@@ -1,5 +1,6 @@
 // Базовые импорты
 import React, { useContext, useEffect, useState } from 'react'
+import { AxiosResponse } from 'axios';
 
 // Стили
 import styles from '../../styles/App.module.scss'
@@ -25,7 +26,7 @@ interface Good {
     cost: number;
 }
 
-function Block_3() {
+export default function Block_3() {
     // Список товаров
     const [goodList, setGoodlist] = useState<Good[]>([]);
 
@@ -38,7 +39,7 @@ function Block_3() {
     // Получить список товаров
     useEffect(() => {
         (async () => {
-            let res = await api?.getGoodList() as { data: any };
+            const res = await api?.getGoodList() as { data: AxiosResponse["data"] };
             setGoodlist(res!.data)
         })()
     }, [])
@@ -79,6 +80,4 @@ function Block_3() {
             </section>
         </>
     )
-};
-
-export default Block_3
+}

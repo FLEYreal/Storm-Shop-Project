@@ -1,5 +1,5 @@
 // Базовые импорты
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 // Стили
 import resStyles from '../../utils/resStyles.ts';
