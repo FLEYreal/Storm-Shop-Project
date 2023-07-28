@@ -1,4 +1,6 @@
 .wampus {
+     top: -20px;
+     right: -100px;
      width: 500px;
 }
 
@@ -26,6 +28,8 @@
 }
 
 .bubble4_1 {
+     width: 200px;
+     height: 200px;
      top: -40px;
      left: -70px;
 }
@@ -46,8 +50,12 @@
      top: 380px;
 }
 
-.mobile_container {
-     display: none;
+.main_container {
+     width: 1170px;
+}
+
+.main_text {
+     width: 60%;
 }
 
 .header {

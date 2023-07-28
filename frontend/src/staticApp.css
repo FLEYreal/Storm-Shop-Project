@@ -1,16 +1,21 @@
 .badgeRain1 {
+    z-index: 0;
     animation: wampusRain 7s ease-in-out infinite;
 }
 .badgeRain2 {
+    z-index: 0;
     animation: wampusRain 8s ease-in-out infinite;
 }
 .badgeRain3 {
+    z-index: 0;
     animation: wampusRain 9s ease-in-out infinite;
 }
 .badgeRain4 {
+    z-index: 0;
     animation: wampusRain 10s ease-in-out infinite;
 }
 .badgeRain5 {
+    z-index: 0;
     animation: wampusRain 11s ease-in-out infinite;
 }
 

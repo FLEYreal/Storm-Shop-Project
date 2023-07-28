@@ -1,34 +1,54 @@
 .wampus {
+     top: 20px;
      right: -100px;
-     width: 400px;
-     top: 190px;
+     width: 450px;
 }
 
 .tgIcon_big {
-     width: 180px;
-     top: 210px;
-     right: 170px;
+     width: 110px;
+     top: 400px;
+     right: 240px;
 }
 
 .discordIcon {
-     width: 120px;
-     top: 220px;
-     right: -10px;
+     width: 110px;
+     top: 20px;
+     right: 280px;
 }
 
 .bubble4 {
-     left: -45px;
-     top: 130px;
-     width: 180px;
-     height: 180px;
+     top: 75px;
+     right: -20px;
+     width: 170px;
+     height: 170px;
+}
+
+.bubble4_1 {
+     top: -40px;
+     left: -70px;
+     width: 185px;
+     height: 185px;
+}
+
+.chatGPT {
+     bottom: -65px;
+     left: -50px;
+}
+
+.spotify {
+     display: none;
 }
 
 .badgeRain {
      top: 380px;
 }
 
-.mobile_container {
-     display: none;
+.main_container {
+     width: 95%;
+}
+
+.main_text {
+     width: 62%;
 }
 
 .header {

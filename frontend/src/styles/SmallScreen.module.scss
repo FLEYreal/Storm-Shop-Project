@@ -1,22 +1,39 @@
 .wampus {
      width: 550px;
-     top: 300px;
+     top: 150px;
      left: calc(50% - (550px/2));
 }
 
 .tgIcon_big {
-     width: 250px;
-     top: 320px;
-     left: calc(50% - (320px/2) - 170px);
+     width: 200px;
+     top: 250px;
+     left: 0;
 }
 
 .discordIcon {
-     width: 200px;
-     top: 340px;
-     left: calc(50% - (250px/2) + 140px);
+     width: 150px;
+     top: 550px;
+     right: 200px;
 }
 
 .bubble4 {
+     display: none;
+}
+
+.bubble4_1 {
+     width: 260px;
+     height: 260px;
+     top: 230px;
+     right: 40px;
+}
+
+.chatGPT {
+     width: 100px;
+     top: 570px;
+     left: 200px;
+}
+
+.spotify {
      display: none;
 }
 
@@ -24,8 +41,26 @@
      top: 440px;
 }
 
-.mobile_container {
-     display: flex;
+.main_container {
+     margin: 140px auto;
+     width: 95%;
+}
+
+.main_text {
+     width: 80%;
+     margin-top: 600px;
+}
+
+.main_modbile_title {
+     font-size: 36px;
+     font-weight: 600;
+     text-align: center;
+}
+
+.main_monile_content {
+     font-size: 20px;
+     font-weight: 400;
+     text-align: center;
 }
 
 .header {
