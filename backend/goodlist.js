@@ -19,7 +19,7 @@
 module.exports = [
 
     {
-        type: 'good',
+        type: 'subscription',
         id: 0,
 
         name: "NitroFull1M",
@@ -32,7 +32,7 @@ module.exports = [
         cost: 324
     },
     {
-        type: 'good',
+        type: 'subscription',
         id: 1,
 
         name: "NitroFullGift",
@@ -45,7 +45,7 @@ module.exports = [
         cost: 159
     },
     {
-        type: 'good',
+        type: 'subscription',
         id: 2,
 
         name: "NitroFull1Y",
@@ -58,7 +58,7 @@ module.exports = [
         cost: 3249,
     },
     {
-        type: 'good',
+        type: 'subscription',
         id: 3,
 
         name: "NitroBasic1M",
@@ -71,7 +71,7 @@ module.exports = [
         cost: 159 
     },
     {
-        type: 'good',
+        type: 'subscription',
         id: 4,
 
         name: "Boost1",
@@ -84,7 +84,7 @@ module.exports = [
         cost: 164
     },
     {
-        type: 'good',
+        type: 'subscription',
         id: 5,
 
         name: "BoostLevel3",
@@ -94,10 +94,10 @@ module.exports = [
         themeColor: "#F04EFF",
         themeTransparent: "rgba(240, 78, 255, 0.10)",
         
-        cost: 2309
+        cost: 2399
     },
     {
-        type: 'good',
+        type: 'subscription',
         id: 6,
 
         name: "ActiveDev",
@@ -108,5 +108,96 @@ module.exports = [
         themeTransparent: "rgba(37, 186, 0, 0.10)",
 
         cost: 39
+    },
+
+    {
+        type: 'script',
+        id: 7,
+        
+        name: 'NotifApi',
+        displayName: 'Notification Manager',
+        desc: 'ваше описание товара здесь',
+        themeColor: "rgba(255, 186, 0, 1)",
+        themeTransparent: "rgba(255, 186, 0, 0.1)",
+
+        cost: 1499
+    },
+
+    {
+        type: 'script',
+        id: 8,
+        
+        name: 'DiscordMSGSpammer',
+        displayName: 'Discord Message Spammer',
+        desc: 'ваше описание товара здесь',
+        themeColor: "rgba(56, 39, 245, 1)",
+        themeTransparent: "rgba(56, 39, 245, 0.1)",
+
+        cost: 349
+    },
+
+    {
+        type: 'script',
+        id: 9,
+        
+        name: 'TelegramMSGSpammer',
+        displayName: 'Telegram Message Spammer',
+        desc: 'ваше описание товара здесь',
+        themeColor: "rgba(73, 164, 255, 1)",
+        themeTransparent: "rgba(73, 164, 255, 0.1)",
+
+        cost: 349
+    },
+
+    {
+        type: 'script',
+        id: 10,
+        
+        name: 'ChatGPTAssistent',
+        displayName: 'ChatGPT Assistent',
+        desc: 'ваше описание товара здесь',
+        themeColor: "rgba(9, 206, 0, 1)",
+        themeTransparent: "rgba(9, 206, 0, 0.1)",
+
+        cost: 1599
+    },
+
+    {
+        type: 'script',
+        id: 11,
+        
+        name: 'TransactionAPI',
+        displayName: 'Transaction API',
+        desc: 'ваше описание товара здесь',
+        themeColor: "rgba(96, 162, 48, 1)",
+        themeTransparent: "rgba(96, 162, 48, 0.1)",
+
+        cost: 159
+    },
+
+    {
+        type: 'script',
+        id: 12,
+        
+        name: 'NitroAutoGive',
+        displayName: 'Nitro Auto Give',
+        desc: 'ваше описание товара здесь',
+        themeColor: "rgba(170, 95, 215, 1)",
+        themeTransparent: "rgba(170, 95, 215, 0.1)",
+
+        cost: 2399
+    },
+
+    {
+        type: 'script',
+        id: 13,
+        
+        name: 'DiscordTokenGrabber',
+        displayName: 'Discord Token Grabber',
+        desc: 'ваше описание товара здесь',
+        themeColor: "rgba(170, 95, 215, 1)",
+        themeTransparent: "rgba(170, 95, 215, 0.1)",
+
+        cost: 1999
     },
 ] 

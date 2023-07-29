@@ -77,8 +77,8 @@ app.use((req, res, next) => {
         return;
     }
 
-    // check if request is registerr
-    if (!request_list[req.method].includes(req.originalUrl)) {
+    // check if request is registered
+    if (!request_list[req.method].includes(req.originalUrl.split('?')[0])) {
         res.json({
             error: `Запрос ${req.method}:${req.originalUrl} не найден`,
             success: false
@@ -87,7 +87,8 @@ app.use((req, res, next) => {
     }
 
     // check if list of required arguments exists here
-    if (!Object.keys(request_list.request_arguments).includes(req.originalUrl)) {
+    console.log(!Object.keys(request_list.request_arguments).includes(req.originalUrl.split('?')[0]))
+    if (!Object.keys(request_list.request_arguments).includes(req.originalUrl.split('?')[0])) {
         res.json({
             error: `Запрос ${req.method}:${req.originalUrl} не найден`,
             success: false
@@ -96,7 +97,8 @@ app.use((req, res, next) => {
     }
 
     // check if they were sent by the client
-    const required_params = request_list.request_arguments[req.originalUrl];
+    const required_params = request_list.request_arguments[req.originalUrl.split('?')[0]];
+    console.log(required_params)
 
     var i = 0;
     while (i < required_params.length) {
@@ -205,7 +207,27 @@ app.post(`${versioning.prefix}/signup`, async (req, res) => {
 });
 
 app.get(`${versioning.prefix}/goods`, async (req, res) => {
-    res.json(goods).status(200);
+    const { type } = req.query;
+    console.log(type)
+
+    let result = [];
+
+    if(type === 'all') result = goods;
+    else if(type === 'sub' || type === 'subscription') {
+        result = goods.map(i => {
+            if(i.type === 'subscription') return i;
+            else return;
+        })
+    } else if(type === 'script') {
+        result = goods.map(i => {
+            if(i.type === 'script') return i;
+            else return;
+        })
+    }
+
+    console.log(result)
+
+    res.json(result).status(200);
 })
 
 app.post(`${versioning.prefix}/visitor`, async (req, res) => {
