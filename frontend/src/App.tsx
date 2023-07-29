@@ -1,5 +1,4 @@
 // Базовые импорты
-import React from 'react'
 import { Helmet } from 'react-helmet';
 
 // Стили
@@ -8,6 +7,7 @@ import './staticApp.css';
 import resStyles from './utils/resStyles.ts';
 import useResolutions from './hooks/useResolusions.ts';
 
+import ScriptGood from './components/ScriptGood'
 
 // Импорт блоков сайта
 import Block_1 from './components/blocks/App/Block_1.tsx';
@@ -43,6 +43,7 @@ export default function App(): JSX.Element {
             <Block_2 />
             <Block_3 />
             <Block_4 />
+            <ScriptGood/>
         </div>
     );
 }
