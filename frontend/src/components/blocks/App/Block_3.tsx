@@ -3,15 +3,15 @@ import React, { useContext, useEffect, useState } from 'react'
 import { AxiosResponse } from 'axios';
 
 // Стили
-import styles from '../../styles/App.module.scss'
-import resStyles from '../../utils/resStyles';
-import useResolutions from '../../hooks/useResolusions';
+import styles from '../../../styles/App.module.scss'
+import resStyles from '../../../utils/resStyles';
+import useResolutions from '../../../hooks/useResolusions';
 
 // Компоненты & Хуки проекта
-import Good from '../Good'
+import Good from '../../Good'
 
 // API импорты
-import { APIContext } from '../../context/APIContext'
+import { APIContext } from '../../../context/APIContext'
 
 // Интерфейс для товара
 interface Good {

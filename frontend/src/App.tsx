@@ -10,10 +10,10 @@ import useResolutions from './hooks/useResolusions.ts';
 
 
 // Импорт блоков сайта
-import Block_1 from './components/blocks/Block_1';
-import Block_2 from './components/blocks/Block_2';
-import Block_3 from './components/blocks/Block_3';
-import Block_4 from './components/blocks/Block_4';
+import Block_1 from './components/blocks/App/Block_1.tsx';
+import Block_2 from './components/blocks/App/Block_2.tsx';
+import Block_3 from './components/blocks/App/Block_3.tsx';
+import Block_4 from './components/blocks/App/Block_4.tsx';
 
 export default function App(): JSX.Element {
     /* Определить размер экрана, возвращает true/false */

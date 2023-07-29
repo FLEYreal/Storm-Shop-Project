@@ -3,23 +3,23 @@ import React, { useContext } from 'react'
 import MediaQuery from 'react-responsive';
 
 // Стили
-import styles from '../../styles/App.module.scss'
-import resStyles from '../../utils/resStyles';
-import useResolutions from '../../hooks/useResolusions';
+import styles from '../../../styles/App.module.scss'
+import resStyles from '../../../utils/resStyles.js';
+import useResolutions from '../../../hooks/useResolusions.js';
 
 // Компоненты & Хуки проекта
-import { StormButton } from '../../styles/mui.js';
-import VideoPlayer from '../VideoPlayer';
+import { StormButton } from '../../../styles/mui.js';
+import VideoPlayer from '../../VideoPlayer.js';
 
 // API импорты
-import { APIContext } from '../../context/APIContext'
+import { APIContext } from '../../../context/APIContext.js'
 
 // Картинки & Видео
-import tgIcon_small from '../img/tgIcon_small.svg';
-import discordIcon from '../img/discordIcon.svg';
-import devider from '../img/devider.svg';
-import chatGPT from '../img/chatgpt-icon.svg';
-import botReview from '../video/botReview.mp4'
+import tgIcon_small from '../../img/tgIcon_small.svg';
+import discordIcon from '../../img/discordIcon.svg';
+import devider from '../../img/devider.svg';
+import chatGPT from '../../img/chatgpt-icon.svg';
+import botReview from '../../video/botReview.mp4'
 
 export default function Block_4() {
 

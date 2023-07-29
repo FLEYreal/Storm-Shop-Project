@@ -2,28 +2,28 @@
 import React, { useEffect } from 'react';
 
 // Стили
-import resStyles from '../../utils/resStyles.ts';
-import styles from '../../styles/App.module.scss';
-import useResolutions from '../../hooks/useResolusions.ts'
+import resStyles from '../../../utils/resStyles.ts';
+import styles from '../../../styles/App.module.scss';
+import useResolutions from '../../../hooks/useResolusions.ts'
 
 // Компоненты проекта
-import { BlueButton, PinkButton } from '../../styles/mui';
+import { BlueButton, PinkButton } from '../../../styles/mui.ts';
 
 // Картинки & Иконки
 import CodeRoundedIcon from '@mui/icons-material/CodeRounded';
 import DiamondRoundedIcon from '@mui/icons-material/DiamondRounded';
-import wampus from '../img/wampus.png';
-import activeDeveloperBadge from '../img/activeDeveloperBadge.svg';
-import nitroBadge from '../img/nitroBadge.svg';
-import boostIcon from '../img/boostIcon.png';
-import botIcon from '../img/botIcon.png';
-import starIcon from '../img/starIcon.png';
-import tgIcon_small from '../img/tgIcon_small.svg';
-import bubble4 from '../img/bubbles4.png';
-import tgIcon_big from '../img/tgIcon_big.svg';
-import discordIcon from '../img/discordIcon.svg';
-import chatGPT from '../img/chatgpt-icon.svg';
-import spotify from '../img/spotify.svg';
+import wampus from '../../img/wampus.png';
+import activeDeveloperBadge from '../../img/activeDeveloperBadge.svg';
+import nitroBadge from '../../img/nitroBadge.svg';
+import boostIcon from '../../img/boostIcon.png';
+import botIcon from '../../img/botIcon.png';
+import starIcon from '../../img/starIcon.png';
+import tgIcon_small from '../../img/tgIcon_small.svg';
+import bubble4 from '../../img/bubbles4.png';
+import tgIcon_big from '../../img/tgIcon_big.svg';
+import discordIcon from '../../img/discordIcon.svg';
+import chatGPT from '../../img/chatgpt-icon.svg';
+import spotify from '../../img/spotify.svg';
 
 export default function Block_1() {
     // Создание основных переменных
