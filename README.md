@@ -1,3 +1,5 @@
+This Repository is currently in Development and not recommended to use in any case!
+
 # This is an open-source code for project StormShop!
 Это open-source код для проекта StormShop!
 
