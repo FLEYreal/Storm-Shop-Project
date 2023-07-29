@@ -172,8 +172,6 @@ $unhighlighted_color: #cfcfcf;
 }
 
 .goodScript {
-    width: 587px !important;
-    height: 145px !important;
     box-sizing: border-box;
     flex-shrink: 0;
     backdrop-filter: blur(8px);
@@ -182,7 +180,6 @@ $unhighlighted_color: #cfcfcf;
     align-items: start;
     justify-content: space-between;
     flex-flow: row nowrap;
-    padding: 15px 20px;
 
     .goodScript_left {
         display: flex;
@@ -196,9 +193,7 @@ $unhighlighted_color: #cfcfcf;
 
             &_title {
                 color: #FFF;
-                font-size: 24px;
                 font-style: normal;
-                font-weight: 700;
                 line-height: normal;
                 margin: 0;
                 margin-bottom: 4px;
@@ -206,27 +201,22 @@ $unhighlighted_color: #cfcfcf;
 
             &_cost {
                 color: #E29B00;
-                font-size: 18px;
                 font-style: normal;
-                font-weight: 500;
                 line-height: normal;
                 margin: 0;
             }
         }
 
         &_button {
-            width: 105px;
-            height: 36px;
             flex-shrink: 0;
             border-radius: 10px;
-            padding: 20px 58px;
             margin: 0;
+            padding: 0 !important;
+            box-sizing: content-box;
         }
     }
 
     .goodScript_right {
-        width: 268px;
-        height: 100%;
         flex-shrink: 0;
         display: flex;
         justify-content: space-between;
@@ -235,8 +225,6 @@ $unhighlighted_color: #cfcfcf;
         &_description {
             color: #C7C7C7;
         }
-
-        &_more {}
     }
 
     .goodScript_mobile {

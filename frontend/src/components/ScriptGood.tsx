@@ -21,11 +21,21 @@ function ScriptGood({ desc }: { desc: ScriptGoodType }) {
 
     // Инициализация базовых переменных
     const lighterTheme = lighterRgb(desc.themeTransparent, 0.25)
-    const shortDesc = shortenText(desc.desc, 105)
     const resolutions = useResolutions();
+    const { isBigScreen, isMidScreen, isSmallScreen, isPhone } = useResolutions()
+
+    // Определить размер описании в зависимости от размера экрана
+    let shortDesc;
+    if (isPhone || isSmallScreen) {
+        shortDesc = shortenText(desc.desc, 60)
+    } else if (isMidScreen) {
+        shortDesc = shortenText(desc.desc, 57)
+    } else if (isBigScreen) {
+        shortDesc = shortenText(desc.desc, 105)
+    }
 
     return (
-        <Typography component='div' className={`${styles.goodScript}`} sx={{
+        <Typography component='div' className={`${styles.goodScript} ${resStyles('goodScript', resolutions)}`} sx={{
             background: desc.themeTransparent,
             border: `2px solid ${desc.theme}`
         }}>
@@ -37,16 +47,16 @@ function ScriptGood({ desc }: { desc: ScriptGoodType }) {
 
                     {/* Название и цена */}
                     <div className={`${styles.goodScript_left_up}`}>
-                        <h2 className={`${styles.goodScript_left_up_title}`}>{desc.title}</h2>
-                        <h3 className={`${styles.goodScript_left_up_cost}`}>{desc.cost}₽</h3>
+                        <h2 className={`${styles.goodScript_left_up_title} ${resStyles('goodScript_left_up_title', resolutions)}`}>{desc.title}</h2>
+                        <h3 className={`${styles.goodScript_left_up_cost} ${resStyles('goodScript_left_up_cost', resolutions)}`}>{desc.cost}₽</h3>
                     </div>
 
                     {/* Кнопка Покупки */}
-                    <StormButton variant='contained' className={`${styles.goodScript_left_button}`} sx={{
+                    <StormButton variant='contained' className={`${styles.goodScript_left_button} ${resStyles('goodScript_left_button', resolutions)}`} sx={{
                         background: desc.themeTransparent,
                         border: `2px solid ${desc.theme}`,
                         color: desc.theme,
-                        
+
                         '&:hover': {
                             background: lighterTheme,
                             border: `2px solid ${desc.theme}`,
@@ -55,15 +65,15 @@ function ScriptGood({ desc }: { desc: ScriptGoodType }) {
                 </div>
 
                 {/* Правый блок товара */}
-                <div className={`${styles.goodScript_right}`}>
+                <div className={`${styles.goodScript_right} ${resStyles('goodScript_right', resolutions)}`}>
 
                     {/* Описание товара */}
-                    <div className={`${styles.goodScript_right_description}`}>
+                    <div className={`${styles.goodScript_right_description} ${resStyles('goodScript_right_description', resolutions)}`}>
                         {shortDesc}
                     </div>
 
                     {/* Кнопка для подробностей */}
-                    <div className={`${styles.goodScript_right_more}`}>
+                    <div className={`${resStyles('goodScript_right_more', resolutions)}`}>
                         <a href='/'>Узнать Подробнее</a>
                     </div>
                 </div>
@@ -71,7 +81,49 @@ function ScriptGood({ desc }: { desc: ScriptGoodType }) {
 
             {/* Для телефонов */}
             <MediaQuery maxWidth={920}>
+                <div className={`${styles.goodScript_mobile} ${resStyles('goodScript_mobile', resolutions)}`}>
 
+                    {/* Вверхний блок товара */}
+                    <div className={`${styles.goodScript_mobile_up} ${resStyles('goodScript_mobile_up', resolutions)}`}>
+
+                        {/* Название товара */}
+                        <div className={`${styles.goodScript_mobile_up_title} ${resStyles('goodScript_mobile_up_title', resolutions)}`}>
+                            {desc.title}
+                        </div>
+
+                        {/* Цена товара */}
+                        <div className={`${styles.goodScript_mobile_up_cost} ${resStyles('goodScript_mobile_up_cost', resolutions)}`}>
+                            {desc.cost}₽
+                        </div>
+
+                    </div>
+
+                    {/* Центральный блок товара */}
+                    <div className={`${styles.goodScript_mobile_middle} ${resStyles('goodScript_mobile_middle', resolutions)}`}>
+                        {shortDesc}
+                    </div>
+
+                    {/* Нижний блок товара */}
+                    <div className={`${styles.goodScript_mobile_bottom} ${resStyles('goodScript_mobile_bottom', resolutions)}`}>
+
+                        {/* Блок ссылкой */}
+                        <div className={`${styles.goodScript_mobile_more} ${resStyles('goodScript_mobile_more', resolutions)}`}>
+                            <a href='/'>Узнать Подробнее</a>
+                        </div>
+
+                        {/* Кнопка покупки */}
+                        <StormButton variant='contained' className={`${styles.goodScript_mobile_buy} ${resStyles('goodScript_mobile_buy', resolutions)}`} sx={{
+                            background: desc.themeTransparent,
+                            border: `2px solid ${desc.theme}`,
+                            color: desc.theme,
+
+                            '&:hover': {
+                                background: lighterTheme,
+                                border: `2px solid ${desc.theme}`,
+                            }
+                        }}>Купить</StormButton>
+                    </div>
+                </div>
             </MediaQuery>
         </Typography>
     );

@@ -1,132 +1,168 @@
 .wampus {
-     top: 20px;
-     right: -100px;
-     width: 450px;
+    top: 20px;
+    right: -100px;
+    width: 450px;
 }
 
 .tgIcon_big {
-     width: 110px;
-     top: 400px;
-     right: 240px;
+    width: 110px;
+    top: 400px;
+    right: 240px;
 }
 
 .discordIcon {
-     width: 110px;
-     top: 20px;
-     right: 280px;
+    width: 110px;
+    top: 20px;
+    right: 280px;
 }
 
 .bubble4 {
-     top: 75px;
-     right: -20px;
-     width: 170px;
-     height: 170px;
+    top: 75px;
+    right: -20px;
+    width: 170px;
+    height: 170px;
 }
 
 .bubble4_1 {
-     top: -40px;
-     left: -70px;
-     width: 185px;
-     height: 185px;
+    top: -40px;
+    left: -70px;
+    width: 185px;
+    height: 185px;
 }
 
 .chatGPT {
-     bottom: -65px;
-     left: -50px;
+    bottom: -65px;
+    left: -50px;
 }
 
 .spotify {
-     display: none;
+    display: none;
 }
 
 .badgeRain {
-     top: 380px;
+    top: 380px;
 }
 
 .main_container {
-     width: 95%;
+    width: 95%;
 }
 
 .main_text {
-     width: 62%;
+    width: 62%;
 }
 
 .header {
-     height: 70px;
+    height: 70px;
 }
 
 .header_content_container {
-     width: 90%;
+    width: 90%;
 }
 
 .net_big_items {
-     grid-template-columns: 420px 420px;
-     grid-template-rows: 80px 80px;
+    grid-template-columns: 420px 420px;
+    grid-template-rows: 80px 80px;
 }
 
 .other_networks {
-     width: 95%;
+    width: 95%;
 }
 
 .absolute_content {
-     width: 100%;
+    width: 100%;
 }
 
 .goodList {
-     width: 95%;
-     justify-content: center;
+    width: 95%;
+    justify-content: center;
 }
 
 .goodItem {
-     margin: 4%;
+    margin: 4%;
 }
 
 .goodList_title {
-     width: 95%;
+    width: 95%;
 }
 
 .hr {
-     width: 95%;
+    width: 95%;
 }
 
 .purple_light {
-     top: 1750px;
-     box-shadow: 0px 0px 250px 445px rgba(127, 17, 224, 0.125);
+    top: 1750px;
+    box-shadow: 0px 0px 250px 445px rgba(127, 17, 224, 0.125);
 }
 
 .blue_light {
-     box-shadow: 0px 0px 250px 445px rgba(22, 37, 255, 0.1);
-     top: 2700px;
-     right: 10px;
+    box-shadow: 0px 0px 250px 445px rgba(22, 37, 255, 0.1);
+    top: 2700px;
+    right: 10px;
 }
 
 .title {
-     font-size: 32px;
-     font-weight: 600;
-     font-style: normal;
-     line-height: normal;
-     background-clip: text;
+    font-size: 32px;
+    font-weight: 600;
+    font-style: normal;
+    line-height: normal;
+    background-clip: text;
 }
 
 .botOrder_subtitle {
-     font-size: 19px;
-     color: #9B9B9B;
+    font-size: 19px;
+    color: #9B9B9B;
 }
 
 .burger_menu {
-     display: none;
+    display: none;
 }
 
 .inner_header {
-     width: 95%;
+    width: 95%;
 }
 
 .header_nav {
-     display: flex;
+    display: flex;
 }
 
 .nav_block {
-     padding: 0 10px !important;
+    padding: 0 10px !important;
+}
+
+.goodScript {
+    width: 360px;
+    height: 102px;
+    padding: 10px 12px;
+}
+
+.goodScript_left_up_title {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.goodScript_left_up_cost {
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.goodScript_left_button {
+    width: 77px;
+    height: 30px;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+}
+
+.goodScript_right {
+    width: 151px;
+    height: 100%;
+}
+
+.goodScript_right_description {
+    font-size: 14px;
+}
+
+.goodScript_right_more {
+    font-size: 14px;
 }
 
 // .botOrder_container {
