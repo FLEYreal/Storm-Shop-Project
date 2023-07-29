@@ -15,16 +15,9 @@ import lighterRgb from '../utils/lighterRGB'
 import CircularProgress from '@mui/material/CircularProgress';
 
 // Интерфейс для описания товара
-interface Description {
-    title: string,
-    subtitle: string
-    cost: string | number,
-    image: string,
-    theme: string,
-    themeTransparent: string
-}
+import { GoodDescType } from '../typings/Good'
 
-export default function Good({ desc }: { desc: Description }) {
+export default function Good({ desc }: { desc: GoodDescType }) {
 
     // Получить все переменные описания товара
     const [isLoading, setIsLoading] = useState(false)

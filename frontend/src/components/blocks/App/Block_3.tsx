@@ -1,5 +1,5 @@
 // Базовые импорты
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { AxiosResponse } from 'axios';
 
 // Стили
@@ -14,21 +14,11 @@ import Good from '../../Good'
 import { APIContext } from '../../../context/APIContext'
 
 // Интерфейс для товара
-interface Good {
-    type: string;
-    id: number;
-    name: string;
-    displayName: string;
-    desc: string;
-    imageUrl: string;
-    themeColor: string;
-    themeTransparent: string;
-    cost: number;
-}
+import { GoodType } from '../../../typings/Good'
 
 export default function Block_3() {
     // Список товаров
-    const [goodList, setGoodlist] = useState<Good[]>([]);
+    const [goodList, setGoodlist] = useState<GoodType[]>([]);
 
     // Получить объект с разрешением экрана
     const resolutions = useResolutions()

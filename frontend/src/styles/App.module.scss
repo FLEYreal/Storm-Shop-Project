@@ -171,6 +171,91 @@ $unhighlighted_color: #cfcfcf;
 
 }
 
+.goodScript {
+    width: 587px !important;
+    height: 145px !important;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    flex-flow: row nowrap;
+    padding: 15px 20px;
+
+    .goodScript_left {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        height: 100%;
+
+        &_up {
+            display: flex;
+            flex-flow: column nowrap;
+
+            &_title {
+                color: #FFF;
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                margin: 0;
+                margin-bottom: 4px;
+            }
+
+            &_cost {
+                color: #E29B00;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                margin: 0;
+            }
+        }
+
+        &_button {
+            width: 105px;
+            height: 36px;
+            flex-shrink: 0;
+            border-radius: 10px;
+            padding: 20px 58px;
+            margin: 0;
+        }
+    }
+
+    .goodScript_right {
+        width: 268px;
+        height: 100%;
+        flex-shrink: 0;
+        display: flex;
+        justify-content: space-between;
+        flex-flow: column nowrap;
+
+        &_description {
+            color: #C7C7C7;
+        }
+
+        &_more {}
+    }
+
+    .goodScript_mobile {
+        &_up {
+            &_title {}
+
+            &_cost {}
+        }
+
+        &_middle {}
+
+        &_bottom {
+            &_more {}
+
+            &_buy {}
+        }
+    }
+}
+
 .mobile_container {
     margin-top: 180px;
     width: 100%;
@@ -584,10 +669,19 @@ $unhighlighted_color: #cfcfcf;
             }
 
             .botOrder_scriptsBlock {
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: space-between;
                 position: relative;
                 width: 587px;
                 height: 304px;
-                border: 1px solid white;
+
+                &_subtitle {
+                    color: rgba(255, 255, 255, 0.6);
+                    position: absolute;
+                    top: -30px;
+                    left: 0;
+                }
             }
         }
     }

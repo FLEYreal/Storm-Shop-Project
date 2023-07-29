@@ -1,5 +1,5 @@
 // Базовые импорты
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import MediaQuery from 'react-responsive';
 
 // Стили
@@ -10,6 +10,7 @@ import useResolutions from '../../../hooks/useResolusions.js';
 // Компоненты & Хуки проекта
 import { StormButton } from '../../../styles/mui.js';
 import VideoPlayer from '../../VideoPlayer.js';
+import ScriptGood from '../../ScriptGood.js';
 
 // API импорты
 import { APIContext } from '../../../context/APIContext.js'
@@ -88,14 +89,30 @@ export default function Block_4() {
                         <div className={`${styles.botOrder_bottom}`}>
                             <div className={`${styles.botOrder_videoBlock}`}>
                                 <VideoPlayer
-                                    src={botReview} 
-                                    doLoop={true} 
+                                    src={botReview}
+                                    doLoop={true}
                                     doControl={false}
                                     doStart={true}
                                     volume={0}
                                 />
                             </div>
-                            <div className={`${styles.botOrder_scriptsBlock}`}></div>
+                            <div className={`${styles.botOrder_scriptsBlock}`}>
+                                <span className={`${styles.botOrder_scriptsBlock_subtitle}`}>P.S. Эти скрипты случайно выбраны из магазина</span>
+                                <ScriptGood desc={{
+                                    title: 'Notification API',
+                                    cost: 1499,
+                                    theme: 'rgba(255, 186, 0, 1)',
+                                    themeTransparent: 'rgba(255, 186, 0, 0.1)',
+                                    desc: "Some Description of the Notification API which has to be long enough so this description couldn't fit and 3 dots appeared! Some Description of the Notification API which has to be long enough so this description couldn't fit and 3 dots appeared!"
+                                }} />
+                                <ScriptGood desc={{
+                                    title: 'Notification API',
+                                    cost: 1499,
+                                    theme: 'rgba(255, 186, 0, 1)',
+                                    themeTransparent: 'rgba(255, 186, 0, 0.1)',
+                                    desc: "Some Description of the Notification API which has to be long enough so this description couldn't fit and 3 dots appeared! Some Description of the Notification API which has to be long enough so this description couldn't fit and 3 dots appeared!"
+                                }} />
+                            </div>
                         </div>
                     </div>
                 </section>

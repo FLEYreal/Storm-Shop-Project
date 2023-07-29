@@ -1,6 +1,3 @@
-// Базовые импорты
-import React from 'react'
-
 // Стили
 import styles from '../../../styles/App.module.scss'
 import resStyles from '../../../utils/resStyles.ts';
