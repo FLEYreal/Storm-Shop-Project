@@ -137,6 +137,27 @@
     display: none;
 }
 
+.goodScript {
+    width: 380px;
+    padding: 8px 10px;
+}
+
+.goodScript_mobile_up {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.goodScript_mobile_up_title {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.goodScript_mobile_up_cost {
+    font-size: 16px;
+    font-weight: 500;
+}
 
 // .botOrder_container {
 //      width: 90%;

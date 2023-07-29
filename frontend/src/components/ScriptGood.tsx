@@ -26,8 +26,10 @@ function ScriptGood({ desc }: { desc: ScriptGoodType }) {
 
     // Определить размер описании в зависимости от размера экрана
     let shortDesc;
-    if (isPhone || isSmallScreen) {
-        shortDesc = shortenText(desc.desc, 60)
+    if (isPhone) {
+        shortDesc = shortenText(desc.desc, 47)
+    } else if(isSmallScreen) {
+        shortDesc = shortenText(desc.desc, 87)
     } else if (isMidScreen) {
         shortDesc = shortenText(desc.desc, 57)
     } else if (isBigScreen) {
@@ -108,18 +110,20 @@ function ScriptGood({ desc }: { desc: ScriptGoodType }) {
 
                         {/* Блок ссылкой */}
                         <div className={`${styles.goodScript_mobile_more} ${resStyles('goodScript_mobile_more', resolutions)}`}>
-                            <a href='/'>Узнать Подробнее</a>
+                            <a href='/' style={{fontSize: '12px', fontWeight: '600'}}>Узнать Подробнее</a>
                         </div>
 
                         {/* Кнопка покупки */}
-                        <StormButton variant='contained' className={`${styles.goodScript_mobile_buy} ${resStyles('goodScript_mobile_buy', resolutions)}`} sx={{
-                            background: desc.themeTransparent,
-                            border: `2px solid ${desc.theme}`,
+                        <StormButton className={`${styles.goodScript_mobile_buy} ${resStyles('goodScript_mobile_buy', resolutions)}`} sx={{
                             color: desc.theme,
+                            textDecoration: 'underline',
+                            fontSize: '12px',
+                            fontWeight: '500',
+                            margin: '0',
+                            padding: '0',
 
                             '&:hover': {
-                                background: lighterTheme,
-                                border: `2px solid ${desc.theme}`,
+                                textDecoration: 'none'
                             }
                         }}>Купить</StormButton>
                     </div>

@@ -228,18 +228,38 @@ $unhighlighted_color: #cfcfcf;
     }
 
     .goodScript_mobile {
-        &_up {
-            &_title {}
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+        flex-flow: column nowrap;
 
-            &_cost {}
+        &_up {
+            &_title {
+                color: #FFF;
+                font-style: normal;
+                line-height: normal;
+                margin: 0;
+                margin-bottom: 3px;
+            }
+
+            &_cost {
+                color: #E29B00;
+                font-style: normal;
+                line-height: normal;
+                margin: 0;
+            }
         }
 
-        &_middle {}
+        &_middle {
+            color: #C7C7C7;
+            width: 100%;
+        }
 
         &_bottom {
-            &_more {}
-
-            &_buy {}
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
         }
     }
 }
