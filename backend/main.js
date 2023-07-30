@@ -214,12 +214,12 @@ app.get(`${versioning.prefix}/goods`, async (req, res) => {
 
     if(type === 'all') result = goods;
     else if(type === 'sub' || type === 'subscription') {
-        result = goods.map(i => {
+        result = goods.filter(i => {
             if(i.type === 'subscription') return i;
             else return;
         })
     } else if(type === 'script') {
-        result = goods.map(i => {
+        result = goods.filter(i => {
             if(i.type === 'script') return i;
             else return;
         })
