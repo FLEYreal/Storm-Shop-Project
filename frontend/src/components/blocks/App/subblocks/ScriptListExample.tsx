@@ -50,7 +50,7 @@ function ScriptListExample() {
 
     return (
         <div className={`${styles.botOrder_scriptsBlock} ${resStyles('botOrder_scriptsBlock', resolutions)}`}>
-            <span className={`${styles.botOrder_scriptsBlock_subtitle}`}>P.S. Эти скрипты случайно выбраны из магазина</span>
+            <span className={`${styles.botOrder_scriptsBlock_subtitle} ${resStyles('botOrder_scriptsBlock_subtitle', resolutions)}`}>P.S. Эти скрипты случайно выбраны из магазина</span>
             {
                 scripts.map((i) =>
                     <ScriptGood key={i.id} desc={{
