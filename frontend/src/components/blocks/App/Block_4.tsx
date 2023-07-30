@@ -1,6 +1,7 @@
 // Базовые импорты
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import MediaQuery from 'react-responsive';
+import { AxiosResponse } from 'axios';
 
 // Стили
 import styles from '../../../styles/App.module.scss'
@@ -27,8 +28,25 @@ export default function Block_4() {
     // Получить объект с разрешением экрана
     const resolutions = useResolutions()
 
+    // Список скриптов
+    const [scripts, setScripts] = useState<AxiosResponse["data"][]>([])
+
     // Класс для работы с API 
     const api = useContext(APIContext)!.api
+
+    // Получить список из 2 рандомных скриптов
+    useEffect(() => {(async () => {
+        
+        // Получить список скриптов с бекенда
+        const res = await api?.getScriptList() as { data: AxiosResponse["data"] }
+
+        // Загрузить в массив scripts 2 рандомных скрипта
+        setScripts([
+            res!.data[Math.floor(Math.random() * res!.data.length)],
+            res!.data[Math.floor(Math.random() * res!.data.length)],
+        ])
+    })()}, []);
+    
 
     return (
         <>
@@ -98,20 +116,17 @@ export default function Block_4() {
                             </div>
                             <div className={`${styles.botOrder_scriptsBlock}`}>
                                 <span className={`${styles.botOrder_scriptsBlock_subtitle}`}>P.S. Эти скрипты случайно выбраны из магазина</span>
-                                <ScriptGood desc={{
-                                    title: 'Notification API',
-                                    cost: 1499,
-                                    theme: 'rgba(255, 186, 0, 1)',
-                                    themeTransparent: 'rgba(255, 186, 0, 0.1)',
-                                    desc: "Some Description of the Notification API which has to be long enough so this description couldn't fit and 3 dots appeared! Some Description of the Notification API which has to be long enough so this description couldn't fit and 3 dots appeared!"
-                                }} />
-                                <ScriptGood desc={{
-                                    title: 'Notification API',
-                                    cost: 1499,
-                                    theme: 'rgba(255, 186, 0, 1)',
-                                    themeTransparent: 'rgba(255, 186, 0, 0.1)',
-                                    desc: "Some Description of the Notification API which has to be long enough so this description couldn't fit and 3 dots appeared! Some Description of the Notification API which has to be long enough so this description couldn't fit and 3 dots appeared!"
-                                }} />
+                                {
+                                    scripts.map((i) =>
+                                        <ScriptGood key={i.id} desc={{
+                                            title: i.displayName,
+                                            cost: i.cost,
+                                            theme: i.themeColor,
+                                            themeTransparent: i.themeTransparent,
+                                            desc: i.desc
+                                        }} />
+                                    )
+                                }
                             </div>
                         </div>
                     </div>

@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from 'axios'
 import { CallbackFunction, RequestDataWithBody } from '../typings/Request';
 
 export default class Api {
-    
+
     // Типы базовых переменных
     private ip: string;
     private port: string | number;
@@ -26,7 +26,7 @@ export default class Api {
             method,
             url: `${this.fullIp}${route}`
         }
-
+        
         // Добавить body если это метод, поддерживающий тело запроса
         if (method === 'POST' || method === 'OPTIONS') reqData.data = body
 
@@ -54,10 +54,30 @@ export default class Api {
     }
 
     // Получить список товаров с бекенда
-    async getGoodList(): Promise<AxiosResponse> {
-        
+    async getSubList(): Promise<AxiosResponse> {
+
         // Отправка запроса на /goods с помощью sendRequest
-        const res = await this.sendRequest('/goods', 'GET', {}, async () => { });
+        const res = await this.sendRequest('/goods?type=sub', 'GET', {}, async () => { });
+
+        // Вернуть результат
+        return res;
+    }
+
+    // Получить список скриптов с бекенда
+    async getScriptList(): Promise<AxiosResponse> {
+
+        // Отправка запроса на /goods с помощью sendRequest
+        const res = await this.sendRequest('/goods?type=script', 'GET', {}, async () => { });
+
+        // Вернуть результат
+        return res;
+    }
+
+    // Получить список скриптов с бекенда
+    async getGoodList(): Promise<AxiosResponse> {
+
+        // Отправка запроса на /goods с помощью sendRequest
+        const res = await this.sendRequest('/goods?type=all', 'GET', {}, async () => { });
 
         // Вернуть результат
         return res;

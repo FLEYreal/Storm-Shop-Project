@@ -29,7 +29,7 @@ export default function Block_3() {
     // Получить список товаров
     useEffect(() => {
         (async () => {
-            const res = await api?.getGoodList() as { data: AxiosResponse["data"] };
+            const res = await api?.getSubList() as { data: AxiosResponse["data"] };
             setGoodlist(res!.data)
         })()
     }, [])
@@ -52,7 +52,7 @@ export default function Block_3() {
 
                     {/* Вывод списка товаров */}
                     {
-                        goodList.map(good =>
+                        goodList.length > 0 ? goodList.map(good =>
                             <Good
                                 key={good.id}
                                 desc={{
@@ -64,7 +64,7 @@ export default function Block_3() {
                                     themeTransparent: good.themeTransparent
                                 }}
                             />
-                        )
+                        ) : null
                     }
                 </div>
             </section>

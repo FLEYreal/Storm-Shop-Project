@@ -7,8 +7,6 @@ import './staticApp.css';
 import resStyles from './utils/resStyles.ts';
 import useResolutions from './hooks/useResolusions.ts';
 
-import ScriptGood from './components/ScriptGood'
-
 // Импорт блоков сайта
 import Block_1 from './components/blocks/App/Block_1.tsx';
 import Block_2 from './components/blocks/App/Block_2.tsx';
@@ -43,13 +41,6 @@ export default function App(): JSX.Element {
             <Block_2 />
             <Block_3 />
             <Block_4 />
-            <ScriptGood desc={{
-                title: 'Notification API',
-                cost: 1499,
-                theme: 'rgba(255, 186, 0, 1)',
-                themeTransparent: 'rgba(255, 186, 0, 0.1)',
-                desc: "Some Description of the Notification API which has to be long enough so this description couldn't fit and 3 dots appeared! Some Description of the Notification API which has to be long enough so this description couldn't fit and 3 dots appeared!"
-            }} />
         </div>
     );
 }
