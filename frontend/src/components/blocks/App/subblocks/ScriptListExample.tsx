@@ -25,17 +25,27 @@ function ScriptListExample() {
     // Получить список из 2 рандомных скриптов
     useEffect(() => {
         (async () => {
-
             // Получить список скриптов с бекенда
             const res = await api?.getScriptList() as { data: AxiosResponse["data"] }
 
+            // Генерируем два уникальных случайных индекса
+            let index1, index2;
+
+            // Повторяем цикл, до тех пор, пока index1 и index2 не будут равными, что поможет избежать потоврений скриптов в блоке
+            do {
+                index1 = Math.floor(Math.random() * res!.data.length);
+                index2 = Math.floor(Math.random() * res!.data.length);
+            } 
+            while (index1 === index2);
+
             // Загрузить в массив scripts 2 рандомных скрипта
             setScripts([
-                res!.data[Math.floor(Math.random() * res!.data.length)],
-                res!.data[Math.floor(Math.random() * res!.data.length)],
+                res!.data[index1],
+                res!.data[index2],
             ])
         })()
     }, []);
+
 
 
     return (
