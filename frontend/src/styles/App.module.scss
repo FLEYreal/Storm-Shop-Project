@@ -522,6 +522,74 @@ $unhighlighted_color: #cfcfcf;
     }
 }
 
+.botOrder_videoBlock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: #1C1C1C;
+    overflow: hidden;
+    border: 2px solid rgba(182, 182, 182, 0.5);
+    box-sizing: border-box;
+}
+
+.botOrder_bots {
+    width: 499px;
+    height: inherit;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    flex-flow: column nowrap;
+
+    .botOrder_desc {
+        margin-top: 52px;
+        display: flex;
+        align-items: start;
+        justify-content: start;
+        flex-flow: column nowrap;
+        width: 100%;
+        min-height: 150px;
+
+        .title {
+            margin-bottom: 8px;
+        }
+    }
+
+    .botOrder_dcIcon {
+        width: 100px;
+        height: 100px;
+        top: 215px;
+        left: 190px;
+    }
+
+    .botOrder_tgIcon {
+        width: 120px;
+        height: 120px;
+        top: 265px;
+        left: -46px;
+    }
+
+    .botOrder_button {
+        z-index: 1;
+        margin: 0;
+        color: #60F6FF;
+        font-size: 26px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        padding: 18px 48px;
+        flex-shrink: 0;
+        border-radius: 10px;
+        border: 3px solid #60F6FF;
+        background: rgba(96, 246, 255, 0.10);
+        backdrop-filter: blur(4px);
+
+        &:hover {
+            background: rgba(96, 246, 255, 0.2);
+        }
+    }
+}
+
 .botOrder {
 
     margin-top: 100px;
@@ -547,63 +615,6 @@ $unhighlighted_color: #cfcfcf;
             justify-content: space-between;
             align-items: center;
             flex-flow: row nowrap;
-
-            .botOrder_bots {
-                width: 499px;
-                height: inherit;
-                display: flex;
-                align-items: start;
-                justify-content: space-between;
-                flex-flow: column nowrap;
-
-                .botOrder_desc {
-                    margin-top: 52px;
-                    display: flex;
-                    align-items: start;
-                    justify-content: start;
-                    flex-flow: column nowrap;
-                    width: 100%;
-                    min-height: 150px;
-
-                    .title {
-                        margin-bottom: 8px;
-                    }
-                }
-
-                .botOrder_dcIcon {
-                    width: 100px;
-                    height: 100px;
-                    top: 215px;
-                    left: 190px;
-                }
-
-                .botOrder_tgIcon {
-                    width: 120px;
-                    height: 120px;
-                    top: 265px;
-                    left: -46px;
-                }
-
-                .botOrder_button {
-                    z-index: 1;
-                    margin: 0;
-                    color: #60F6FF;
-                    font-size: 26px;
-                    font-style: normal;
-                    font-weight: 600;
-                    line-height: normal;
-                    padding: 18px 48px;
-                    flex-shrink: 0;
-                    border-radius: 10px;
-                    border: 3px solid #60F6FF;
-                    background: rgba(96, 246, 255, 0.10);
-                    backdrop-filter: blur(4px);
-
-                    &:hover {
-                        background: rgba(96, 246, 255, 0.2);
-                    }
-                }
-            }
 
             .botOrder_devider {
                 height: inherit;
