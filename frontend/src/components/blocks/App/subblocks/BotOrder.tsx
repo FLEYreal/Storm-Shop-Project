@@ -20,17 +20,17 @@ function BotOrder() {
                 <div className={`${styles.title} ${resStyles('title', resolutions)}`}>
                     ЗАКАЗ <span className={styles.title_colorful}>БОТА</span>
                 </div>
-                <div className={`${styles.botOrder_subtitle} ${resStyles('botOrder_subtitle', resolutions)}`}>
+                <div className={`${resStyles('botOrder_subtitle', resolutions)}`}>
                     Хочешь заказать собственного бота для дискорда или телеграмма, тогда ты по адрессу!
                 </div>
             </div>
-            <StormButton className={`${styles.botOrder_button}`}>
+            <StormButton className={`${styles.botOrder_button} ${resStyles('botOrder_button', resolutions)}`}>
                 ЗАКАЗАТЬ
             </StormButton>
 
             {/* Картинки */}
-            <img src={tgIcon_small} className={`${styles.botOrder_tgIcon}`} alt='Telegram Icon' />
-            <img src={discordIcon} className={`${styles.botOrder_dcIcon}`} alt='Discord Icon' />
+            <img src={tgIcon_small} className={`${styles.botOrder_tgIcon} ${resStyles('botOrder_tgIcon', resolutions)}`} alt='Telegram Icon' />
+            <img src={discordIcon} className={`${styles.botOrder_dcIcon} ${resStyles('botOrder_dcIcon', resolutions)}`} alt='Discord Icon' />
 
         </div>
     );

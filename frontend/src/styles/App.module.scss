@@ -228,6 +228,7 @@ $unhighlighted_color: #cfcfcf;
     }
 
     .goodScript_mobile {
+        width: 100%;
         display: flex;
         align-items: stretch;
         justify-content: center;
@@ -537,7 +538,6 @@ $unhighlighted_color: #cfcfcf;
 
 .botOrder_bots {
     position: relative;
-    width: 499px;
     height: inherit;
     display: flex;
     align-items: start;
@@ -557,29 +557,13 @@ $unhighlighted_color: #cfcfcf;
         }
     }
 
-    .botOrder_dcIcon {
-        width: 100px;
-        height: 100px;
-        top: 215px;
-        left: 190px;
-    }
-
-    .botOrder_tgIcon {
-        width: 120px;
-        height: 120px;
-        top: 255px;
-        left: -46px;
-    }
-
     .botOrder_button {
         z-index: 1;
         margin: 0;
         color: #60F6FF;
-        font-size: 26px;
         font-style: normal;
         font-weight: 600;
         line-height: normal;
-        padding: 18px 48px;
         flex-shrink: 0;
         border-radius: 10px;
         border: 3px solid #60F6FF;
@@ -594,7 +578,7 @@ $unhighlighted_color: #cfcfcf;
 }
 
 .botOrder_scripts {
-    width: 499px;
+    position: relative;
     height: inherit;
     display: flex;
     align-items: start;
@@ -620,6 +604,7 @@ $unhighlighted_color: #cfcfcf;
     }
 
     .botOrder_GPTIcon {
+        opacity: 0.5;
         border-radius: 100px;
         -webkit-border-radius: 100px;
         -moz-border-radius: 100px;
@@ -628,9 +613,6 @@ $unhighlighted_color: #cfcfcf;
         width: 100px;
         height: 100px;
         position: absolute;
-
-        bottom: 420px;
-        right: 0px;
     }
 }
 
@@ -717,6 +699,20 @@ $unhighlighted_color: #cfcfcf;
             align-items: start;
             justify-content: space-between;
             flex-flow: row nowrap;
+        }
+    }
+}
+
+.botOrder_small {
+    background: linear-gradient(135deg, #005156 0%, #042566 100%);
+    padding: 60px 0;
+
+    &_container {
+        width: 95%;
+        margin: auto;
+
+        &>div {
+            margin-bottom: 100px;
         }
     }
 }

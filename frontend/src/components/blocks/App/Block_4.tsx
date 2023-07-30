@@ -80,7 +80,14 @@ export default function Block_4() {
 
             {/* Маленькие мониторы / Экраны телефонов */}
             <MediaQuery maxWidth={920}>
-
+                <section className={`${styles.botOrder_small}`}>
+                    <div className={`${styles.botOrder_small_container}`}>
+                        <BotOrder />
+                        <VideoBot />
+                        <ScriptShop />
+                        <ScriptListExample />
+                    </div>
+                </section>
             </MediaQuery>
         </>
     )

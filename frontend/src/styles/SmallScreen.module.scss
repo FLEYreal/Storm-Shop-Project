@@ -113,16 +113,11 @@
 }
 
 .title {
-    font-size: 28px;
+    font-size: 38px;
     font-weight: 600;
     font-style: normal;
     line-height: normal;
     background-clip: text;
-}
-
-.botOrder_subtitle {
-    font-size: 17px;
-    color: #9B9B9B;
 }
 
 .burger_menu {
@@ -159,13 +154,63 @@
     font-weight: 500;
 }
 
-// .botOrder_container {
-//      width: 90%;
-//      height: 246px; 
-//      margin: 61px auto;
-// }
+.botOrder_videoBlock {
+    width: 499px;
+    height: 304px;
+}
 
-// .botOrder_subtitle {
-//      margin-top: 9px;
-//      font-size: 20px;
-// }
+.botOrder_bots {
+    width: 100%;
+}
+
+.botOrder_desc {
+    width: 100%;
+    margin-top: 0px;
+    min-height: 200px;
+}
+
+.botOrder_subtitle {
+    margin-top: 16px;
+    font-size: 24px;
+    width: 500px;
+    color: #9B9B9B;
+}
+
+.botOrder_dcIcon {
+    width: 90px;
+    height: 90px;
+    bottom: 10px;
+    left: 170px;
+    opacity: 0.35;
+}
+
+.botOrder_tgIcon {
+    width: 125px;
+    height: 125px;
+    bottom: -55px;
+    left: -65px;
+    opacity: 0.55;
+}
+
+.botOrder_scriptsBlock {
+    width: 370px;
+    height: 220px;
+}
+
+.botOrder_scriptsBlock_subtitle {
+    top: -50px;
+}
+
+.botOrder_scripts {
+    width: 100%;
+}
+
+.botOrder_button {
+    font-size: 23px !important;
+    padding: 16px 42px !important;
+}
+
+.botOrder_GPTIcon {
+    bottom: -70px;
+    left: 60%;
+}

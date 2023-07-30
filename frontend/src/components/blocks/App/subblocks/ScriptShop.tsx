@@ -11,12 +11,12 @@ function ScriptShop() {
     const resolutions = useResolutions()
 
     return (
-        <div className={`${styles.botOrder_scripts}`}>
-            <div className={`${styles.botOrder_desc}`}>
+        <div className={`${styles.botOrder_scripts} ${resStyles('botOrder_scripts', resolutions)}`}>
+            <div className={`${styles.botOrder_desc} ${resStyles('botOrder_desc', resolutions)}`}>
                 <div className={`${styles.title} ${resStyles('title', resolutions)}`}>
                     ГОТОВЫЕ <span className={styles.title_colorful_yellow}>СКРИПТЫ</span>
                 </div>
-                <div className={`${styles.botOrder_subtitle} ${resStyles('botOrder_subtitle', resolutions)}`}>
+                <div className={`${resStyles('botOrder_subtitle', resolutions)}`}>
                     Мы также предлагаем магазин готовых
                     скриптов и ботов, таких как скрипт для
                     авто-покупки нитро на nodejs или готовый
@@ -26,7 +26,7 @@ function ScriptShop() {
             </div>
 
             {/* Картинки */}
-            <img src={chatGPT} className={`${styles.botOrder_GPTIcon}`} alt='ChatGPT Icon' />
+            <img src={chatGPT} className={`${styles.botOrder_GPTIcon} ${resStyles('botOrder_GPTIcon', resolutions)}`} alt='ChatGPT Icon' />
         </div>
     );
 }
