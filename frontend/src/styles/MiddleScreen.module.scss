@@ -108,11 +108,6 @@
     background-clip: text;
 }
 
-.botOrder_subtitle {
-    font-size: 19px;
-    color: #9B9B9B;
-}
-
 .burger_menu {
     display: none;
 }
@@ -165,13 +160,29 @@
     font-size: 15px;
 }
 
-// .botOrder_container {
-//      width: 90%;
-//      height: 246px; 
-//      margin: 61px auto;
-// }
+.botOrder_videoBlock {
+    width: 499px;
+    height: 304px;
+}
 
-// .botOrder_subtitle {
-//      margin-top: 9px;
-//      font-size: 22px;
-// }
+.botOrder_bots {
+    width: 499px;
+    padding-right: 48px;
+}
+
+.botOrder_desc {
+    width: 499px;
+    margin-top: 0px;
+    min-height: 150px;
+}
+
+.botOrder_subtitle {
+    margin-top: 16px;
+    font-size: 22px;
+    color: #9B9B9B;
+}
+
+.botOrder_scriptsBlock {
+    width: 370px;
+    height: 304px;
+}

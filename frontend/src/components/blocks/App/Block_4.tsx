@@ -31,21 +31,30 @@ export default function Block_4() {
                     {/* Основной контент */}
                     <div className={`${styles.botOrder_container} ${resStyles('botOrder_container', resolutions)}`}>
 
+                        {/* Вверхнаяя часть блока */}
                         <div className={`${styles.botOrder_top}`}>
 
-                            <BotOrder/>
+                            {/* Подблок с описанием услуг заказа бота */}
+                            <BotOrder />
 
+                            {/* Разделитель между подблоками */}
                             <div className={`${styles.botOrder_devider}`}>
                                 <img src={devider} alt='devider' />
                             </div>
 
-                            <ScriptShop/>
+                            {/* Подблок с описанием услуг готовых скриптов */}
+                            <ScriptShop />
 
                         </div>
 
+                        {/* Нижняя часть блока */}
                         <div className={`${styles.botOrder_bottom}`}>
+
+                            {/* Подблок с видео примером работы бота */}
                             <VideoBot />
-                            <ScriptListExample/>
+
+                            {/* Подблок с 2 рандомными скриптами для примера */}
+                            <ScriptListExample />
                         </div>
                     </div>
                 </section>
@@ -54,7 +63,18 @@ export default function Block_4() {
 
             {/* Средние мониторы */}
             <MediaQuery maxWidth={1170} minWidth={921} >
-
+                <section className={`${styles.botOrder_mid}`}>
+                    <div className={`${styles.botOrder_mid_container}`}>
+                        <div className={`${styles.botOrder_mid_container_top}`}>
+                            <BotOrder />
+                            <VideoBot />
+                        </div>
+                        <div className={`${styles.botOrder_mid_container_bottom}`}>
+                            <ScriptListExample />
+                            <ScriptShop />
+                        </div>
+                    </div>
+                </section>
             </MediaQuery>
 
 

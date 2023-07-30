@@ -15,8 +15,8 @@ function BotOrder() {
     const resolutions = useResolutions()
 
     return (
-        <div className={`${styles.botOrder_bots}`}>
-            <div className={`${styles.botOrder_desc}`}>
+        <div className={`${styles.botOrder_bots} ${resStyles('botOrder_bots', resolutions)}`}>
+            <div className={`${styles.botOrder_desc} ${resStyles('botOrder_desc', resolutions)}`}>
                 <div className={`${styles.title} ${resStyles('title', resolutions)}`}>
                     ЗАКАЗ <span className={styles.title_colorful}>БОТА</span>
                 </div>
