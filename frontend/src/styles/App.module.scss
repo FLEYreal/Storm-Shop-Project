@@ -743,6 +743,43 @@ $unhighlighted_color: #cfcfcf;
     -o-transform: rotate(-29.173deg);
 }
 
+.job {
+    position: relative;
+    width: 100%;
+    margin-top: 150px;
+
+    .job_container {
+        margin: auto;
+
+        .job_text {
+
+            &_title {
+                //
+            }
+
+            &_description {
+                color: #9B9B9B;
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+
+                &>p {
+                    margin-top: 1.5em; /* Отступ сверху */
+                    margin-bottom: 1.5em; /* Отступ снизу */
+                }
+            }
+
+            &_action {}
+        }
+    }
+
+    .job_bubble {
+        position: absolute;
+        right: 0;
+    }
+}
+
 // Styles of common website components
 
 // Link:
