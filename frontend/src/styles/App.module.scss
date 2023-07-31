@@ -753,10 +753,6 @@ $unhighlighted_color: #cfcfcf;
 
         .job_text {
 
-            &_title {
-                //
-            }
-
             &_description {
                 color: #9B9B9B;
                 font-size: 24px;
@@ -769,13 +765,12 @@ $unhighlighted_color: #cfcfcf;
                     margin-bottom: 1.5em; /* Отступ снизу */
                 }
             }
-
-            &_action {}
         }
     }
 
     .job_bubble {
         position: absolute;
+        opacity: 0.6;
         right: 0;
     }
 }

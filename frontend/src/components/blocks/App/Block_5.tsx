@@ -15,12 +15,22 @@ function Block_5() {
     return (
         // Главный тэг для блока 5
         <div className={`${styles.job} ${resStyles('job', resolutions)}`}>
+
+            {/* Основной контейнер для контента блока */}
             <div className={`${styles.job_container} ${resStyles('job_container', resolutions)}`}>
+
+                {/* Тэг для текстового контента */}
                 <div className={`${styles.job_text} ${resStyles('job_text', resolutions)}`}>
-                    <div className={`${styles.job_text_title} ${resStyles('job_text_title', resolutions)}`}>
+
+                    {/* Заголовок блока */}
+                    <div className={`${resStyles('job_text_title', resolutions)}`}>
                         <h2 className={`${resStyles('title', resolutions)}`}>ЗАРАБАТЫВАЙ ВМЕСТЕ С <b>StormShop</b></h2>
                     </div>
+
+                    {/* Описание блока */}
                     <div className={`${styles.job_text_description} ${resStyles('job_text_description', resolutions)}`}>
+
+                        {/* Описание разбитое по параграфам */}
                         <p>
                             Мы предоставляем возможность ВСЕМ пользователям зарабатывать вместе с нами!
                         </p>
@@ -31,7 +41,9 @@ function Block_5() {
                             Вы не ослышались, именно 100%! Заинтересован? Тогда прочитай статью и регистрируйся у нас на сайте!
                         </p>
                     </div>
-                    <div className={`${styles.job_text_action} ${resStyles('job_text_action', resolutions)}`}>
+
+                    {/* Блок с кнопками действий */}
+                    <div>
                         <StormButton sx={{
                             zIndex: '1',
                             color: '#60F6FF',
@@ -80,6 +92,7 @@ function Block_5() {
                 </div>
             </div>
 
+            {/* Декорация к блоку */}
             <img src={bubbles} className={`${styles.job_bubble} ${resStyles('job_bubble', resolutions)}`} />
         </div >
     );
