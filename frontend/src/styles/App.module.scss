@@ -432,6 +432,7 @@ $unhighlighted_color: #cfcfcf;
     margin: 0 auto;
     display: flex;
     flex-flow: row wrap;
+    align-items: start;
 
     .goodItem {
         width: 340px;
