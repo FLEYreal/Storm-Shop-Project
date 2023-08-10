@@ -10,7 +10,7 @@ import styles from '../../../../styles/App.module.scss'
 import resStyles from '../../../../utils/resStyles.js';
 import useResolutions from '../../../../hooks/useResolusions.js';
 
-import ScriptGood from '../../../ScriptGood.js';
+import ScriptGood from '../../../ScriptGood/ScriptGood.js';
 
 function ScriptListExample() {
     // Получить объект с разрешением экрана

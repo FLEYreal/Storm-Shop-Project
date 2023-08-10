@@ -7,7 +7,7 @@ import { StormIconButton, BlueButton, PinkButton } from '../../styles/mui';
 // Стили
 import useResolutions from '../../hooks/useResolusions';
 import resStyles from '../../utils/resStyles';
-import styles from '../styles/App.module.scss'
+import styles from './styles.module.scss'
 
 // Material-UI
 import { Toolbar, Typography, Menu, MenuItem, AppBar } from '@mui/material';
@@ -19,7 +19,7 @@ import WorkRoundedIcon from '@mui/icons-material/WorkRounded';
 import Person2RoundedIcon from '@mui/icons-material/Person2Rounded';
 import CodeRoundedIcon from '@mui/icons-material/CodeRounded';
 import DiamondRoundedIcon from '@mui/icons-material/DiamondRounded';
-import Logo from './img/logo512.png'
+import Logo from '../img/logo512.png'
 
 function App() {
     // Инициализация нужных переменных
@@ -77,8 +77,8 @@ function App() {
                         transition: 'all 0.2s ease-in-out',
                     }}>
                     <Typography component='div' sx={{margin: '0 auto'}} className={`${styles.inner_header} ${resStyles('inner_header', resolution)}`}>
-                        <a href="/" className={styles.header_logo}>
-                            <img src={Logo} alt="logo" className={styles.logo512} />
+                        <a href="/" className={styles.header_title}>
+                            <img src={Logo} alt="logo" className={styles.header_logo} />
                             <h2 style={{ fontSize: '26px' }}>Storm Shop</h2>
                         </a>
                         <Typography noWrap component='nav' className={`${resStyles('header_nav', resolution)}`}>

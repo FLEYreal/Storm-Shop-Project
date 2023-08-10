@@ -7,7 +7,7 @@ import { Typography } from '@mui/material';
 // Стили
 import useResolutions from '../../hooks/useResolusions';
 import resStyles from '../../utils/resStyles';
-import styles from '../styles/App.module.scss'
+import styles from './styles.module.scss'
 
 // Типы
 import { ScriptGoodType } from '../../typings/Good';

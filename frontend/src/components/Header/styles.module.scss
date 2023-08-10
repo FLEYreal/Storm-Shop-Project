@@ -1,0 +1,44 @@
+@import "../../styles/App.module.scss";
+
+// Содержимое хедера
+.inner_header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    // Стили заголовка хедера (логотип + название)
+    .header_title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: row nowrap;
+        font-size: 24px;
+        font-weight: 500;
+        color: #ffffff;
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+        user-select: none;
+        text-decoration: none;
+    
+        // Стили логотипа
+        .header_logo {
+            user-select: none;
+            cursor: pointer;
+            border-radius: 100%;
+            margin: 6px 12px 6px 0px;
+            width: 54px;
+            height: 54px;
+        }
+    
+        &:hover {
+            color: #d6d6d6;
+        }
+    }
+
+    // Стили для бургер-меню
+    .burger_menu {
+        justify-content: flex-end;
+    }
+}

@@ -40,135 +40,6 @@ $unhighlighted_color: #cfcfcf;
         height: 25px;
         flex-shrink: 0;
     }
-
-    .main {
-        width: 100%;
-        background: $theme_gradient;
-        overflow: hidden;
-
-        .main_container {
-            margin: 140px auto;
-            box-sizing: border-box;
-            position: relative;
-
-            .main_text {
-                display: flex;
-                flex-flow: column nowrap;
-                justify-content: flex-start;
-                align-items: flex-start;
-
-                .main_title {
-                    z-index: 1;
-                    color: #FFF;
-                    font-size: 38px;
-                    font-style: normal;
-                    font-weight: 600;
-                    line-height: normal;
-                    margin: 16px 0;
-                }
-
-                .main_content {
-                    z-index: 1;
-                    font-size: 21px;
-                    font-style: normal;
-                    font-weight: 400;
-                    line-height: normal;
-                    margin: 16px 0;
-                }
-
-                .main_action {
-                    z-index: 1;
-                    width: 100%;
-                    margin: 16px 0;
-                }
-            }
-
-            .particlesContainer {
-                pointer-events: none;
-                user-select: none;
-                position: absolute;
-                top: -120px;
-                right: 0;
-                width: 100%;
-                height: 100vh;
-                z-index: 0;
-
-                .badgeRain {
-                    position: absolute;
-                    z-index: 1;
-                }
-            }
-
-            .wampus {
-                position: absolute;
-                animation: wampusFly 6s ease-in-out infinite;
-                -webkit-animation: wampusFly 6s ease-in-out infinite;
-                z-index: 4;
-            }
-
-            .tgIcon_big {
-                opacity: 0.4;
-                position: absolute;
-                flex-shrink: 0;
-                z-index: 3;
-                animation: wave 15s ease-in-out infinite;
-                -webkit-animation: wave 15s ease-in-out infinite;
-            }
-
-            .discordIcon {
-                opacity: 0.4;
-                position: absolute;
-                z-index: 2;
-                animation: wave 8s ease-in-out infinite;
-                -webkit-animation: wave 8s ease-in-out infinite;
-            }
-
-            .bubble4 {
-                opacity: 0.4;
-                position: absolute;
-                z-index: 2;
-                animation: wave 15s ease-in-out infinite;
-                -webkit-animation: wave 15s ease-in-out infinite;
-            }
-
-            .bubble4_1 {
-                opacity: 0.3;
-                position: absolute;
-                flex-shrink: 0;
-                animation: wave 15s ease-in-out infinite;
-                -webkit-animation: wave 15s ease-in-out infinite;
-            }
-
-            .chatGPT {
-                width: 120px;
-                height: 120px;
-                border-radius: 240px;
-                opacity: 0.35;
-                flex-shrink: 0;
-                position: absolute;
-                animation: wave 15s ease-in-out infinite;
-                -webkit-animation: wave 15s ease-in-out infinite;
-                -webkit-border-radius: 240px;
-                -moz-border-radius: 240px;
-                -ms-border-radius: 240px;
-                -o-border-radius: 240px;
-            }
-
-            .spotify {
-                border-radius: 240px;
-                opacity: 0.35;
-                flex-shrink: 0;
-                position: absolute;
-                animation: wave 15s ease-in-out infinite;
-                -webkit-animation: wave 15s ease-in-out infinite;
-                -webkit-border-radius: 240px;
-                -moz-border-radius: 240px;
-                -ms-border-radius: 240px;
-                -o-border-radius: 240px;
-            }
-        }
-    }
-
 }
 
 .goodScript {
@@ -286,46 +157,6 @@ $unhighlighted_color: #cfcfcf;
 
 }
 
-.header_logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-flow: row nowrap;
-    font-size: 24px;
-    font-weight: 500;
-    color: #ffffff;
-    margin: 0;
-    padding: 0;
-    cursor: pointer;
-    user-select: none;
-    text-decoration: none;
-
-    &:hover {
-        color: #d6d6d6;
-    }
-}
-
-.logo512 {
-    user-select: none;
-    cursor: pointer;
-    border-radius: 100%;
-    margin: 6px 12px 6px 0px;
-    width: 54px;
-    height: 54px;
-}
-
-.inner_header {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.main_container_images {
-    flex: 6;
-    height: 100%;
-}
-
 .signup_container {
     margin-top: 200px;
     width: 100%;
@@ -373,16 +204,6 @@ $unhighlighted_color: #cfcfcf;
     }
 }
 
-.burger_menu {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.dark_header {
-    transition: 0.3s all;
-    background: rgba(0, 0, 0, 0.3);
-}
-
 .other_networks {
     margin: 0 auto;
     margin-bottom: 64px;
@@ -415,7 +236,6 @@ $unhighlighted_color: #cfcfcf;
         }
     }
 }
-
 
 .goodList_title {
     color: #FFF;

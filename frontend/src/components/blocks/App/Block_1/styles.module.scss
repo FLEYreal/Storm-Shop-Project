@@ -1,0 +1,139 @@
+@import "../../../../styles/App.module.scss";
+
+// Стили первого блока
+.main {
+    width: 100%;
+    background: $theme_gradient;
+    overflow: hidden;
+
+    // Стили для контейнера с основным содержимым
+    .main_container {
+        margin: 140px auto;
+        box-sizing: border-box;
+        position: relative;
+
+        // Стили для контейнера с текстом
+        .main_text {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+
+            // Заголовок
+            .main_title {
+                z-index: 1;
+                color: #FFF;
+                font-size: 38px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                margin: 16px 0;
+            }
+
+            // Контент первого блока
+            .main_content {
+                z-index: 1;
+                font-size: 21px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                margin: 16px 0;
+            }
+
+            // Контейнер с кнопками действия
+            .main_action {
+                z-index: 1;
+                width: 100%;
+                margin: 16px 0;
+            }
+        }
+
+        // Частицы
+        .particlesContainer {
+            pointer-events: none;
+            user-select: none;
+            position: absolute;
+            top: -120px;
+            right: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: 0;
+
+            // Стили для долждя из бейджиков
+            .badgeRain {
+                position: absolute;
+                z-index: 1;
+            }
+        }
+
+        // СТИЛИ ДЛЯ ИЗОБРАЖЕНИЙ
+
+        .wampus {
+            position: absolute;
+            animation: wampusFly 6s ease-in-out infinite;
+            -webkit-animation: wampusFly 6s ease-in-out infinite;
+            z-index: 4;
+        }
+
+        .tgIcon_big {
+            opacity: 0.4;
+            position: absolute;
+            flex-shrink: 0;
+            z-index: 3;
+            animation: wave 15s ease-in-out infinite;
+            -webkit-animation: wave 15s ease-in-out infinite;
+        }
+
+        .discordIcon {
+            opacity: 0.4;
+            position: absolute;
+            z-index: 2;
+            animation: wave 8s ease-in-out infinite;
+            -webkit-animation: wave 8s ease-in-out infinite;
+        }
+
+        .bubble4 {
+            opacity: 0.4;
+            position: absolute;
+            z-index: 2;
+            animation: wave 15s ease-in-out infinite;
+            -webkit-animation: wave 15s ease-in-out infinite;
+        }
+
+        .bubble4_1 {
+            opacity: 0.3;
+            position: absolute;
+            flex-shrink: 0;
+            animation: wave 15s ease-in-out infinite;
+            -webkit-animation: wave 15s ease-in-out infinite;
+        }
+
+        .chatGPT {
+            width: 120px;
+            height: 120px;
+            border-radius: 240px;
+            opacity: 0.35;
+            flex-shrink: 0;
+            position: absolute;
+            animation: wave 15s ease-in-out infinite;
+            -webkit-animation: wave 15s ease-in-out infinite;
+            -webkit-border-radius: 240px;
+            -moz-border-radius: 240px;
+            -ms-border-radius: 240px;
+            -o-border-radius: 240px;
+        }
+
+        .spotify {
+            border-radius: 240px;
+            opacity: 0.35;
+            flex-shrink: 0;
+            position: absolute;
+            animation: wave 15s ease-in-out infinite;
+            -webkit-animation: wave 15s ease-in-out infinite;
+            -webkit-border-radius: 240px;
+            -moz-border-radius: 240px;
+            -ms-border-radius: 240px;
+            -o-border-radius: 240px;
+        }
+    }
+}

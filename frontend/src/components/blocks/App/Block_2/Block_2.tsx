@@ -1,13 +1,13 @@
 // Стили
-import styles from '../../../styles/App.module.scss'
+import styles from './styles.module.scss';
 import resStyles from '../../../../utils/resStyles.ts';
 import useResolutions from '../../../../hooks/useResolusions.ts';
 
 // Картинки
-import tgIcon_small from '../../img/tgIcon_small.svg';
-import discordIcon from '../../img/discordIcon.svg';
-import plati from '../../img/plati.png';
-import funpay from '../../img/funpay.png';
+import tgIcon_small from '../../../img/tgIcon_small.svg';
+import discordIcon from '../../../img/discordIcon.svg';
+import plati from '../../../img/plati.png';
+import funpay from '../../../img/funpay.png';
 
 
 export default function Block_2() {

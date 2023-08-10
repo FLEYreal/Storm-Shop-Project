@@ -2,18 +2,18 @@
 import MediaQuery from 'react-responsive';
 
 // Стили
-import styles from '../../../styles/App.module.scss'
-import resStyles from '../../../utils/resStyles.js';
-import useResolutions from '../../../hooks/useResolusions.js';
+import styles from './styles.module.scss';
+import resStyles from '../../../../utils/resStyles.js';
+import useResolutions from '../../../../hooks/useResolusions.js';
 
 // Компоненты & Хуки проекта
-import VideoBot from './subblocks/VideoBot.js';
-import BotOrder from './subblocks/BotOrder.js'
-import ScriptListExample from './subblocks/ScriptListExample.js'
+import VideoBot from '../subblocks/VideoBot.js';
+import BotOrder from '../subblocks/BotOrder.js'
+import ScriptListExample from '../subblocks/ScriptListExample.js'
 
 // Картинки & Видео
-import devider from '../../img/devider.svg';
-import ScriptShop from './subblocks/ScriptShop.js';
+import devider from '../../../img/devider.svg';
+import ScriptShop from '../subblocks/ScriptShop.js';
 
 export default function Block_4() {
 

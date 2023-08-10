@@ -1,11 +1,11 @@
 // Стили
-import styles from '../../../styles/App.module.scss'
-import resStyles from '../../../utils/resStyles.js';
-import useResolutions from '../../../hooks/useResolusions.js';
+import styles from './styles.module.scss';
+import resStyles from '../../../../utils/resStyles.js';
+import useResolutions from '../../../../hooks/useResolusions.js';
 
 // Картинки & Видео
-import bubbles from '../../img/bubbles3.png';
-import { StormButton } from '../../../styles/mui.js';
+import bubbles from '../../../img/bubbles3.png';
+import { StormButton } from '../../../../styles/mui.js';
 
 function Block_5() {
 

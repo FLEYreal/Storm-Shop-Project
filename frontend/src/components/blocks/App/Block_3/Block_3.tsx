@@ -3,8 +3,8 @@ import { useContext, useEffect, useState } from 'react'
 import { AxiosResponse } from 'axios';
 
 // Стили
-import styles from '../../../styles/App.module.scss'
-import resStyles from '../../../../utils/resStyles';
+import styles from './styles.module.scss';
+import resStyles from '../../../../utils/resStyles.js';
 import useResolutions from '../../../../hooks/useResolusions';
 
 // Компоненты & Хуки проекта

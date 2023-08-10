@@ -3,11 +3,11 @@ import React, { useState } from 'react'
 
 // Стили
 import resStyles from '../../utils/resStyles.js'
-import styles from '../styles/App.module.scss'
+import styles from './styles.module.scss'
 import useResolutions from '../../hooks/useResolusions.js'
 
 // Компоненты & Хуки проекта
-import { StormButton } from '../styles/mui.js';
+import { StormButton } from '../../styles/mui.js';
 import shortenText from '../../utils/shortenText.js'
 import lighterRgb from '../../utils/lighterRGB.js'
 
