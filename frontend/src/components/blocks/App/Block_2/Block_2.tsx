@@ -19,29 +19,29 @@ export default function Block_2() {
         <section className={`${styles.other_networks} ${resStyles('other_networks', resolution)}`}>
 
             {/* Заголовок */}
-            <div className={styles.net_title}>Покупайте, где вам <b style={{ fontWeight: '600' }}>удобнее</b>!</div>
+            <div className={styles.title}>Покупайте, где вам <b style={{ fontWeight: '600' }}>удобнее</b>!</div>
 
             {/* Основной контент */}
-            <article className={`${styles.net_big_items} ${resStyles('net_big_items', resolution)}`}>
+            <article className={`${styles.items} ${resStyles('net_big_items', resolution)}`}>
 
                 {/* Список ссылок на другие варианты покупки */}
 
-                <div className={styles.net_big_item}>
+                <div className={styles.item}>
                     <img src={tgIcon_small} style={{ width: '68px' }} alt='Telegram Icon' />
                     <a href='https://t.me/storm_nitro_shop_bot' target='_blank' rel='noreferrer noopener'>Телеграм Бот</a>
                 </div>
 
-                <div className={styles.net_big_item}>
+                <div className={styles.item}>
                     <img src={discordIcon} style={{ width: '56px', padding: '6px' }} alt='Discord Icon' />
                     <a href='https://discord.gg/BNsV86yGQA' target='_blank' rel='noreferrer noopener'>Дискорд Сервер</a>
                 </div>
 
-                <div className={styles.net_big_item}>
+                <div className={styles.item}>
                     <img src={funpay} style={{ width: '56px', borderRadius: '100%', padding: '6px' }} alt='FunPay Icon' />
                     <a href='https://funpay.com/users/2879263/' target='_blank' rel='noreferrer noopener'>FunPay</a>
                 </div>
 
-                <div className={styles.net_big_item}>
+                <div className={styles.item}>
                     <img src={plati} style={{ width: '56px', borderRadius: '100%', padding: '6px' }} alt='Plati.market Icon' />
                     <a href='https://plati.io/itm/3753787' target='_blank' rel='noreferrer noopener'>Plati.market</a>
                 </div>

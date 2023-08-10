@@ -1,0 +1,234 @@
+@import "../../../../styles/App.module.scss";
+
+
+// СТИЛИ ДЛЯ КАРКАСА (в зависимости от размера экрана)
+.big {
+    margin-top: 100px;
+    width: 100%;
+    flex-shrink: 0;
+    overflow: hidden;
+    position: relative;
+
+    .container {
+        margin: 0 auto;
+        display: flex;
+        align-items: start;
+        flex-flow: column;
+        position: relative;
+        width: 1170px;
+
+        .top {
+            margin-bottom: 116px;
+            width: 100%;
+            height: 322px;
+            display: flex;
+            align-items: start;
+            justify-content: space-between;
+            align-items: center;
+            flex-flow: row nowrap;
+
+            .devider {
+                height: inherit;
+                width: 172px;
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+            }
+
+        }
+
+        .bottom {
+            width: 100%;
+            min-height: 333px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+.middle {
+    width: 100%;
+    padding: 60px 0;
+    background: linear-gradient(135deg, #005156 0%, #042566 100%);
+    z-index: 0;
+
+    &_container {
+        margin: auto;
+        width: 95%;
+
+        .middle_top {
+            height: 304px;
+            display: flex;
+            align-items: start;
+            justify-content: space-between;
+            flex-flow: row nowrap;
+            margin-bottom: 140px;
+        }
+
+        .middle_bottom {
+            display: flex;
+            align-items: start;
+            justify-content: space-between;
+            flex-flow: row nowrap;
+        }
+    }
+}
+
+.small {
+    background: linear-gradient(135deg, #005156 0%, #042566 100%);
+    padding: 60px 0;
+
+    &_container {
+        width: 95%;
+        margin: auto;
+
+        &>div {
+            margin-bottom: 100px;
+        }
+    }
+}
+
+// СТИЛИ ДЛЯ САББЛОКОВ
+.botOrder {
+    position: relative;
+    height: inherit;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    flex-flow: column nowrap;
+    z-index: 1;
+
+    .botOrder_desc {
+        display: flex;
+        align-items: start;
+        justify-content: start;
+        flex-flow: column nowrap;
+        width: 100%;
+    }
+
+    .button {
+        z-index: 1;
+        margin: 0;
+        color: #60F6FF;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        flex-shrink: 0;
+        border-radius: 10px;
+        border: 3px solid #60F6FF;
+        background: rgba(96, 246, 255, 0.10);
+        backdrop-filter: blur(4px);
+
+        &:hover {
+            border: 3px solid #60F6FF;
+            background: rgba(96, 246, 255, 0.2);
+        }
+    }
+}
+
+.scriptsBlock {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    position: relative;
+    flex-shrink: 0;
+
+    &_subtitle {
+        color: rgba(255, 255, 255, 0.6);
+        position: absolute;
+        left: 0;
+    }
+}
+
+.scripts {
+    position: relative;
+    height: inherit;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    flex-flow: column nowrap;
+
+    .scripts_desc {
+        position: relative;
+        display: flex;
+        align-items: start;
+        justify-content: start;
+        flex-flow: column nowrap;
+        width: 100%;
+
+        .linkToShop {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+    }
+}
+
+.videoBlock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: #1C1C1C;
+    overflow: hidden;
+    border: 2px solid rgba(182, 182, 182, 0.5);
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+// СТИЛИ ДЛЯ ИЗОБРАЖЕНИЙ
+.tgIcon {
+    flex-shrink: 0;
+    position: absolute;
+    transform: rotate(-37.17deg);
+    -webkit-transform: rotate(-37.17deg);
+    -moz-transform: rotate(-37.17deg);
+    -ms-transform: rotate(-37.17deg);
+    -o-transform: rotate(-37.17deg);
+}
+
+.dcIcon {
+    flex-shrink: 0;
+    position: absolute;
+    transform: rotate(-29.173deg);
+    -webkit-transform: rotate(-29.173deg);
+    -moz-transform: rotate(-29.173deg);
+    -ms-transform: rotate(-29.173deg);
+    -o-transform: rotate(-29.173deg);
+}
+
+.GPTIcon {
+    opacity: 0.5;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+}
+
+// ИНЫЕ СТИЛИ
+.backgound {
+    background: linear-gradient(135deg, #005156 0%, #042566 100%);
+}
+
+.title {
+    margin-bottom: 8px;
+    color: #FFF;
+
+    &_colorful {
+        background: linear-gradient(157deg, #4CF2FD 0%, #00757C 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    &_colorful_yellow {
+        background: linear-gradient(153deg, #FFED4A 0%, #EE6213 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}

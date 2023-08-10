@@ -1,0 +1,36 @@
+@import "../../../../styles/App.module.scss";
+
+// Стили для второго блока
+.other_networks {
+    margin: 0 auto;
+    margin-bottom: 64px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: start;
+
+    // Заголовок второго блока
+    .title {
+        width: 100%;
+        font-weight: 300;
+        font-size: 42px;
+        padding-top: 135px;
+        padding-bottom: 20px;
+    }
+
+    .items {
+        width: 100%;
+        display: grid;
+
+        .item {
+            display: flex;
+            align-items: center;
+            margin-right: 30px;
+            font-size: 30px;
+
+            a {
+                margin: 14px;
+            }
+        }
+    }
+}

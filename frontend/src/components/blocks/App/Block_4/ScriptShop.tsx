@@ -1,5 +1,5 @@
 // Стили
-import styles from '../../../../styles/App.module.scss'
+import styles from './styles.module.scss';
 import resStyles from '../../../../utils/resStyles.js';
 import useResolutions from '../../../../hooks/useResolusions.js';
 
@@ -11,8 +11,8 @@ function ScriptShop() {
     const resolutions = useResolutions()
 
     return (
-        <div className={`${styles.botOrder_scripts} ${resStyles('botOrder_scripts', resolutions)}`}>
-            <div className={`${styles.botOrder_desc} ${resStyles('botOrder_desc', resolutions)}`}>
+        <div className={`${styles.scripts} ${resStyles('botOrder_scripts', resolutions)}`}>
+            <div className={`${styles.scripts_desc} ${resStyles('botOrder_desc', resolutions)}`}>
                 <div className={`${styles.title} ${resStyles('title', resolutions)}`}>
                     ГОТОВЫЕ <span className={styles.title_colorful_yellow}>СКРИПТЫ</span>
                 </div>
@@ -22,11 +22,11 @@ function ScriptShop() {
                     авто-покупки нитро на nodejs или готовый
                     скрипт чата с chatGPT на C++
                 </div>
-                <a href='/' className={`${styles.botOrder_linkToShop}`}>Перейти в магазин</a>
+                <a href='/' className={`${styles.linkToShop}`}>Перейти в магазин</a>
             </div>
 
             {/* Картинки */}
-            <img src={chatGPT} className={`${styles.botOrder_GPTIcon} ${resStyles('botOrder_GPTIcon', resolutions)}`} alt='ChatGPT Icon' />
+            <img src={chatGPT} className={`${styles.GPTIcon} ${resStyles('botOrder_GPTIcon', resolutions)}`} alt='ChatGPT Icon' />
         </div>
     );
 }

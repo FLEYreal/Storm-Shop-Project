@@ -1,0 +1,31 @@
+.job {
+    position: relative;
+    width: 100%;
+    margin-top: 150px;
+
+    .container {
+        margin: auto;
+
+        .text {
+
+            &_description {
+                color: #9B9B9B;
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+
+                &>p {
+                    margin-top: 1.5em; /* Отступ сверху */
+                    margin-bottom: 1.5em; /* Отступ снизу */
+                }
+            }
+        }
+    }
+
+    .bubble {
+        position: absolute;
+        opacity: 0.6;
+        right: 0;
+    }
+}

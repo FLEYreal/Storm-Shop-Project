@@ -7,13 +7,13 @@ import resStyles from '../../../../utils/resStyles.js';
 import useResolutions from '../../../../hooks/useResolusions.js';
 
 // Компоненты & Хуки проекта
-import VideoBot from '../subblocks/VideoBot.js';
-import BotOrder from '../subblocks/BotOrder.js'
-import ScriptListExample from '../subblocks/ScriptListExample.js'
+import VideoBot from './VideoBot.js';
+import BotOrder from './BotOrder.js'
+import ScriptListExample from './ScriptListExample.js'
+import ScriptShop from './ScriptShop.js';
 
 // Картинки & Видео
 import devider from '../../../img/devider.svg';
-import ScriptShop from '../subblocks/ScriptShop.js';
 
 export default function Block_4() {
 
@@ -24,21 +24,21 @@ export default function Block_4() {
         <>
             {/* Большие мониторы */}
             <MediaQuery minWidth={1171} >
-                <section className={`${styles.botOrder}`}>
-                    <div style={{ width: '100%', height: '600px', zIndex: '-1', position: 'absolute' }} className={`${styles.botOrder_bg}`}>
+                <section className={`${styles.big}`}>
+                    <div style={{ width: '100%', height: '600px', zIndex: '-1', position: 'absolute' }} className={`${styles.backgound}`}>
 
                     </div>
                     {/* Основной контент */}
-                    <div className={`${styles.botOrder_container} ${resStyles('botOrder_container', resolutions)}`}>
+                    <div className={`${styles.container} ${resStyles('botOrder_container', resolutions)}`}>
 
                         {/* Вверхнаяя часть блока */}
-                        <div className={`${styles.botOrder_top}`}>
+                        <div className={`${styles.top}`}>
 
                             {/* Подблок с описанием услуг заказа бота */}
                             <BotOrder />
 
                             {/* Разделитель между подблоками */}
-                            <div className={`${styles.botOrder_devider}`}>
+                            <div className={`${styles.devider}`}>
                                 <img src={devider} alt='devider' />
                             </div>
 
@@ -48,7 +48,7 @@ export default function Block_4() {
                         </div>
 
                         {/* Нижняя часть блока */}
-                        <div className={`${styles.botOrder_bottom}`}>
+                        <div className={`${styles.bottom}`}>
 
                             {/* Подблок с видео примером работы бота */}
                             <VideoBot />
@@ -63,13 +63,13 @@ export default function Block_4() {
 
             {/* Средние мониторы */}
             <MediaQuery maxWidth={1170} minWidth={921} >
-                <section className={`${styles.botOrder_mid}`}>
-                    <div className={`${styles.botOrder_mid_container}`}>
-                        <div className={`${styles.botOrder_mid_container_top}`}>
+                <section className={`${styles.middle}`}>
+                    <div className={`${styles.middle_container}`}>
+                        <div className={`${styles.middle_top}`}>
                             <BotOrder />
                             <VideoBot />
                         </div>
-                        <div className={`${styles.botOrder_mid_container_bottom}`}>
+                        <div className={`${styles.middle_bottom}`}>
                             <ScriptListExample />
                             <ScriptShop />
                         </div>
@@ -80,8 +80,8 @@ export default function Block_4() {
 
             {/* Маленькие мониторы / Экраны телефонов */}
             <MediaQuery maxWidth={920}>
-                <section className={`${styles.botOrder_small}`}>
-                    <div className={`${styles.botOrder_small_container}`}>
+                <section className={`${styles.small}`}>
+                    <div className={`${styles.small_container}`}>
                         <BotOrder />
                         <VideoBot />
                         <ScriptShop />

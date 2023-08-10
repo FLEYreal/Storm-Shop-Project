@@ -7,20 +7,20 @@
     overflow: hidden;
 
     // Стили для контейнера с основным содержимым
-    .main_container {
+    .container {
         margin: 140px auto;
         box-sizing: border-box;
         position: relative;
 
         // Стили для контейнера с текстом
-        .main_text {
+        .text {
             display: flex;
             flex-flow: column nowrap;
             justify-content: flex-start;
             align-items: flex-start;
 
             // Заголовок
-            .main_title {
+            .title {
                 z-index: 1;
                 color: #FFF;
                 font-size: 38px;
@@ -31,7 +31,7 @@
             }
 
             // Контент первого блока
-            .main_content {
+            .content {
                 z-index: 1;
                 font-size: 21px;
                 font-style: normal;
@@ -41,7 +41,7 @@
             }
 
             // Контейнер с кнопками действия
-            .main_action {
+            .action {
                 z-index: 1;
                 width: 100%;
                 margin: 16px 0;

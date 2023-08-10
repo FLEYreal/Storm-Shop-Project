@@ -113,13 +113,13 @@ export default function Block_1() {
         <section className={styles.main}>
 
             {/* Контейнер с основным контентом */}
-            <div className={`${styles.main_container} ${resStyles('main_container', resolutions)}`}>
+            <div className={`${styles.container} ${resStyles('main_container', resolutions)}`}>
                 {isSmallScreen || isPhone ?
                     <>
-                        <h1 className={`${resStyles('main_modbile_title', resolutions)}`}>
+                        <h1 className={`${resStyles('main_mobile_title', resolutions)}`}>
                             Storm Shop: <a href='/' style={{ color: '#FFD645', textDecoration: 'none' }}>Скрипты</a> <span style={{ color: '#96D9FF', textDecoration: 'none' }}>&</span> <a href='/' style={{ color: '#FF7BB3', textDecoration: 'none' }}>Подписки</a>
                         </h1>
-                        <p className={`${styles.main_content} ${resStyles('main_monile_content', resolutions)}`}>
+                        <p className={`${styles.content} ${resStyles('main_mobile_content', resolutions)}`}>
                             Покупай подписки в 2 клика! Создаёшь свой проект?
                             Покупай готовые скрипты у нас в магазине! Не нашёл? Бывает...
                             тогда закажи свой скрипт, бота или даже сайт!
@@ -131,32 +131,32 @@ export default function Block_1() {
 
 
                 {/* Контейнер с текстом */}
-                <div className={`${styles.main_text} ${resStyles('main_text', resolutions)}`}>
+                <div className={`${styles.text} ${resStyles('main_text', resolutions)}`}>
                     {/* Заголовок сайта */}
                     {!isSmallScreen && !isPhone ?
                         <>
-                            <h1 className={`${styles.main_title} ${resStyles('main_title', resolutions)}`}>
+                            <h1 className={`${styles.title} ${resStyles('main_title', resolutions)}`}>
                                 Storm Shop: <a href='/' style={{ color: '#FFD645', textDecoration: 'none' }}>Скрипты</a> <span style={{ color: '#96D9FF', textDecoration: 'none' }}>&</span> <a href='/' style={{ color: '#FF7BB3', textDecoration: 'none' }}>Подписки</a>
                             </h1>
                             {/* Основной контент */}
-                            <p className={`${styles.main_content} ${resStyles('main_content', resolutions)}`}>
+                            <p className={`${styles.content} ${resStyles('main_content', resolutions)}`}>
                                 Покупай подписки в 2 клика! Создаёшь свой проект?
                                 Покупай готовые скрипты у нас в магазине! Не нашёл? Бывает...
                                 тогда закажи свой скрипт, бота или даже сайт!
                                 <br /><a href='/' style={{ color: '#FF7BB3', fontWeight: '500' }}>Подписки</a>, <a href='/' style={{ color: '#FFD645', fontWeight: '500' }}>Магазин скриптов</a>, <a href='/' style={{ color: '#BAEAFF', fontWeight: '500' }}>Заказать себе</a>
                             </p>
-                            <p className={`${styles.main_content} ${resStyles('main_content', resolutions)}`}>
+                            <p className={`${styles.content} ${resStyles('main_content', resolutions)}`}>
                                 Вы также можете зарабатывать вместе с нами! Загружай
                                 свои скрипты и мы сами будем продавать их за вас!
                                 Не умеешь программировать?
                             </p>
-                            <p className={`${styles.main_content} ${resStyles('main_content', resolutions)}`}>
+                            <p className={`${styles.content} ${resStyles('main_content', resolutions)}`}>
                                 Тогда невероятная реферальная программа. 100%
                                 от прибыли с магазина!
                                 <br /><a>Подробнее</a>
                             </p>
                             {/* Кнопки */}
-                            <div className={`${styles.main_action} ${resStyles('main_action', resolutions)}`}>
+                            <div className={`${styles.action} ${resStyles('main_action', resolutions)}`}>
                                 <PinkButton sx={{ padding: '10px 25px', fontSize: '21px', fontWeight: '600' }} startIcon={<DiamondRoundedIcon style={{ marginRight: '4px' }} />}>ПОДПИСКИ</PinkButton>
                                 <BlueButton sx={{ padding: '10px 25px', fontSize: '21px', fontWeight: '600' }} startIcon={<CodeRoundedIcon style={{ marginRight: '4px' }} />}>СКРИПТЫ</BlueButton>
                             </div>

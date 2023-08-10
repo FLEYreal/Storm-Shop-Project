@@ -43,12 +43,12 @@ export default function Block_3() {
             <section>
 
                 {/* Заголовок */}
-                <div className={`${styles.goodList_title} ${resStyles('goodList_title', resolutions)}`}>
+                <div className={`${styles.title} ${resStyles('goodList_title', resolutions)}`}>
                     ТОВАРЫ:
                 </div>
 
                 {/* Тэг для хранения списка товаров */}
-                <div className={`${styles.goodList} ${resStyles('goodList', resolutions)}`}>
+                <div className={`${styles.container} ${resStyles('goodList', resolutions)}`}>
 
                     {/* Вывод списка товаров */}
                     {

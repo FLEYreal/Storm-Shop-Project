@@ -45,16 +45,16 @@ function ScriptGood({ desc }: { desc: ScriptGoodType }) {
             {/* Для больших экранов */}
             <MediaQuery minWidth={921}>
                 {/* Левый блок товара */}
-                <div className={`${styles.goodScript_left}`}>
+                <div className={`${styles.left}`}>
 
                     {/* Название и цена */}
-                    <div className={`${styles.goodScript_left_up}`}>
-                        <h2 className={`${styles.goodScript_left_up_title} ${resStyles('goodScript_left_up_title', resolutions)}`}>{desc.title}</h2>
-                        <h3 className={`${styles.goodScript_left_up_cost} ${resStyles('goodScript_left_up_cost', resolutions)}`}>{desc.cost}₽</h3>
+                    <div className={`${styles.left_up}`}>
+                        <h2 className={`${styles.left_up_title} ${resStyles('goodScript_left_up_title', resolutions)}`}>{desc.title}</h2>
+                        <h3 className={`${styles.left_up_cost} ${resStyles('goodScript_left_up_cost', resolutions)}`}>{desc.cost}₽</h3>
                     </div>
 
                     {/* Кнопка Покупки */}
-                    <StormButton variant='contained' className={`${styles.goodScript_left_button} ${resStyles('goodScript_left_button', resolutions)}`} sx={{
+                    <StormButton variant='contained' className={`${styles.left_button} ${resStyles('goodScript_left_button', resolutions)}`} sx={{
                         background: desc.themeTransparent,
                         border: `2px solid ${desc.theme}`,
                         color: desc.theme,
@@ -67,10 +67,10 @@ function ScriptGood({ desc }: { desc: ScriptGoodType }) {
                 </div>
 
                 {/* Правый блок товара */}
-                <div className={`${styles.goodScript_right} ${resStyles('goodScript_right', resolutions)}`}>
+                <div className={`${styles.right} ${resStyles('goodScript_right', resolutions)}`}>
 
                     {/* Описание товара */}
-                    <div className={`${styles.goodScript_right_description} ${resStyles('goodScript_right_description', resolutions)}`}>
+                    <div className={`${styles.right_description} ${resStyles('goodScript_right_description', resolutions)}`}>
                         {shortDesc}
                     </div>
 
@@ -83,38 +83,38 @@ function ScriptGood({ desc }: { desc: ScriptGoodType }) {
 
             {/* Для телефонов */}
             <MediaQuery maxWidth={920}>
-                <div className={`${styles.goodScript_mobile} ${resStyles('goodScript_mobile', resolutions)}`}>
+                <div className={`${styles.mobile} ${resStyles('goodScript_mobile', resolutions)}`}>
 
                     {/* Вверхний блок товара */}
-                    <div className={`${styles.goodScript_mobile_up} ${resStyles('goodScript_mobile_up', resolutions)}`}>
+                    <div className={`${styles.mobile_up} ${resStyles('goodScript_mobile_up', resolutions)}`}>
 
                         {/* Название товара */}
-                        <div className={`${styles.goodScript_mobile_up_title} ${resStyles('goodScript_mobile_up_title', resolutions)}`}>
+                        <div className={`${styles.mobile_up_title} ${resStyles('goodScript_mobile_up_title', resolutions)}`}>
                             {desc.title}
                         </div>
 
                         {/* Цена товара */}
-                        <div className={`${styles.goodScript_mobile_up_cost} ${resStyles('goodScript_mobile_up_cost', resolutions)}`}>
+                        <div className={`${styles.mobile_up_cost} ${resStyles('goodScript_mobile_up_cost', resolutions)}`}>
                             {desc.cost}₽
                         </div>
 
                     </div>
 
                     {/* Центральный блок товара */}
-                    <div className={`${styles.goodScript_mobile_middle} ${resStyles('goodScript_mobile_middle', resolutions)}`}>
+                    <div className={`${styles.mobile_middle} ${resStyles('goodScript_mobile_middle', resolutions)}`}>
                         {shortDesc}
                     </div>
 
                     {/* Нижний блок товара */}
-                    <div className={`${styles.goodScript_mobile_bottom} ${resStyles('goodScript_mobile_bottom', resolutions)}`}>
+                    <div className={`${styles.mobile_bottom} ${resStyles('goodScript_mobile_bottom', resolutions)}`}>
 
                         {/* Блок ссылкой */}
-                        <div className={`${styles.goodScript_mobile_more} ${resStyles('goodScript_mobile_more', resolutions)}`}>
+                        <div className={`${styles.mobile_more} ${resStyles('goodScript_mobile_more', resolutions)}`}>
                             <a href='/' style={{fontSize: '15px', fontWeight: '600'}}>Узнать Подробнее</a>
                         </div>
 
                         {/* Кнопка покупки */}
-                        <StormButton className={`${styles.goodScript_mobile_buy} ${resStyles('goodScript_mobile_buy', resolutions)}`} sx={{
+                        <StormButton className={`${styles.mobile_buy} ${resStyles('goodScript_mobile_buy', resolutions)}`} sx={{
                             color: desc.theme,
                             textDecoration: 'underline',
                             fontSize: '16px',

@@ -76,9 +76,9 @@ function App() {
                         zIndex: 100,
                         transition: 'all 0.2s ease-in-out',
                     }}>
-                    <Typography component='div' sx={{margin: '0 auto'}} className={`${styles.inner_header} ${resStyles('inner_header', resolution)}`}>
-                        <a href="/" className={styles.header_title}>
-                            <img src={Logo} alt="logo" className={styles.header_logo} />
+                    <Typography component='div' sx={{margin: '0 auto'}} className={`${styles.inner} ${resStyles('inner_header', resolution)}`}>
+                        <a href="/" className={styles.title}>
+                            <img src={Logo} alt="logo" className={styles.logo} />
                             <h2 style={{ fontSize: '26px' }}>Storm Shop</h2>
                         </a>
                         <Typography noWrap component='nav' className={`${resStyles('header_nav', resolution)}`}>

@@ -17,10 +17,10 @@ function Block_5() {
         <div className={`${styles.job} ${resStyles('job', resolutions)}`}>
 
             {/* Основной контейнер для контента блока */}
-            <div className={`${styles.job_container} ${resStyles('job_container', resolutions)}`}>
+            <div className={`${styles.container} ${resStyles('job_container', resolutions)}`}>
 
                 {/* Тэг для текстового контента */}
-                <div className={`${styles.job_text} ${resStyles('job_text', resolutions)}`}>
+                <div className={`${styles.text} ${resStyles('job_text', resolutions)}`}>
 
                     {/* Заголовок блока */}
                     <div className={`${resStyles('job_text_title', resolutions)}`}>
@@ -28,7 +28,7 @@ function Block_5() {
                     </div>
 
                     {/* Описание блока */}
-                    <div className={`${styles.job_text_description} ${resStyles('job_text_description', resolutions)}`}>
+                    <div className={`${styles.text_description} ${resStyles('job_text_description', resolutions)}`}>
 
                         {/* Описание разбитое по параграфам */}
                         <p>
@@ -93,7 +93,7 @@ function Block_5() {
             </div>
 
             {/* Декорация к блоку */}
-            <img src={bubbles} className={`${styles.job_bubble} ${resStyles('job_bubble', resolutions)}`} />
+            <img src={bubbles} className={`${styles.bubble} ${resStyles('job_bubble', resolutions)}`} />
         </div >
     );
 }

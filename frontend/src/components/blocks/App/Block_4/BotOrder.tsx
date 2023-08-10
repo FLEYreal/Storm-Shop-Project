@@ -1,5 +1,5 @@
 // Стили
-import styles from '../../../../styles/App.module.scss'
+import styles from './styles.module.scss';
 import resStyles from '../../../../utils/resStyles.js';
 import useResolutions from '../../../../hooks/useResolusions.js';
 
@@ -15,7 +15,7 @@ function BotOrder() {
     const resolutions = useResolutions()
 
     return (
-        <div className={`${styles.botOrder_bots} ${resStyles('botOrder_bots', resolutions)}`}>
+        <div className={`${styles.botOrder} ${resStyles('botOrder_bots', resolutions)}`}>
             <div className={`${styles.botOrder_desc} ${resStyles('botOrder_desc', resolutions)}`}>
                 <div className={`${styles.title} ${resStyles('title', resolutions)}`}>
                     ЗАКАЗ <span className={styles.title_colorful}>БОТА</span>
@@ -24,13 +24,13 @@ function BotOrder() {
                     Хочешь заказать собственного бота для дискорда или телеграмма, тогда ты по адрессу!
                 </div>
             </div>
-            <StormButton className={`${styles.botOrder_button} ${resStyles('botOrder_button', resolutions)}`}>
+            <StormButton className={`${styles.button} ${resStyles('botOrder_button', resolutions)}`}>
                 ЗАКАЗАТЬ
             </StormButton>
 
             {/* Картинки */}
-            <img src={tgIcon_small} className={`${styles.botOrder_tgIcon} ${resStyles('botOrder_tgIcon', resolutions)}`} alt='Telegram Icon' />
-            <img src={discordIcon} className={`${styles.botOrder_dcIcon} ${resStyles('botOrder_dcIcon', resolutions)}`} alt='Discord Icon' />
+            <img src={tgIcon_small} className={`${styles.tgIcon} ${resStyles('botOrder_tgIcon', resolutions)}`} alt='Telegram Icon' />
+            <img src={discordIcon} className={`${styles.dcIcon} ${resStyles('botOrder_dcIcon', resolutions)}`} alt='Discord Icon' />
 
         </div>
     );

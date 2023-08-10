@@ -39,21 +39,21 @@ export default function Good({ desc }: { desc: GoodDescType }) {
     }
 
     return (
-        <div className={`${styles.goodItem} ${resStyles('goodItem', resolutions)}`}>
+        <div className={`${styles.item} ${resStyles('goodItem', resolutions)}`}>
 
             {/* Вывести картинку */}
-            <div style={{ backgroundImage: `url('${import.meta.env.VITE_BACKEND_IP}:${import.meta.env.VITE_BACKEND_PORT}${image}')` }} className={styles.goodItem_image}></div>
+            <div style={{ backgroundImage: `url('${import.meta.env.VITE_BACKEND_IP}:${import.meta.env.VITE_BACKEND_PORT}${image}')` }} className={styles.item_image}></div>
 
             {/* Вывести заголовок и цену */}
-            <div className={styles.goodItem_top}>
-                <div className={styles.goodItem_title}>{title}</div>
-                <div className={styles.goodItem_cost}>{cost} ₽</div>
+            <div className={styles.item_top}>
+                <div className={styles.title}>{title}</div>
+                <div className={styles.cost}>{cost} ₽</div>
             </div>
 
             {/* Вывести описание и ссылку на продолжение */}
-            <div className={styles.goodItem_middle}>
-                <div className={styles.goodItem_subtitle}>{subtitle}</div>
-                <div className={styles.goodItem_readMore}>
+            <div className={styles.item_middle}>
+                <div className={styles.subtitle}>{subtitle}</div>
+                <div className={styles.readMore}>
                     <a href={'/'}>Узнать подробнее</a>
                 </div>
             </div>
@@ -90,7 +90,7 @@ export default function Good({ desc }: { desc: GoodDescType }) {
                     alignItems: 'center', // Выравнивание по вертикали
                     justifyContent: 'center', // Выравнивание по горизонтали
                 }}
-                className={styles.goodItem_buyButton}
+                className={styles.buyButton}
             >
                 Купить
             </StormButton>

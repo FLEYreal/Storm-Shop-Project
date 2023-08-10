@@ -6,7 +6,7 @@ import { AxiosResponse } from 'axios';
 import { APIContext } from '../../../../context/APIContext.js'
 
 // Стили
-import styles from '../../../../styles/App.module.scss'
+import styles from './styles.module.scss';
 import resStyles from '../../../../utils/resStyles.js';
 import useResolutions from '../../../../hooks/useResolusions.js';
 
@@ -49,8 +49,8 @@ function ScriptListExample() {
 
 
     return (
-        <div className={`${styles.botOrder_scriptsBlock} ${resStyles('botOrder_scriptsBlock', resolutions)}`}>
-            <span className={`${styles.botOrder_scriptsBlock_subtitle} ${resStyles('botOrder_scriptsBlock_subtitle', resolutions)}`}>P.S. Эти скрипты случайно выбраны из магазина</span>
+        <div className={`${styles.scriptsBlock} ${resStyles('botOrder_scriptsBlock', resolutions)}`}>
+            <span className={`${styles.scriptsBlock_subtitle} ${resStyles('botOrder_scriptsBlock_subtitle', resolutions)}`}>P.S. Эти скрипты случайно выбраны из магазина</span>
             {
                 scripts.map((i) =>
                     <ScriptGood key={i.id} desc={{

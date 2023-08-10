@@ -1,5 +1,5 @@
 // Стили
-import styles from '../../../../styles/App.module.scss'
+import styles from './styles.module.scss';
 import resStyles from '../../../../utils/resStyles.js';
 import useResolutions from '../../../../hooks/useResolusions.js';
 
@@ -15,7 +15,7 @@ function VideoBot() {
     const resolutions = useResolutions()
 
     return (
-        <div className={`${styles.botOrder_videoBlock} ${resStyles('botOrder_videoBlock', resolutions)}`}>
+        <div className={`${styles.videoBlock} ${resStyles('botOrder_videoBlock', resolutions)}`}>
             <VideoPlayer
                 src={botReview}
                 doLoop={true}

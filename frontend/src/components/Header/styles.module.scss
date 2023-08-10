@@ -1,14 +1,14 @@
 @import "../../styles/App.module.scss";
 
 // Содержимое хедера
-.inner_header {
+.inner {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
 
     // Стили заголовка хедера (логотип + название)
-    .header_title {
+    .title {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -23,7 +23,7 @@
         text-decoration: none;
     
         // Стили логотипа
-        .header_logo {
+        .logo {
             user-select: none;
             cursor: pointer;
             border-radius: 100%;
