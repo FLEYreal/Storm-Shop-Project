@@ -36,6 +36,7 @@ export default function App(): JSX.Element {
 
             <div className={`${styles.purple_light} ${resStyles('purple_light', resolutions)}`}></div> {/* Фиолетовое свечение */}
             <div className={`${styles.blue_light} ${resStyles('blue_light', resolutions)}`}></div> {/* Синее свечение */}
+            <div className={`${styles.yellow_light} ${resStyles('yellow_light', resolutions)}`}></div> {/* Жёлтое свечение */}
 
             {/* Разные Блоки сайта */}
 

@@ -40,6 +40,15 @@ $unhighlighted_color: #cfcfcf;
         height: 25px;
         flex-shrink: 0;
     }
+
+    .yellow_light {
+        position: absolute;
+        z-index: -1;
+        background: rgba(0, 0, 0, 0);
+        width: 0px;
+        height: 75px;
+        flex-shrink: 0;
+    }
 }
 
 .signup_container {
@@ -137,7 +146,11 @@ a {
 @keyframes wampusFly {
     0% {
         transform: translateY(-36px) rotate(7deg);
-    }
+        -webkit-transform: translateY(-36px) rotate(7deg);
+        -moz-transform: translateY(-36px) rotate(7deg);
+        -ms-transform: translateY(-36px) rotate(7deg);
+        -o-transform: translateY(-36px) rotate(7deg);
+}
 
     50% {
         transform: translateY(20px) rotate(-2deg);
