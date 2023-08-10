@@ -1,3 +1,8 @@
+.container {
+    width: 95%;
+    margin: auto;
+}
+
 .wampus {
     width: 550px;
     top: 150px;
@@ -41,11 +46,6 @@
     top: 440px;
 }
 
-.main_container {
-    margin: 140px auto;
-    width: 95%;
-}
-
 .main_text {
     width: 80%;
     margin-top: 600px;
@@ -63,42 +63,17 @@
     text-align: center;
 }
 
-.header {
-    height: 86px;
-}
-
-.header_content_container {
-    width: 93%;
-}
-
 .net_big_items {
     grid-template-columns: 420px;
     grid-template-rows: 90px 90px 90px 90px;
 }
 
-.other_networks {
-    width: 95%;
-}
-
-.absolute_content {
-    width: 100%;
-}
-
 .goodList {
-    width: 95%;
     justify-content: start;
 }
 
 .goodItem {
     margin-right: 5%;
-}
-
-.goodList_title {
-    width: 95%;
-}
-
-.hr {
-    width: 95%;
 }
 
 .purple_light {
@@ -122,10 +97,6 @@
 
 .burger_menu {
     display: flex;
-}
-
-.inner_header {
-    width: 95%;
 }
 
 .header_nav {
@@ -213,10 +184,6 @@
 .botOrder_GPTIcon {
     bottom: -70px;
     left: 60%;
-}
-
-.job_container {
-    width: 95%;
 }
 
 .job_bubble {

@@ -1,3 +1,5 @@
+@import "../../../../styles/App.module.scss";
+
 .job {
     position: relative;
     width: 100%;
@@ -16,8 +18,8 @@
                 line-height: normal;
 
                 &>p {
-                    margin-top: 1.5em; /* Отступ сверху */
-                    margin-bottom: 1.5em; /* Отступ снизу */
+                    margin-top: 1.5em;
+                    margin-bottom: 1.5em;
                 }
             }
         }

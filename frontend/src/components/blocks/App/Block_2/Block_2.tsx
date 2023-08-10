@@ -16,7 +16,7 @@ export default function Block_2() {
     const resolution = useResolutions()
 
     return (
-        <section className={`${styles.other_networks} ${resStyles('other_networks', resolution)}`}>
+        <section className={`${styles.other_networks} ${resStyles('container', resolution)}`}>
 
             {/* Заголовок */}
             <div className={styles.title}>Покупайте, где вам <b style={{ fontWeight: '600' }}>удобнее</b>!</div>

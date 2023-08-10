@@ -37,18 +37,18 @@ export default function Block_3() {
     return (
         <>
             {/* Разделение между блоками */}
-            <hr style={{ margin: '0 auto' }} className={`${resStyles('hr', resolutions)}`}></hr>
+            <hr style={{ margin: '0 auto' }} className={`${resStyles('container', resolutions)}`}></hr>
 
             {/* Основной контент */}
             <section>
 
                 {/* Заголовок */}
-                <div className={`${styles.title} ${resStyles('goodList_title', resolutions)}`}>
+                <div className={`${styles.title} ${resStyles('container', resolutions)}`}>
                     ТОВАРЫ:
                 </div>
 
                 {/* Тэг для хранения списка товаров */}
-                <div className={`${styles.container} ${resStyles('goodList', resolutions)}`}>
+                <div className={`${styles.container} ${resStyles('goodList', resolutions)} ${resStyles('container', resolutions)}`}>
 
                     {/* Вывод списка товаров */}
                     {

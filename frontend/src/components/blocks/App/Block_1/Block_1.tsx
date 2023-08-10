@@ -113,7 +113,7 @@ export default function Block_1() {
         <section className={styles.main}>
 
             {/* Контейнер с основным контентом */}
-            <div className={`${styles.container} ${resStyles('main_container', resolutions)}`}>
+            <div className={`${styles.container} ${resStyles('container', resolutions)}`}>
                 {isSmallScreen || isPhone ?
                     <>
                         <h1 className={`${resStyles('main_mobile_title', resolutions)}`}>

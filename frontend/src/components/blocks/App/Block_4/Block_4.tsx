@@ -29,7 +29,7 @@ export default function Block_4() {
 
                     </div>
                     {/* Основной контент */}
-                    <div className={`${styles.container} ${resStyles('botOrder_container', resolutions)}`}>
+                    <div className={`${styles.container} ${resStyles('container', resolutions)}`}>
 
                         {/* Вверхнаяя часть блока */}
                         <div className={`${styles.top}`}>
@@ -64,7 +64,7 @@ export default function Block_4() {
             {/* Средние мониторы */}
             <MediaQuery maxWidth={1170} minWidth={921} >
                 <section className={`${styles.middle}`}>
-                    <div className={`${styles.middle_container}`}>
+                    <div className={`${resStyles('container', resolutions)}`}>
                         <div className={`${styles.middle_top}`}>
                             <BotOrder />
                             <VideoBot />
@@ -81,7 +81,7 @@ export default function Block_4() {
             {/* Маленькие мониторы / Экраны телефонов */}
             <MediaQuery maxWidth={920}>
                 <section className={`${styles.small}`}>
-                    <div className={`${styles.small_container}`}>
+                    <div className={`${resStyles('container', resolutions)}`}>
                         <BotOrder />
                         <VideoBot />
                         <ScriptShop />

@@ -17,7 +17,7 @@ function Block_5() {
         <div className={`${styles.job} ${resStyles('job', resolutions)}`}>
 
             {/* Основной контейнер для контента блока */}
-            <div className={`${styles.container} ${resStyles('job_container', resolutions)}`}>
+            <div className={`${styles.container} ${resStyles('container', resolutions)}`}>
 
                 {/* Тэг для текстового контента */}
                 <div className={`${styles.text} ${resStyles('job_text', resolutions)}`}>

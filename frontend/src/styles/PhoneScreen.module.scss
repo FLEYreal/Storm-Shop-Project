@@ -1,3 +1,8 @@
+.container {
+    width: 96%;
+    margin: auto;
+}
+
 .wampus {
     display: none;
 }
@@ -35,15 +40,6 @@
     top: 440px;
 }
 
-.header {
-    height: 86px;
-}
-
-.main_container {
-    margin: 140px auto;
-    width: 95%;
-}
-
 .main_text {
     width: 90%;
 }
@@ -60,38 +56,17 @@
     text-align: center;
 }
 
-.header_content_container {
-    width: 95%;
-}
-
 .net_big_items {
     grid-template-columns: 420px;
     grid-template-rows: 90px 90px 90px 90px;
 }
 
-.other_networks {
-    width: 95%;
-}
-
-.absolute_content {
-    width: 100%;
-}
-
 .goodList {
-    width: 95%;
     justify-content: start;
 }
 
 .goodItem {
     margin-right: 3%;
-}
-
-.goodList_title {
-    width: 95%;
-}
-
-.hr {
-    width: 95%;
 }
 
 .purple_light {
@@ -120,10 +95,6 @@
 
 .burger_menu {
     display: flex;
-}
-
-.inner_header {
-    width: 93%;
 }
 
 .header_nav {
@@ -218,10 +189,6 @@
 .botOrder_GPTIcon {
     bottom: 0px;
     left: 80%;
-}
-
-.job_container {
-    width: 95%;
 }
 
 .job_bubble {
