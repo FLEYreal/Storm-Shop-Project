@@ -20,15 +20,13 @@ function Block_5() {
             <div className={`${styles.container} ${resStyles('container', resolutions)}`}>
 
                 {/* Тэг для текстового контента */}
-                <div className={`${styles.text} ${resStyles('job_text', resolutions)}`}>
+                <div className={`${styles.text} ${resStyles('description', resolutions)}`}>
 
                     {/* Заголовок блока */}
-                    <div className={`${resStyles('job_text_title', resolutions)}`}>
-                        <h2 className={`${resStyles('title', resolutions)}`}>ЗАРАБАТЫВАЙ ВМЕСТЕ С <b>StormShop</b></h2>
-                    </div>
+                    <h2 className={`${resStyles('title', resolutions)}`}>ЗАРАБАТЫВАЙ ВМЕСТЕ С <b>StormShop</b></h2>
 
                     {/* Описание блока */}
-                    <div className={`${styles.text_description} ${resStyles('job_text_description', resolutions)}`}>
+                    <div className={`${styles.text_description}`}>
 
                         {/* Описание разбитое по параграфам */}
                         <p>
