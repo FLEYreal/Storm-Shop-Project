@@ -2,12 +2,12 @@
 import { useEffect } from 'react';
 
 // Стили
-import resStyles from '../../../utils/resStyles.ts';
+import resStyles from '../../../../utils/resStyles.ts';
 import styles from '../../../styles/App.module.scss';
-import useResolutions from '../../../hooks/useResolusions.ts'
+import useResolutions from '../../../../hooks/useResolusions.ts'
 
 // Компоненты проекта
-import { BlueButton, PinkButton } from '../../../styles/mui.ts';
+import { BlueButton, PinkButton } from '../../../../styles/mui.ts';
 
 // Картинки & Иконки
 import CodeRoundedIcon from '@mui/icons-material/CodeRounded';

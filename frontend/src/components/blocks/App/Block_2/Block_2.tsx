@@ -1,7 +1,7 @@
 // Стили
 import styles from '../../../styles/App.module.scss'
-import resStyles from '../../../utils/resStyles.ts';
-import useResolutions from '../../../hooks/useResolusions.ts';
+import resStyles from '../../../../utils/resStyles.ts';
+import useResolutions from '../../../../hooks/useResolusions.ts';
 
 // Картинки
 import tgIcon_small from '../../img/tgIcon_small.svg';

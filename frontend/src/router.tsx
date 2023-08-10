@@ -13,7 +13,7 @@ import { APIContext } from './context/APIContext.ts'
 import { getUUID, checkUUID, findUUID } from './utils/UUID.ts';
 
 // Компоненты & Хуки проекта
-import Header from './components/Header';
+import Header from './components/Header/Header.tsx';
 
 function RouterComp() {
 

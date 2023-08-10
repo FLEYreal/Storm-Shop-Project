@@ -2,20 +2,20 @@
 import React, { useState } from 'react'
 
 // Стили
-import resStyles from '../utils/resStyles'
+import resStyles from '../../utils/resStyles.js'
 import styles from '../styles/App.module.scss'
-import useResolutions from '../hooks/useResolusions'
+import useResolutions from '../../hooks/useResolusions.js'
 
 // Компоненты & Хуки проекта
 import { StormButton } from '../styles/mui.js';
-import shortenText from '../utils/shortenText'
-import lighterRgb from '../utils/lighterRGB'
+import shortenText from '../../utils/shortenText.js'
+import lighterRgb from '../../utils/lighterRGB.js'
 
 // Material-UI
 import CircularProgress from '@mui/material/CircularProgress';
 
 // Интерфейс для описания товара
-import { GoodDescType } from '../typings/Good'
+import { GoodDescType } from '../../typings/Good.js'
 
 export default function Good({ desc }: { desc: GoodDescType }) {
 

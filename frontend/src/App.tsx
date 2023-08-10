@@ -8,11 +8,11 @@ import resStyles from './utils/resStyles.ts';
 import useResolutions from './hooks/useResolusions.ts';
 
 // Импорт блоков сайта
-import Block_1 from './components/blocks/App/Block_1.tsx';
-import Block_2 from './components/blocks/App/Block_2.tsx';
-import Block_3 from './components/blocks/App/Block_3.tsx';
-import Block_4 from './components/blocks/App/Block_4.tsx';
-import Block_5 from './components/blocks/App/Block_5.tsx';
+import Block_1 from './components/blocks/App/Block_1/Block_1.tsx';
+import Block_2 from './components/blocks/App/Block_2/Block_2.tsx';
+import Block_3 from './components/blocks/App/Block_3/Block_3.tsx';
+import Block_4 from './components/blocks/App/Block_4/Block_4.tsx';
+import Block_5 from './components/blocks/App/Block_5/Block_5.tsx';
 
 export default function App(): JSX.Element {
     /* Определить размер экрана, возвращает true/false */

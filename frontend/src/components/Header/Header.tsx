@@ -2,11 +2,11 @@
 import React, { useEffect, useState } from 'react';
 
 // Компоненты проекта
-import { StormIconButton, BlueButton, PinkButton } from '../styles/mui';
+import { StormIconButton, BlueButton, PinkButton } from '../../styles/mui';
 
 // Стили
-import useResolutions from '../hooks/useResolusions';
-import resStyles from '../utils/resStyles';
+import useResolutions from '../../hooks/useResolusions';
+import resStyles from '../../utils/resStyles';
 import styles from '../styles/App.module.scss'
 
 // Material-UI

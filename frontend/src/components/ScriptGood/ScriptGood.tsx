@@ -5,17 +5,17 @@ import MediaQuery from 'react-responsive';
 import { Typography } from '@mui/material';
 
 // Стили
-import useResolutions from '../hooks/useResolusions';
-import resStyles from '../utils/resStyles';
+import useResolutions from '../../hooks/useResolusions';
+import resStyles from '../../utils/resStyles';
 import styles from '../styles/App.module.scss'
 
 // Типы
-import { ScriptGoodType } from '../typings/Good';
+import { ScriptGoodType } from '../../typings/Good';
 
 // Компоненты & Функции и Хуки Проекта
-import lighterRgb from '../utils/lighterRGB';
-import shortenText from '../utils/shortenText';
-import { StormButton } from '../styles/mui';
+import lighterRgb from '../../utils/lighterRGB';
+import shortenText from '../../utils/shortenText';
+import { StormButton } from '../../styles/mui';
 
 function ScriptGood({ desc }: { desc: ScriptGoodType }) {
 

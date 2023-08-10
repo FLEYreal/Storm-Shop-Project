@@ -4,17 +4,17 @@ import { AxiosResponse } from 'axios';
 
 // Стили
 import styles from '../../../styles/App.module.scss'
-import resStyles from '../../../utils/resStyles';
-import useResolutions from '../../../hooks/useResolusions';
+import resStyles from '../../../../utils/resStyles';
+import useResolutions from '../../../../hooks/useResolusions';
 
 // Компоненты & Хуки проекта
-import Good from '../../Good'
+import Good from '../../../Good/Good'
 
 // API импорты
-import { APIContext } from '../../../context/APIContext'
+import { APIContext } from '../../../../context/APIContext'
 
 // Интерфейс для товара
-import { GoodType } from '../../../typings/Good'
+import { GoodType } from '../../../../typings/Good'
 
 export default function Block_3() {
     // Список товаров
