@@ -1,7 +1,31 @@
+// COMMON STYLES
+
 .container {
     width: 96%;
     margin: auto;
 }
+
+.title {
+    font-size: 30px;
+    font-weight: 600;
+    font-style: normal;
+    line-height: normal;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: 20px;
+    font-weight: 500;
+    font-style: normal;
+    line-height: normal;
+    background-clip: text;
+}
+
+.buttonFontSize {
+    font-size: 18px !important;
+}
+
+// OTHER STYLES
 
 .wampus {
     display: none;
@@ -82,14 +106,6 @@
 
 .yellow_light {
     display: none;
-}
-
-.title {
-    font-size: 28px;
-    font-weight: 600;
-    font-style: normal;
-    line-height: normal;
-    background-clip: text;
 }
 
 .botOrder_subtitle {

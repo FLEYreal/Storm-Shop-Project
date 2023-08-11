@@ -1,7 +1,31 @@
+// COMMON STYLES
+
 .container {
     width: 95%;
     margin: auto;
 }
+
+.title {
+    font-size: 32px;
+    font-weight: 600;
+    font-style: normal;
+    line-height: normal;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: 21px;
+    font-weight: 500;
+    font-style: normal;
+    line-height: normal;
+    background-clip: text;
+}
+
+.buttonFontSize {
+    font-size: 18.9px !important;
+}
+
+// OTHER STYLES
 
 .wampus {
     width: 550px;
@@ -89,14 +113,6 @@
 
 .yellow_light {
     display: none;
-}
-
-.title {
-    font-size: 38px;
-    font-weight: 600;
-    font-style: normal;
-    line-height: normal;
-    background-clip: text;
 }
 
 .burger_menu {

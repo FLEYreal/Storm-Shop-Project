@@ -64,7 +64,7 @@ export default function Block_4() {
             {/* Средние мониторы */}
             <MediaQuery maxWidth={1170} minWidth={921} >
                 <section className={`${styles.middle}`}>
-                    <div className={`${resStyles('container', resolutions)}`}>
+                    <div className={`${styles.middle_container} ${resStyles('container', resolutions)}`}>
                         <div className={`${styles.middle_top}`}>
                             <BotOrder />
                             <VideoBot />
@@ -81,7 +81,7 @@ export default function Block_4() {
             {/* Маленькие мониторы / Экраны телефонов */}
             <MediaQuery maxWidth={920}>
                 <section className={`${styles.small}`}>
-                    <div className={`${resStyles('container', resolutions)}`}>
+                    <div className={`${styles.small_container} ${resStyles('container', resolutions)}`}>
                         <BotOrder />
                         <VideoBot />
                         <ScriptShop />

@@ -16,7 +16,6 @@ const $buttonBlueBackground_hover = '#7e87ff'
 const $buttonBlueBackground_active = '#a7adff'
 const $buttonBlueBackground_loading = '#34398d'
 
-
 // Стили
 export const PinkButtonStyle = {
     borderRadius: '10px',

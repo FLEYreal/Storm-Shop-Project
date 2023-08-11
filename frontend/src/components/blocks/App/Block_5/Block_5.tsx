@@ -26,7 +26,7 @@ function Block_5() {
                     <h2 className={`${resStyles('title', resolutions)}`}>ЗАРАБАТЫВАЙ ВМЕСТЕ С <b>StormShop</b></h2>
 
                     {/* Описание блока */}
-                    <div className={`${styles.text_description}`}>
+                    <div className={`${styles.text_description} ${resStyles('subtitle', resolutions)}`}>
 
                         {/* Описание разбитое по параграфам */}
                         <p>
@@ -42,7 +42,7 @@ function Block_5() {
 
                     {/* Блок с кнопками действий */}
                     <div>
-                        <StormButton sx={{
+                        <StormButton className={`${resStyles('buttonFontSize', resolutions)}`} sx={{
                             zIndex: '1',
                             color: '#60F6FF',
                             fontStyle: 'normal',
@@ -56,6 +56,7 @@ function Block_5() {
                             p: '12px 32px',
                             m: '0',
                             mr: '20px',
+                            mt: '15px',
 
                             '&:hover': {
                                 border: '3px solid #60F6FF',
@@ -64,7 +65,7 @@ function Block_5() {
                         }}>
                             Читать
                         </StormButton>
-                        <StormButton sx={{
+                        <StormButton className={`${resStyles('buttonFontSize', resolutions)}`}  sx={{
                             zIndex: '1',
                             color: '#F04EFF',
                             fontStyle: 'normal',
@@ -78,6 +79,7 @@ function Block_5() {
                             p: '12px 32px',
                             m: '0',
                             mr: '20px',
+                            mt: '15px',
 
                             '&:hover': {
                                 border: '3px solid #F04EFF',

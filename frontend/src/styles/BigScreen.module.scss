@@ -1,7 +1,31 @@
+// COMMON STYLES
+
 .container {
     width: 1170px;
     margin: auto;
 }
+
+.title {
+    font-size: 42px;
+    font-weight: 600;
+    font-style: normal;
+    line-height: normal;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: 28px;
+    font-weight: 500;
+    font-style: normal;
+    line-height: normal;
+    background-clip: text;
+}
+
+.buttonFontSize {
+    font-size: 25.2px !important;
+}
+
+// OTHER STYLES
 
 .wampus {
     top: -20px;
@@ -87,14 +111,6 @@
     box-shadow: 0px 0px 250px 445px rgba(242, 182, 26, 0.13);
     top: 4590px;
     left: -320px;
-}
-
-.title {
-    font-size: 42px;
-    font-weight: 600;
-    font-style: normal;
-    line-height: normal;
-    background-clip: text;
 }
 
 .burger_menu {
