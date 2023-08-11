@@ -14,6 +14,7 @@ import { getUUID, checkUUID, findUUID } from './utils/UUID.ts';
 
 // Компоненты & Хуки проекта
 import Header from './components/Header/Header.tsx';
+import Footer from './components/Footer/Footer.tsx';
 
 function RouterComp() {
 
@@ -31,7 +32,6 @@ function RouterComp() {
         <main>
             <APIContext.Provider value={{ api: new Api(findUUID() === '' ? getUUID() : findUUID()) }}>
                 {/* Хедер сайта */}
-
                 <Header/>
 
                 {/* Роуты */}
@@ -43,6 +43,10 @@ function RouterComp() {
                         <Route path="/login" element={<LogIn />} />
                     </Routes>
                 </BrowserRouter>
+
+                {/* Футер сайта */}
+                <Footer/>
+
             </APIContext.Provider>
         </main>
     )
