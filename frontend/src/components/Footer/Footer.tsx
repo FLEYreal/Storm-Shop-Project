@@ -23,22 +23,22 @@ function Footer() {
                     }
                     <div className={`${styles.column}`}>
                         <div className={`${styles.title} ${resStyles('smallTitle', resolution)}`}>Заголовок</div>
-                        <div className={`${styles.subtitle} ${resStyles('smallSubtitle', resolution)}`}>Пункт</div>
-                        <div className={`${styles.subtitle} ${resStyles('smallSubtitle', resolution)}`}>Пункт</div>
-                        <div className={`${styles.subtitle} ${resStyles('smallSubtitle', resolution)}`}>Пункт</div>
+                        <div className={`${styles.subtitle} ${resStyles('smallSubtitle', resolution)}`}><a href='/' style={{color: 'inherit'}}>Пункт</a></div>
+                        <div className={`${styles.subtitle} ${resStyles('smallSubtitle', resolution)}`}><a href='/' style={{color: 'inherit'}}>Пункт</a></div>
+                        <div className={`${styles.subtitle} ${resStyles('smallSubtitle', resolution)}`}><a href='/' style={{color: 'inherit'}}>Пункт</a></div>
                     </div>
                     <div className={`${styles.column}`}>
                         <div className={`${styles.title} ${resStyles('smallTitle', resolution)}`}>Заголовок</div>
-                        <div className={`${styles.subtitle} ${resStyles('smallSubtitle', resolution)}`}>Пункт</div>
-                        <div className={`${styles.subtitle} ${resStyles('smallSubtitle', resolution)}`}>Пункт</div>
-                        <div className={`${styles.subtitle} ${resStyles('smallSubtitle', resolution)}`}>Пункт</div>
+                        <div className={`${styles.subtitle} ${resStyles('smallSubtitle', resolution)}`}><a href='/' style={{color: 'inherit'}}>Пункт</a></div>
+                        <div className={`${styles.subtitle} ${resStyles('smallSubtitle', resolution)}`}><a href='/' style={{color: 'inherit'}}>Пункт</a></div>
+                        <div className={`${styles.subtitle} ${resStyles('smallSubtitle', resolution)}`}><a href='/' style={{color: 'inherit'}}>Пункт</a></div>
                     </div>
                     {isSmallScreen && isPhone ? <></> :
                         <div className={`${styles.column}`}>
                             <div className={`${styles.title} ${resStyles('smallTitle', resolution)}`}>Заголовок</div>
-                            <div className={`${styles.subtitle} ${resStyles('smallSubtitle', resolution)}`}>Пункт</div>
-                            <div className={`${styles.subtitle} ${resStyles('smallSubtitle', resolution)}`}>Пункт</div>
-                            <div className={`${styles.subtitle} ${resStyles('smallSubtitle', resolution)}`}>Пункт</div>
+                            <div className={`${styles.subtitle} ${resStyles('smallSubtitle', resolution)}`}><a href='/' style={{color: 'inherit'}}>Пункт</a></div>
+                            <div className={`${styles.subtitle} ${resStyles('smallSubtitle', resolution)}`}><a href='/' style={{color: 'inherit'}}>Пункт</a></div>
+                            <div className={`${styles.subtitle} ${resStyles('smallSubtitle', resolution)}`}><a href='/' style={{color: 'inherit'}}>Пункт</a></div>
                         </div>
                     }
                 </div>
