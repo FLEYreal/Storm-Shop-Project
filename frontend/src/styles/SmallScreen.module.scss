@@ -21,6 +21,22 @@
     background-clip: text;
 }
 
+.smallTitle {
+    font-size: 21px;
+    font-weight: 500;
+    font-style: normal;
+    line-height: normal;
+    background-clip: text;
+}
+
+.smallSubtitle {
+    font-size: 16.8px;
+    font-weight: 500;
+    font-style: normal;
+    line-height: normal;
+    background-clip: text;
+}
+
 .buttonFontSize {
     font-size: 18.9px !important;
 }
@@ -192,4 +208,9 @@
 
 .description {
     width: 100%;
+}
+
+.footer_logo {
+    width: 100px;
+    height: 100px;
 }

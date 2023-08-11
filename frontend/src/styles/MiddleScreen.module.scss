@@ -5,6 +5,10 @@
     margin: auto;
 }
 
+.description {
+    width: 65%;
+}
+
 .title {
     font-size: 36px;
     font-weight: 600;
@@ -15,6 +19,22 @@
 
 .subtitle {
     font-size: 24px;
+    font-weight: 500;
+    font-style: normal;
+    line-height: normal;
+    background-clip: text;
+}
+
+.smallTitle {
+    font-size: 24px;
+    font-weight: 500;
+    font-style: normal;
+    line-height: normal;
+    background-clip: text;
+}
+
+.smallSubtitle {
+    font-size: 19.2px;
     font-weight: 500;
     font-style: normal;
     line-height: normal;
@@ -213,6 +233,7 @@
     top: -100px;
 }
 
-.description {
-    width: 65%;
+.footer_logo {
+    width: 120px;
+    height: 120px;
 }
