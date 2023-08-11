@@ -21,6 +21,10 @@
     background-clip: text;
 }
 
+.description {
+    width: 100%;
+}
+
 .buttonFontSize {
     font-size: 18px !important;
 }
@@ -202,19 +206,14 @@
 }
 
 .botOrder_button {
-    font-size: 20px !important;
     padding: 16px 40px !important;
 }
 
 .botOrder_GPTIcon {
-    bottom: 0px;
+    bottom: -32px;
     left: 80%;
 }
 
 .job_bubble {
     display: none;
-}
-
-.description {
-    width: 100%;
 }

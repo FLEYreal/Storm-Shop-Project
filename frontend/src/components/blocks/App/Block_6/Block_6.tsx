@@ -21,25 +21,25 @@ function Block_6() {
 
                 <div className={`${styles.item} ${resStyles('description', resolutions)}`}>
                     <img src={speed} alt='speed icon'/>
-                    <p style={{color: '#F04EFF'}}>
+                    <p style={{color: '#F04EFF'}} className={`${resStyles('subtitle', resolutions)}`}>
                         Скорость - мы выдаём Подписки и Скрипты в минимальные сроки, мы постараемся ответить в течении нескольких минут!
                     </p>
                 </div>
                 <div className={`${styles.item} ${resStyles('description', resolutions)}`}>
                     <img src={piggy} alt='piggy icon'/>
-                    <p style={{color: '#F2B61A'}}>
+                    <p style={{color: '#F2B61A'}} className={`${resStyles('subtitle', resolutions)}`}>
                         У нашего магазина одни из самых дешевых цен благодаря автоматизации, также, у нас есть скидки, купоны и реферальные программы!
                     </p>
                 </div>
                 <div className={`${styles.item} ${resStyles('description', resolutions)}`}>
                     <img src={money} alt='money icon'/>
-                    <p style={{color: '#5BC834'}}>
+                    <p style={{color: '#5BC834'}} className={`${resStyles('subtitle', resolutions)}`}>
                         Наш магазин даёт возможность всем желающим зарабатывать вместе с нами, 100% прибыли с реферальной программы!
                     </p>
                 </div>
                 <div className={`${styles.item} ${resStyles('description', resolutions)}`}>
                     <img src={person} alt='person icon'/>
-                    <p style={{color: '#44A3D8'}}>
+                    <p style={{color: '#44A3D8'}} className={`${resStyles('subtitle', resolutions)}`}>
                         У нас понимающая и отзывчивая тех поддержка, вы всегда можете обращатся к нам по интересующим вас вопросам, в том числе и о сотрудничестве!
                     </p>
                 </div>

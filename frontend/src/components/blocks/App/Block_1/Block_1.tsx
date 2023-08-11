@@ -116,10 +116,10 @@ export default function Block_1() {
             <div className={`${styles.container} ${resStyles('container', resolutions)}`}>
                 {isSmallScreen || isPhone ?
                     <>
-                        <h1 className={`${resStyles('main_mobile_title', resolutions)}`}>
+                        <h1 className={`${resStyles('title', resolutions)}`}>
                             Storm Shop: <a href='/' style={{ color: '#FFD645', textDecoration: 'none' }}>Скрипты</a> <span style={{ color: '#96D9FF', textDecoration: 'none' }}>&</span> <a href='/' style={{ color: '#FF7BB3', textDecoration: 'none' }}>Подписки</a>
                         </h1>
-                        <p className={`${styles.content} ${resStyles('main_mobile_content', resolutions)}`}>
+                        <p className={`${styles.content} ${resStyles('subtitle', resolutions)}`}>
                             Покупай подписки в 2 клика! Создаёшь свой проект?
                             Покупай готовые скрипты у нас в магазине! Не нашёл? Бывает...
                             тогда закажи свой скрипт, бота или даже сайт!
@@ -135,30 +135,30 @@ export default function Block_1() {
                     {/* Заголовок сайта */}
                     {!isSmallScreen && !isPhone ?
                         <>
-                            <h1 className={`${styles.title} ${resStyles('main_title', resolutions)}`}>
+                            <h1 className={`${styles.title} ${resStyles('title', resolutions)}`}>
                                 Storm Shop: <a href='/' style={{ color: '#FFD645', textDecoration: 'none' }}>Скрипты</a> <span style={{ color: '#96D9FF', textDecoration: 'none' }}>&</span> <a href='/' style={{ color: '#FF7BB3', textDecoration: 'none' }}>Подписки</a>
                             </h1>
                             {/* Основной контент */}
-                            <p className={`${styles.content} ${resStyles('main_content', resolutions)}`}>
+                            <p className={`${styles.content} ${resStyles('subtitle', resolutions)}`}>
                                 Покупай подписки в 2 клика! Создаёшь свой проект?
                                 Покупай готовые скрипты у нас в магазине! Не нашёл? Бывает...
                                 тогда закажи свой скрипт, бота или даже сайт!
                                 <br /><a href='/' style={{ color: '#FF7BB3', fontWeight: '500' }}>Подписки</a>, <a href='/' style={{ color: '#FFD645', fontWeight: '500' }}>Магазин скриптов</a>, <a href='/' style={{ color: '#BAEAFF', fontWeight: '500' }}>Заказать себе</a>
                             </p>
-                            <p className={`${styles.content} ${resStyles('main_content', resolutions)}`}>
+                            <p className={`${styles.content} ${resStyles('subtitle', resolutions)}`}>
                                 Вы также можете зарабатывать вместе с нами! Загружай
                                 свои скрипты и мы сами будем продавать их за вас!
                                 Не умеешь программировать?
                             </p>
-                            <p className={`${styles.content} ${resStyles('main_content', resolutions)}`}>
+                            <p className={`${styles.content} ${resStyles('subtitle', resolutions)}`}>
                                 Тогда невероятная реферальная программа. 100%
                                 от прибыли с магазина!
                                 <br /><a>Подробнее</a>
                             </p>
                             {/* Кнопки */}
                             <div className={`${styles.action} ${resStyles('main_action', resolutions)}`}>
-                                <PinkButton sx={{ padding: '10px 25px', fontSize: '21px', fontWeight: '600' }} startIcon={<DiamondRoundedIcon style={{ marginRight: '4px' }} />}>ПОДПИСКИ</PinkButton>
-                                <BlueButton sx={{ padding: '10px 25px', fontSize: '21px', fontWeight: '600' }} startIcon={<CodeRoundedIcon style={{ marginRight: '4px' }} />}>СКРИПТЫ</BlueButton>
+                                <PinkButton className={`${resStyles('buttonFontSize', resolutions)}`} sx={{ padding: '10px 25px', fontWeight: '600' }} startIcon={<DiamondRoundedIcon style={{ marginRight: '4px' }} />}>ПОДПИСКИ</PinkButton>
+                                <BlueButton className={`${resStyles('buttonFontSize', resolutions)}`} sx={{ padding: '10px 25px', fontWeight: '600' }} startIcon={<CodeRoundedIcon style={{ marginRight: '4px' }} />}>СКРИПТЫ</BlueButton>
                             </div>
                         </>
                         : <></>

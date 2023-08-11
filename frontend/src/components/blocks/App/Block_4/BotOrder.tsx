@@ -20,11 +20,11 @@ function BotOrder() {
                 <div className={`${styles.title} ${resStyles('title', resolutions)}`}>
                     ЗАКАЗ <span className={styles.title_colorful}>БОТА</span>
                 </div>
-                <div className={`${resStyles('botOrder_subtitle', resolutions)}`}>
+                <div className={`${styles.subtitle} ${resStyles('subtitle', resolutions)}`}>
                     Хочешь заказать собственного бота для дискорда или телеграмма, тогда ты по адрессу!
                 </div>
             </div>
-            <StormButton className={`${styles.button} ${resStyles('botOrder_button', resolutions)}`}>
+            <StormButton className={`${styles.button} ${resStyles('botOrder_button', resolutions)} ${resStyles('buttonFontSize', resolutions)}`}>
                 ЗАКАЗАТЬ
             </StormButton>
 

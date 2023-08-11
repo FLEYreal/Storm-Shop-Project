@@ -16,13 +16,13 @@ function ScriptShop() {
                 <div className={`${styles.title} ${resStyles('title', resolutions)}`}>
                     ГОТОВЫЕ <span className={styles.title_colorful_yellow}>СКРИПТЫ</span>
                 </div>
-                <div className={`${resStyles('botOrder_subtitle', resolutions)}`}>
+                <div className={`${styles.subtitle} ${resStyles('subtitle', resolutions)}`}>
                     Мы также предлагаем магазин готовых
                     скриптов и ботов, таких как скрипт для
                     авто-покупки нитро на nodejs или готовый
                     скрипт чата с chatGPT на C++
                 </div>
-                <a href='/' className={`${styles.linkToShop}`}>Перейти в магазин</a>
+                <a href='/' className={`${styles.linkToShop} ${resStyles('subtitle', resolutions)}`}>Перейти в магазин</a>
             </div>
 
             {/* Картинки */}

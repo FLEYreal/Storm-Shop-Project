@@ -43,7 +43,7 @@ export default function Block_3() {
             <section>
 
                 {/* Заголовок */}
-                <div className={`${styles.title} ${resStyles('container', resolutions)}`}>
+                <div className={`${styles.title} ${resStyles('container', resolutions)} ${resStyles('title', resolutions)}`}>
                     ТОВАРЫ:
                 </div>
 
