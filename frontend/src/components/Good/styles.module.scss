@@ -3,13 +3,7 @@
 .item {
     margin-right: 16px;
     width: 276px;
-    height: 460px;
     flex-shrink: 0;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
 
     &_image {
         margin: 0 auto;
@@ -17,6 +11,10 @@
         border-radius: 10px;
         width: 276px;
         height: 276px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
     }
 
     &_top {
@@ -78,6 +76,85 @@
         .reviews {
             color: #7E7E7E;
             font-size: 18px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.item_phone {
+    margin-right: 10px;
+    margin-bottom: 32px;
+    width: 200px;
+    flex-shrink: 0;
+
+    &_image {
+        margin: 0 auto;
+        margin-top: 16px;
+        border-radius: 10px;
+        width: 200px;
+        height: 200px;
+        flex-shrink: 0;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+    }
+
+    &_top {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        height: 40px;
+
+        .cost_phone {
+            margin-right: 6px;
+            color: #F04EFF;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+
+        .old_cost_phone {
+            color: #4E4E4E;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            text-decoration: line-through;
+        }
+    }
+
+    &_middle {
+        height: 64px;
+
+        .title_phone {
+            color: #BFBFBF;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+        }
+    }
+
+    &_bottom {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+
+        .star_phone {
+            margin-right: 6px;
+        }
+
+        .reviews_phone {
+            color: #7E7E7E;
+            font-size: 16px;
             font-style: normal;
             font-weight: 500;
             line-height: normal;
