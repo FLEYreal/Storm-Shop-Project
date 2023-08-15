@@ -19,6 +19,7 @@ import { GoodType } from '../../../../typings/Good.js'
 // Импорты из проекта
 import shortenText from '../../../../utils/shortenText.js';
 
+// Интерфейс товара, но со склоняемым словом для его получения внутри товара
 interface GoodTypeWithWord extends GoodType {
     review_word:string;
 }
@@ -86,11 +87,22 @@ export default function ScriptListExample() {
     }
 
     return (
+        // Главный контейнер
         <div className={`${styles.scriptsBlock} ${resStyles('botOrder_scriptsBlock', resolutions)}`}>
+
+            {/* Небольшая подсказка над товаром */}
             <span className={`${styles.scriptsBlock_subtitle} ${resStyles('botOrder_scriptsBlock_subtitle', resolutions)}`}>P.S. Этот скрипт был случайно выбран  из магазина</span>
+
+            {/* Получение с сервера баннера и вывод на товаре, если не найден, то просто серый фон */}
             <div onClick={handleBuy} style={{ backgroundImage: `url('${import.meta.env.VITE_BACKEND_IP}:${import.meta.env.VITE_BACKEND_PORT}${script.imageUrl}')`, backgroundColor: '#7e7e7e' }} className={styles.scriptsBlock_banner}></div>
+            
+            {/* Главный блок с главным содержимым товара */}
             <div className={styles.scriptsBlock_rightBlock}>
+
+                {/* Вверхняя часть с ценой и кнопкой покупки */}
                 <div className={styles.scriptsBlock_top} onClick={handleBuy}>
+
+                    {/* Цена */}
                     <div className={styles.scriptsBlock_cost_container}>
                         <div className={styles.scriptsBlock_cost} style={{ color: script.themeColor }}>{script.cost}₽</div>
                         <div className={styles.scriptsBlock_old_cost}>{script.old_cost !== undefined ? `${script.old_cost}₽` : <></>}</div>
@@ -110,15 +122,25 @@ export default function ScriptListExample() {
                         </IconButton>
                     </div>
                 </div>
+
+                {/* Серидина блока товара, название и описание */}
                 <div className={styles.scriptsBlock_middle} onClick={handleBuy}>
+
                     <div className={styles.scriptsBlock_title}>
+                        {/* Лимит размера названия: 20 */}
                         {shortenText(script.displayName, 20)}
                     </div>
+
                     <div className={styles.scriptsBlock_desc}>
+                        {/* Лимит размера описания: 100 */}
                         {shortenText(script.desc, 100)}
                     </div>
+
                 </div>
+
+                {/* Нижняя часть с отзывами и рейтингом товара */}
                 <div className={styles.scriptsBlock_bottom}>
+                    
                     {/* Звезда */}
                     <div className={styles.star}>
                         <svg width="24" height="22" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -130,6 +152,7 @@ export default function ScriptListExample() {
                     <div className={styles.reviews} onClick={handleReviews}>
                         {script.rating} · {script.reviews} {script.review_word}
                     </div>
+
                 </div>
             </div>
         </div>
