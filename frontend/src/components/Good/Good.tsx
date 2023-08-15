@@ -29,10 +29,18 @@ export default function Good({ desc }: { desc: GoodDescType }) {
     // Получить разрешение экрана
     const { isBigScreen, isMidScreen, isSmallScreen, isPhone } = useResolutions()
 
-    console.log(isBigScreen, isMidScreen, isSmallScreen, isPhone)
-
     // Укоротить текст описания
     title = shortenText(title, 38)
+
+    function handleBuy() {
+        console.log('Buy clicked')
+        // Будущий функионал для покупки товара
+    }
+
+    function handleReviews() {
+        console.log('Reviews clicked')
+        // Будущий функионал для просмотра отзывов
+    }
 
     return (
         <>
@@ -41,10 +49,10 @@ export default function Good({ desc }: { desc: GoodDescType }) {
                     <div className={`${styles.item}`}>
 
                         {/* Вывести картинку */}
-                        <div style={{ backgroundImage: `url('${import.meta.env.VITE_BACKEND_IP}:${import.meta.env.VITE_BACKEND_PORT}${image}')`, backgroundColor: '#515151' }} className={styles.item_image}></div>
+                        <div onClick={handleBuy} style={{ backgroundImage: `url('${import.meta.env.VITE_BACKEND_IP}:${import.meta.env.VITE_BACKEND_PORT}${image}')`, backgroundColor: '#515151' }} className={styles.item_image}></div>
 
                         {/* Вывести заголовок и цену */}
-                        <div className={styles.item_top}>
+                        <div onClick={handleBuy} className={styles.item_top}>
                             <div className={styles.cost_container}>
                                 <div className={styles.cost} style={{ color: theme }}>{cost} ₽</div>
                                 <div className={styles.old_cost}>{old_cost !== undefined ? `${old_cost} ₽` : <></>}</div>
@@ -67,7 +75,7 @@ export default function Good({ desc }: { desc: GoodDescType }) {
                         </div>
 
                         {/* Середина товара & Название товара */}
-                        <div className={styles.item_middle}>
+                        <div onClick={handleBuy} className={styles.item_middle}>
                             <div className={styles.title}>{title}</div>
                         </div>
 
@@ -91,14 +99,14 @@ export default function Good({ desc }: { desc: GoodDescType }) {
                 isSmallScreen || isPhone ?
                     <div className={styles.item_phone}>
                         {/* Вывести картинку */}
-                        <div style={{ backgroundImage: `url('${import.meta.env.VITE_BACKEND_IP}:${import.meta.env.VITE_BACKEND_PORT}${image}')`, backgroundColor: '#515151' }} className={styles.item_phone_image}>
+                        <div onClick={handleBuy} style={{ backgroundImage: `url('${import.meta.env.VITE_BACKEND_IP}:${import.meta.env.VITE_BACKEND_PORT}${image}')`, backgroundColor: '#515151' }} className={styles.item_phone_image}>
 
                         </div>
-                        <div className={styles.item_phone_top}>
+                        <div onClick={handleBuy} className={styles.item_phone_top}>
                             <div className={styles.cost_phone} style={{ color: theme }}>{cost} ₽</div>
                             <div className={styles.old_cost_phone}>{old_cost !== undefined ? `${old_cost} ₽` : <></>}</div>
                         </div>
-                        <div className={styles.item_phone_middle}>
+                        <div onClick={handleBuy} className={styles.item_phone_middle}>
                             <div className={styles.title_phone}>
                                 {title}
                             </div>
@@ -112,7 +120,7 @@ export default function Good({ desc }: { desc: GoodDescType }) {
                             </div>
 
                             {/* Отображение рейтинга и отзывов */}
-                            <div className={styles.reviews_phone}>
+                            <div className={styles.reviews_phone} onClick={handleReviews}>
                                 {rating} · {reviews} {review_word}
                             </div>
                         </div>

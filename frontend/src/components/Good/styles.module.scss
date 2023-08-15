@@ -2,6 +2,7 @@
 
 .item {
     margin-right: 16px;
+    margin-bottom: 32px;
     width: 276px;
     flex-shrink: 0;
 
@@ -15,6 +16,10 @@
         -moz-border-radius: 10px;
         -ms-border-radius: 10px;
         -o-border-radius: 10px;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     &_top {
@@ -50,6 +55,10 @@
                 text-decoration: line-through;
             }
         }
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     &_middle {
@@ -61,6 +70,14 @@
             font-style: normal;
             font-weight: 600;
             line-height: normal;
+
+            &:hover {
+                color: #dadada;
+            }
+        }
+
+        &:hover {
+            cursor: pointer;
         }
     }
 
@@ -79,11 +96,12 @@
             font-style: normal;
             font-weight: 500;
             line-height: normal;
-        }
-    }
 
-    &:hover {
-        cursor: pointer;
+            &:hover {
+                color: #b9b9b9;
+                cursor: pointer;
+            }
+        }
     }
 }
 
@@ -104,6 +122,10 @@
         -moz-border-radius: 10px;
         -ms-border-radius: 10px;
         -o-border-radius: 10px;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     &_top {
@@ -129,6 +151,10 @@
             line-height: normal;
             text-decoration: line-through;
         }
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     &_middle {
@@ -140,6 +166,11 @@
             font-style: normal;
             font-weight: 500;
             line-height: normal;
+        }
+
+        &:hover {
+            color: #dadada;
+            cursor: pointer;
         }
     }
 
@@ -158,10 +189,11 @@
             font-style: normal;
             font-weight: 500;
             line-height: normal;
-        }
-    }
 
-    &:hover {
-        cursor: pointer;
+            &:hover {
+                color: #b9b9b9;
+                cursor: pointer;
+            }
+        }
     }
 }
