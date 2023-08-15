@@ -61,7 +61,9 @@ export default function Block_3() {
                                     cost: good.cost,
                                     image: good.imageUrl,
                                     theme: good.themeColor,
-                                    themeTransparent: good.themeTransparent
+                                    rating: good.rating,
+                                    reviews: good.reviews,
+                                    old_cost: good.old_cost
                                 }}
                             />
                         ) : null

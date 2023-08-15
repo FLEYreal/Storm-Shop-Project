@@ -1,22 +1,17 @@
 @import "../../styles/App.module.scss";
 
 .item {
-    width: 340px;
+    width: 276px;
     height: 460px;
     flex-shrink: 0;
     border-radius: 10px;
-    background: rgba(43, 43, 43, 0.50);
-    backdrop-filter: blur(8px);
-    border: 3px solid rgba(255, 255, 255, 0.45);
-    margin-bottom: 72px;
 
     &_image {
-        border: 3px solid rgba(255, 255, 255, 0.45);
         margin: 0 auto;
         margin-top: 16px;
         border-radius: 10px;
-        width: 302px;
-        height: 245px;
+        width: 276px;
+        height: 276px;
     }
 
     &_top {
@@ -24,67 +19,74 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin: 12px 16px;
+        height: 52px;
 
-        .title {
-            color: #FFF;
-            font-size: 18.5px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: normal;
-            cursor: pointer;
+        .cost_container {
+            display: flex;
+            align-items: center;
 
-            &:hover {
-                color: #fbccff;
+            .cost {
+                font-size: 28px;
+                font-weight: 700;
+                border-radius: 10px;
+                margin-right: 6px;
+                font-style: normal;
+                line-height: normal;
+                flex-shrink: 0;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .old_cost {
+                color: #4E4E4E;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                text-decoration: line-through;
             }
         }
 
-        .cost {
-            color: #FFDA16;
-            border-radius: 10px;
-            border: 2px solid #FFDA16;
-            background: rgba(226, 155, 0, 0.10);
-            font-size: 15px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: normal;
-            width: 55px;
-            height: 25px;
-            flex-shrink: 0;
-            cursor: pointer;
+        .card_container {
             display: flex;
-            align-items: center;
-            justify-content: center;
-
-            &:hover {
-                background: rgba(226, 155, 0, 0.25);
-            }
+            align-items: start;
+            justify-content: start;
         }
     }
 
     &_middle {
-        .subtitle {
-            font-size: 17px;
+        height: 72px;
+
+        .title {
+            color: #BFBFBF;
+            font-size: 24px;
             font-style: normal;
-            font-weight: 400;
+            font-weight: 600;
             line-height: normal;
-            color: #C7C7C7;
-            margin: 4px 16px;
         }
-
-        .readMore {
-            margin: 8px 16px;
-        }
-
     }
 
-    .buyButton {
-        font-size: 18px;
-        position: absolute;
-        bottom: 16px;
-        right: 16px;
-        padding: 6px 32px;
-        margin: 0;
-        border-radius: 10px;
+    &_bottom {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+
+        .star {
+            margin-right: 8px;
+        }
+
+        .reviews {
+            color: #7E7E7E;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
     }
 }
