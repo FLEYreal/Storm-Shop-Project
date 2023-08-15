@@ -27,8 +27,10 @@ module.exports = [
         desc: "ваше описание товара здесь",
         imageUrl: "/public/images/previews/preview_1.png",
         themeColor: "#F04EFF",
-        themeTransparent: "rgba(240, 78, 255, 0.10)",
+        rating: 4.9,
+        reviews: 50,
 
+        old_cost: 399,
         cost: 324
     },
     {
@@ -40,8 +42,10 @@ module.exports = [
         desc: "ваше описание товара здесь",  
         imageUrl: "/public/images/previews/preview_1.png",
         themeColor: "#F04EFF",
-        themeTransparent: "rgba(240, 78, 255, 0.10)",
+        rating: 4.9,
+        reviews: 50,
 
+        old_cost: 209,
         cost: 159
     },
     {
@@ -53,8 +57,10 @@ module.exports = [
         desc: "ваше описание товара здесь",
         imageUrl: "/public/images/previews/preview_2.png",
         themeColor: "#F04EFF",
-        themeTransparent: "rgba(240, 78, 255, 0.10)",
+        rating: 4.9,
+        reviews: 50,
 
+        old_cost: 3999,
         cost: 3249,
     },
     {
@@ -66,8 +72,10 @@ module.exports = [
         desc: "ваше описание товара здесь",
         imageUrl: "/public/images/previews/preview_3.png",
         themeColor: "#5282FF",
-        themeTransparent: "rgba(82, 130, 255, 0.10)",
+        rating: 4.9,
+        reviews: 50,
 
+        old_cost: 209,
         cost: 159 
     },
     {
@@ -79,8 +87,10 @@ module.exports = [
         desc: "ваше описание товара здесь",
         imageUrl: "/public/images/previews/preview_5.png",
         themeColor: "#F04EFF",
-        themeTransparent: "rgba(240, 78, 255, 0.10)",
+        rating: 4.9,
+        reviews: 50,
 
+        old_cost: 199,
         cost: 164
     },
     {
@@ -92,8 +102,10 @@ module.exports = [
         desc: "ваше описание товара здесь",
         imageUrl: "/public/images/previews/preview_6.png",
         themeColor: "#F04EFF",
-        themeTransparent: "rgba(240, 78, 255, 0.10)",
+        rating: 4.9,
+        reviews: 50,
         
+        old_cost: 2999,
         cost: 2399
     },
     {
@@ -105,8 +117,10 @@ module.exports = [
         desc: "ваше описание товара здесь",
         imageUrl: "/public/images/previews/preview_4.png",
         themeColor: "#25BA00",
-        themeTransparent: "rgba(37, 186, 0, 0.10)",
+        rating: 4.9,
+        reviews: 50,
 
+        old_cost: 79,
         cost: 39
     },
 
@@ -118,7 +132,9 @@ module.exports = [
         displayName: 'Notification Manager',
         desc: 'ваше описание товара здесь',
         themeColor: "rgba(255, 186, 0, 1)",
-        themeTransparent: "rgba(255, 186, 0, 0.1)",
+        themeTransparent: "rgba(255, 186, 0, 0.1)", // Deprecated value, will be removed soon
+        rating: 4.9,
+        reviews: 50,
 
         cost: 1499
     },
@@ -131,7 +147,9 @@ module.exports = [
         displayName: 'Discord Message Spammer',
         desc: 'ваше описание товара здесь',
         themeColor: "rgba(56, 39, 245, 1)",
-        themeTransparent: "rgba(56, 39, 245, 0.1)",
+        themeTransparent: "rgba(56, 39, 245, 0.1)", // Deprecated value, will be removed soon
+        rating: 4.9,
+        reviews: 50,
 
         cost: 349
     },
@@ -144,7 +162,9 @@ module.exports = [
         displayName: 'Telegram Message Spammer',
         desc: 'ваше описание товара здесь',
         themeColor: "rgba(73, 164, 255, 1)",
-        themeTransparent: "rgba(73, 164, 255, 0.1)",
+        themeTransparent: "rgba(73, 164, 255, 0.1)", // Deprecated value, will be removed soon
+        rating: 4.9,
+        reviews: 50,
 
         cost: 349
     },
@@ -157,7 +177,9 @@ module.exports = [
         displayName: 'ChatGPT Assistent',
         desc: 'ваше описание товара здесь',
         themeColor: "rgba(9, 206, 0, 1)",
-        themeTransparent: "rgba(9, 206, 0, 0.1)",
+        themeTransparent: "rgba(9, 206, 0, 0.1)", // Deprecated value, will be removed soon
+        rating: 4.9,
+        reviews: 50,
 
         cost: 1599
     },
@@ -170,7 +192,9 @@ module.exports = [
         displayName: 'Transaction API',
         desc: 'ваше описание товара здесь',
         themeColor: "rgba(96, 162, 48, 1)",
-        themeTransparent: "rgba(96, 162, 48, 0.1)",
+        themeTransparent: "rgba(96, 162, 48, 0.1)", // Deprecated value, will be removed soon
+        rating: 4.9,
+        reviews: 50,
 
         cost: 159
     },
@@ -183,7 +207,9 @@ module.exports = [
         displayName: 'Nitro Auto Give',
         desc: 'ваше описание товара здесь',
         themeColor: "rgba(170, 95, 215, 1)",
-        themeTransparent: "rgba(170, 95, 215, 0.1)",
+        themeTransparent: "rgba(170, 95, 215, 0.1)", // Deprecated value, will be removed soon
+        rating: 4.9,
+        reviews: 50,
 
         cost: 2399
     },
@@ -196,7 +222,9 @@ module.exports = [
         displayName: 'Discord Token Grabber',
         desc: 'ваше описание товара здесь',
         themeColor: "rgba(170, 95, 215, 1)",
-        themeTransparent: "rgba(170, 95, 215, 0.1)",
+        themeTransparent: "rgba(170, 95, 215, 0.1)", // Deprecated value, will be removed soon
+        rating: 4.9,
+        reviews: 50,
 
         cost: 1999
     },

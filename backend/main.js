@@ -89,7 +89,6 @@ app.use((req, res, next) => {
     }
 
     // check if list of required arguments exists here
-    console.log(!Object.keys(request_list.request_arguments).includes(req.originalUrl.split('?')[0]))
     if (!Object.keys(request_list.request_arguments).includes(req.originalUrl.split('?')[0])) {
         res.json({
             error: `Запрос ${req.method}:${req.originalUrl} не найден`,
@@ -100,7 +99,6 @@ app.use((req, res, next) => {
 
     // check if they were sent by the client
     const required_params = request_list.request_arguments[req.originalUrl.split('?')[0]];
-    console.log(required_params)
 
     var i = 0;
     while (i < required_params.length) {
@@ -210,7 +208,6 @@ app.post(`${versioning.prefix}/signup`, async (req, res) => {
 
 app.get(`${versioning.prefix}/goods`, async (req, res) => {
     const { type } = req.query;
-    console.log(type)
 
     let result = [];
 
@@ -226,8 +223,6 @@ app.get(`${versioning.prefix}/goods`, async (req, res) => {
             else return;
         })
     }
-
-    console.log(result)
 
     res.json(result).status(200);
 })
