@@ -75,14 +75,22 @@ export default function ScriptListExample() {
         })()
     }, []);
 
+    function handleBuy() {
+        console.log('Купить скрипт')
+        // Будущий функионал для покупки скрипта
+    }
 
+    function handleReviews() {
+        console.log('Отзывы от скрипта')
+        // Будущий фунционал для просмотра отзывов
+    }
 
     return (
         <div className={`${styles.scriptsBlock} ${resStyles('botOrder_scriptsBlock', resolutions)}`}>
             <span className={`${styles.scriptsBlock_subtitle} ${resStyles('botOrder_scriptsBlock_subtitle', resolutions)}`}>P.S. Этот скрипт был случайно выбран  из магазина</span>
-            <div style={{ backgroundImage: `url('${import.meta.env.VITE_BACKEND_IP}:${import.meta.env.VITE_BACKEND_PORT}${script.imageUrl}')`, backgroundColor: '#7e7e7e' }} className={styles.scriptsBlock_banner}></div>
+            <div onClick={handleBuy} style={{ backgroundImage: `url('${import.meta.env.VITE_BACKEND_IP}:${import.meta.env.VITE_BACKEND_PORT}${script.imageUrl}')`, backgroundColor: '#7e7e7e' }} className={styles.scriptsBlock_banner}></div>
             <div className={styles.scriptsBlock_rightBlock}>
-                <div className={styles.scriptsBlock_top}>
+                <div className={styles.scriptsBlock_top} onClick={handleBuy}>
                     <div className={styles.scriptsBlock_cost_container}>
                         <div className={styles.scriptsBlock_cost} style={{ color: script.themeColor }}>{script.cost}₽</div>
                         <div className={styles.scriptsBlock_old_cost}>{script.old_cost !== undefined ? `${script.old_cost}₽` : <></>}</div>
@@ -102,7 +110,7 @@ export default function ScriptListExample() {
                         </IconButton>
                     </div>
                 </div>
-                <div className={styles.scriptsBlock_middle}>
+                <div className={styles.scriptsBlock_middle} onClick={handleBuy}>
                     <div className={styles.scriptsBlock_title}>
                         {shortenText(script.displayName, 20)}
                     </div>
@@ -119,7 +127,7 @@ export default function ScriptListExample() {
                     </div>
 
                     {/* Отображение рейтинга и отзывов */}
-                    <div className={styles.reviews}>
+                    <div className={styles.reviews} onClick={handleReviews}>
                         {script.rating} · {script.reviews} {script.review_word}
                     </div>
                 </div>
