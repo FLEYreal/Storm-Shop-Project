@@ -1,5 +1,4 @@
 // Стили
-import resStyles from '../../utils/resStyles.js'
 import styles from './styles.module.scss'
 import useResolutions from '../../hooks/useResolusions.js'
 

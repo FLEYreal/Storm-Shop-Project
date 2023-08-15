@@ -7,16 +7,16 @@ export interface GoodType {
     imageUrl: string;
     themeColor: string;
     themeTransparent?: string;  // Deprecated value, will be removed soon
-    cost: string | number;
-    old_cost: string | undefined,
+    cost: number | number;
+    old_cost: number | undefined,
     reviews: number,
     rating: number
 }
 
 export interface ScriptGoodType {
     title: string,
-    cost: string | number,
-    old_cost: string | undefined,
+    cost: number | number,
+    old_cost: number | undefined,
     theme: string,
     themeTransparent?: string;  // Deprecated value, will be removed soon
     desc: string,
@@ -27,8 +27,8 @@ export interface ScriptGoodType {
 export interface GoodDescType {
     title: string,
     subtitle: string
-    cost: string | number,
-    old_cost: string | undefined,
+    cost: number | number,
+    old_cost: number | undefined,
     image: string,
     theme: string,
     themeTransparent?: string;  // Deprecated value, will be removed soon
