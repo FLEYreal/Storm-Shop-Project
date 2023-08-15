@@ -1,10 +1,15 @@
 @import "../../styles/App.module.scss";
 
 .item {
+    margin-right: 16px;
     width: 276px;
     height: 460px;
     flex-shrink: 0;
     border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 
     &_image {
         margin: 0 auto;
@@ -15,7 +20,6 @@
     }
 
     &_top {
-        position: relative;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -47,12 +51,6 @@
                 line-height: normal;
                 text-decoration: line-through;
             }
-        }
-
-        .card_container {
-            display: flex;
-            align-items: start;
-            justify-content: start;
         }
     }
 
