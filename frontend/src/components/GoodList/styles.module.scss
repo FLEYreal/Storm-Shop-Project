@@ -1,0 +1,16 @@
+@import "../../styles/App.module.scss";
+
+.title {
+    color: #FFF;
+    margin: 0 auto;
+    margin-top: 64px;
+    margin-bottom: 32px;
+}
+
+.container {
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: start;
+    align-items: start;
+}
