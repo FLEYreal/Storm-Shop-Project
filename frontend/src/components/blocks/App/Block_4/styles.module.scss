@@ -130,6 +130,11 @@
     position: relative;
     flex-shrink: 0;
 
+    .scriptsBlock_isMid_container {
+        display: flex;
+        flex-flow: row wrap;
+    }
+
     &_subtitle {
         color: rgb(184, 184, 184);
         position: absolute;

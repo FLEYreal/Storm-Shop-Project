@@ -90,14 +90,16 @@ export default function ScriptListExample() {
                     ...good,
                     review_word
                 })
-            } else if (isMidScreen && !isPhone && !isSmallScreen) {
+            } else if (isMidScreen || isPhone || isSmallScreen) {
                 const good: GoodType[] = [];
 
-                for (let i = 0; i < 3; i++) {
+                const amount = isPhone || isSmallScreen ? 1 : 2;
+                for (let i = 0; i < amount; i++) {
                     // Генерируем уникальный случайный индекс
                     const index = Math.floor(Math.random() * res!.data.length);
                     good.push(res!.data[index]);
                 }
+                console.log('GOOD: ', good)
 
                 setScriptList([...good])
             }
@@ -126,16 +128,6 @@ export default function ScriptListExample() {
                 isMidScreen && !isPhone && !isSmallScreen ? { marginBottom: '60px' } : {}
             }
         >
-
-            {/* Заголовок */}
-            {
-                isMidScreen && !isPhone && !isSmallScreen ?
-                    <div className={`${styles.title} ${resStyles('title', resolutions)}`}>
-                        ПРИМЕР <span className={styles.title_colorful_yellow}>СКРИПТОВ</span>
-                    </div>
-                    : <></>
-            }
-
             {
                 isBigScreen && !isMidScreen && !isPhone && !isSmallScreen ?
                     <>
@@ -206,11 +198,21 @@ export default function ScriptListExample() {
                         </div>
                     </> : <></>
             }
+
+            {/* Заголовок */}
             {
-                isMidScreen && !isPhone && !isSmallScreen ?
+                isMidScreen || isPhone || isSmallScreen ?
+                    <div className={`${styles.title} ${resStyles('title', resolutions)}`}>
+                        ПРИМЕР <span className={styles.title_colorful_yellow}>СКРИПТОВ</span>
+                    </div>
+                    : <></>
+            }
+
+            {
+                isMidScreen || isPhone || isSmallScreen ?
                     <>
                         {/* Тэг для хранения списка товаров */}
-                        <div className={`${styles.container} ${resStyles('goodList', resolutions)} ${resStyles('container', resolutions)}`}>
+                        <div className={`${styles.scriptsBlock_isMid_container} ${resStyles('goodList', resolutions)}`}>
 
                             {/* Вывод списка товаров */}
                             {

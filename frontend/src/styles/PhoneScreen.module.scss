@@ -181,8 +181,8 @@
 }
 
 .botOrder_scriptsBlock {
-    width: 370px;
-    height: 230px;
+    flex-flow: column nowrap !important;
+    width: 100%;
 }
 
 .botOrder_scriptsBlock_subtitle {
