@@ -9,10 +9,13 @@ import chatGPT from '../../../img/chatgpt-icon.svg';
 function ScriptShop() {
     // Получить объект с разрешением экрана
     const resolutions = useResolutions()
+    const { isMidScreen, isPhone, isSmallScreen } = useResolutions()
 
     return (
         <div className={`${styles.scripts} ${resStyles('botOrder_scripts', resolutions)}`}>
-            <div className={`${styles.scripts_desc} ${resStyles('botOrder_desc', resolutions)}`}>
+            <div className={`${styles.scripts_desc} ${resStyles('botOrder_desc', resolutions)}`} style={
+                isMidScreen && !isSmallScreen && !isPhone ? { width: '100%', marginBottom: '140px' } : {}
+            }>
                 <div className={`${styles.title} ${resStyles('title', resolutions)}`}>
                     ГОТОВЫЕ <span className={styles.title_colorful_yellow}>СКРИПТЫ</span>
                 </div>

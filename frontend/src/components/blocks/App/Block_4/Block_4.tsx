@@ -70,8 +70,8 @@ export default function Block_4() {
                             <VideoBot />
                         </div>
                         <div className={`${styles.middle_bottom}`}>
-                            <ScriptListExample />
                             <ScriptShop />
+                            <ScriptListExample />
                         </div>
                     </div>
                 </section>

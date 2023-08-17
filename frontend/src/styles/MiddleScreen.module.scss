@@ -187,8 +187,8 @@
 }
 
 .botOrder_scriptsBlock {
-    width: 370px;
-    height: 260px;
+    flex-flow: column nowrap !important;
+    width: 100%;
 }
 
 .botOrder_scriptsBlock_subtitle {
@@ -216,7 +216,7 @@
 }
 
 .botOrder_scripts {
-    width: 499px;
+    width: 100%;
 }
 
 .botOrder_GPTIcon {
