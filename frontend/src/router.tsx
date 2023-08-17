@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './pages/App/App.tsx';
 import SignUp from './pages/SignUp.tsx'
 import LogIn from './pages/LogIn.tsx';
-import ScriptLab from './pages/ScriptLab.tsx';
+import ScriptLab from './pages/ScriptLab/ScriptLab.tsx';
 
 // API импорты
 import Api from './utils/Api.ts'

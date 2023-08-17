@@ -18,6 +18,10 @@ $footer_gradient: linear-gradient(135deg, #3B0A66 0%, #530233 99.99%);
 $font_family: Roboto, Tahoma, Arial, Helvetica, sans-serif;
 $unhighlighted_color: #cfcfcf;
 
+* {
+    font-family: $font_family;
+}
+
 .app {
     overflow-x: hidden;
     font-family: $font_family;
