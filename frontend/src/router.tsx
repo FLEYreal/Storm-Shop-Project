@@ -3,9 +3,10 @@ import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // Страницы
-import App from './App.tsx';
-import SignUp from './SignUp.tsx'
-import LogIn from './LogIn.tsx';
+import App from './pages/App/App.tsx';
+import SignUp from './pages/SignUp.tsx'
+import LogIn from './pages/LogIn.tsx';
+import ScriptLab from './pages/ScriptLab.tsx';
 
 // API импорты
 import Api from './utils/Api.ts'
@@ -41,6 +42,11 @@ function RouterComp() {
                         <Route path="/*" element={<App />} />
                         <Route path="/signup" element={<SignUp />} />
                         <Route path="/login" element={<LogIn />} />
+
+                        {/* Variants of route for 1 page */}
+                        <Route path="/scripts" element={<ScriptLab />} />
+                        <Route path="/script" element={<ScriptLab />} />
+                        <Route path="/script-lab" element={<ScriptLab />} />
                     </Routes>
                 </BrowserRouter>
 

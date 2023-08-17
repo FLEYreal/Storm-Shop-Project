@@ -2,28 +2,28 @@
 import { useEffect } from 'react';
 
 // Стили
-import resStyles from '../../../../utils/resStyles.ts';
+import resStyles from '../../../utils/resStyles.ts';
 import styles from './styles.module.scss';
-import useResolutions from '../../../../hooks/useResolusions.ts'
+import useResolutions from '../../../hooks/useResolusions.ts'
 
 // Компоненты проекта
-import { BlueButton, PinkButton } from '../../../../styles/mui.ts';
+import { BlueButton, PinkButton } from '../../../styles/mui.ts';
 
 // Картинки & Иконки
 import CodeRoundedIcon from '@mui/icons-material/CodeRounded';
 import DiamondRoundedIcon from '@mui/icons-material/DiamondRounded';
-import wampus from '../../../img/wampus.png';
-import activeDeveloperBadge from '../../../img/activeDeveloperBadge.svg';
-import nitroBadge from '../../../img/nitroBadge.svg';
-import boostIcon from '../../../img/boostIcon.png';
-import botIcon from '../../../img/botIcon.png';
-import starIcon from '../../../img/starIcon.png';
-import tgIcon_small from '../../../img/tgIcon_small.svg';
-import bubble4 from '../../../img/bubbles4.png';
-import tgIcon_big from '../../../img/tgIcon_big.svg';
-import discordIcon from '../../../img/discordIcon.svg';
-import chatGPT from '../../../img/chatgpt-icon.svg';
-import spotify from '../../../img/spotify.svg';
+import wampus from '../../../components/img/wampus.png';
+import activeDeveloperBadge from '../../../components/img/activeDeveloperBadge.svg';
+import nitroBadge from '../../../components/img/nitroBadge.svg';
+import boostIcon from '../../../components/img/boostIcon.png';
+import botIcon from '../../../components/img/botIcon.png';
+import starIcon from '../../../components/img/starIcon.png';
+import tgIcon_small from '../../../components/img/tgIcon_small.svg';
+import bubble4 from '../../../components/img/bubbles4.png';
+import tgIcon_big from '../../../components/img/tgIcon_big.svg';
+import discordIcon from '../../../components/img/discordIcon.svg';
+import chatGPT from '../../../components/img/chatgpt-icon.svg';
+import spotify from '../../../components/img/spotify.svg';
 
 export default function Block_1() {
     // Создание основных переменных

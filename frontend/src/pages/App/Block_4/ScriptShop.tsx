@@ -1,10 +1,10 @@
 // Стили
 import styles from './styles.module.scss';
-import resStyles from '../../../../utils/resStyles.js';
-import useResolutions from '../../../../hooks/useResolusions.js';
+import resStyles from '../../../utils/resStyles.js';
+import useResolutions from '../../../hooks/useResolusions.js';
 
 // Картинки & Видео
-import chatGPT from '../../../img/chatgpt-icon.svg';
+import chatGPT from '../../../components/img/chatgpt-icon.svg';
 
 function ScriptShop() {
     // Получить объект с разрешением экрана

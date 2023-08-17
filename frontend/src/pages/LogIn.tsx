@@ -4,18 +4,18 @@ import { useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet';
 
 // Стили
-import styles from './styles/App.module.scss'
+import styles from '../styles/App.module.scss'
 
 // API импорты
-import { APIContext } from './context/APIContext'
+import { APIContext } from '../context/APIContext.js'
 
 // Библиотеки
 import ReCAPTCHA from "react-google-recaptcha";
 
 // Компоненты & Хуки проекта
-import ModalFail from './components/ModalFail/index.jsx'
-import ModalSuccess from './components/ModalSuccess/index.jsx'
-import { StormButton, PinkButton } from './styles/mui.js';
+import ModalFail from '../components/ModalFail/index.js'
+import ModalSuccess from '../components/ModalSuccess/index.js'
+import { StormButton, PinkButton } from '../styles/mui.js';
 
 export default function LogIn() {
     // Базовые переменные

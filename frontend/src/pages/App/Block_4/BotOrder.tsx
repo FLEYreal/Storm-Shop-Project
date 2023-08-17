@@ -1,14 +1,14 @@
 // Стили
 import styles from './styles.module.scss';
-import resStyles from '../../../../utils/resStyles.js';
-import useResolutions from '../../../../hooks/useResolusions.js';
+import resStyles from '../../../utils/resStyles.js';
+import useResolutions from '../../../hooks/useResolusions.js';
 
 // Компоненты & Хуки проекта
-import { StormButton } from '../../../../styles/mui.js';
+import { StormButton } from '../../../styles/mui.js';
 
 // Картинки & Видео
-import tgIcon_small from '../../../img/tgIcon_small.svg';
-import discordIcon from '../../../img/discordIcon.svg';
+import tgIcon_small from '../../../components/img/tgIcon_small.svg';
+import discordIcon from '../../../components/img/discordIcon.svg';
 
 function BotOrder() {
     // Получить объект с разрешением экрана

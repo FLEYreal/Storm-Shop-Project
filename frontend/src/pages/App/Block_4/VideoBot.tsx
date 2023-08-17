@@ -1,13 +1,13 @@
 // Стили
 import styles from './styles.module.scss';
-import resStyles from '../../../../utils/resStyles.js';
-import useResolutions from '../../../../hooks/useResolusions.js';
+import resStyles from '../../../utils/resStyles.js';
+import useResolutions from '../../../hooks/useResolusions.js';
 
 // Компоненты & Хуки проекта
-import VideoPlayer from '../../../VideoPlayer.js';
+import VideoPlayer from '../../../components/VideoPlayer.js';
 
 // Картинки & Видео
-import botReview from '../../../video/botReview.mp4'
+import botReview from '../../../components/video/botReview.mp4'
 
 
 function VideoBot() {

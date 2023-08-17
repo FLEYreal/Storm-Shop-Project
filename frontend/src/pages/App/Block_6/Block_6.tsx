@@ -1,13 +1,13 @@
 // Стили
 import styles from './styles.module.scss';
-import resStyles from '../../../../utils/resStyles.js';
-import useResolutions from '../../../../hooks/useResolusions.js';
+import resStyles from '../../../utils/resStyles.js';
+import useResolutions from '../../../hooks/useResolusions.js';
 
 // Иконки
-import money from '../../../icons/money.svg'
-import person from '../../../icons/person.svg'
-import piggy from '../../../icons/piggy.svg'
-import speed from '../../../icons/speed.svg'
+import money from '../../../components/icons/money.svg'
+import person from '../../../components/icons/person.svg'
+import piggy from '../../../components/icons/piggy.svg'
+import speed from '../../../components/icons/speed.svg'
 
 function Block_6() {
     // Получить объект с разрешением экрана

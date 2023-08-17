@@ -6,19 +6,19 @@ import { AxiosResponse } from 'axios';
 import { IconButton } from '@mui/material'
 
 // API импорты
-import { APIContext } from '../../../../context/APIContext.js'
+import { APIContext } from '../../../context/APIContext.js'
 
 // Стили
 import styles from './styles.module.scss';
-import resStyles from '../../../../utils/resStyles.js';
-import useResolutions from '../../../../hooks/useResolusions.js';
+import resStyles from '../../../utils/resStyles.js';
+import useResolutions from '../../../hooks/useResolusions.js';
 
 // Типы
-import { GoodType } from '../../../../typings/Good.js'
+import { GoodType } from '../../../typings/Good.js'
 
 // Импорты из проекта
-import shortenText from '../../../../utils/shortenText.js';
-import Good from '../../../Good/Good.js';
+import shortenText from '../../../utils/shortenText.js';
+import Good from '../../../components/Good/Good.js';
 
 // Интерфейс товара, но со склоняемым словом для его получения внутри товара
 interface GoodTypeWithWord extends GoodType {

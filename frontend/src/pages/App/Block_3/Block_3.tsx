@@ -1,10 +1,10 @@
 // Стили
 import styles from './styles.module.scss';
-import resStyles from '../../../../utils/resStyles.js';
-import useResolutions from '../../../../hooks/useResolusions';
+import resStyles from '../../../utils/resStyles.js';
+import useResolutions from '../../../hooks/useResolusions.js';
 
 // Компоненты & Хуки проекта
-import GoodList from '../../../GoodList/GoodList.js';
+import GoodList from '../../../components/GoodList/GoodList.js';
 
 export default function Block_3() {
     // Получить объект с разрешением экрана

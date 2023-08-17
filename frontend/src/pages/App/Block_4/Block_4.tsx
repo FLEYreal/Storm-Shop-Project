@@ -3,8 +3,8 @@ import MediaQuery from 'react-responsive';
 
 // Стили
 import styles from './styles.module.scss';
-import resStyles from '../../../../utils/resStyles.js';
-import useResolutions from '../../../../hooks/useResolusions.js';
+import resStyles from '../../../utils/resStyles.js';
+import useResolutions from '../../../hooks/useResolusions.js';
 
 // Компоненты & Хуки проекта
 import VideoBot from './VideoBot.js';
@@ -13,7 +13,7 @@ import ScriptListExample from './ScriptListExample.js'
 import ScriptShop from './ScriptShop.js';
 
 // Картинки & Видео
-import devider from '../../../img/devider.svg';
+import devider from '../../../components/img/devider.svg';
 
 export default function Block_4() {
 
