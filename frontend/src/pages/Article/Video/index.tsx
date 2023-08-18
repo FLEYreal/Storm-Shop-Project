@@ -1,7 +1,7 @@
 import VideoPlayer from '../../../components/VideoPlayer';
 import styles from './styles.module.scss'
 
-function Video({ route }: { route: string }) {
+function Video({ route }: { route: string | undefined }) {
     return (
         <VideoPlayer
             className={`${styles.video}`}

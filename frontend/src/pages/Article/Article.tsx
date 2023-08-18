@@ -78,29 +78,32 @@ function Article() {
                 <meta name="keywords" content='Нитро Nitro Дискорд Discord НитроШоп Купить нитро' />
             </Helmet>
 
-            {/* {
-                article?.content.map(i => {
-                    if(i.type === 'title') {
-                        return ()
-                    }
-                })
-            } */}
-
             <section ref={boxRef} className={`${styles.container} ${resStyles('container', resolutions)}`}>
                 <article className={`${styles.content} ${resStyles('article_content', resolutions)}`}>
-                    <Title>Title of the page!</Title>
-                    <SmallTitle>Small Title of the page!</SmallTitle>
-                    <Text>Text of the page!</Text>
-                    <SmallText>Small Text of the page!</SmallText>
-                    <Video route='/public/videos/example.mp4' />
-                    <Picture route='/public/images/example.png' alt='Example Image'/>
+
+                    {
+                        article?.content.map((i, index) => {
+                            if (i.type === 'title') return (<Title key={index}>{i.content}</Title>)
+
+                            else if (i.type === 'p') return (<Text key={index}>{i.content}</Text>)
+
+                            else if (i.type === 'small_title') return (<SmallTitle key={index}>{i.content}</SmallTitle>)
+
+                            else if (i.type === 'small_p') return (<SmallText key={index}>{i.content}</SmallText>)
+
+                            else if (i.type === 'image') return (<Picture key={index} route={i.url} alt={i.alt} />)
+
+                            else if (i.type === 'video') return (<Video key={index} route={i.url} />)
+                        })
+                    }
+                    
                 </article>
 
 
-                <section style={{ 
-                    position: adBlockPosition, 
+                <section style={{
+                    position: adBlockPosition,
                     right: `${(window.innerWidth - 1170) / 2}px`,
-                    top: adBlockPosition === 'absolute' && boxRef.current && adRef.current ? 
+                    top: adBlockPosition === 'absolute' && boxRef.current && adRef.current ?
                         `${Number((boxRef!.current!.offsetHeight + 125) - (adRef!.current!.offsetHeight + 125)) + 125}px` : ''
                 }} ref={adRef} className={`${styles.ad} ${resStyles('article_ad', resolutions)}`}>
 
