@@ -1,9 +1,10 @@
 {
-    "GET": ["/api/v1/goods", "/api/v1/goods/find", "/api/v1/getUUID"],
+    "GET": ["/api/v1/goods", "/api/v1/goods/find", "/api/v1/article/find", "/api/v1/getUUID"],
     "POST": ["/api/v1/signup", "/api/v1/visitor", "/api/v1/action", "/api/v1/buy", "/api/v1/login"],
     "request_arguments": {
         "/api/v1/goods": [],
         "/api/v1/goods/find": [],
+        "/api/v1/article/find": [],
         "/api/v1/getUUID": [],
         "/api/v1/signup": [["uuid", "uuid"], ["username", "string"], ["password", "string"], ["recaptchaToken", "string"]],
         "/api/v1/visitor": [["ref", "string"], ["new", "boolean"]],

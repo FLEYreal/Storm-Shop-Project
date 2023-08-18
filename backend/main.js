@@ -47,6 +47,7 @@ const tools = require("./tools");
 const userValidation = require("./user_validation.js");
 
 const { getGoodsList, filterGoodsByQuery } = require("./goods/utils");
+const { findArticle } = require('./articles/utils')
 
 // load request list
 const request_list = require("./request_list.json");
@@ -205,6 +206,15 @@ app.post(`${versioning.prefix}/signup`, async (req, res) => {
         success: true,
     }).status(200);
 });
+
+app.get(`${versioning.prefix}/article/find`, async (req, res) => {
+    const { name } = req.query;
+
+    const article = findArticle(name)
+
+    if(!article) return res.status(404).json({message: 'Article not found!'})
+    else res.status(200).json(article)
+})
 
 app.get(`${versioning.prefix}/goods`, async (req, res) => {
     const { type } = req.query;

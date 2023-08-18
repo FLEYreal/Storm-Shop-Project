@@ -1,0 +1,13 @@
+[
+    {
+        "unique_name": "first_article",
+        "content": {
+            "title": "Title of the article",
+            "p": "Paragraph of the article",
+            "small_title": "Small title of the article",
+            "small_p": "Small parapraph of the article",
+            "image": "/public/images/example.png",
+            "video": "/public/video/example.mp4"
+        }
+    }
+]
