@@ -29,6 +29,7 @@ function Article() {
     const [adBlockPosition, setAdBlockPosition] = useState<'static' | 'relative' | 'fixed' | 'absolute' | 'sticky' | undefined>('fixed');
     const boxRef = useRef<HTMLDivElement>(null);
     const adRef = useRef<HTMLDivElement>(null);
+    const [positionFormula, setPositionFormula] = useState<string>(`${(window.innerWidth - 1170) / 2}px`)
 
     // Получить разрешение экрана
     const resolutions = useResolutions()
@@ -38,6 +39,34 @@ function Article() {
 
     // Получить класс для работы с API
     const api = useContext(APIContext)!.api
+
+    useEffect(() => {
+        if (
+            resolutions.isBigScreen // If the screen is big
+            && !resolutions.isMidScreen
+            && !resolutions.isSmallScreen
+            && !resolutions.isPhone) {
+            setPositionFormula(`${(window.innerWidth - 1170) / 2}px`)
+        }
+
+        else if (
+            !resolutions.isBigScreen
+            && resolutions.isMidScreen // If the screen is middle
+            && !resolutions.isSmallScreen
+            && !resolutions.isPhone) {
+
+            const percent = window.innerHeight / 100
+            setPositionFormula(`${(window.innerHeight - (percent * 90)) / 2}px`)
+        }
+
+        else if (
+            resolutions.isSmallScreen // If the screen is small
+            && !resolutions.isPhone) {
+
+            const percent = window.innerHeight / 100
+            setPositionFormula(`${(window.innerHeight - (percent * 95)) / 2}px`)
+        }
+    }, [resolutions])
 
     useEffect(() => {
         (async () => {
@@ -120,14 +149,14 @@ function Article() {
                     position: adBlockPosition,
 
                     // Определение отдаление от правой части, чтобы попадать внутрь основного контейнера
-                    right: `${(window.innerWidth - 1170) / 2}px`,
+                    right: positionFormula,
 
                     // Определить отдаление в зависимости от значения позиционирования
                     top: adBlockPosition === 'absolute' && boxRef.current && adRef.current ?
                         `${Number((boxRef!.current!.offsetHeight + 125) - (adRef!.current!.offsetHeight + 125)) + 125}px` : ''
-                }} 
-                ref={adRef}
-                className={`${styles.ad} ${resStyles('article_ad', resolutions)}`}>
+                }}
+                    ref={adRef}
+                    className={`${styles.ad} ${resStyles('article_ad', resolutions)}`}>
 
                 </section>
             </section>
