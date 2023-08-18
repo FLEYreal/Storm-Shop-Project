@@ -31,10 +31,10 @@ export default function GoodList({ type = 'sub', q = "" }: { type?: string, q?: 
     useEffect(() => {
         (async () => {
             if (type === 'sub') {
-                const res = await api?.queryGoodList('script', q) as { data: AxiosResponse["data"] };
+                const res = await api?.queryGoodList(type, q) as { data: AxiosResponse["data"] };
                 setGoodlist(res!.data)
             } else if (type === 'script') {
-                const res = await api?.queryGoodList('script', q) as { data: AxiosResponse["data"] };
+                const res = await api?.queryGoodList(type, q) as { data: AxiosResponse["data"] };
                 setGoodlist(res!.data)
             }
         })()
