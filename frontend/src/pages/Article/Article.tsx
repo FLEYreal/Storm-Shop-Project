@@ -48,13 +48,21 @@ function Article() {
     }, [])
 
     useEffect(() => {
+
+        // Функция, срабатывающая при скролле
         const handleScroll = () => {
+
+            // Если все нужные компоненты загрузились
             if (boxRef.current && adRef.current) {
+
+                // Получить все нужные переменные
                 const articleHeight = boxRef!.current!.offsetHeight;
                 const adBlock = adRef!.current!;
                 const adBlockHeight = adBlock!.offsetHeight;
                 const scrollY = window.scrollY;
 
+                // Если блок рекламы выходит запределы, то он не будет больше двигаться
+                // В ином случае он будет зафиксирован на экране
                 if ((articleHeight + 125) - (adBlockHeight + 125) < scrollY) {
                     setAdBlockPosition('absolute');
                 } else {
@@ -63,25 +71,32 @@ function Article() {
             }
         }
 
+        // Добавить отслежку ивента скролла
         window.addEventListener('scroll', handleScroll);
 
         return () => {
+            // Очистка
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
 
     return (
         <main className={`${styles.article}`}>
+            {/* Все мета тэги в хедере */}
             <Helmet>
                 <title>StormShop: {article?.display_name || "article"}</title>
                 <meta name='description' content={`StormShop: ${article?.seo_description || "Article without description"}`} />
                 <meta name="keywords" content='Нитро Nitro Дискорд Discord НитроШоп Купить нитро' />
             </Helmet>
 
+            {/* Сама секция со статьями и рекламой */}
             <section ref={boxRef} className={`${styles.container} ${resStyles('container', resolutions)}`}>
+
+                {/* Сама статья */}
                 <article className={`${styles.content} ${resStyles('article_content', resolutions)}`}>
 
                     {
+                        // Генерация статьи
                         article?.content.map((i, index) => {
                             if (i.type === 'title') return (<Title key={index}>{i.content}</Title>)
 
@@ -96,16 +111,23 @@ function Article() {
                             else if (i.type === 'video') return (<Video key={index} route={i.url} />)
                         })
                     }
-                    
+
                 </article>
 
-
+                {/* Секция с рекламой */}
                 <section style={{
+                    // Определить позиционирование блока, absolute или fixed
                     position: adBlockPosition,
+
+                    // Определение отдаление от правой части, чтобы попадать внутрь основного контейнера
                     right: `${(window.innerWidth - 1170) / 2}px`,
+
+                    // Определить отдаление в зависимости от значения позиционирования
                     top: adBlockPosition === 'absolute' && boxRef.current && adRef.current ?
                         `${Number((boxRef!.current!.offsetHeight + 125) - (adRef!.current!.offsetHeight + 125)) + 125}px` : ''
-                }} ref={adRef} className={`${styles.ad} ${resStyles('article_ad', resolutions)}`}>
+                }} 
+                ref={adRef}
+                className={`${styles.ad} ${resStyles('article_ad', resolutions)}`}>
 
                 </section>
             </section>
