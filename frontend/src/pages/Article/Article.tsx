@@ -1,5 +1,5 @@
 // Базовые скрипты
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
@@ -13,6 +13,13 @@ import { Article } from '../../typings/Article';
 import resStyles from '../../utils/resStyles';
 import useResolutions from '../../hooks/useResolusions';
 import styles from './styles.module.scss'
+
+// Компоненты статьи
+import Title from './Title';
+import Text from './Text';
+import SmallTitle from './SmallTitle';
+import SmallText from './SmallText';
+import Video from './Video';
 
 function Article() {
 
@@ -50,12 +57,18 @@ function Article() {
                 })
             } */}
 
-            <article className={`${styles.container} ${resStyles('container', resolutions)}`}>
-                <p className={`${styles.title} ${resStyles('title', resolutions)}`}>Title of the page!</p>
-                <p className={`${styles.small_title} ${resStyles('smallTitle', resolutions)}`}>Small Title of the page!</p>
-                <p className={`${styles.text} ${resStyles('subtitle', resolutions)}`}>Text of the page!</p>
-                <p className={`${styles.small_text} ${resStyles('smallSubtitle', resolutions)}`}>Small Text of the page!</p>
-            </article>
+            <section className={`${styles.container} ${resStyles('container', resolutions)}`}>
+                <article className={`${styles.content} ${resStyles('article_content', resolutions)}`}>
+                    <Title>Title of the page!</Title>
+                    <SmallTitle>Small Title of the page!</SmallTitle>
+                    <Text>Text of the page!</Text>
+                    <SmallText>Small Text of the page!</SmallText>
+                    <Video route='/public/videos/example.mp4' />
+                </article>
+                <section className={`${styles.ad} ${resStyles('article_ad', resolutions)}`}>
+
+                </section>
+            </section>
         </main>
     );
 }
