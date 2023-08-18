@@ -30,10 +30,15 @@ export default function GoodList({ type = 'sub', q = "" }: { type?: string, q?: 
     // Получить список товаров
     useEffect(() => {
         (async () => {
+
+            // Если список подписок
             if (type === 'sub') {
                 const res = await api?.queryGoodList(type, q) as { data: AxiosResponse["data"] };
                 setGoodlist(res!.data)
-            } else if (type === 'script') {
+            } 
+            
+            // Если список скриптов
+            else if (type === 'script') {
                 const res = await api?.queryGoodList(type, q) as { data: AxiosResponse["data"] };
                 setGoodlist(res!.data)
             }

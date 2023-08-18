@@ -7,6 +7,7 @@ import App from './pages/App/App.tsx';
 import SignUp from './pages/SignUp.tsx'
 import LogIn from './pages/LogIn.tsx';
 import ScriptLab from './pages/ScriptLab/ScriptLab.tsx';
+import Article from './pages/Article/Article.tsx';
 
 // API импорты
 import Api from './utils/Api.ts'
@@ -25,10 +26,6 @@ function RouterComp() {
         if (!isUUID) getUUID()
     }, [])
 
-
-    // ФУНКЦИИ ДЛЯ МОБИЛЬНОГО МЕНЮ:
-
-
     return (
         <main>
             <APIContext.Provider value={{ api: new Api(findUUID() === '' ? getUUID() : findUUID()) }}>
@@ -38,15 +35,23 @@ function RouterComp() {
                 {/* Роуты */}
                 <BrowserRouter>
                     <Routes>
+
+                        {/* Главная страница, если роут не найден, также загружать главную страницу */}
                         <Route path="/" element={<App />} />
                         <Route path="/*" element={<App />} />
+
+                        {/* Логин / Регистрация */}
                         <Route path="/signup" element={<SignUp />} />
                         <Route path="/login" element={<LogIn />} />
 
-                        {/* Variants of route for 1 page */}
+                        {/* Варианты роутера */}
                         <Route path="/scripts" element={<ScriptLab />} />
                         <Route path="/script" element={<ScriptLab />} />
                         <Route path="/script-lab" element={<ScriptLab />} />
+
+                        {/* Статьи */}
+                        <Route path='/article/:name' element={<Article/>}/>
+
                     </Routes>
                 </BrowserRouter>
 
