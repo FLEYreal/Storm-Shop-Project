@@ -1,6 +1,7 @@
 // Базовые Импорты
 import { useState } from 'react'
 import { Link } from "react-router-dom";
+import { Helmet } from 'react-helmet';
 
 // Стили
 import styles from "./styles.module.scss"
@@ -20,7 +21,7 @@ import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 function ScriptLab() {
 
     // Значение инпута поиска
-    const [ query, setQuery ] = useState('')
+    const [query, setQuery] = useState('')
 
     // Получить разрешение экрана
     const resolutions = useResolutions()
@@ -29,14 +30,22 @@ function ScriptLab() {
         // Главный контейнер
         <main className={`${styles.container} ${resStyles('container', resolutions)}`}>
 
+            <Helmet>
+                <title>StormShop: Лаборатория Скриптов</title>
+                <meta name="description" content="StormShop: Лаборотория скриптов для разных задач!" />
+                <meta name="keywords" content='Нитро Nitro Дискорд Discord НитроШоп Купить нитро' />
+                <meta httpEquiv="Content-Language" content="ru" />
+                <meta name="author" content="FLEY" />
+            </Helmet>
+
             {/* Заголовок страницы */}
             <Box component='article' className={`${styles.textBox}`}>
                 <h1 className={`${styles.title} ${resStyles('title', resolutions)}`}>Лаборатория Скриптов</h1>
                 <p className={`${styles.subtitle} ${resStyles('subtitle', resolutions)}`}>Не нашёл нужный скрипт? <Link to='/'>Закажи</Link></p>
             </Box>
-            
+
             {/* Инпут для поиска товара */}
-            <label htmlFor="searchBox" style={{cursor: 'text'}}>
+            <label htmlFor="searchBox" style={{ cursor: 'text' }}>
                 <Box component='section' className={`${styles.searchBox}`}>
                     <form method="GET" className={`${styles.searchForm}`} onSubmit={(e) => e.preventDefault()}>
                         <input value={query} onChange={(e) => setQuery(e.target.value)} id="searchBox" className={`${styles.searchInput} ${resStyles('smallSubtitle', resolutions)}`} placeholder="ИСКАТЬ" />

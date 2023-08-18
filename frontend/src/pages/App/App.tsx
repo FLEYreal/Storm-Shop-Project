@@ -25,8 +25,8 @@ export default function App(): JSX.Element {
             {/* Установка тегов для описания страницы и CEO */}
 
             <Helmet>
-                <title>StormShop: Магазин Нитро и не только!</title>
-                <meta name="description" content="StormShop: Магазин дискорд услуг, а именно Нитро, Бейджики, Создание ботов и даже сайтов!" />
+                <title>StormShop: Подписки & Скрипты</title>
+                <meta name="description" content="StormShop: Магазин Подписок и Скриптов, а также проект по созданию личных скриптов!" />
                 <meta name="keywords" content='Нитро Nitro Дискорд Discord НитроШоп Купить нитро' />
                 <meta httpEquiv="Content-Language" content="ru" />
                 <meta name="author" content="FLEY" />
