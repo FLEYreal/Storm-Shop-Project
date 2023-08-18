@@ -24,5 +24,11 @@ export interface ArticleContent {
     | "video"
 
     // Content itself
-    "content": string
+    content?: string
+
+    // For Images and videos
+    url?: string
+
+    // For Images only
+    alt?: string
 }

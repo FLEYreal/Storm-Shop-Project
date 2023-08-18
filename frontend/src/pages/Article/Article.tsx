@@ -1,5 +1,5 @@
 // Базовые скрипты
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
@@ -20,14 +20,18 @@ import Text from './Text';
 import SmallTitle from './SmallTitle';
 import SmallText from './SmallText';
 import Video from './Video';
+import Picture from './Picture';
 
 function Article() {
 
+    // Хуки
+    const [article, setArticle] = useState<Article | null>(null)
+    const [adBlockPosition, setAdBlockPosition] = useState<'static' | 'relative' | 'fixed' | 'absolute' | 'sticky' | undefined>('fixed');
+    const boxRef = useRef<HTMLDivElement>(null);
+    const adRef = useRef<HTMLDivElement>(null);
+
     // Получить разрешение экрана
     const resolutions = useResolutions()
-
-    // Статья
-    const [article, setArticle] = useState<Article | null>(null)
 
     // Получить параметр ссылки
     const { name } = useParams();
@@ -43,6 +47,29 @@ function Article() {
         })()
     }, [])
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (boxRef.current && adRef.current) {
+                const articleHeight = boxRef!.current!.offsetHeight;
+                const adBlock = adRef!.current!;
+                const adBlockHeight = adBlock!.offsetHeight;
+                const scrollY = window.scrollY;
+
+                if ((articleHeight + 125) - (adBlockHeight + 125) < scrollY) {
+                    setAdBlockPosition('absolute');
+                } else {
+                    setAdBlockPosition('fixed');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
         <main className={`${styles.article}`}>
             <Helmet>
@@ -53,19 +80,29 @@ function Article() {
 
             {/* {
                 article?.content.map(i => {
-
+                    if(i.type === 'title') {
+                        return ()
+                    }
                 })
             } */}
 
-            <section className={`${styles.container} ${resStyles('container', resolutions)}`}>
+            <section ref={boxRef} className={`${styles.container} ${resStyles('container', resolutions)}`}>
                 <article className={`${styles.content} ${resStyles('article_content', resolutions)}`}>
                     <Title>Title of the page!</Title>
                     <SmallTitle>Small Title of the page!</SmallTitle>
                     <Text>Text of the page!</Text>
                     <SmallText>Small Text of the page!</SmallText>
                     <Video route='/public/videos/example.mp4' />
+                    <Picture route='/public/images/example.png' alt='Example Image'/>
                 </article>
-                <section className={`${styles.ad} ${resStyles('article_ad', resolutions)}`}>
+
+
+                <section style={{ 
+                    position: adBlockPosition, 
+                    right: `${(window.innerWidth - 1170) / 2}px`,
+                    top: adBlockPosition === 'absolute' && boxRef.current && adRef.current ? 
+                        `${Number((boxRef!.current!.offsetHeight + 125) - (adRef!.current!.offsetHeight + 125)) + 125}px` : ''
+                }} ref={adRef} className={`${styles.ad} ${resStyles('article_ad', resolutions)}`}>
 
                 </section>
             </section>
