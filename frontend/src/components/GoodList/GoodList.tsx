@@ -16,7 +16,8 @@ import { APIContext } from '../../context/APIContext'
 // Интерфейс для товара
 import { GoodType } from '../../typings/Good'
 
-export default function GoodList({ type = 'sub' }: { type?: string }) {
+export default function GoodList({ type = 'sub', q = "" }: { type?: string, q?: string }) {
+
     // Список товаров
     const [goodList, setGoodlist] = useState<GoodType[]>([]);
 
@@ -30,14 +31,14 @@ export default function GoodList({ type = 'sub' }: { type?: string }) {
     useEffect(() => {
         (async () => {
             if (type === 'sub') {
-                const res = await api?.getSubList() as { data: AxiosResponse["data"] };
+                const res = await api?.queryGoodList('script', q) as { data: AxiosResponse["data"] };
                 setGoodlist(res!.data)
             } else if (type === 'script') {
-                const res = await api?.getScriptList() as { data: AxiosResponse["data"] };
+                const res = await api?.queryGoodList('script', q) as { data: AxiosResponse["data"] };
                 setGoodlist(res!.data)
             }
         })()
-    }, [])
+    }, [q, type])
 
     return (
         // Тэг для хранения списка товаров

@@ -26,7 +26,7 @@ export default class Api {
             method,
             url: `${this.fullIp}${route}`
         }
-        
+
         // Добавить body если это метод, поддерживающий тело запроса
         if (method === 'POST' || method === 'OPTIONS') reqData.data = body
 
@@ -78,6 +78,16 @@ export default class Api {
 
         // Отправка запроса на /goods с помощью sendRequest
         const res = await this.sendRequest('/goods?type=all', 'GET', {}, async () => { });
+
+        // Вернуть результат
+        return res;
+    }
+
+    // Получить список товаров по определенному запросу
+    async queryGoodList(type:string = 'all', q: string = '') {
+
+        // Отправка запроса на /goods/find с помощью sendRequest
+        const res = await this.sendRequest(`/goods/find?type=${type}&q=${q}`, 'GET', {}, async () => { });
 
         // Вернуть результат
         return res;

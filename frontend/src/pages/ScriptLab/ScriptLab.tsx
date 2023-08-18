@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import { Box } from "@mui/material"
 
 import GoodList from "../../components/GoodList/GoodList";
@@ -12,11 +14,9 @@ import { StormButton } from "../../styles/mui";
 
 function ScriptLab() {
 
-    const resolutions = useResolutions()
+    const [ query, setQuery ] = useState('')
 
-    function handleSearch() {
-        console.log('Search!')
-    }
+    const resolutions = useResolutions()
 
     return (
         <main className={`${styles.container} ${resStyles('container', resolutions)}`}>
@@ -26,13 +26,13 @@ function ScriptLab() {
             </Box>
             <label htmlFor="searchBox" style={{cursor: 'text'}}>
                 <Box component='section' className={`${styles.searchBox}`}>
-                    <form method="GET" onSubmit={handleSearch} className={`${styles.searchForm}`}>
-                        <input id="searchBox" className={`${styles.searchInput} ${resStyles('smallSubtitle', resolutions)}`} placeholder="ИСКАТЬ" />
+                    <form method="GET" className={`${styles.searchForm}`} onSubmit={(e) => e.preventDefault()}>
+                        <input value={query} onChange={(e) => setQuery(e.target.value)} id="searchBox" className={`${styles.searchInput} ${resStyles('smallSubtitle', resolutions)}`} placeholder="ИСКАТЬ" />
                         <StormButton startIcon={<SearchRoundedIcon className={`${styles.searchIcon}`} htmlColor="#000" />} className={`${styles.searchButton}`}></StormButton>
                     </form>
                 </Box>
             </label>
-            <GoodList type="script" />
+            <GoodList type="script" q={query} />
         </main>
     );
 }
