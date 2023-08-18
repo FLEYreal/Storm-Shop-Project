@@ -93,6 +93,14 @@ export default class Api {
         return res;
     }
 
+    async getArticle(name: string) {
+        // Отправка запроса на /goods/find с помощью sendRequest
+        const res = await this.sendRequest(`/article/find?name=${name}`, 'GET', {}, async () => { });
+
+        // Вернуть результат
+        return res;
+    }
+
     // Функция для регистрации в бекенде
     async signUp(body: { username: string, password: string, recaptchaToken: string }) {
 

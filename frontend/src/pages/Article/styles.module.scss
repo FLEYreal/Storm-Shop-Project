@@ -1,0 +1,33 @@
+.article {
+    width: 100%;
+
+    .container {
+        all: none;
+        margin: 0 auto;
+        margin-top: 125px;
+
+        .title {
+            all: none;
+            color: #ffffff;
+            margin-bottom: 32px;
+        }
+
+        .text {
+            all: none;
+            color: #E9E9E9;
+            margin-bottom: 24px;
+        }
+
+        .small_title {
+            all: none;
+            color: #ffffff;
+            margin-bottom: 32px;
+        }
+
+        .small_text {
+            all: none;
+            color: #E9E9E9;
+            margin-bottom: 24px;
+        }
+    }
+}
