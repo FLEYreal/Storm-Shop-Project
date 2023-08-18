@@ -44,9 +44,9 @@ const crypto = require("crypto");
 
 const tools = require("./tools");
 
-const goods = require("./goodlist")
-
 const userValidation = require("./user_validation.js");
+
+const { getGoodsList, filterGoodsByQuery } = require("./goods/utils");
 
 // load request list
 const request_list = require("./request_list.json");
@@ -209,22 +209,17 @@ app.post(`${versioning.prefix}/signup`, async (req, res) => {
 app.get(`${versioning.prefix}/goods`, async (req, res) => {
     const { type } = req.query;
 
-    let result = [];
-
-    if(type === 'all') result = goods;
-    else if(type === 'sub' || type === 'subscription') {
-        result = goods.filter(i => {
-            if(i.type === 'subscription') return i;
-            else return;
-        })
-    } else if(type === 'script') {
-        result = goods.filter(i => {
-            if(i.type === 'script') return i;
-            else return;
-        })
-    }
+    const result = getGoodsList(type)
 
     res.json(result).status(200);
+})
+
+app.get(`${versioning.prefix}/goods/find`, async (req, res) => {
+    const { q, type } = req.query;
+
+    const goods = filterGoodsByQuery(q, type)
+
+    return res.json(goods)
 })
 
 app.post(`${versioning.prefix}/visitor`, async (req, res) => {

@@ -16,7 +16,7 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-const goodlist = require("./goodlist");
+const goodlist = require("./goods/goodlist");
 
 const getUnixTime = () => {
     return Math.ceil(newDate().getTime() / 1000);

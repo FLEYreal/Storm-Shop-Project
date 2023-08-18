@@ -28,7 +28,7 @@ module.exports = [
         imageUrl: "/public/images/previews/preview_1.png",
         themeColor: "#F04EFF",
         rating: 4.9,
-        reviews: 50,
+        reviews: 51,
 
         old_cost: 399,
         cost: 324
@@ -58,7 +58,7 @@ module.exports = [
         imageUrl: "/public/images/previews/preview_2.png",
         themeColor: "#F04EFF",
         rating: 4.9,
-        reviews: 50,
+        reviews: 52,
 
         old_cost: 3999,
         cost: 3249,
@@ -88,7 +88,7 @@ module.exports = [
         imageUrl: "/public/images/previews/preview_5.png",
         themeColor: "#F04EFF",
         rating: 4.9,
-        reviews: 50,
+        reviews: 54,
 
         old_cost: 199,
         cost: 164
@@ -130,12 +130,14 @@ module.exports = [
         
         name: 'NotifApi',
         displayName: 'Notification Manager',
-        desc: 'ваше описание товара здесь',
+        desc: 'ваше описание товара здесь ваше описание товара здесьваше описание товара здесьваше описание товара здесьваше описание товара здесьваше описание товара здесь',
+        imageUrl: '/',
         themeColor: "rgba(255, 186, 0, 1)",
         themeTransparent: "rgba(255, 186, 0, 0.1)", // Deprecated value, will be removed soon
         rating: 4.9,
         reviews: 50,
 
+        old_cost: 5999,
         cost: 1499
     },
 
@@ -145,12 +147,14 @@ module.exports = [
         
         name: 'DiscordMSGSpammer',
         displayName: 'Discord Message Spammer',
-        desc: 'ваше описание товара здесь',
+        desc: 'ваше описание товара здесь ваше описание товара здесьваше описание товара здесьваше описание товара здесьваше описание товара здесьваше описание товара здесь',
+        imageUrl: '/',
         themeColor: "rgba(56, 39, 245, 1)",
         themeTransparent: "rgba(56, 39, 245, 0.1)", // Deprecated value, will be removed soon
         rating: 4.9,
         reviews: 50,
 
+        old_cost: 5999,
         cost: 349
     },
 
@@ -160,12 +164,14 @@ module.exports = [
         
         name: 'TelegramMSGSpammer',
         displayName: 'Telegram Message Spammer',
-        desc: 'ваше описание товара здесь',
+        desc: 'ваше описание товара здесь ваше описание товара здесьваше описание товара здесьваше описание товара здесьваше описание товара здесьваше описание товара здесь',
+        imageUrl: '/',
         themeColor: "rgba(73, 164, 255, 1)",
         themeTransparent: "rgba(73, 164, 255, 0.1)", // Deprecated value, will be removed soon
         rating: 4.9,
         reviews: 50,
 
+        old_cost: 5999,
         cost: 349
     },
 
@@ -175,12 +181,14 @@ module.exports = [
         
         name: 'ChatGPTAssistent',
         displayName: 'ChatGPT Assistent',
-        desc: 'ваше описание товара здесь',
+        desc: 'ваше описание товара здесь ваше описание товара здесьваше описание товара здесьваше описание товара здесьваше описание товара здесьваше описание товара здесь',
+        imageUrl: '/',
         themeColor: "rgba(9, 206, 0, 1)",
         themeTransparent: "rgba(9, 206, 0, 0.1)", // Deprecated value, will be removed soon
         rating: 4.9,
         reviews: 50,
 
+        old_cost: 5999,
         cost: 1599
     },
 
@@ -190,12 +198,14 @@ module.exports = [
         
         name: 'TransactionAPI',
         displayName: 'Transaction API',
-        desc: 'ваше описание товара здесь',
+        desc: 'ваше описание товара здесь ваше описание товара здесьваше описание товара здесьваше описание товара здесьваше описание товара здесьваше описание товара здесь',
+        imageUrl: '/',
         themeColor: "rgba(96, 162, 48, 1)",
         themeTransparent: "rgba(96, 162, 48, 0.1)", // Deprecated value, will be removed soon
         rating: 4.9,
         reviews: 50,
 
+        old_cost: 5999,
         cost: 159
     },
 
@@ -205,12 +215,14 @@ module.exports = [
         
         name: 'NitroAutoGive',
         displayName: 'Nitro Auto Give',
-        desc: 'ваше описание товара здесь',
+        desc: 'ваше описание товара здесь ваше описание товара здесьваше описание товара здесьваше описание товара здесьваше описание товара здесьваше описание товара здесь',
+        imageUrl: '/',
         themeColor: "rgba(170, 95, 215, 1)",
         themeTransparent: "rgba(170, 95, 215, 0.1)", // Deprecated value, will be removed soon
         rating: 4.9,
         reviews: 50,
 
+        old_cost: 5999,
         cost: 2399
     },
 
@@ -220,12 +232,14 @@ module.exports = [
         
         name: 'DiscordTokenGrabber',
         displayName: 'Discord Token Grabber',
-        desc: 'ваше описание товара здесь',
+        desc: 'ваше описание товара здесь ваше описание товара здесьваше описание товара здесьваше описание товара здесьваше описание товара здесьваше описание товара здесь',
+        imageUrl: '/',
         themeColor: "rgba(170, 95, 215, 1)",
         themeTransparent: "rgba(170, 95, 215, 0.1)", // Deprecated value, will be removed soon
         rating: 4.9,
-        reviews: 50,
+        reviews: 52,
 
+        old_cost: 5999,
         cost: 1999
     },
 ] 
