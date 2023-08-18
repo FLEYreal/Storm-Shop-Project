@@ -67,10 +67,7 @@ function filterGoodsByQuery(q, type = 'sub') {
             // Combine all variables into 1 string
             const fullString = `${name} ${displayName} ${desc} ${type} ${String(cost)}`
 
-            if (fullString.includes(q.toLowerCase())) {
-                console.log(i)
-                return i
-            }
+            if (fullString.includes(q.toLowerCase())) return i
         }
     })
 
