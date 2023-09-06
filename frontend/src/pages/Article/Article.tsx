@@ -155,8 +155,8 @@ function Article() {
                     top: adBlockPosition === 'absolute' && boxRef.current && adRef.current ?
                         `${Number((boxRef!.current!.offsetHeight + 125) - (adRef!.current!.offsetHeight + 125)) + 125}px` : ''
                 }}
-                    ref={adRef}
-                    className={`${styles.ad} ${resStyles('article_ad', resolutions)}`}>
+                ref={adRef}
+                className={`${styles.ad} ${resStyles('article_ad', resolutions)}`}>
 
                 </section>
             </section>
