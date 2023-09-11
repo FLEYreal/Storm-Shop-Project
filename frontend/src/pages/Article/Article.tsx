@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 // API импорты
-import { APIContext } from '../../context/APIContext'
+import { APIContext } from '../../context/APIContext';
 
 // Типы
 import { Article } from '../../typings/Article';
@@ -12,7 +12,7 @@ import { Article } from '../../typings/Article';
 // Стили
 import resStyles from '../../utils/resStyles';
 import useResolutions from '../../hooks/useResolusions';
-import styles from './styles.module.scss'
+import styles from './styles.module.scss';
 
 // Компоненты статьи
 import Title from './Title';
