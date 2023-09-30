@@ -1,5 +1,6 @@
 // Базовые импорты
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'
 
 // Компоненты проекта
 import { StormIconButton, BlueButton, PinkButton } from '../../styles/mui';
@@ -83,15 +84,15 @@ function App() {
                         </a>
                         <Typography noWrap component='nav' className={`${resStyles('header_nav', resolution)}`}>
                             <Toolbar className={resStyles("nav_block", resolution)}>
-                                <PinkButton sx={buttonStyles} startIcon={<DiamondRoundedIcon style={{ marginRight: '4px' }} />}>ПОДПИСКИ</PinkButton>
-                                <BlueButton sx={buttonStyles} startIcon={<CodeRoundedIcon style={{ marginRight: '4px' }} />}>СКРИПТЫ</BlueButton>
+                                <Link to="/"><PinkButton sx={buttonStyles} startIcon={<DiamondRoundedIcon style={{ marginRight: '4px' }} />}>ПОДПИСКИ</PinkButton></Link>
+                                <Link to="/scripts"><BlueButton sx={buttonStyles} startIcon={<CodeRoundedIcon style={{ marginRight: '4px' }} />}>СКРИПТЫ</BlueButton></Link>
                             </Toolbar>
 
                             <span style={{ fontSize: '32px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>|</span>
 
                             <Toolbar className={resStyles("nav_block", resolution)}>
-                                <BlueButton sx={buttonStyles} startIcon={<Person2RoundedIcon style={{ marginRight: '4px' }} />}>ПОДДЕРЖКА</BlueButton>
-                                <BlueButton sx={buttonStyles} startIcon={<WorkRoundedIcon style={{ marginRight: '4px' }} />}>РАБОТА</BlueButton>
+                                <Link to="https://t.me/Nikita1264"><BlueButton sx={buttonStyles} startIcon={<Person2RoundedIcon style={{ marginRight: '4px' }} />}>ПОДДЕРЖКА</BlueButton></Link>
+                                <Link to="/article/job"><BlueButton sx={buttonStyles} startIcon={<WorkRoundedIcon style={{ marginRight: '4px' }} />}>РАБОТА</BlueButton></Link>
                             </Toolbar>
                         </Typography>
                         <Box sx={{ flexGrow: 1 }} className={`${styles.burger_menu} ${resStyles('burger_menu', resolution)}`}>

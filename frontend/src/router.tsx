@@ -29,11 +29,13 @@ function RouterComp() {
     return (
         <main>
             <APIContext.Provider value={{ api: new Api(findUUID() === '' ? getUUID() : findUUID()) }}>
-                {/* Хедер сайта */}
-                <Header/>
 
                 {/* Роуты */}
                 <BrowserRouter>
+
+                    {/* Хедер сайта */}
+                    <Header />
+
                     <Routes>
 
                         {/* Главная страница, если роут не найден, также загружать главную страницу */}
@@ -50,13 +52,14 @@ function RouterComp() {
                         <Route path="/script-lab" element={<ScriptLab />} />
 
                         {/* Статьи */}
-                        <Route path='/article/:name' element={<Article/>}/>
+                        <Route path='/article/:name' element={<Article />} />
 
                     </Routes>
-                </BrowserRouter>
 
-                {/* Футер сайта */}
-                <Footer/>
+                    {/* Футер сайта */}
+                    <Footer />
+
+                </BrowserRouter>
 
             </APIContext.Provider>
         </main>

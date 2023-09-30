@@ -6,6 +6,7 @@ import useResolutions from '../../../hooks/useResolusions.js';
 // Картинки & Видео
 import bubbles from '../../../components/img/bubbles3.png';
 import { StormButton } from '../../../styles/mui.js';
+import { Link } from 'react-router-dom';
 
 function Block_5() {
 
@@ -42,7 +43,7 @@ function Block_5() {
 
                     {/* Блок с кнопками действий */}
                     <div>
-                        <StormButton className={`${resStyles('buttonFontSize', resolutions)}`} sx={{
+                        <Link to="/article/job"><StormButton className={`${resStyles('buttonFontSize', resolutions)}`} sx={{
                             zIndex: '1',
                             color: '#60F6FF',
                             fontStyle: 'normal',
@@ -64,30 +65,32 @@ function Block_5() {
                             }
                         }}>
                             Читать
-                        </StormButton>
-                        <StormButton className={`${resStyles('buttonFontSize', resolutions)}`}  sx={{
-                            zIndex: '1',
-                            color: '#F04EFF',
-                            fontStyle: 'normal',
-                            fontWeight: '600',
-                            lineHeight: 'normal',
-                            flexShrink: '0',
-                            borderRadius: '10px',
-                            border: '3px solid #F04EFF',
-                            background: 'rgba(240, 78, 255, 0.2)',
-                            backdropFilter: 'blur(4px)',
-                            p: '12px 32px',
-                            m: '0',
-                            mr: '20px',
-                            mt: '15px',
-
-                            '&:hover': {
+                        </StormButton></Link>
+                        <Link to="/signup">
+                            <StormButton className={`${resStyles('buttonFontSize', resolutions)}`} sx={{
+                                zIndex: '1',
+                                color: '#F04EFF',
+                                fontStyle: 'normal',
+                                fontWeight: '600',
+                                lineHeight: 'normal',
+                                flexShrink: '0',
+                                borderRadius: '10px',
                                 border: '3px solid #F04EFF',
-                                background: 'rgba(240, 78, 255, 0.2)'
-                            }
-                        }}>
-                            Регистрация
-                        </StormButton>
+                                background: 'rgba(240, 78, 255, 0.2)',
+                                backdropFilter: 'blur(4px)',
+                                p: '12px 32px',
+                                m: '0',
+                                mr: '20px',
+                                mt: '15px',
+
+                                '&:hover': {
+                                    border: '3px solid #F04EFF',
+                                    background: 'rgba(240, 78, 255, 0.2)'
+                                }
+                            }}>
+                                Регистрация
+                            </StormButton>
+                        </Link>
                     </div>
                 </div>
             </div>

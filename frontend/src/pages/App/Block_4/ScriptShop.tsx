@@ -25,7 +25,7 @@ function ScriptShop() {
                     авто-покупки нитро на nodejs или готовый
                     скрипт чата с chatGPT на C++
                 </div>
-                <a href='/' className={`${styles.linkToShop} ${resStyles('subtitle', resolutions)}`}>Перейти в магазин</a>
+                <a href='/scripts' className={`${styles.linkToShop} ${resStyles('subtitle', resolutions)}`}>Перейти в магазин</a>
             </div>
 
             {/* Картинки */}
