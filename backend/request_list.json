@@ -1,0 +1,15 @@
+{
+    "GET": ["/api/v1/goods", "/api/v1/goods/find", "/api/v1/article/find", "/api/v1/getUUID"],
+    "POST": ["/api/v1/signup", "/api/v1/visitor", "/api/v1/action", "/api/v1/buy", "/api/v1/login"],
+    "request_arguments": {
+        "/api/v1/goods": [],
+        "/api/v1/goods/find": [],
+        "/api/v1/article/find": [],
+        "/api/v1/getUUID": [],
+        "/api/v1/signup": [["uuid", "uuid"], ["username", "string"], ["password", "string"], ["recaptchaToken", "string"]],
+        "/api/v1/visitor": [["ref", "string"], ["new", "boolean"]],
+        "/api/v1/action": [["name", "string"], ["value", "number"]],
+        "/api/v1/buy": [["uuid", "uuid"], ["good", "string"], ["sumRub", "number"], ["from", "string"]],
+        "/api/v1/login": [["username", "string"], ["password", "string"], ["recaptchaToken", "string"]]
+    }
+}
